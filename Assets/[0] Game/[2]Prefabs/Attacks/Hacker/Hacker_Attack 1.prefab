@@ -1,0 +1,915 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3387366509180343420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5094384096742332133}
+  m_Layer: 0
+  m_Name: Hacker_Attack 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5094384096742332133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387366509180343420}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3016796564815842850}
+  - {fileID: 4404821697154868716}
+  - {fileID: 1274778988617546817}
+  - {fileID: 7009162352214157747}
+  - {fileID: 3955185503494613432}
+  - {fileID: 3139739390088666221}
+  - {fileID: 8047544857101370429}
+  - {fileID: 8446104754566063366}
+  - {fileID: 1941303644299016374}
+  - {fileID: 6380978318355030652}
+  - {fileID: 3075031141354048619}
+  - {fileID: 2359452750593705689}
+  - {fileID: 1400958135193779721}
+  - {fileID: 5745006727189618320}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &885162352314634730
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &5745006727189618320 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 885162352314634730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1981353690977266950
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &6380978318355030652 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 1981353690977266950}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2501586125959374537
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &7009162352214157747 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 2501586125959374537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3196562046524197703
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &8047544857101370429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 3196562046524197703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3946403214080567932
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &8446104754566063366 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 3946403214080567932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5801713113274626419
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &1400958135193779721 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 5801713113274626419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5927313160358900539
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &1274778988617546817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 5927313160358900539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6413691255305517004
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &1941303644299016374 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 6413691255305517004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7155255058302126499
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &2359452750593705689 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 7155255058302126499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7521151020879565591
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &3139739390088666221 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 7521151020879565591}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7592598182290424593
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &3075031141354048619 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 7592598182290424593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7651394953396420952
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &3016796564815842850 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 7651394953396420952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8435597332913628866
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &3955185503494613432 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 8435597332913628866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9138919273530911382
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5094384096742332133}
+    m_Modifications:
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532478564819670741, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+      propertyPath: m_Name
+      value: WheelSmileAttack (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+--- !u!4 &4404821697154868716 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896230102198554490, guid: 1c6c8c4af29c91b429cc8d588a860650, type: 3}
+  m_PrefabInstance: {fileID: 9138919273530911382}
+  m_PrefabAsset: {fileID: 0}

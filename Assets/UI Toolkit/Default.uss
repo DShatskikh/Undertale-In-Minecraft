@@ -1,0 +1,101 @@
+.text {
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    -unity-font-definition: url('project://database/Assets/[0]%20Game/determinationmonorusbylyajk%20SDF.asset?fileID=11400000&guid=e5295e4084cdd8244a5db83643af6db3&type=2#determinationmonorusbylyajk SDF');
+    white-space: normal;
+}
+
+.button {
+    border-left-color: rgb(0, 126, 255);
+    border-right-color: rgb(0, 126, 255);
+    border-top-color: rgb(0, 126, 255);
+    border-bottom-color: rgb(0, 126, 255);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    background-color: rgb(0, 0, 0);
+    width: 327px;
+    height: 99px;
+    color: rgb(0, 162, 255);
+    font-size: 40px;
+    -unity-font-definition: url('project://database/Assets/[0]%20Game/determinationmonorusbylyajk%20SDF.asset?fileID=11400000&guid=e5295e4084cdd8244a5db83643af6db3&type=2#determinationmonorusbylyajk SDF');
+    -unity-text-align: middle-center;
+}
+
+.button:active {
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(255, 229, 0);
+    border-right-color: rgb(255, 229, 0);
+    border-top-color: rgb(255, 229, 0);
+    border-bottom-color: rgb(255, 229, 0);
+    color: rgb(255, 247, 0);
+    -unity-text-align: middle-center;
+}
+
+.unity-progress-bar__background {
+    background-image: none;
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgb(255, 0, 0);
+    background-color: rgb(255, 0, 0);
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    visibility: visible;
+    overflow: hidden;
+}
+
+.unity-progress-bar__progress {
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgb(238, 255, 0);
+    background-color: rgb(255, 252, 0);
+    background-image: none;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    visibility: visible;
+    overflow: visible;
+    opacity: 1;
+    display: flex;
+}
+
+.unity-progress-bar__title_container {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    visibility: hidden;
+    overflow: visible;
+}
+
+.unity-progress-bar__title {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
