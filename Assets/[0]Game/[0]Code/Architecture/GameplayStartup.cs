@@ -70,6 +70,9 @@ namespace Game
         [SerializeField]
         private SaveKeyBool _isCheatKey;
 
+        [SerializeField]
+        private MoneyLabel _moneyLabel;
+        
         private void Awake()
         {
             GameData.CoroutineRunner = this;
@@ -91,6 +94,7 @@ namespace Game
             GameData.CancelUpdater = _cancelUpdater;
             GameData.OpenMenuUpdater = _openMenuUpdater;
             GameData.MoneyKey = _moneyKey;
+            GameData.MoneyLabel = _moneyLabel;
         }
 
         private void Start()

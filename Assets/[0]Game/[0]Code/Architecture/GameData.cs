@@ -29,6 +29,7 @@ namespace Game
         public static CancelUpdater CancelUpdater { get; set; }
         public static OpenMenuUpdater OpenMenuUpdater { get; set; }
         public static SaveKeyInt MoneyKey { get; set; }
+        public static MoneyLabel MoneyLabel { get; set; }
 
         public static IEnumerable<Location> Locations;
         

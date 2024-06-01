@@ -27,5 +27,15 @@ namespace Game
         {
             _label.text = value.ToString();
         }
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
