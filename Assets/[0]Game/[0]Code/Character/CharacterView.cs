@@ -31,5 +31,15 @@ namespace Game
         {
             _animator.SetBool("IsMove", false);
         }
+
+        public void SetBlock(bool value)
+        {
+            _animator.SetBool("IsBlock", value);
+        }
+
+        public void SetAim(bool value)
+        {
+            _animator.SetBool("IsAim", value);
+        }
     }
 }

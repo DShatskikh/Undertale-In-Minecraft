@@ -36,9 +36,7 @@ namespace Game
                 StartBattleTrigger = this
             };
 
-            if (GetComponent<Collider2D>())
-                GetComponent<Collider2D>().enabled = false;
-            
+            GetComponent<Collider2D>().enabled = false;
             GameData.Battle.StartBattle();
             EventBus.OnPlayerWin += OnPlayerWin;
         }

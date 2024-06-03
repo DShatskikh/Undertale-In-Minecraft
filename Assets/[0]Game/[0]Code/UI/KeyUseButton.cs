@@ -16,7 +16,7 @@ namespace Game
         {
             EventBus.OnSubmit += OnSubmit;
         }
-
+        
         private void OnSubmit()
         {
             EventBus.OnSubmit = null;

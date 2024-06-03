@@ -66,13 +66,10 @@ namespace Game
         {
             PlayerPrefs.SetFloat("PositionX", value.x);
             PlayerPrefs.SetFloat("PositionY", value.y);
-            
-            Debug.Log("Позиция сохранена");
         }
         
         public Vector2 LoadPosition()
         {
-            Debug.Log("Позиция загруженна");
             return new Vector2(PlayerPrefs.GetFloat("PositionX"), PlayerPrefs.GetFloat("PositionY"));
         }
 

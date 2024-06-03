@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections;
-using Super_Auto_Mobs;
+﻿using System.Collections;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 namespace Game
@@ -12,9 +11,12 @@ namespace Game
 
         [SerializeField]
         private float _delayUse;
-        
+
         [SerializeField]
         private AudioSource _source;
+
+        [SerializeField]
+        private MMF_Player _feedback;
         
         private Attack _attack;
         private bool _isUseCoroutine;
@@ -23,7 +25,7 @@ namespace Game
         private void OnEnable()
         {
             _isUseCoroutine = false;
-            _view.gameObject.SetActive(false);
+            ViewHide();
         }
 
         private void Update()
@@ -58,17 +60,36 @@ namespace Game
         private IEnumerator Use()
         {
             _source.Play();
-            _view.gameObject.SetActive(true);
+            ViewShow();
+            
+            if (_attack)
+                GameData.Heart.Push(_attack.Direction);
+            
             yield return new WaitForSeconds(_delayUse);
-            _view.gameObject.SetActive(false);
+            ViewHide();
             _isUseCoroutine = false;
 
-            GameData.BattleProgress += 1;
+            GameData.BattleProgress += 2;
+
+            MMF_FloatingText floatingText = _feedback.GetFeedbackOfType<MMF_FloatingText>();
+            floatingText.Value = "+2";
+            floatingText.AnimateColorGradient.colorKeys = new GradientColorKey[] { new(Color.cyan, 0) };
+            _feedback.PlayFeedbacks(transform.position);
             
             if (GameData.BattleProgress > 100)
                 GameData.BattleProgress = 100;
             
             EventBus.OnBattleProgressChange?.Invoke(GameData.BattleProgress);
+        }
+
+        private void ViewShow()
+        {
+            _view.color = _view.color.SetA(1);
+        }
+
+        private void ViewHide()
+        {
+            _view.color = _view.color.SetA(30 / 255f);
         }
     }
 }

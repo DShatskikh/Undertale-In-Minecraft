@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PixelCrushers.DialogueSystem;
 using Super_Auto_Mobs;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,30 +10,37 @@ namespace Game
 {
     public class Battle : MonoBehaviour
     {
-        [SerializeField] 
-        private float _speedPlacement;
-
+        [Header("Test Setting")]
         [SerializeField]
-        private PlaySound _startBattlePlaySound;
-
-        [SerializeField]
-        private PlaySound _levelUpPlaySound;
+        private bool _isSkipBattle;
         
         [SerializeField]
-        private PlaySound _sparePlaySound;
-
+        private bool _isSkipIntro;
+        
+        [Header("Setting")]
+        [SerializeField]
+        private PlaySound _startBattlePlaySound;
+        
         [SerializeField]
         private GameObject _tutorialAttack;
 
         [SerializeField]
         private SaveKeyBool _isFirstBattleKey;
+
+        [SerializeField]
+        private BattleIntro _intro;
+
+        [SerializeField]
+        private DialogueSystemTrigger _dialogueSystemTrigger;
+
+        [SerializeField]
+        private GameObject _hud;
         
         private Label _healthLabel;
         private Label _enemyHealthLabel;
         private int _attackIndex;
         private Vector2 _normalWorldCharacterPosition;
         private Coroutine _coroutine;
-        private AudioClip _previousSound;
         private Vector2 _enemyStartPosition;
         private GameObject _attack;
 
@@ -47,22 +55,16 @@ namespace Game
             if (GameData.EnemyData != null)
             {
                 if (GameData.EnemyData.GameObject != null && GameData.EnemyData.StartBattleTrigger != null)
-                {
                     GameData.EnemyData.GameObject.transform.SetParent(GameData.EnemyData.StartBattleTrigger.transform);
-                }
-                
+
                 GameData.EnemyData.StartBattleTrigger = null;
             }
         }
 
         public void StartBattle()
         {
-            _previousSound = GameData.MusicAudioSource.clip;
-
             gameObject.SetActive(true);
-
-            GameData.Battle.transform.position = Camera.main.transform.position.SetZ(0).AddY(-3.5f) +
-                                                 (Vector3) GameData.EnemyData.StartBattleTrigger.Offset;
+            transform.position = Camera.main.transform.position.SetZ(0);
             
             GameData.EnemyData.GameObject.transform.SetParent(GameData.EnemyPoint);
 
@@ -77,13 +79,16 @@ namespace Game
             character.View.Flip(false);
             
             GameData.Health = GameData.MaxHealth;
-            EventBus.OnHealthChange.Invoke(GameData.MaxHealth, GameData.Health);
-            
             GameData.BattleProgress = 0;
-            EventBus.OnBattleProgressChange?.Invoke(0);
-            
+
             _attackIndex = 0;
 
+            EventBus.OnDamage += OnDamage;
+            EventBus.OnDeath += OnDeath;
+            
+            _startBattlePlaySound.Play();
+            GameData.Character.View.Idle();
+            
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
@@ -92,17 +97,23 @@ namespace Game
         
         private IEnumerator AwaitBattle()
         {
-            EventBus.OnDamage += OnDamage;
-            EventBus.OnDeath += OnDeath;
-            yield return Intro();
+            if (_isSkipBattle)
+                GameData.BattleProgress = 100;
 
+            if (!_isSkipIntro)
+                yield return _intro.Intro();
+            else
+                _intro.ChangeLocation();
+
+            _hud.SetActive(true);
+            GameData.Heart.enabled = true;
+            
             var _attacks = GameData.EnemyData.EnemyConfig.Attacks;
             
             yield return new WaitForSeconds(1);
             
             while (GameData.BattleProgress < 100)
             {
-                GameData.Arena.SetActive(true);
                 yield return new WaitForSeconds(0.5f);
 
                 if (GameData.Saver.LoadKey(_isFirstBattleKey))
@@ -141,73 +152,17 @@ namespace Game
             }
             
             yield return new WaitForSeconds(1);
-            GameData.Character.StartCoroutine(Exit());
-        }
 
-        private IEnumerator Intro()
-        {
-            _startBattlePlaySound.Play();
-            GameData.Character.View.Idle();
+            Lua.Run("Variable[\"PrizeMoney\"] = 10");
+            Lua.Run("Variable[\"PrizeOther\"] = \"Ботинок\"");
             
-            var characterTransform = GameData.Character.transform;
-            var enemyTransform = GameData.EnemyData.GameObject.transform;
-            
-            _enemyStartPosition = enemyTransform.position;
-            _normalWorldCharacterPosition = characterTransform.position;
-            
-            while (characterTransform.position != GameData.CharacterPoint.position || enemyTransform.position != GameData.EnemyPoint.position)
-            {
-                characterTransform.position = Vector2.MoveTowards(characterTransform.position, GameData.CharacterPoint.position, Time.deltaTime * _speedPlacement);
-                enemyTransform.position = Vector2.MoveTowards(enemyTransform.position, GameData.EnemyPoint.position, Time.deltaTime * _speedPlacement);
-                yield return null;
-            }
+            GameData.MusicAudioSource.Stop();
+            _dialogueSystemTrigger.OnUse();
         }
 
         private void OnDeath()
         {
             StopCoroutine(_coroutine);
-        }
-        
-        private IEnumerator Exit()
-        {
-            gameObject.SetActive(false);
-
-            var disapperance = GameData.EnemyData.GameObject.AddComponent<SmoothDisappearance>();
-            disapperance.SetDuration(0.5f);
-            _sparePlaySound.Play();
-            yield return new WaitForSeconds(0.5f);
-
-            var characterTransform = GameData.Character.transform;
-
-            while ((Vector2)characterTransform.position != _normalWorldCharacterPosition)
-            {
-                characterTransform.position = Vector2.MoveTowards(characterTransform.position, _normalWorldCharacterPosition, Time.deltaTime * _speedPlacement);
-                yield return null;
-            }
-            
-            GameData.Character.enabled = true;
-            GameData.Character.GetComponent<Collider2D>().isTrigger = false;
-
-            GameData.MusicAudioSource.clip = _previousSound;
-            GameData.MusicAudioSource.Play();
-
-            var eventParams = new Dictionary<string, string>
-            {
-                { "Wins", GameData.EnemyData.EnemyConfig.name }
-            };
-            
-            print("Добавь аналитику Wins " + eventParams);
-
-            GameData.Monolog.Show(new []{$"*Вы победили!\n*Ваше максимальное здоровье увеличилось\nна {GameData.EnemyData.EnemyConfig.WinPrize}"});
-            EventBus.OnCloseMonolog += () =>
-            {
-                _levelUpPlaySound.Play();
-                
-                GameData.MaxHealth += GameData.EnemyData.EnemyConfig.WinPrize;
-                EventBus.OnPlayerWin.Invoke(GameData.EnemyData.EnemyConfig);
-                EventBus.OnPlayerWin = null;
-                GameData.Saver.SaveAll();
-            };
         }
 
         private void OnDamage(int value)

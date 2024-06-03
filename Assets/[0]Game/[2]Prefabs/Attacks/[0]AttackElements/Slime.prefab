@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 1199826079, guid: 2fa026478351bf04499509ec41acad17, type: 3}
     - target: {fileID: 6298654395341582841, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
       propertyPath: m_Name
-      value: Slime Variant
+      value: Slime
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1455902307320371952, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
@@ -121,16 +121,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.07901627}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.4375, y: 0.4375}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.625, y: 0.5}
     newSize: {x: 0.3125, y: 0.4375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4375, y: 0.4375}
+  m_Size: {x: 0.4375, y: 0.16019773}
   m_EdgeRadius: 0

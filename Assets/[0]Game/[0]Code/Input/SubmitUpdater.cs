@@ -6,7 +6,7 @@ namespace Game
     {
         private void Update()
         {
-            if (Input.GetButtonDown("Submit"))
+            if (Input.GetButtonDown("Submit") || Input.GetMouseButtonDown(1))
             {
                 EventBus.OnSubmit?.Invoke();
             }

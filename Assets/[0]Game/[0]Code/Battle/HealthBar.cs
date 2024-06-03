@@ -26,7 +26,7 @@ namespace Game
 
         private void UpdateHealthView(int maxValue, int value)
         {
-            _label.text = $"{value}/{maxValue}";
+            _label.text = $"здоровье {value}/{maxValue}";
             _slider.value = value;
             _slider.maxValue = maxValue;
         }
