@@ -36,7 +36,7 @@ namespace Game
         private SmokeEffect _smokeEffect;
         
         [SerializeField]
-        private MMF_Player _feedback;
+        private MMF_Player _damageFeedback;
         
         private bool _isInvulnerability;
         private bool _isMove;
@@ -116,15 +116,14 @@ namespace Game
 
         private IEnumerator TakeDamage()
         {
-            GameData.Health -= GameData.EnemyData.EnemyConfig.Attack;
+            GameData.BattleProgress -= GameData.EnemyData.EnemyConfig.Attack;
             
-            MMF_FloatingText floatingText = _feedback.GetFeedbackOfType<MMF_FloatingText>();
+            MMF_FloatingText floatingText = _damageFeedback.GetFeedbackOfType<MMF_FloatingText>();
             floatingText.Value = $"-{GameData.EnemyData.EnemyConfig.Attack}";
-            floatingText.AnimateColorGradient.colorKeys = new GradientColorKey[] { new(Color.red, 0) };
-            _feedback.PlayFeedbacks(transform.position);
+            _damageFeedback.PlayFeedbacks(transform.position);
             
             EventBus.OnDamage?.Invoke(1);
-            EventBus.OnHealthChange?.Invoke(GameData.MaxHealth, GameData.Health);
+            EventBus.OnBattleProgressChange?.Invoke(GameData.BattleProgress);
             _damageSource.Play();
             _shield.gameObject.SetActive(false);
             yield return new WaitForSeconds(1);
@@ -134,7 +133,7 @@ namespace Game
             
             _isInvulnerability = false;
             
-            if (GameData.Health <= 0)
+            if (GameData.BattleProgress <= -10)
                 Death();
         }
 

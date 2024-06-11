@@ -35,7 +35,16 @@ namespace Game
 
         [SerializeField]
         private GameObject _hud;
+
+#if UNITY_EDITOR
+        [Header("Inspector")]
+        [SerializeField]
+        private GameObject _battle;
         
+        [SerializeField]
+        private GameObject _heart;
+#endif
+
         private Label _healthLabel;
         private Label _enemyHealthLabel;
         private int _attackIndex;
@@ -64,7 +73,7 @@ namespace Game
         public void StartBattle()
         {
             gameObject.SetActive(true);
-            transform.position = Camera.main.transform.position.SetZ(0);
+            transform.position = GameData.Character.transform.position.SetZ(0);
             
             GameData.EnemyData.GameObject.transform.SetParent(GameData.EnemyPoint);
 
@@ -78,7 +87,6 @@ namespace Game
             character.GetComponent<Collider2D>().isTrigger = true;
             character.View.Flip(false);
             
-            GameData.Health = GameData.MaxHealth;
             GameData.BattleProgress = 0;
 
             _attackIndex = 0;
@@ -169,5 +177,23 @@ namespace Game
         {
             GameData.Character.View.Damage();
         }
+
+#if UNITY_EDITOR
+        [ContextMenu("Show")]
+        private void ShowInspector()
+        {
+            gameObject.SetActive(true);
+            _battle.SetActive(true);
+            _heart.SetActive(true);
+        }
+
+        [ContextMenu("Hide")]
+        private void HideInspector()
+        {
+            gameObject.SetActive(false);
+            _battle.SetActive(false);
+            _heart.SetActive(false);
+        }  
+#endif
     }
 }

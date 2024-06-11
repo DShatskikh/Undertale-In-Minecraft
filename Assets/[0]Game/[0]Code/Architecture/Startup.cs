@@ -15,10 +15,7 @@ namespace Game
         
         [SerializeField]
         private List<SaveKeyIntPair> _dataInt = new();
-        
-        [SerializeField]
-        private int _startHealth;
-        
+
         [SerializeField]
         private int _palesos;
 
@@ -53,7 +50,6 @@ namespace Game
                 foreach (var saveKey in _dataInt) 
                     _saver.Save(saveKey.Key, saveKey.Value);
                 
-                GameData.MaxHealth = _startHealth;
                 GameData.Palesos = _palesos;
                 GameData.Volume = 1f;
 
@@ -74,8 +70,6 @@ namespace Game
             GameData.Mixer = _mixer;
             GameData.TextAudioSource = _textAudioSource;
             GameData.ClickSound = _clickSound;
-            
-            GameData.Health = GameData.MaxHealth;
             Application.targetFrameRate = 60;
             
 #if UNITY_EDITOR

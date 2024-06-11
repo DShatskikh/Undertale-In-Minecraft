@@ -7,7 +7,7 @@ namespace Game
     public class Shield : MonoBehaviour
     {
         [SerializeField]
-        private SpriteRenderer _view;
+        private SpriteRenderer _view, _view2;
 
         [SerializeField]
         private float _delayUse;
@@ -16,7 +16,7 @@ namespace Game
         private AudioSource _source;
 
         [SerializeField]
-        private MMF_Player _feedback;
+        private MMF_Player _addScoreFeedback;
         
         private Attack _attack;
         private bool _isUseCoroutine;
@@ -69,12 +69,13 @@ namespace Game
             ViewHide();
             _isUseCoroutine = false;
 
-            GameData.BattleProgress += 2;
+            var addProgress = 1;
+            
+            GameData.BattleProgress += addProgress;
 
-            MMF_FloatingText floatingText = _feedback.GetFeedbackOfType<MMF_FloatingText>();
-            floatingText.Value = "+2";
-            floatingText.AnimateColorGradient.colorKeys = new GradientColorKey[] { new(Color.cyan, 0) };
-            _feedback.PlayFeedbacks(transform.position);
+            MMF_FloatingText floatingText = _addScoreFeedback.GetFeedbackOfType<MMF_FloatingText>();
+            floatingText.Value = $"+{addProgress}";
+            _addScoreFeedback.PlayFeedbacks(transform.position);
             
             if (GameData.BattleProgress > 100)
                 GameData.BattleProgress = 100;
@@ -85,11 +86,13 @@ namespace Game
         private void ViewShow()
         {
             _view.color = _view.color.SetA(1);
+           // _view2.gameObject.SetActive(true);
         }
 
         private void ViewHide()
         {
             _view.color = _view.color.SetA(30 / 255f);
+            //_view2.gameObject.SetActive(false);
         }
     }
 }

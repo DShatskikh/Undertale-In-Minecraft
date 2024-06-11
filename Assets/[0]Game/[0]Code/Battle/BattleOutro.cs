@@ -26,7 +26,7 @@ namespace Game
         
         public void StartOutro()
         {
-            GameData.MaxHealth += GameData.EnemyData.EnemyConfig.WinPrize;
+            //Выдать деньги
             EventBus.OnPlayerWin.Invoke(GameData.EnemyData.EnemyConfig);
             EventBus.OnPlayerWin = null;
 

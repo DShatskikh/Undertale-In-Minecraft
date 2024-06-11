@@ -43,9 +43,6 @@ namespace Game
         public static GameObject GameOver;
 
         public static Saver Saver;
-
-        public static int MaxHealth;
-        public static int Health;
         public static GameObject Arrow;
 
         public static CinemachineConfiner2D CinemachineConfiner;

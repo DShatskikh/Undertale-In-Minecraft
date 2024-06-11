@@ -35,7 +35,6 @@ namespace Game
         public void Load()
         {
             GameData.Version = PlayerPrefs.GetString("Version");
-            GameData.MaxHealth = PlayerPrefs.GetInt("MaxHealth", 20);
             GameData.Palesos = PlayerPrefs.GetInt("Palesos");
             GameData.LocationIndex = PlayerPrefs.GetInt("LocationIndex");
             GameData.Volume = PlayerPrefs.GetFloat("Volume", 1);
@@ -45,8 +44,7 @@ namespace Game
         public void SaveAll()
         {
             SavePlayerPosition();
-            
-            PlayerPrefs.SetInt("MaxHealth", GameData.MaxHealth);
+
             PlayerPrefs.SetInt("Palesos", GameData.Palesos);
             PlayerPrefs.SetInt("LocationIndex", GameData.LocationIndex);
             PlayerPrefs.SetFloat("Volume", GameData.Volume);

@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 782045768596126639, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 807696097, guid: 2fa026478351bf04499509ec41acad17, type: 3}
     - target: {fileID: 6272708339432658529, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -118,7 +122,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.07901627}
