@@ -1,5 +1,8 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Tables;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -10,5 +13,6 @@ namespace Game
         
         [TextArea]
         public string Text;
+        public StringTableEntry TableEntry;
     }
 }

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Tables;
 
 namespace Game
 {
@@ -10,6 +12,8 @@ namespace Game
         
         [SerializeField] 
         private UnityEvent _endEvent;
+
+        public Replica[] GetReplicas => _replicas;
         
         public override void Use()
         {

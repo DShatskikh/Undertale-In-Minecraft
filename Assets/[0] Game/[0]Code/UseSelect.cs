@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Localization.Tables;
 
 namespace Game
 {
@@ -13,7 +14,12 @@ namespace Game
         
         [SerializeField] 
         private UnityEvent _noEvent;
+
+        [SerializeField]
+        private StringTableEntry _tableEntry;
         
+        public string GetText => _text;
+
         public override void Use()
         {
             GameData.Select.Show(_text, Yes, No);
@@ -27,6 +33,11 @@ namespace Game
         private void No()
         {
             _noEvent.Invoke();
+        }
+
+        public void SetTableEntry(StringTableEntry tableEntry)
+        {
+            _tableEntry = tableEntry;
         }
     }
 }
