@@ -1,32 +1,63 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game
 {
     public class UseArea : MonoBehaviour
     {
+        [SerializeField]
+        private float _radius;
+
+        private UseObject _previousUseObject;
+
         private void Start()
         {
             GameData.UseButton.onClick.AddListener(() => GameData.UseButton.gameObject.SetActive(false));
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void FixedUpdate()
         {
-            if (other.TryGetComponent(out UseObject useObject))
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _radius);
+
+            float minDistance = float.MaxValue;
+            UseObject nearestUseObject = null;
+
+            foreach (Collider2D collider in colliders)
             {
-                GameData.UseButton.gameObject.SetActive(true);
-                GameData.UseButton.onClick.AddListener(useObject.Use);
+                if (collider.TryGetComponent(out UseObject useObject))
+                {
+                    var currentDistance = Vector2.Distance(transform.position, useObject.transform.position);
+                    
+                    if (minDistance > currentDistance)
+                    {
+                        minDistance = currentDistance;
+                        nearestUseObject = useObject;
+                    }
+                }
             }
+
+            if (nearestUseObject != null)
+                ButtonOn(nearestUseObject);
+            else
+                ButtonOff();
         }
 
-        private void OnTriggerExit2D(Collider2D other)
+        private void ButtonOn(UseObject nearestUseObject)
         {
-            if (other.TryGetComponent(out UseObject useObject))
+            GameData.UseButton.gameObject.SetActive(true);
+            GameData.UseButton.onClick.AddListener(nearestUseObject.Use);
+            _previousUseObject = nearestUseObject;
+        }
+        
+        private void ButtonOff()
+        {
+            if (_previousUseObject)
             {
-                GameData.UseButton.onClick.RemoveListener(useObject.Use);
+                GameData.UseButton.onClick.RemoveListener(_previousUseObject.Use);
                 
                 if (GameData.UseButton)
                     GameData.UseButton.gameObject.SetActive(false);
+
+                _previousUseObject = null;
             }
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Super_Auto_Mobs;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UIElements;
 using YG;
 using Random = UnityEngine.Random;
@@ -21,6 +22,12 @@ namespace Game
         
         [SerializeField]
         private PlaySound _sparePlaySound;
+
+        [SerializeField]
+        private GameObject _attackTutorial;
+        
+        [SerializeField]
+        private LocalizedString _winReplica;
         
         private Label _healthLabel;
         private Label _enemyHealthLabel;
@@ -100,7 +107,8 @@ namespace Game
             {
                 GameData.Arena.SetActive(true);
                 yield return new WaitForSeconds(0.5f);
-                _attack = Instantiate(_attacks[_attackIndex], transform);
+                _attack = Instantiate(GameData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial, transform);
+                GameData.IsTutorialComplited = true;
                 yield return new WaitForSeconds(10);
                 Destroy(_attack.gameObject);
                 _attackIndex++;
@@ -184,7 +192,8 @@ namespace Game
             
             YandexMetrica.Send("Wins", eventParams);
             
-            GameData.Monolog.Show(new []{$"*Вы победили!\n*Ваше максимальное здоровье увеличилось\nна {GameData.EnemyData.EnemyConfig.WinPrize}"});
+            _winReplica.Arguments = new List<object>() { GameData.EnemyData.EnemyConfig.WinPrize };
+            GameData.Monolog.Show(new []{ _winReplica.GetLocalizedString() });
             EventBus.OnCloseMonolog += () =>
             {
                 _levelUpPlaySound.Play();

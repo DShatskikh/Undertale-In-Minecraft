@@ -14,6 +14,7 @@ namespace Game
             PlayerPrefs.SetFloat("Volume", GameData.Volume);
 
             SetBool("IsNotFirstPlay", GameData.IsNotFirstPlay);
+            SetBool("IsTutorial", GameData.IsTutorialComplited);
             SetBool("IsCheat", GameData.IsCheat);
             SetBool("IsPrisonKey", GameData.IsPrisonKey);
             SetBool("IsGoldKey", GameData.IsGoldKey);
@@ -39,6 +40,7 @@ namespace Game
             GameData.Volume = PlayerPrefs.GetFloat("Volume");
             
             GameData.IsHat = GetBool("IsHat");
+            GameData.IsTutorialComplited = GetBool("IsTutorial");
             GameData.IsNotFirstPlay = GetBool("IsNotFirstPlay");
             GameData.IsCheat = GetBool("IsCheat");
             GameData.IsPrisonKey = GetBool("IsPrisonKey");

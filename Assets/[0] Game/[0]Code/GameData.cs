@@ -30,6 +30,7 @@ namespace Game
         public static AudioMixerGroup Mixer { get; set; }
         public static Button ToMenuButton { get; set; }
         public static Startup Startup { get; set; }
+        public static bool IsTutorialComplited { get; set; }
 
         public static IEnumerable<Location> Locations;
 

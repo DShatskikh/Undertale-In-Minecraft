@@ -76,6 +76,12 @@ namespace Game
         {
             StopMove();
             _view.Idle();
+            _useArea.enabled = false;
+        }
+
+        private void OnEnable()
+        {
+            _useArea.enabled = true; 
         }
 
         public void StopMove()

@@ -19,7 +19,6 @@ namespace Game
 
         private void OnSubmit()
         {
-            EventBus.OnSubmit = null;
             _button.onClick.Invoke();
         }
     }
