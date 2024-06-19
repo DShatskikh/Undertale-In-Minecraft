@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Tables;
 using UnityEngine.Serialization;
 
@@ -14,17 +15,22 @@ namespace Game
         private UnityEvent _endEvent;
 
         [SerializeField]
-        private StringTableEntry[] _tableEntries;
+        private LocalizedString[] _localizedStrings;
         
         public string[] GetTexts => _texts;
-        public StringTableEntry[] SetTableEntries
+        public LocalizedString[] SetLocalizedStrings
         {
-            set { _tableEntries = value; }
+            set { _localizedStrings = value; }
         }
 
         public override void Use()
         {
-            GameData.Monolog.Show(_texts);
+            var texts = new string[_texts.Length];
+
+            for (int i = 0; i < texts.Length; i++) 
+                texts[i] = _localizedStrings[i].GetLocalizedString();
+
+            GameData.Monolog.Show(texts);
             EventBus.OnCloseMonolog += _endEvent.Invoke;
         }
     }

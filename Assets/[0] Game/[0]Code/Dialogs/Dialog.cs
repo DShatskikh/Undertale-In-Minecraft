@@ -67,7 +67,7 @@ namespace Game
         private IEnumerator TypeText()
         {
             int _countSymbol = 0;
-            var text = _replicas[_indexReplica].Text;
+            var text = _replicas[_indexReplica].LocalizationString.GetLocalizedString();
             string currentText = "";
 
             while (_countSymbol != text.Length)
@@ -92,7 +92,7 @@ namespace Game
         private void UpdateView()
         {
             var replica = _replicas[_indexReplica];
-            _view.SetText(replica.Text);
+            _view.SetText(replica.LocalizationString.GetLocalizedString());
             _view.SetIcon(replica.Icon);
         }
 

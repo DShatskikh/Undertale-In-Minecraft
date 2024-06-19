@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Tables;
 
 namespace Game
@@ -16,13 +17,13 @@ namespace Game
         private UnityEvent _noEvent;
 
         [SerializeField]
-        private StringTableEntry _tableEntry;
+        private LocalizedString _localizedString;
         
         public string GetText => _text;
 
         public override void Use()
         {
-            GameData.Select.Show(_text, Yes, No);
+            GameData.Select.Show(_localizedString.GetLocalizedString(), Yes, No);
         }
 
         private void Yes()
@@ -35,9 +36,9 @@ namespace Game
             _noEvent.Invoke();
         }
 
-        public void SetTableEntry(StringTableEntry tableEntry)
+        public void SetTableEntry(LocalizedString localizedString)
         {
-            _tableEntry = tableEntry;
+            _localizedString = localizedString;
         }
     }
 }

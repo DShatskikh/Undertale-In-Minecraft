@@ -13,6 +13,7 @@ namespace Game
         
         [TextArea]
         public string Text;
-        public StringTableEntry TableEntry;
+
+        public LocalizedString LocalizationString;
     }
 }
