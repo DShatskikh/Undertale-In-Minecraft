@@ -19,6 +19,9 @@ namespace Game
         [SerializeField]
         private StringTable _selectableTable;
         
+        [SerializeField]
+        private StringTable _otherTable;
+        
         [ContextMenu("Загрузить Monologues")]
         private void WriteMonologues()
         {
@@ -96,6 +99,24 @@ namespace Game
             print("Загрузка диалогов завершилась успешно");
         }
 
+        [ContextMenu("Загрузить остальной текст")]
+        private void WriteOtherText()
+        {
+            foreach (var typingText in FindObjectsByType<TypingText>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                var key = GetRandomKey();
+            
+                var tableEntry = _otherTable.AddEntry(key, typingText.GetText);
+                typingText.SetLocalizationString = new LocalizedString("Other", tableEntry.KeyId);
+                
+                EditorUtility.SetDirty(typingText.gameObject);
+                EditorUtility.SetDirty(typingText);
+            }
+            
+            AssetDatabase.SaveAssets();
+            print("Загрузка остального теста завершилась успешно");
+        }
+        
         private string GetRandomKey()
         {
             char[] alphabet = Enumerable.Range('A', 26).Select(c => (char)c).ToArray();

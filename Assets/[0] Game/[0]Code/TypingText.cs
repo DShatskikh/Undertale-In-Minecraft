@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Game
 {
@@ -13,10 +14,19 @@ namespace Game
         [SerializeField, TextArea]
         private string _text;
 
+        [SerializeField]
+        private LocalizedString _localizationString;
+        
         [SerializeField] 
         private AudioSource _audioSource;
 
         private Coroutine _coroutine;
+
+        public string GetText => _text;
+        public LocalizedString SetLocalizationString
+        {
+            set { _localizationString = value; }
+        }
 
         private void OnEnable()
         {
