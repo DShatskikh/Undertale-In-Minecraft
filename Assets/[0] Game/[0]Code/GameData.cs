@@ -31,6 +31,7 @@ namespace Game
         public static Button ToMenuButton { get; set; }
         public static Startup Startup { get; set; }
         public static bool IsTutorialComplited { get; set; }
+        public static int AdsViews { get; set; }
 
         public static IEnumerable<Location> Locations;
 

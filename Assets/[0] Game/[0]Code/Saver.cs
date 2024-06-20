@@ -11,6 +11,7 @@ namespace Game
             PlayerPrefs.SetInt("MaxHealth", GameData.MaxHealth);
             PlayerPrefs.SetInt("Palesos", GameData.Palesos);
             PlayerPrefs.SetInt("LocationIndex", GameData.LocationIndex);
+            PlayerPrefs.SetInt("AdsViews", GameData.AdsViews);
             PlayerPrefs.SetFloat("Volume", GameData.Volume);
 
             SetBool("IsNotFirstPlay", GameData.IsNotFirstPlay);
@@ -27,7 +28,7 @@ namespace Game
             SetBool("IsBadEnd", GameData.IsBadEnd);
             SetBool("IsStrangeEnd", GameData.IsStrangeEnd);
             SetBool("IsNotIntroduction", GameData.IsNotIntroduction);
-            
+
             Debug.Log("Игра сохранена");
         }
 
@@ -36,8 +37,9 @@ namespace Game
             GameData.MaxHealth = PlayerPrefs.GetInt("MaxHealth", 20);
             GameData.Palesos = PlayerPrefs.GetInt("Palesos");
             GameData.LocationIndex = PlayerPrefs.GetInt("LocationIndex");
+            GameData.AdsViews = PlayerPrefs.GetInt("AdsViews");
             
-            GameData.Volume = PlayerPrefs.GetFloat("Volume");
+            GameData.Volume = PlayerPrefs.GetFloat("Volume", 1f);
             
             GameData.IsHat = GetBool("IsHat");
             GameData.IsTutorialComplited = GetBool("IsTutorial");

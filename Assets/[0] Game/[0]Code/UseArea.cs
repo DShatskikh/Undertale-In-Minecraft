@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Game
 {
@@ -9,9 +10,14 @@ namespace Game
 
         private UseObject _previousUseObject;
 
-        private void Start()
+        private void OnEnable()
         {
-            GameData.UseButton.onClick.AddListener(() => GameData.UseButton.gameObject.SetActive(false));
+            _previousUseObject = null;
+        }
+
+        private void OnDisable()
+        {
+            GameData.UseButton.gameObject.SetActive(false);
         }
 
         private void FixedUpdate()
@@ -36,29 +42,36 @@ namespace Game
             }
 
             if (nearestUseObject != null)
-                ButtonOn(nearestUseObject);
-            else
+            {
+                if (nearestUseObject != _previousUseObject)
+                {
+                    ButtonOn(nearestUseObject);
+                }
+            }
+            else if (_previousUseObject)
                 ButtonOff();
         }
 
         private void ButtonOn(UseObject nearestUseObject)
         {
+            print("off " + nearestUseObject.name);
             GameData.UseButton.gameObject.SetActive(true);
-            GameData.UseButton.onClick.AddListener(nearestUseObject.Use);
+            EventBus.OnSubmit = () => Use(nearestUseObject);
             _previousUseObject = nearestUseObject;
         }
         
         private void ButtonOff()
         {
-            if (_previousUseObject)
-            {
-                GameData.UseButton.onClick.RemoveListener(_previousUseObject.Use);
-                
-                if (GameData.UseButton)
-                    GameData.UseButton.gameObject.SetActive(false);
+            EventBus.OnSubmit = null;
+            GameData.UseButton.gameObject.SetActive(false);
+            _previousUseObject = null;
+        }
 
-                _previousUseObject = null;
-            }
+        private void Use(UseObject nearestUseObject)
+        {
+            GameData.UseButton.gameObject.SetActive(false);
+            EventBus.OnSubmit = null;
+            nearestUseObject.Use();
         }
     }
 }
