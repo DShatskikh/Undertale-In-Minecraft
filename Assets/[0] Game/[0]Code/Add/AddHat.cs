@@ -5,7 +5,7 @@
         public override void Use()
         {
             GameData.IsHat = true;
-            GameData.Character.HatPoint.Show();
+            GameData.Character.HatPoint.HatShowAndHide(true);
         }
     }
 }

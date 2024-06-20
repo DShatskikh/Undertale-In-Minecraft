@@ -113,11 +113,6 @@ namespace Game
                 GameData.Character.transform.position = GameData.Saver.LoadPosition();
                 GameData.Locations.ToArray()[GameData.LocationIndex].gameObject.SetActive(true);
                 GameData.ToMenuButton.gameObject.SetActive(true);
-                
-                if (GameData.IsHat)
-                    GameData.Character.HatPoint.Show();
-                else
-                    GameData.Character.HatPoint.Hide();
             }
         }
     }

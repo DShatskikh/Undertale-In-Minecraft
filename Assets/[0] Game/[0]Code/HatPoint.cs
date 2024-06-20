@@ -12,31 +12,32 @@ namespace Game
         [SerializeField]
         private SpriteRenderer _hatSpriteRenderer;
         
+        [SerializeField]
+        private SpriteRenderer _hackerMask;
+        
         [SerializeField] 
         private float _x1, _x2;
 
         private void Start()
         {
-            if (GameData.IsHat)
-            {
-                Show();
-            }
+            HatShowAndHide(GameData.IsHat);
+            MaskShowAndHide(GameData.IsCheat);
         }
 
         private void Update()
         {
-            if (_hatSpriteRenderer.gameObject.activeSelf)
-                transform.localPosition = transform.localPosition.SetX(_spriteRenderer.flipX ? _x2 : _x1);
+            //transform.localPosition = transform.localPosition.SetX(_spriteRenderer.flipX ? _x2 : _x1);
+            transform.localScale = transform.localScale.SetX(_spriteRenderer.flipX ? -1 : 1);
         }
 
-        public void Show()
+        public void HatShowAndHide(bool isShow)
         {
-            _hatSpriteRenderer.gameObject.SetActive(true);
+            _hatSpriteRenderer.gameObject.SetActive(isShow);
         }
 
-        public void Hide()
+        public void MaskShowAndHide(bool isShow)
         {
-            _hatSpriteRenderer.gameObject.SetActive(false);
+            _hackerMask.gameObject.SetActive(isShow);
         }
     }
 }

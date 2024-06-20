@@ -7,6 +7,7 @@ namespace Game
         public void Use()
         {
             GameData.IsCheat = true;
+            GameData.Character.HatPoint.MaskShowAndHide(true);
         }
     }
 }
