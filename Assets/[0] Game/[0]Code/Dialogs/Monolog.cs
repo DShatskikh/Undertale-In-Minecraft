@@ -19,6 +19,8 @@ namespace Game
         private int _index;
         private string[] _texts;
         private Coroutine _coroutine;
+        private string _finallyText;
+        private string _currentText;
 
         public void Show(string[] texts)
         {
@@ -31,6 +33,7 @@ namespace Game
             var button = _ui.rootVisualElement.Q<Button>("Next_button");
             button.clicked += Next;
             EventBus.OnSubmit += Next;
+            EventBus.OnCancel += ShowFinallyText;
 
             SetText("");
             
@@ -42,30 +45,36 @@ namespace Game
         private IEnumerator TypeText()
         {
             int _countSymbol = 0;
-            var text = _texts[_index];
-            string currentText = "";
+            _finallyText = _texts[_index];
+            _currentText = "";
 
-            while (_countSymbol != text.Length)
+            while (_countSymbol != _finallyText.Length)
             {
-                if (text[_countSymbol] == '<')
+                if (_finallyText[_countSymbol] == '<')
                 {
-                    while (text[_countSymbol] != '>')
+                    while (_finallyText[_countSymbol] != '>')
                     {
-                        currentText += text[_countSymbol];
+                        _currentText += _finallyText[_countSymbol];
                         _countSymbol++;
                     }
                 }
 
-                currentText += text[_countSymbol];
-                SetText(currentText);
+                _currentText += _finallyText[_countSymbol];
+                SetText(_currentText);
                 _audioSource.Play();
                 yield return new WaitForSeconds(0.05f);
                 _countSymbol++;
             }
         }
-        
-        public void Next()
+
+        private void Next()
         {
+            if (_currentText != _finallyText)
+            {
+                ShowFinallyText();
+                return;
+            }
+            
             GameData.EffectAudioSource.clip = _clickSound;
             GameData.EffectAudioSource.Play();
             
@@ -82,6 +91,19 @@ namespace Game
             _index++;
         }
 
+        private void ShowFinallyText()
+        {
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+
+            _currentText = _finallyText;
+            SetText(_finallyText);
+            print("ShowFinallyText");
+        }
+        
         private void Close()
         {
             EventBus.OnSubmit = null;

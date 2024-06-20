@@ -54,7 +54,6 @@ namespace Game
 
         private void ButtonOn(UseObject nearestUseObject)
         {
-            print("off " + nearestUseObject.name);
             GameData.UseButton.gameObject.SetActive(true);
             EventBus.OnSubmit = () => Use(nearestUseObject);
             _previousUseObject = nearestUseObject;

@@ -21,14 +21,6 @@ namespace Game
         private Action _yesAction;
         private Action _noAction;
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                SelectFalse();
-            }
-        }
-
         public void Show(string text, Action yesAction, Action noAction)
         {
             gameObject.SetActive(true);
@@ -42,11 +34,12 @@ namespace Game
             _noAction = noAction;
             
             var yesButton = _ui.rootVisualElement.Q<Button>("Yes_button");
-            yesButton.clicked += SelectTrue;
-            EventBus.OnSubmit += SelectTrue;
+            yesButton.clicked += EventBus.OnSubmit;
+            EventBus.OnSubmit = SelectTrue;
 
             var noButton = _ui.rootVisualElement.Q<Button>("No_button");
-            noButton.clicked += SelectFalse;
+            noButton.clicked += EventBus.OnCancel;
+            EventBus.OnCancel = SelectFalse;
 
             _text = text;
             

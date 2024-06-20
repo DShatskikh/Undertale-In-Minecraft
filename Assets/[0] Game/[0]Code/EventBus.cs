@@ -22,6 +22,8 @@ namespace Game
         public static Action OnCloseDialog;
         public static Action<EnemyConfig> OnPlayerWin;
         public static Action OnDeath { get; set; }
+        public static Action OnCancel { get; set; }
+
         public static Action OnSubmit;
     }
 }

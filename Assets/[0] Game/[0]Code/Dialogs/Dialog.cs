@@ -22,6 +22,8 @@ namespace Game
         private Replica[] _replicas;
         private int _indexReplica;
         private Coroutine _coroutine;
+        private string _finallyText;
+        private string _currentText;
 
         public void SetReplicas(Replica[] replicas)
         {
@@ -33,6 +35,7 @@ namespace Game
             var button = _ui.rootVisualElement.Q<Button>("Next_button");
             button.clicked += Next;
             EventBus.OnSubmit += Next;
+            EventBus.OnCancel += ShowFinallyText;
             
             GameData.Character.enabled = false;
             _replicas = replicas;
@@ -41,10 +44,18 @@ namespace Game
             Next();
         }
 
-        public void Next()
+        private void Next()
         {
             if (!gameObject.activeSelf)
                 Debug.LogError("Ошибка");
+
+            if (_currentText != _finallyText)
+            {
+                ShowFinallyText();
+                return;
+            }
+
+            print("Next");
             
             GameData.EffectAudioSource.clip = _clickSound;
             GameData.EffectAudioSource.Play();
@@ -57,32 +68,42 @@ namespace Game
 
             UpdateView();
             
-            if (_coroutine != null)
-                StopCoroutine(_coroutine);
-            
             _coroutine = StartCoroutine(TypeText());
             _indexReplica++;
         }
 
+        private void ShowFinallyText()
+        {
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+
+            _currentText = _finallyText;
+            _view.SetText(_finallyText);
+            print("ShowFinallyText");
+        }
+        
         private IEnumerator TypeText()
         {
             int _countSymbol = 0;
-            var text = _replicas[_indexReplica].LocalizationString.GetLocalizedString();
-            string currentText = "";
+            _finallyText = _replicas[_indexReplica].LocalizationString.GetLocalizedString();
+            _currentText = "";
 
-            while (_countSymbol != text.Length)
+            while (_countSymbol != _finallyText.Length)
             {
-                if (text[_countSymbol] == '<')
+                if (_finallyText[_countSymbol] == '<')
                 {
-                    while (text[_countSymbol] != '>')
+                    while (_finallyText[_countSymbol] != '>')
                     {
-                        currentText += text[_countSymbol];
+                        _currentText += _finallyText[_countSymbol];
                         _countSymbol++;
                     }
                 }
 
-                currentText += text[_countSymbol];
-                _view.SetText(currentText);
+                _currentText += _finallyText[_countSymbol];
+                _view.SetText(_currentText);
                 _audioSource.Play();
                 yield return new WaitForSeconds(0.05f);
                 _countSymbol++;
