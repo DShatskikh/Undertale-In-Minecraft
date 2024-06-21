@@ -34,8 +34,18 @@ namespace Game
                 StopCoroutine(_coroutine);
             
             _coroutine = StartCoroutine(TypingProcess());
+
+            EventBus.OnCancel = ShowAllText;
         }
 
+        private void ShowAllText()
+        {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+            
+            _label.text = _localizationString.GetLocalizedString();
+        }
+        
         private IEnumerator TypingProcess()
         {
             _label.text = "";

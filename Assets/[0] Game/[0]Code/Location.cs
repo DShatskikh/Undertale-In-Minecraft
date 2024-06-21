@@ -13,10 +13,7 @@ namespace Game
         private void OnEnable()
         {
             GameData.LocationIndex = _index;
-            GameData.Saver.Save();
             GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
-            //GameData.CinemachineConfiner.GetComponent<CinemachineVirtualCameraBase>().transform.position = GameData.Character.transform.position.SetZ(Camera.main.transform.position.z);
-            
             Analytics.CustomEvent("Location " + gameObject.name);
         }
     }

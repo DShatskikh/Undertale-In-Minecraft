@@ -5,6 +5,7 @@
         public override void Use()
         {
             GameData.IsBadEnd = true;
+            GameData.CurrentEnd = End.Bad;
         }
     }
 }

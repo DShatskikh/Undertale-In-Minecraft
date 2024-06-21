@@ -12,6 +12,8 @@ namespace Game
             PlayerPrefs.SetInt("Palesos", GameData.Palesos);
             PlayerPrefs.SetInt("LocationIndex", GameData.LocationIndex);
             PlayerPrefs.SetInt("AdsViews", GameData.AdsViews);
+            PlayerPrefs.SetInt("NumberGame", GameData.NumberGame);
+            
             PlayerPrefs.SetFloat("Volume", GameData.Volume);
 
             SetBool("IsNotFirstPlay", GameData.IsNotFirstPlay);
@@ -38,6 +40,7 @@ namespace Game
             GameData.Palesos = PlayerPrefs.GetInt("Palesos");
             GameData.LocationIndex = PlayerPrefs.GetInt("LocationIndex");
             GameData.AdsViews = PlayerPrefs.GetInt("AdsViews");
+            GameData.NumberGame = PlayerPrefs.GetInt("NumberGame", 1);
             
             GameData.Volume = PlayerPrefs.GetFloat("Volume", 1f);
             
@@ -88,6 +91,7 @@ namespace Game
             PlayerPrefs.SetInt("MaxHealth", 20);
             //PlayerPrefs.SetInt("Palesos", 0);
             PlayerPrefs.SetInt("LocationIndex", 0);
+            PlayerPrefs.SetInt("NumberGame", GameData.NumberGame + 1);
 
             SetBool("IsHat", false);
             SetBool("IsNotIntroduction", false);

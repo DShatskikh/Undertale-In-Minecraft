@@ -32,8 +32,8 @@ namespace Game
             GameData.Character.enabled = false;
             var button = _ui.rootVisualElement.Q<Button>("Next_button");
             button.clicked += Next;
-            EventBus.OnSubmit += Next;
-            EventBus.OnCancel += ShowFinallyText;
+            EventBus.OnSubmit = Next;
+            EventBus.OnCancel = ShowFinallyText;
 
             SetText("");
             
@@ -107,6 +107,7 @@ namespace Game
         private void Close()
         {
             EventBus.OnSubmit = null;
+            EventBus.OnCancel = null;
             GameData.Character.enabled = true;
             gameObject.SetActive(false);
             EventBus.OnCloseMonolog?.Invoke();

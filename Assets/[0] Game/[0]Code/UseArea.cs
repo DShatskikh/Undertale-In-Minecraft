@@ -17,7 +17,8 @@ namespace Game
 
         private void OnDisable()
         {
-            GameData.UseButton.gameObject.SetActive(false);
+            if (GameData.UseButton)
+                GameData.UseButton.gameObject.SetActive(false);
         }
 
         private void FixedUpdate()

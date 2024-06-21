@@ -67,6 +67,7 @@ namespace Game
         private void SelectTrue()
         {
             EventBus.OnSubmit = null;
+            EventBus.OnCancel = null;
             Close();
             _yesAction?.Invoke();
         }
@@ -74,6 +75,7 @@ namespace Game
         private void SelectFalse()
         {
             EventBus.OnSubmit = null;
+            EventBus.OnCancel = null;
             Close();
             _noAction?.Invoke();
         }

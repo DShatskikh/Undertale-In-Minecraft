@@ -16,6 +16,9 @@ namespace Game
         [SerializeField] 
         private UnityEvent _event, _event2;
 
+        [SerializeField]
+        private GameObject _canvas;
+        
         private void OnEnable()
         {
             StartCoroutine(CutScene());
@@ -23,6 +26,9 @@ namespace Game
 
         private IEnumerator CutScene()
         {
+            if (GameData.NumberGame > 1)
+                _canvas.SetActive(false);
+            
             yield return null;
             GameData.Character.UseArea.gameObject.SetActive(false);
             GameData.Character.transform.position = _startPoint.position;

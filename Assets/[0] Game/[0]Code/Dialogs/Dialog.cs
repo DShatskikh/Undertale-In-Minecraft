@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -34,18 +33,21 @@ namespace Game
             
             var button = _ui.rootVisualElement.Q<Button>("Next_button");
             button.clicked += Next;
-            EventBus.OnSubmit += Next;
-            EventBus.OnCancel += ShowFinallyText;
+            EventBus.OnSubmit = Next;
+            EventBus.OnCancel = ShowFinallyText;
             
             GameData.Character.enabled = false;
             _replicas = replicas;
             _indexReplica = 0;
+
             UpdateView();
-            Next();
+            _coroutine = StartCoroutine(TypeText());
         }
 
         private void Next()
         {
+            print("Work");
+            
             if (!gameObject.activeSelf)
                 Debug.LogError("Ошибка");
 
@@ -60,6 +62,8 @@ namespace Game
             GameData.EffectAudioSource.clip = _clickSound;
             GameData.EffectAudioSource.Play();
             
+            _indexReplica++;
+            
             if (_indexReplica >= _replicas.Length)
             {
                 Close();
@@ -67,9 +71,7 @@ namespace Game
             }
 
             UpdateView();
-            
             _coroutine = StartCoroutine(TypeText());
-            _indexReplica++;
         }
 
         private void ShowFinallyText()
@@ -119,7 +121,9 @@ namespace Game
 
         private void Close()
         {
+            print("Close");
             EventBus.OnSubmit = null;
+            EventBus.OnCancel = null;
             GameData.Character.enabled = true;
             gameObject.SetActive(false);
             EventBus.OnCloseDialog?.Invoke();

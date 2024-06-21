@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Game
@@ -54,7 +53,7 @@ namespace Game
             {
                 _menu.SetActive(true);
 
-                if (GameData.IsNotIntroduction)
+                if (!GameData.IsNotIntroduction)
                 {
                     _notGamePreset.SetActive(true);
                     _continuePreset.SetActive(false);
@@ -65,7 +64,7 @@ namespace Game
                     _continuePreset.SetActive(true);
                 }
 
-                if (GameData.IsStrangeEnd)
+                if (GameData.IsGoldKey)
                 {
                     _strangeEnd.SetActive(true);
                     _fullReset.SetActive(true);

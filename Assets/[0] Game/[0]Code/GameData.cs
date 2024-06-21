@@ -32,6 +32,8 @@ namespace Game
         public static Startup Startup { get; set; }
         public static bool IsTutorialComplited { get; set; }
         public static int AdsViews { get; set; }
+        public static int NumberGame { get; set; }
+        public static End CurrentEnd { get; set; }
 
         public static IEnumerable<Location> Locations;
 
