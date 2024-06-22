@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
 namespace Game
@@ -16,6 +17,9 @@ namespace Game
         [SerializeField] 
         private AudioClip _clickSound;
 
+        [SerializeField]
+        private LocalizedString _continueString;
+        
         private int _index;
         private string[] _texts;
         private Coroutine _coroutine;
@@ -31,6 +35,7 @@ namespace Game
             
             GameData.Character.enabled = false;
             var button = _ui.rootVisualElement.Q<Button>("Next_button");
+            button.text = _continueString.GetLocalizedString();
             button.clicked += Next;
             EventBus.OnSubmit = Next;
             EventBus.OnCancel = ShowFinallyText;

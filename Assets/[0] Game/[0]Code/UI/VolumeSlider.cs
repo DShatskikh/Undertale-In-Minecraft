@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 namespace Game
@@ -13,6 +14,9 @@ namespace Game
         [SerializeField]
         private TMP_Text _text;
 
+        [SerializeField]
+        private LocalizedString _localizedString;
+        
         private void Start()
         {
             _slider.onValueChanged.AddListener(ChangeValue);
@@ -36,7 +40,8 @@ namespace Game
 
         private void UpdateText()
         {
-            _text.text = $"Звук {(int)(_slider.value * 100)}%";
+            _localizedString.Arguments = new List<object>() { (int)(_slider.value * 100) };
+            _text.text = _localizedString.GetLocalizedString(); //$"Звук {}%";
         }
     }
 }

@@ -31,19 +31,17 @@ namespace Game
         
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(2);
-            
-            _call.Use();
-            
-            yield return new WaitUntil(() => !GameData.Monolog.gameObject.activeSelf);
-            
             if (TryGetEnd(out UseMonolog end))
             {
+                yield return new WaitForSeconds(2);
+                _call.Use();
+            
+                yield return new WaitUntil(() => !GameData.Monolog.gameObject.activeSelf);
                 end.Use();
+                
+                yield return new WaitUntil(() => !GameData.Monolog.gameObject.activeSelf);
             }
 
-            yield return new WaitUntil(() => !GameData.Monolog.gameObject.activeSelf);
-            
             if (GameData.Palesos == 3)
             {
                 yield return new WaitForSeconds(2);
@@ -56,7 +54,7 @@ namespace Game
                 
                 yield return new WaitUntil(() => !GameData.Dialog.gameObject.activeSelf);
             }
-
+            
             _useReset.Use();
             _toMenu.Use();
         }

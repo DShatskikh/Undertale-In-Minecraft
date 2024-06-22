@@ -18,6 +18,9 @@ namespace Game
         private GameObject _fullReset;
 
         [SerializeField]
+        private GameObject _guide;
+        
+        [SerializeField]
         private GameObject _cake;
         
         [SerializeField]
@@ -63,6 +66,9 @@ namespace Game
                     _notGamePreset.SetActive(false);
                     _continuePreset.SetActive(true);
                 }
+
+                if (GameData.IsGoodEnd && GameData.IsBadEnd) 
+                    _guide.SetActive(true);
 
                 if (GameData.IsGoldKey)
                 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 namespace Game
@@ -13,6 +14,9 @@ namespace Game
         [SerializeField]
         private Slider _slider;
 
+        [SerializeField]
+        private LocalizedString _localizedString;
+        
         private void OnEnable()
         {
             EventBus.OnBattleProgressChange += ChangeProgress;
@@ -31,7 +35,9 @@ namespace Game
         private void ChangeProgress(int value)
         {
             _slider.value = value;
-            _label.text = $"Прогресс битвы {value}%";
+
+            _localizedString.Arguments = new object[] { value };
+            _label.text = _localizedString.GetLocalizedString(); //$"Прогресс битвы {value}%";
         }
     }
 }

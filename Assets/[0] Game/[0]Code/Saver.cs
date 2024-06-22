@@ -89,7 +89,6 @@ namespace Game
         public void Reset()
         {
             PlayerPrefs.SetInt("MaxHealth", 20);
-            //PlayerPrefs.SetInt("Palesos", 0);
             PlayerPrefs.SetInt("LocationIndex", 0);
             PlayerPrefs.SetInt("NumberGame", GameData.NumberGame + 1);
 
@@ -97,7 +96,6 @@ namespace Game
             SetBool("IsNotIntroduction", false);
             SetBool("IsCheat", false);
             SetBool("IsPrisonKey", false);
-            //SetBool("IsGoldKey", false);
             SetBool("IsDeveloperKey", false);
             SetBool("IsSpeakHerobrine", false);
             SetBool("IsCapturedWorld", false);

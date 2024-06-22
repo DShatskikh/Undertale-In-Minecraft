@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
 namespace Game
@@ -15,6 +16,9 @@ namespace Game
         
         [SerializeField] 
         private AudioClip _clickSound;
+        
+        [SerializeField]
+        private LocalizedString _yesString, _noString;
         
         private string _text;
         private Coroutine _coroutine;
@@ -34,10 +38,12 @@ namespace Game
             _noAction = noAction;
             
             var yesButton = _ui.rootVisualElement.Q<Button>("Yes_button");
+            yesButton.text = _yesString.GetLocalizedString();
             yesButton.clicked += EventBus.OnSubmit;
             EventBus.OnSubmit = SelectTrue;
 
             var noButton = _ui.rootVisualElement.Q<Button>("No_button");
+            noButton.text = _noString.GetLocalizedString();
             noButton.clicked += EventBus.OnCancel;
             EventBus.OnCancel = SelectFalse;
 

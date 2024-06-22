@@ -6,17 +6,12 @@ namespace Game
     {
         public void Use()
         {
+            GameData.Saver.Save();
+            
             foreach (var saver in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-            {
                 saver.Reset();
-            }
-            
+
             GameData.Saver.Reset();
-            
-            GameData.Saver.SetBool("IsGoodEnd", GameData.IsGoodEnd);
-            GameData.Saver.SetBool("IsBadEnd", GameData.IsBadEnd);
-            GameData.Saver.SetBool("IsStrangeEnd", GameData.IsStrangeEnd);
-            
             GameData.Saver.Load();
         }
     }
