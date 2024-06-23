@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using RimuruDev;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UIElements;
@@ -40,6 +41,9 @@ namespace Game
             EventBus.OnSubmit = Next;
             EventBus.OnCancel = ShowFinallyText;
 
+            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
+                _ui.rootVisualElement.Q<Label>("Z").text = "";
+            
             SetText("");
             
             _index = 0;

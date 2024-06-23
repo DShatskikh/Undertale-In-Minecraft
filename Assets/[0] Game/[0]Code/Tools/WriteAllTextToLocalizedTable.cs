@@ -10,6 +10,7 @@ namespace Game
 {
     public class WriteAllTextToLocalizedTable : MonoBehaviour
     {
+#if UNITY_EDITOR
         [SerializeField]
         private StringTable _monologueTable;
         
@@ -127,5 +128,6 @@ namespace Game
 
             return key;
         }
+#endif
     }
 }

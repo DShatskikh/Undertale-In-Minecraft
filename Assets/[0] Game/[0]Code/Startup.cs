@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using RimuruDev;
+using UnityEngine;
 using UnityEngine.Audio;
 
 namespace Game
@@ -51,6 +52,9 @@ namespace Game
         [SerializeField]
         private bool _isNotIntroduction;
 
+        [SerializeField]
+        private CurrentDeviceType _testDeviceType = CurrentDeviceType.WebMobile;
+        
         [Header("Ссылки")]
         [SerializeField]
         private AudioMixerGroup _mixer;
@@ -58,13 +62,17 @@ namespace Game
         [SerializeField]
         private AudioSource _effectAudioSource, _musicAudioSource;
 
+        [SerializeField]
+        private DeviceTypeDetector _deviceTypeDetector;
+        
         private void Awake()
         {
             if (FindObjectsOfType<Startup>().Length > 1)
                 Destroy(gameObject);
             else
                 DontDestroyOnLoad(gameObject);
-            
+
+            GameData.DeviceType = _deviceTypeDetector.CurrentDeviceType;
             GameData.Saver = new Saver();
             
 #if UNITY_EDITOR
@@ -86,6 +94,8 @@ namespace Game
                 GameData.IsNotIntroduction = _isNotIntroduction;
                 GameData.Volume = 1f;
 
+                GameData.DeviceType = _testDeviceType;
+                
                 return;
             }
 #endif
@@ -108,6 +118,5 @@ namespace Game
                 return;
 #endif
         }
-
     }
 }

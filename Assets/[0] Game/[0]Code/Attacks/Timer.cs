@@ -25,7 +25,7 @@ namespace Game
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
-            _coroutine = GameData.CinemachineConfiner.StartCoroutine(TimerProcess());
+            _coroutine = GameData.Startup.StartCoroutine(TimerProcess());
         }
         
         private IEnumerator TimerProcess()

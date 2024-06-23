@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
+using YG;
 
 namespace Game
 {
@@ -37,19 +40,30 @@ namespace Game
         
         [SerializeField]
         private GameObject _palesos;
+
+        [SerializeField]
+        private GameObject _darkScreen;
         
         private void Awake()
         {
             _menu.SetActive(false);
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
             if (!GameData.IsNotFirstPlay)
             {
                 GameData.IsNotFirstPlay = true;
                 GameData.Volume = 1;
                 PlayerPrefs.SetFloat("Volume", GameData.Volume);
+                
+                yield return LocalizationSettings.InitializationOperation;
+            
+                if (YandexGame.lang == "en")
+                    LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
+                
+                yield return LocalizationSettings.InitializationOperation;
+                
                 SceneManager.LoadScene(1);
             }
             else

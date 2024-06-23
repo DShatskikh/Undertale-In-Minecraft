@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Cinemachine;
+using RimuruDev;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -34,6 +35,7 @@ namespace Game
         public static int AdsViews { get; set; }
         public static int NumberGame { get; set; }
         public static End CurrentEnd { get; set; }
+        public static CurrentDeviceType DeviceType { get; set; }
 
         public static IEnumerable<Location> Locations;
 

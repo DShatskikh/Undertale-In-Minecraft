@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 291866108466213962}
   - component: {fileID: 3784758574349484428}
+  - component: {fileID: 7296360270170531418}
   m_Layer: 0
   m_Name: Startup
   m_TagString: Untagged
@@ -66,6 +67,21 @@ MonoBehaviour:
   _mixer: {fileID: 24300002, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
   _effectAudioSource: {fileID: 1436111887442314858}
   _musicAudioSource: {fileID: 6713232609774389252}
+  _deviceTypeDetector: {fileID: 0}
+--- !u!114 &7296360270170531418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137945809750397721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae49bacf652a3944bd5719a5d1b891c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentDeviceType>k__BackingField: 255
+  enableDeviceSimulator: 1
 --- !u!1 &521310967906127507
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +597,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slider: {fileID: 6990274865976415087}
   _text: {fileID: 6924972422998443255}
+  _localizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &4100859887030867150
 GameObject:
   m_ObjectHideFlags: 0

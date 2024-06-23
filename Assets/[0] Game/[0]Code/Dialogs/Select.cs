@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using RimuruDev;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UIElements;
@@ -24,7 +25,7 @@ namespace Game
         private Coroutine _coroutine;
         private Action _yesAction;
         private Action _noAction;
-
+        
         public void Show(string text, Action yesAction, Action noAction)
         {
             gameObject.SetActive(true);
@@ -39,14 +40,20 @@ namespace Game
             
             var yesButton = _ui.rootVisualElement.Q<Button>("Yes_button");
             yesButton.text = _yesString.GetLocalizedString();
-            yesButton.clicked += EventBus.OnSubmit;
             EventBus.OnSubmit = SelectTrue;
+            yesButton.clicked += SelectTrue;
 
             var noButton = _ui.rootVisualElement.Q<Button>("No_button");
             noButton.text = _noString.GetLocalizedString();
-            noButton.clicked += EventBus.OnCancel;
             EventBus.OnCancel = SelectFalse;
+            noButton.clicked += SelectFalse;
 
+            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
+            {
+                _ui.rootVisualElement.Q<Label>("Z").text = "";
+                _ui.rootVisualElement.Q<Label>("X").text = "";
+            }
+            
             _text = text;
             
             if (_coroutine != null)

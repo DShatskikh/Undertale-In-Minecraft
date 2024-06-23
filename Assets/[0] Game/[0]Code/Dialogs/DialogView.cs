@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using RimuruDev;
+using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
@@ -16,6 +18,9 @@ namespace Game
         {
             _icon = _UI.rootVisualElement.Q<VisualElement>("Icon");
             _label = _UI.rootVisualElement.Q<Label>("Label");
+            
+            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
+                _UI.rootVisualElement.Q<Label>("Z").text = "";
         }
 
         public void SetIcon(Sprite icon)

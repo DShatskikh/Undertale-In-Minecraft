@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 namespace Game
@@ -20,28 +21,31 @@ namespace Game
         private void Start()
         {
             _slider.onValueChanged.AddListener(ChangeValue);
-            
+         
+            _localizedString.Arguments = new List<object>() { (int)(_slider.value * 100) };
+            _localizedString.StringChanged += UpdateText;
+
             _slider.value = GameData.Volume;
             ChangeValue(GameData.Volume);
-            UpdateText();
         }
 
         private void OnDestroy()
         {
             _slider.onValueChanged.RemoveListener(ChangeValue);
+            _localizedString.StringChanged -= UpdateText;
         }
 
         private void ChangeValue(float value)
         {
             GameData.Volume = value;
             GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, value));
-            UpdateText();
+            _localizedString.Arguments = new List<object>() { (int)(_slider.value * 100) };
+            _localizedString.RefreshString();
         }
 
-        private void UpdateText()
+        private void UpdateText(string text)
         {
-            _localizedString.Arguments = new List<object>() { (int)(_slider.value * 100) };
-            _text.text = _localizedString.GetLocalizedString(); //$"Звук {}%";
+            _text.text = text; //$"Звук {}%";
         }
     }
 }

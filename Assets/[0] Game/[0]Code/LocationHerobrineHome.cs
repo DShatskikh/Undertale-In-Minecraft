@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using RimuruDev;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,9 +16,9 @@ namespace Game
 
         [SerializeField] 
         private UnityEvent _event, _event2;
-
+        
         [SerializeField]
-        private GameObject _canvas;
+        private GameObject _mobileInput, _pcInput;
         
         private void OnEnable()
         {
@@ -26,15 +27,19 @@ namespace Game
 
         private IEnumerator CutScene()
         {
-            if (GameData.NumberGame > 1)
-                _canvas.SetActive(false);
-            
             yield return null;
+            
+            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
+                _mobileInput.SetActive(true);
+            else
+                _pcInput.SetActive(true);
+            
             GameData.Character.UseArea.gameObject.SetActive(false);
             GameData.Character.transform.position = _startPoint.position;
             GameData.Character.gameObject.SetActive(true);
             yield return new WaitUntil(() => Vector3.Magnitude(GameData.Character.transform.position - _startPoint.position) > 2);
             _event.Invoke();
+            
             GameData.Dialog.SetReplicas(_replicas);
             yield return new WaitUntil(() => !GameData.Dialog.gameObject.activeSelf);
             GameData.Character.enabled = true;

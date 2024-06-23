@@ -4789,6 +4789,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3784758574349484428, guid: 8ea033cfe4b7c884c85aad8859ffc1f8, type: 3}
+      propertyPath: _testDeviceType
+      value: 255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784758574349484428, guid: 8ea033cfe4b7c884c85aad8859ffc1f8, type: 3}
+      propertyPath: _deviceTypeDetector
+      value: 
+      objectReference: {fileID: 172620699448230241}
     - target: {fileID: 3788015507531524912, guid: 8ea033cfe4b7c884c85aad8859ffc1f8, type: 3}
       propertyPath: _localizedString.m_TableEntryReference.m_KeyId
       value: 1085717096022016
@@ -4817,11 +4825,34 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7296360270170531418, guid: 8ea033cfe4b7c884c85aad8859ffc1f8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 137945809750397721, guid: 8ea033cfe4b7c884c85aad8859ffc1f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 172620699448230241}
   m_SourcePrefab: {fileID: 100100000, guid: 8ea033cfe4b7c884c85aad8859ffc1f8, type: 3}
+--- !u!1 &172620699448230240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 137945809750397721, guid: 8ea033cfe4b7c884c85aad8859ffc1f8, type: 3}
+  m_PrefabInstance: {fileID: 172620699448230239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &172620699448230241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172620699448230240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bec60590ef942a5bd868e024ced9eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentDeviceType>k__BackingField: 0
+  enableDeviceSimulator: 1
 --- !u!222 &466126556908883357
 CanvasRenderer:
   m_ObjectHideFlags: 0
