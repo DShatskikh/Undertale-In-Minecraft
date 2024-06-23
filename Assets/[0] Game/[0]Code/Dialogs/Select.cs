@@ -3,6 +3,7 @@ using System.Collections;
 using RimuruDev;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UIElements;
 
 namespace Game
@@ -21,12 +22,45 @@ namespace Game
         [SerializeField]
         private LocalizedString _yesString, _noString;
         
-        private string _text;
+        private LocalizedString _textLocalization;
         private Coroutine _coroutine;
         private Action _yesAction;
         private Action _noAction;
+
+        private string _yesResultString;
+        private string _noResultString;
+        private string _textResultString;
         
-        public void Show(string text, Action yesAction, Action noAction)
+        private AsyncOperationHandle<string> _yesTextOperation;
+        private AsyncOperationHandle<string> _noTextOperation;
+        private AsyncOperationHandle<string> _textOperation;
+        
+        private IEnumerator Start()
+        {
+            _yesTextOperation = _yesString.GetLocalizedStringAsync();
+            
+            while (!_yesTextOperation.IsDone)
+            {
+                yield return null;
+            }
+
+            _yesResultString = _yesTextOperation.Result;
+            var yesButton = _ui.rootVisualElement.Q<Button>("Yes_button");
+            yesButton.text = _yesResultString;
+            
+            _noTextOperation = _noString.GetLocalizedStringAsync();
+            
+            while (!_noTextOperation.IsDone)
+            {
+                yield return null;
+            }
+
+            _noResultString = _noTextOperation.Result;
+            var noButton = _ui.rootVisualElement.Q<Button>("No_button");
+            noButton.text = _noResultString;
+        }
+        
+        public void Show(LocalizedString textLocalization, Action yesAction, Action noAction)
         {
             gameObject.SetActive(true);
             
@@ -39,12 +73,12 @@ namespace Game
             _noAction = noAction;
             
             var yesButton = _ui.rootVisualElement.Q<Button>("Yes_button");
-            yesButton.text = _yesString.GetLocalizedString();
+            yesButton.text = _yesResultString;
             EventBus.OnSubmit = SelectTrue;
             yesButton.clicked += SelectTrue;
 
             var noButton = _ui.rootVisualElement.Q<Button>("No_button");
-            noButton.text = _noString.GetLocalizedString();
+            noButton.text = _noResultString;
             EventBus.OnCancel = SelectFalse;
             noButton.clicked += SelectFalse;
 
@@ -54,7 +88,7 @@ namespace Game
                 _ui.rootVisualElement.Q<Label>("X").text = "";
             }
             
-            _text = text;
+            _textLocalization = textLocalization;
             
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
@@ -66,10 +100,19 @@ namespace Game
         {
             int _countSymbol = 0;
             string currentText = "";
-
-            while (_countSymbol != _text.Length)
+            
+            _textOperation = _textLocalization.GetLocalizedStringAsync();
+            
+            while (!_textOperation.IsDone)
             {
-                currentText += _text[_countSymbol];
+                yield return null;
+            }
+            
+            _textResultString = _textOperation.Result;
+            
+            while (_countSymbol != _textResultString.Length)
+            {
+                currentText += _textResultString[_countSymbol];
                 SetText(currentText);
                 _audioSource.Play();
                 yield return new WaitForSeconds(0.05f);

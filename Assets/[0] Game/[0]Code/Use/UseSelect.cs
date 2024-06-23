@@ -23,7 +23,7 @@ namespace Game
 
         public override void Use()
         {
-            GameData.Select.Show(_localizedString.GetLocalizedString(), Yes, No);
+            GameData.Select.Show(_localizedString, Yes, No);
         }
 
         private void Yes()

@@ -3,6 +3,7 @@ using Cinemachine;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace Game
 {
@@ -93,6 +94,8 @@ namespace Game
             GameData.IsNotFirstPlay = true;
             GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, GameData.Volume));
 
+            print(YandexGame.lang);
+            
             foreach (var saveLoad in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             {
                 saveLoad.Load();

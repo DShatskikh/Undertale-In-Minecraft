@@ -64,7 +64,7 @@ namespace Game
 
         [SerializeField]
         private DeviceTypeDetector _deviceTypeDetector;
-        
+
         private void Awake()
         {
             if (FindObjectsOfType<Startup>().Length > 1)

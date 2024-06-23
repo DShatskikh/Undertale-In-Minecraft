@@ -193,7 +193,7 @@ namespace Game
             YandexMetrica.Send("Wins", eventParams);
             
             _winReplica.Arguments = new List<object>() { GameData.EnemyData.EnemyConfig.WinPrize };
-            GameData.Monolog.Show(new []{ _winReplica.GetLocalizedString() });
+            GameData.Monolog.Show(new []{ _winReplica });
             EventBus.OnCloseMonolog += () =>
             {
                 _levelUpPlaySound.Play();

@@ -25,12 +25,7 @@ namespace Game
         
         public void Open()
         {
-            var texts = new string[_texts.Length];
-
-            for (int i = 0; i < texts.Length; i++) 
-                texts[i] = _localizedStrings[i].GetLocalizedString();
-
-            GameData.Monolog.Show(texts);
+            GameData.Monolog.Show(_localizedStrings);
             EventBus.OnCloseMonolog += _endEvent.Invoke;
         }
     }

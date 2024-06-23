@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UIElements;
 
 namespace Game
@@ -27,6 +29,23 @@ namespace Game
         private Coroutine _coroutine;
         private string _finallyText;
         private string _currentText;
+        
+        private string _continueText;
+        private AsyncOperationHandle<string> _continueTextOperation;
+        private AsyncOperationHandle<string> _finallyTextOperation;
+
+        private IEnumerator Start()
+        {
+            _continueTextOperation = _continueString.GetLocalizedStringAsync();
+            
+            while (!_continueTextOperation.IsDone)
+            {
+                yield return null;
+            }
+            
+            _continueText = _continueTextOperation.Result;
+            _view.SetContinueText(_continueText);
+        }
 
         public void SetReplicas(Replica[] replicas)
         {
@@ -35,8 +54,8 @@ namespace Game
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
+            _view.SetContinueText(_continueText);
             var button = _ui.rootVisualElement.Q<Button>("Next_button");
-            button.text = _continueString.GetLocalizedString();
             button.clicked += Next;
             EventBus.OnSubmit = Next;
             EventBus.OnCancel = ShowFinallyText;
@@ -81,6 +100,9 @@ namespace Game
 
         private void ShowFinallyText()
         {
+            if (!_finallyTextOperation.IsDone)
+                return;
+            
             if (_coroutine != null)
             {
                 StopCoroutine(_coroutine);
@@ -94,9 +116,17 @@ namespace Game
         
         private IEnumerator TypeText()
         {
-            int _countSymbol = 0;
-            _finallyText = _replicas[_indexReplica].LocalizationString.GetLocalizedString();
             _currentText = "";
+            int _countSymbol = 0;
+            
+            _finallyTextOperation = _replicas[_indexReplica].LocalizationString.GetLocalizedStringAsync();
+            
+            while (!_finallyTextOperation.IsDone)
+            {
+                yield return null;
+            }
+            
+            _finallyText = _finallyTextOperation.Result;
 
             while (_countSymbol != _finallyText.Length)
             {
@@ -120,7 +150,7 @@ namespace Game
         private void UpdateView()
         {
             var replica = _replicas[_indexReplica];
-            _view.SetText(replica.LocalizationString.GetLocalizedString());
+            _view.SetText("");
             _view.SetIcon(replica.Icon);
         }
 

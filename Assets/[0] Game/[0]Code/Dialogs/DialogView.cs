@@ -34,5 +34,11 @@ namespace Game
         {
             _label.text = text;
         }
+
+        public void SetContinueText(string text)
+        {
+            var button = _UI.rootVisualElement.Q<Button>("Next_button");
+            button.text = text;
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Game
 {
@@ -21,6 +22,8 @@ namespace Game
         private AudioSource _audioSource;
 
         private Coroutine _coroutine;
+        private AsyncOperationHandle<string> _operation;
+        private string _resultText = string.Empty;
 
         public string GetText => _text;
         public LocalizedString SetLocalizationString
@@ -40,25 +43,34 @@ namespace Game
 
         private void ShowAllText()
         {
+            if (!_operation.IsDone)
+                return;
+            
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
-            _label.text = _localizationString.GetLocalizedString();
+            _label.text = _resultText;
         }
         
         private IEnumerator TypingProcess()
         {
             _label.text = "";
-
+            _operation = _localizationString.GetLocalizedStringAsync();
+            
             var currentText = "";
             int _countSymbol = 0;
 
-            var text = _localizationString.GetLocalizedString();
-            var length = text.Length;
+            while (!_operation.IsDone)
+            {
+                yield return null;
+            }
+            
+            _resultText = _operation.Result;
+            var length = _resultText.Length;
             
             while (_countSymbol != length)
             {
-                currentText += text[_countSymbol];
+                currentText += _resultText[_countSymbol];
                 _audioSource.Play();
                 _label.text = currentText;
 

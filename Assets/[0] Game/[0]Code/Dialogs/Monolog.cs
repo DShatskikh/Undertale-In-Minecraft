@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using RimuruDev;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UIElements;
 
 namespace Game
@@ -22,12 +22,29 @@ namespace Game
         private LocalizedString _continueString;
         
         private int _index;
-        private string[] _texts;
+        private LocalizedString[] _texts;
         private Coroutine _coroutine;
         private string _finallyText;
         private string _currentText;
 
-        public void Show(string[] texts)
+        private string _continueText;
+        private AsyncOperationHandle<string> _continueTextOperation;
+        private AsyncOperationHandle<string> _finallyTextOperation;
+        
+        private IEnumerator Start()
+        {
+            _continueTextOperation = _continueString.GetLocalizedStringAsync();
+            
+            while (!_continueTextOperation.IsDone)
+            {
+                yield return null;
+            }
+            
+            _continueText = _continueTextOperation.Result;
+            SetContinueText(_continueText);
+        }
+
+        public void Show(LocalizedString[] texts)
         {
             gameObject.SetActive(true);
             
@@ -36,7 +53,7 @@ namespace Game
             
             GameData.Character.enabled = false;
             var button = _ui.rootVisualElement.Q<Button>("Next_button");
-            button.text = _continueString.GetLocalizedString();
+            SetContinueText(_continueText);
             button.clicked += Next;
             EventBus.OnSubmit = Next;
             EventBus.OnCancel = ShowFinallyText;
@@ -54,7 +71,16 @@ namespace Game
         private IEnumerator TypeText()
         {
             int _countSymbol = 0;
-            _finallyText = _texts[_index];
+            
+            _finallyTextOperation = _texts[_index].GetLocalizedStringAsync();
+            
+            while (!_finallyTextOperation.IsDone)
+            {
+                yield return null;
+            }
+            
+            _finallyText = _finallyTextOperation.Result;
+            
             _currentText = "";
 
             while (_countSymbol != _finallyText.Length)
@@ -102,6 +128,9 @@ namespace Game
 
         private void ShowFinallyText()
         {
+            if (!_finallyTextOperation.IsDone)
+                return;
+            
             if (_coroutine != null)
             {
                 StopCoroutine(_coroutine);
@@ -112,7 +141,7 @@ namespace Game
             SetText(_finallyText);
             print("ShowFinallyText");
         }
-        
+
         private void Close()
         {
             EventBus.OnSubmit = null;
@@ -127,6 +156,12 @@ namespace Game
         {
             var label = _ui.rootVisualElement.Q<Label>("Label");
             label.text = text;
+        }
+
+        private void SetContinueText(string text)
+        {
+            var button = _ui.rootVisualElement.Q<Button>("Next_button");
+            button.text = text;
         }
     }
 }

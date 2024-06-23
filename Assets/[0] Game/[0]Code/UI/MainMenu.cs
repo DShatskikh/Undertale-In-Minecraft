@@ -41,9 +41,6 @@ namespace Game
         [SerializeField]
         private GameObject _palesos;
 
-        [SerializeField]
-        private GameObject _darkScreen;
-        
         private void Awake()
         {
             _menu.SetActive(false);
@@ -51,19 +48,21 @@ namespace Game
 
         private IEnumerator Start()
         {
+            print(YandexGame.lang);
+                
+            yield return LocalizationSettings.InitializationOperation;
+
+            if (YandexGame.lang == "en")
+            {
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
+                yield return LocalizationSettings.InitializationOperation;  
+            }
+            
             if (!GameData.IsNotFirstPlay)
             {
                 GameData.IsNotFirstPlay = true;
                 GameData.Volume = 1;
                 PlayerPrefs.SetFloat("Volume", GameData.Volume);
-                
-                yield return LocalizationSettings.InitializationOperation;
-            
-                if (YandexGame.lang == "en")
-                    LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
-                
-                yield return LocalizationSettings.InitializationOperation;
-                
                 SceneManager.LoadScene(1);
             }
             else
