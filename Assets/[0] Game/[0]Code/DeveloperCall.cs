@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -42,7 +43,7 @@ namespace Game
                 yield return new WaitUntil(() => !GameData.Monolog.gameObject.activeSelf);
             }
 
-            if (GameData.Palesos == 3)
+            if (YandexGame.savesData.Palesos == 3)
             {
                 yield return new WaitForSeconds(2);
                 _call.Use();
@@ -50,7 +51,7 @@ namespace Game
                 yield return new WaitUntil(() => !GameData.Monolog.gameObject.activeSelf);
                 
                 _palesos.Use();
-                GameData.Palesos += 1;
+                YandexGame.savesData.Palesos += 1;
                 
                 yield return new WaitUntil(() => !GameData.Dialog.gameObject.activeSelf);
             }
@@ -63,9 +64,9 @@ namespace Game
         {
             if (GameData.CurrentEnd == End.Strange)
             {
-                GameData.IsDeveloperKey = true;
+                YandexGame.savesData.IsDeveloperKey = true;
                 
-                if (GameData.IsBadEnd && GameData.IsGoodEnd)
+                if (YandexGame.savesData.IsBadEnd && YandexGame.savesData.IsGoodEnd)
                     end = _strange;
                 else
                     end = _strange_notConditions;
@@ -73,19 +74,19 @@ namespace Game
                 return true;
             }
 
-            if (GameData.CurrentEnd == End.Good && !GameData.IsBadEnd)
+            if (GameData.CurrentEnd == End.Good && !YandexGame.savesData.IsBadEnd)
             {
                 end = _good_first;
                 return true;
             }
 
-            if (GameData.CurrentEnd == End.Bad && !GameData.IsGoodEnd)
+            if (GameData.CurrentEnd == End.Bad && !YandexGame.savesData.IsGoodEnd)
             {
                 end = _bad_first;
                 return true;
             }
 
-            if (!GameData.IsStrangeEnd)
+            if (!YandexGame.savesData.IsStrangeEnd)
             {
                 end = _badAndGood_strangeConditions;
                 return true;

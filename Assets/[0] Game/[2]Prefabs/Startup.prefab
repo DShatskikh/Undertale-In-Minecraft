@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 291866108466213962}
   - component: {fileID: 3784758574349484428}
-  - component: {fileID: 7385056334497767732}
+  - component: {fileID: 3114450107808566579}
   m_Layer: 0
   m_Name: Startup
   m_TagString: Untagged
@@ -64,13 +64,14 @@ MonoBehaviour:
   _isGoodEnd: 0
   _isBadEnd: 0
   _isStrangeEnd: 0
-  _isNotIntroduction: 0
+  _isNotIntroduction: 1
   _testDeviceType: 255
   _mixer: {fileID: 24300002, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
   _effectAudioSource: {fileID: 1436111887442314858}
   _musicAudioSource: {fileID: 6713232609774389252}
-  _deviceTypeDetector: {fileID: 7385056334497767732}
---- !u!114 &7385056334497767732
+  _deviceTypeDetector: {fileID: 3114450107808566579}
+  _volumeSlider: {fileID: 3788015507531524912}
+--- !u!114 &3114450107808566579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -601,9 +602,9 @@ MonoBehaviour:
   _text: {fileID: 6924972422998443255}
   _localizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:21dde290d06ca3e4a8cf0b109b41d83e
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 1085717096022016
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -968,7 +969,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
-  m_audioClip: {fileID: 8300000, guid: cd01c4a085ce19b4d9b0db80ad3ae3ec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6def673554d89114cb300ef15827e6f9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1138,7 +1139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114689057623555238, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: m_Size
-      value: 1
+      value: 0.96943974
       objectReference: {fileID: 0}
     - target: {fileID: 143246068027918357, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1170,7 +1171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224005418473288314, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.96943974
       objectReference: {fileID: 0}
     - target: {fileID: 224091110387865490, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: m_AnchorMax.y

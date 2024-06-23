@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Analytics;
+using YG;
 
 namespace Game
 {
@@ -62,16 +63,16 @@ namespace Game
 
         private IEnumerator TakeDamage()
         {
-            GameData.Health -= GameData.EnemyData.EnemyConfig.Attack;
+            YandexGame.savesData.Health -= GameData.EnemyData.EnemyConfig.Attack;
             EventBus.OnDamage?.Invoke(1);
-            EventBus.OnHealthChange?.Invoke(GameData.MaxHealth, GameData.Health);
+            EventBus.OnHealthChange?.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
             _damageSource.Play();
             _shield.gameObject.SetActive(false);
             yield return new WaitForSeconds(1);
             _shield.gameObject.SetActive(true);
             _isInvulnerability = false;
             
-            if (GameData.Health <= 0 && !GameData.IsCheat)
+            if (YandexGame.savesData.Health <= 0 && !YandexGame.savesData.IsCheat)
                 Death();
         }
 

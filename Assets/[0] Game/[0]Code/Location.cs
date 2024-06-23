@@ -2,6 +2,7 @@
 using Super_Auto_Mobs;
 using UnityEngine;
 using UnityEngine.Analytics;
+using YG;
 
 namespace Game
 {
@@ -12,7 +13,7 @@ namespace Game
         
         private void OnEnable()
         {
-            GameData.LocationIndex = _index;
+            YandexGame.savesData.LocationIndex = _index;
             GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
             Analytics.CustomEvent("Location " + gameObject.name);
         }

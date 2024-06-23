@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace Game
 {
@@ -16,7 +17,7 @@ namespace Game
         private void OnEnable()
         {
             EventBus.OnHealthChange += UpdateHealthView;
-            UpdateHealthView(GameData.MaxHealth,GameData.Health);
+            UpdateHealthView(YandexGame.savesData.MaxHealth,YandexGame.savesData.Health);
         }
 
         private void OnDisable()

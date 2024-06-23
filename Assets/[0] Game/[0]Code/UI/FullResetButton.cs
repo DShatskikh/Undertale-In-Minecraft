@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 
 namespace Game
 {
@@ -21,8 +22,7 @@ namespace Game
 
         private void OnClick()
         {
-            PlayerPrefs.DeleteAll();
-            SceneManager.LoadScene(0);
+            YandexGame.savesData.FullReset();
         }
     }
 }

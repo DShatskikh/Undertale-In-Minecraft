@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -6,7 +7,7 @@ namespace Game
     {
         public override void Use()
         {
-            GameData.IsPrisonKey = true;
+            YandexGame.savesData.IsPrisonKey = true;
         }
     }
 }

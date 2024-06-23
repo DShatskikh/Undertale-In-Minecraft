@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace Game
 {
-#if UNITY_EDITOR
     public class Tools : MonoBehaviour
     {
+#if UNITY_EDITOR
         [SerializeField]
         private GameObject[] _locations;
 
@@ -17,7 +18,7 @@ namespace Game
 
         [SerializeField]
         private Character _character;
-
+        
         [ContextMenu("Сброс в состояние билда")]
         private void BuildState()
         {
@@ -82,7 +83,10 @@ namespace Game
             {
                 saver.Reset();
             }
+            
+            GameData.Saver.Reset();
+            SceneManager.LoadScene(0);
         }
-    }
 #endif
+    }
 }

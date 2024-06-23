@@ -1,10 +1,12 @@
-﻿namespace Game
+﻿using YG;
+
+namespace Game
 {
     public class AddNotCapturedWorld : AddBase
     {
         public override void Use()
         {
-            GameData.IsNotCapturedWorld = true;
+            YandexGame.savesData.IsNotCapturedWorld = true;
         }
     }
 }

@@ -1,10 +1,12 @@
-﻿namespace Game
+﻿using YG;
+
+namespace Game
 {
     public class BranchActionGoodEnd : BranchActionBase
     {
         public override bool IsTrue()
         {
-            return GameData.IsGoodEnd;
+            return YandexGame.savesData.IsGoodEnd;
         }
     }
 }

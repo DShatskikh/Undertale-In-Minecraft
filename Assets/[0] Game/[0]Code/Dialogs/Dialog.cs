@@ -50,6 +50,7 @@ namespace Game
         public void SetReplicas(Replica[] replicas)
         {
             gameObject.SetActive(true);
+            GameData.ToMenuButton.gameObject.SetActive(false);
             
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
@@ -157,6 +158,7 @@ namespace Game
         private void Close()
         {
             print("Close");
+            GameData.ToMenuButton.gameObject.SetActive(true);
             EventBus.OnSubmit = null;
             EventBus.OnCancel = null;
             GameData.Character.enabled = true;

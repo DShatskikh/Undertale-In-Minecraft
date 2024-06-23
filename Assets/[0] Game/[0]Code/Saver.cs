@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -7,65 +8,20 @@ namespace Game
         public void Save()
         {
             SavePlayerPosition();
-            
-            PlayerPrefs.SetInt("MaxHealth", GameData.MaxHealth);
-            PlayerPrefs.SetInt("Palesos", GameData.Palesos);
-            PlayerPrefs.SetInt("LocationIndex", GameData.LocationIndex);
-            PlayerPrefs.SetInt("AdsViews", GameData.AdsViews);
-            PlayerPrefs.SetInt("NumberGame", GameData.NumberGame);
-            
-            PlayerPrefs.SetFloat("Volume", GameData.Volume);
-
-            SetBool("IsNotFirstPlay", GameData.IsNotFirstPlay);
-            SetBool("IsTutorial", GameData.IsTutorialComplited);
-            SetBool("IsCheat", GameData.IsCheat);
-            SetBool("IsPrisonKey", GameData.IsPrisonKey);
-            SetBool("IsGoldKey", GameData.IsGoldKey);
-            SetBool("IsDeveloperKey", GameData.IsDeveloperKey);
-            SetBool("IsSpeakHerobrine", GameData.IsSpeakHerobrine);
-            SetBool("IsCapturedWorld", GameData.IsCapturedWorld);
-            SetBool("IsNotCapturedWorld", GameData.IsNotCapturedWorld);
-            SetBool("IsHat", GameData.IsHat);
-            SetBool("IsGoodEnd", GameData.IsGoodEnd);
-            SetBool("IsBadEnd", GameData.IsBadEnd);
-            SetBool("IsStrangeEnd", GameData.IsStrangeEnd);
-            SetBool("IsNotIntroduction", GameData.IsNotIntroduction);
-
+            YandexGame.SaveProgress();
             Debug.Log("Игра сохранена");
         }
 
         public void Load()
         {
-            GameData.MaxHealth = PlayerPrefs.GetInt("MaxHealth", 20);
-            GameData.Palesos = PlayerPrefs.GetInt("Palesos");
-            GameData.LocationIndex = PlayerPrefs.GetInt("LocationIndex");
-            GameData.AdsViews = PlayerPrefs.GetInt("AdsViews");
-            GameData.NumberGame = PlayerPrefs.GetInt("NumberGame", 1);
-            
-            GameData.Volume = PlayerPrefs.GetFloat("Volume", 1f);
-            
-            GameData.IsHat = GetBool("IsHat");
-            GameData.IsTutorialComplited = GetBool("IsTutorial");
-            GameData.IsNotFirstPlay = GetBool("IsNotFirstPlay");
-            GameData.IsCheat = GetBool("IsCheat");
-            GameData.IsPrisonKey = GetBool("IsPrisonKey");
-            GameData.IsGoldKey = GetBool("IsGoldKey");
-            GameData.IsDeveloperKey = GetBool("IsDeveloperKey");
-            GameData.IsSpeakHerobrine = GetBool("IsSpeakHerobrine");
-            GameData.IsCapturedWorld = GetBool("IsCapturedWorld");
-            GameData.IsNotCapturedWorld = GetBool("IsNotCapturedWorld");
-            GameData.IsGoodEnd = GetBool("IsGoodEnd");
-            GameData.IsBadEnd = GetBool("IsBadEnd");
-            GameData.IsStrangeEnd = GetBool("IsStrangeEnd");
-            GameData.IsNotIntroduction = GetBool("IsNotIntroduction");
-            
+            YandexGame.LoadProgress();
             Debug.Log("Игра загруженна");
         }
 
         private void SavePosition(Vector2 value)
         {
-            PlayerPrefs.SetFloat("PositionX", value.x);
-            PlayerPrefs.SetFloat("PositionY", value.y);
+            YandexGame.savesData.PositionX = value.x;
+            YandexGame.savesData.PositionY = value.y;
             
             Debug.Log("Позиция сохранена");
         }
@@ -73,33 +29,27 @@ namespace Game
         public Vector2 LoadPosition()
         {
             Debug.Log("Позиция загруженна");
-            return new Vector2(PlayerPrefs.GetFloat("PositionX"), PlayerPrefs.GetFloat("PositionY"));
-        }
-
-        private bool GetBool(string key)
-        {
-            return PlayerPrefs.GetInt(key) == 1;
-        }
-
-        public void SetBool(string key, bool value)
-        {
-            PlayerPrefs.SetInt(key, value ? 1 : 0);
+            return new Vector2(YandexGame.savesData.PositionX, YandexGame.savesData.PositionY);
         }
 
         public void Reset()
         {
-            PlayerPrefs.SetInt("MaxHealth", 20);
-            PlayerPrefs.SetInt("LocationIndex", 0);
-            PlayerPrefs.SetInt("NumberGame", GameData.NumberGame + 1);
+            YandexGame.savesData.ResetAllIntPair();
+            
+            YandexGame.savesData.MaxHealth = 20;
+            YandexGame.savesData.LocationIndex = 0;
+            YandexGame.savesData.NumberGame += 1;
 
-            SetBool("IsHat", false);
-            SetBool("IsNotIntroduction", false);
-            SetBool("IsCheat", false);
-            SetBool("IsPrisonKey", false);
-            SetBool("IsDeveloperKey", false);
-            SetBool("IsSpeakHerobrine", false);
-            SetBool("IsCapturedWorld", false);
-            SetBool("IsNotCapturedWorld", false);
+            YandexGame.savesData.IsHat = false;
+            YandexGame.savesData.IsNotIntroduction = false;
+            YandexGame.savesData.IsCheat = false;
+            YandexGame.savesData.IsPrisonKey = false;
+            YandexGame.savesData.IsDeveloperKey = false;
+            YandexGame.savesData.IsSpeakHerobrine = false;
+            YandexGame.savesData.IsCapturedWorld = false;
+            YandexGame.savesData.IsNotCapturedWorld = false;
+            
+            YandexGame.SaveProgress();
         }
 
         public void SavePlayerPosition()

@@ -1,10 +1,12 @@
-﻿namespace Game
+﻿using YG;
+
+namespace Game
 {
     public class AddPalesos : AddBase
     {
         public override void Use()
         {
-            GameData.Palesos += 1;
+            YandexGame.savesData.Palesos += 1;
         }
     }
 }

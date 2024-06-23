@@ -1,6 +1,7 @@
 ﻿using System;
 using Super_Auto_Mobs;
 using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -20,8 +21,8 @@ namespace Game
 
         private void Start()
         {
-            HatShowAndHide(GameData.IsHat);
-            MaskShowAndHide(GameData.IsCheat);
+            HatShowAndHide(YandexGame.savesData.IsHat);
+            MaskShowAndHide(YandexGame.savesData.IsCheat);
         }
 
         private void Update()

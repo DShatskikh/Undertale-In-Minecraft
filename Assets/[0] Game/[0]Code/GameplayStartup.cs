@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections;
+using System.Linq;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
@@ -91,17 +93,14 @@ namespace Game
 
         private void Start()
         {
-            GameData.IsNotFirstPlay = true;
-            GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, GameData.Volume));
+            GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, YandexGame.savesData.Volume));
 
-            print(YandexGame.lang);
-            
             foreach (var saveLoad in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             {
                 saveLoad.Load();
             }
-            
-            if (!GameData.IsNotIntroduction)
+
+            if (!YandexGame.savesData.IsNotIntroduction)
             {
                 _introduction.SetActive(true);
             }
@@ -113,7 +112,7 @@ namespace Game
                 GameData.Character.enabled = true;
                 GameData.Character.gameObject.SetActive(true);
                 GameData.Character.transform.position = GameData.Saver.LoadPosition();
-                GameData.Locations.ToArray()[GameData.LocationIndex].gameObject.SetActive(true);
+                GameData.Locations.ToArray()[YandexGame.savesData.LocationIndex].gameObject.SetActive(true);
                 GameData.ToMenuButton.gameObject.SetActive(true);
             }
         }

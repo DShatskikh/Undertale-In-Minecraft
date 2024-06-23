@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -9,7 +10,7 @@ namespace Game
 
         public override bool IsTrue()
         {
-            return GameData.Palesos == _value;
+            return YandexGame.savesData.Palesos == _value;
         }
     }
 }

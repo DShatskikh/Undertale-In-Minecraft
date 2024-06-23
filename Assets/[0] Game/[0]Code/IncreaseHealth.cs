@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -9,8 +10,8 @@ namespace Game
         
         public void Increase()
         {
-            GameData.MaxHealth += _value;
-            GameData.Health = GameData.MaxHealth;
+            YandexGame.savesData.MaxHealth += _value;
+            YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
         }
     }
 }

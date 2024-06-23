@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -12,7 +13,7 @@ namespace Game
         
         private void Start()
         {
-            _spriteRenderer.sprite = (GameData.NumberGame % 4) switch
+            _spriteRenderer.sprite = (YandexGame.savesData.NumberGame % 4) switch
             {
                 2 => _sprites[0],
                 3 => _sprites[1],

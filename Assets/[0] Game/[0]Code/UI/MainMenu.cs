@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
@@ -46,10 +47,14 @@ namespace Game
             _menu.SetActive(false);
         }
 
+        /*private void Update()
+        {
+            if (Input.GetButtonDown("Cancel"))
+                YandexGame.ResetSaveProgress();
+        }*/
+
         private IEnumerator Start()
         {
-            print(YandexGame.lang);
-                
             yield return LocalizationSettings.InitializationOperation;
 
             if (YandexGame.lang == "en")
@@ -57,19 +62,22 @@ namespace Game
                 LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
                 yield return LocalizationSettings.InitializationOperation;  
             }
+
+            yield return new WaitUntil(() => GameData.IsLoad);
             
-            if (!GameData.IsNotFirstPlay)
+            if (!YandexGame.savesData.IsNotFirstPlay)
             {
-                GameData.IsNotFirstPlay = true;
-                GameData.Volume = 1;
-                PlayerPrefs.SetFloat("Volume", GameData.Volume);
+                print("IsNotFirstPlay False");
+                YandexGame.savesData.IsNotFirstPlay = true;
+                YandexGame.SaveProgress();
+                //yield return new WaitUntil(() => Input.GetButtonDown("Submit"));
                 SceneManager.LoadScene(1);
             }
             else
             {
                 _menu.SetActive(true);
 
-                if (!GameData.IsNotIntroduction)
+                if (!YandexGame.savesData.IsNotIntroduction)
                 {
                     _notGamePreset.SetActive(true);
                     _continuePreset.SetActive(false);
@@ -80,28 +88,32 @@ namespace Game
                     _continuePreset.SetActive(true);
                 }
 
-                if (GameData.IsGoodEnd && GameData.IsBadEnd) 
+                if (YandexGame.savesData.IsGoodEnd && YandexGame.savesData.IsBadEnd) 
                     _guide.SetActive(true);
 
-                if (GameData.IsGoldKey)
+                if (YandexGame.savesData.IsStrangeEnd)
                 {
                     _strangeEnd.SetActive(true);
+                }
+
+                if (YandexGame.savesData.IsGoldKey)
+                {
                     _fullReset.SetActive(true);
                 }
                 
-                if (GameData.IsHat) 
+                if (YandexGame.savesData.IsHat) 
                     _cake.SetActive(true);
                 
-                if (GameData.IsCheat) 
+                if (YandexGame.savesData.IsCheat) 
                     _mask.SetActive(true);
                 
-                if (GameData.IsBadEnd) 
+                if (YandexGame.savesData.IsBadEnd) 
                     _badEnd.SetActive(true);
                 
-                if (GameData.IsGoodEnd) 
+                if (YandexGame.savesData.IsGoodEnd) 
                     _goodEnd.SetActive(true);
                 
-                if (GameData.Palesos != 0)
+                if (YandexGame.savesData.Palesos != 0)
                     _palesos.SetActive(true);
             }
         }

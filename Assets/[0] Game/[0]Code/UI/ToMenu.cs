@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 namespace Game
 {
@@ -12,6 +13,7 @@ namespace Game
 
         private void Load()
         {
+            YandexGame.SaveProgress();
             SceneManager.LoadScene(0);
         }
     }

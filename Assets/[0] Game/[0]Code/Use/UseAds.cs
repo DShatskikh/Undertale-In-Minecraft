@@ -13,7 +13,7 @@ namespace Game
         {
             YandexGame.RewardVideoEvent += RewardVideoEvent;
             YandexGame.RewVideoShow(1);
-            GameData.AdsViews += 1;
+            YandexGame.savesData.AdsViews += 1;
         }
 
         private void RewardVideoEvent(int obj)

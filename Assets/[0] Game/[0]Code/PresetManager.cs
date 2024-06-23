@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -10,7 +11,7 @@ namespace Game
 
         private void Start()
         {
-            if (GameData.IsBadEnd && GameData.IsGoodEnd && !GameData.IsStrangeEnd) 
+            if (YandexGame.savesData.IsBadEnd && YandexGame.savesData.IsGoodEnd && !YandexGame.savesData.IsStrangeEnd) 
                 _presets[1].SetActive(true);
             else
                 _presets[0].SetActive(true);

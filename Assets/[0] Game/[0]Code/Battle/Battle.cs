@@ -61,6 +61,7 @@ namespace Game
         {
             _previousSound = GameData.MusicAudioSource.clip;
             GameData.TimerBeforeAdsYG.gameObject.SetActive(false);
+            GameData.ToMenuButton.gameObject.SetActive(false);
             
             gameObject.SetActive(true);
 
@@ -79,8 +80,8 @@ namespace Game
             character.GetComponent<Collider2D>().isTrigger = true;
             character.View.Flip(false);
             
-            GameData.Health = GameData.MaxHealth;
-            EventBus.OnHealthChange.Invoke(GameData.MaxHealth, GameData.Health);
+            YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
+            EventBus.OnHealthChange.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
             
             GameData.BattleProgress = 0;
             EventBus.OnBattleProgressChange?.Invoke(0);
@@ -107,8 +108,8 @@ namespace Game
             {
                 GameData.Arena.SetActive(true);
                 yield return new WaitForSeconds(0.5f);
-                _attack = Instantiate(GameData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial, transform);
-                GameData.IsTutorialComplited = true;
+                _attack = Instantiate(YandexGame.savesData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial, transform);
+                YandexGame.savesData.IsTutorialComplited = true;
                 yield return new WaitForSeconds(10);
                 Destroy(_attack.gameObject);
                 _attackIndex++;
@@ -198,11 +199,12 @@ namespace Game
             {
                 _levelUpPlaySound.Play();
                 
-                GameData.MaxHealth += GameData.EnemyData.EnemyConfig.WinPrize;
+                YandexGame.savesData.MaxHealth += GameData.EnemyData.EnemyConfig.WinPrize;
                 EventBus.OnPlayerWin.Invoke(GameData.EnemyData.EnemyConfig);
                 EventBus.OnPlayerWin = null;
                 GameData.Saver.Save();
                 GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
+                GameData.ToMenuButton.gameObject.SetActive(true);
             };
         }
 

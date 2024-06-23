@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using YG;
 
 namespace Game
 {
@@ -15,7 +16,7 @@ namespace Game
         
         public override void Use()
         {
-            _replica.LocalizationString.Arguments = new object[] { StartView - GameData.AdsViews };
+            _replica.LocalizationString.Arguments = new object[] { StartView - YandexGame.savesData.AdsViews };
             GameData.Dialog.SetReplicas(new[] {_replica});
             EventBus.OnCloseDialog += _endEvent.Invoke;
         }

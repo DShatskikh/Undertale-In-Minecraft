@@ -1,10 +1,12 @@
-﻿namespace Game
+﻿using YG;
+
+namespace Game
 {
     public class BranchActionSpeakHerobrine : BranchActionBase
     {
         public override bool IsTrue()
         {
-            return GameData.IsSpeakHerobrine;
+            return YandexGame.savesData.IsSpeakHerobrine;
         }
     }
 }

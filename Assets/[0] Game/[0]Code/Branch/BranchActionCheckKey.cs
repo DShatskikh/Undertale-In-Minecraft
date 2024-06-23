@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using YG;
 
 namespace Game
 {
@@ -8,7 +9,7 @@ namespace Game
     {
         public override bool IsTrue()
         {
-            return GameData.IsPrisonKey;
+            return YandexGame.savesData.IsPrisonKey;
         }
     }
 }

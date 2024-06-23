@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using YG;
 
 namespace Game
 {
@@ -7,7 +8,7 @@ namespace Game
     {
         public override bool IsTrue()
         {
-            return GameData.IsGoldKey;
+            return YandexGame.savesData.IsGoldKey;
         }
     }
 }

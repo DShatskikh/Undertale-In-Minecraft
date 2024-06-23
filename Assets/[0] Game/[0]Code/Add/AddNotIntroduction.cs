@@ -1,10 +1,12 @@
-﻿namespace Game
+﻿using YG;
+
+namespace Game
 {
     public class AddNotIntroduction : AddBase
     {
         public override void Use()
         {
-            GameData.IsNotIntroduction = true;
+            YandexGame.savesData.IsNotIntroduction = true;
         }
     }
 }

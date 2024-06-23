@@ -1,6 +1,8 @@
-﻿using RimuruDev;
+﻿using System;
+using RimuruDev;
 using UnityEngine;
 using UnityEngine.Audio;
+using YG;
 
 namespace Game
 {
@@ -65,34 +67,42 @@ namespace Game
         [SerializeField]
         private DeviceTypeDetector _deviceTypeDetector;
 
+        [SerializeField]
+        private VolumeSlider _volumeSlider;
+        
         private void Awake()
         {
             if (FindObjectsOfType<Startup>().Length > 1)
+            {
                 Destroy(gameObject);
-            else
-                DontDestroyOnLoad(gameObject);
+                return;
+            }
+
+            DontDestroyOnLoad(gameObject);
 
             GameData.DeviceType = _deviceTypeDetector.CurrentDeviceType;
+            
+            YandexGame.GetDataEvent += () => GameData.IsLoad = true;
             GameData.Saver = new Saver();
             
 #if UNITY_EDITOR
             if (_isNotLoad)
             {
-                GameData.MaxHealth = _startHealth;
-                GameData.IsCheat = _isCheat;
-                GameData.IsPrisonKey = _isPrisonKey;
-                GameData.IsGoldKey = _isGoldKey;
-                GameData.IsDeveloperKey = _isDeveloperKey;
-                GameData.IsSpeakHerobrine = _isSpeakHerobrine;
-                GameData.IsCapturedWorld = _isCapturedWorld;
-                GameData.IsNotCapturedWorld = _isNotCapturedWorld;
-                GameData.IsHat = _isHat;
-                GameData.Palesos = _palesos;
-                GameData.IsGoodEnd = _isGoodEnd;
-                GameData.IsBadEnd = _isBadEnd;
-                GameData.IsStrangeEnd = _isStrangeEnd;
-                GameData.IsNotIntroduction = _isNotIntroduction;
-                GameData.Volume = 1f;
+                YandexGame.savesData.MaxHealth = _startHealth;
+                YandexGame.savesData.IsCheat = _isCheat;
+                YandexGame.savesData.IsPrisonKey = _isPrisonKey;
+                YandexGame.savesData.IsGoldKey = _isGoldKey;
+                YandexGame.savesData.IsDeveloperKey = _isDeveloperKey;
+                YandexGame.savesData.IsSpeakHerobrine = _isSpeakHerobrine;
+                YandexGame.savesData.IsCapturedWorld = _isCapturedWorld;
+                YandexGame.savesData.IsNotCapturedWorld = _isNotCapturedWorld;
+                YandexGame.savesData.IsHat = _isHat;
+                YandexGame.savesData.Palesos = _palesos;
+                YandexGame.savesData.IsGoodEnd = _isGoodEnd;
+                YandexGame.savesData.IsBadEnd = _isBadEnd;
+                YandexGame.savesData.IsStrangeEnd = _isStrangeEnd;
+                YandexGame.savesData.IsNotIntroduction = _isNotIntroduction;
+                YandexGame.savesData.Volume = 1f;
 
                 GameData.DeviceType = _testDeviceType;
                 
@@ -109,14 +119,20 @@ namespace Game
             GameData.EffectAudioSource = _effectAudioSource;
             GameData.MusicAudioSource = _musicAudioSource;
             GameData.Mixer = _mixer;
+            GameData.VolumeSlider = _volumeSlider;
             
-            GameData.Health = GameData.MaxHealth;
+            YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
             Application.targetFrameRate = 60;
             
 #if UNITY_EDITOR
             if (_isNotLoad)
                 return;
 #endif
+        }
+
+        private void OnDestroy()
+        {
+            YandexGame.GetDataEvent -= () => GameData.IsLoad = true;
         }
     }
 }

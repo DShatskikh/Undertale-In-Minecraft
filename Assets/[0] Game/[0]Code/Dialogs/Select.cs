@@ -63,6 +63,7 @@ namespace Game
         public void Show(LocalizedString textLocalization, Action yesAction, Action noAction)
         {
             gameObject.SetActive(true);
+            GameData.ToMenuButton.gameObject.SetActive(false);
             
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
@@ -138,6 +139,7 @@ namespace Game
         
         private void Close()
         {
+            GameData.ToMenuButton.gameObject.SetActive(true);
             GameData.EffectAudioSource.clip = _clickSound;
             GameData.EffectAudioSource.Play();
             gameObject.SetActive(false);

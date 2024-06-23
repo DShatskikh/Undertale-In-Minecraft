@@ -1,10 +1,12 @@
-﻿namespace Game
+﻿using YG;
+
+namespace Game
 {
     public class AddBadEnd : AddBase
     {
         public override void Use()
         {
-            GameData.IsBadEnd = true;
+            YandexGame.savesData.IsBadEnd = true;
             GameData.CurrentEnd = End.Bad;
         }
     }

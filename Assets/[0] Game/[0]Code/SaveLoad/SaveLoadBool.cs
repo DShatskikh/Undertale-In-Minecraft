@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using YG;
 
 namespace Game
 {
@@ -13,7 +14,7 @@ namespace Game
 
         public void Save(bool isValue)
         {
-            PlayerPrefs.SetInt(_key, isValue ? 1 : 0);
+            YandexGame.savesData.SetInt(_key, isValue ? 1 : 0);
             _isValue = isValue;
             
             GameData.Saver.SavePlayerPosition();
@@ -21,7 +22,7 @@ namespace Game
 
         public override void Load()
         {
-            _isValue = PlayerPrefs.GetInt(_key) == 1;
+            _isValue = YandexGame.savesData.GetInt(_key) == 1;
 
             if (_isValue)
                 _trueEvent.Invoke();

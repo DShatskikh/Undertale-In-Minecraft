@@ -1,10 +1,12 @@
-﻿namespace Game
+﻿using YG;
+
+namespace Game
 {
     public class AddStrangeEnd : AddBase
     {
         public override void Use()
         {
-            GameData.IsStrangeEnd = true;
+            YandexGame.savesData.IsStrangeEnd = true;
             GameData.CurrentEnd = End.Strange;
         }
     }

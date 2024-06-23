@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game
 {
@@ -12,7 +13,7 @@ namespace Game
                 saver.Reset();
 
             GameData.Saver.Reset();
-            GameData.Saver.Load();
+            SceneManager.LoadScene(0);
         }
     }
 }

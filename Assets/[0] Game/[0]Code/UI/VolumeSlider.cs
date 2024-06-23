@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
+using YG;
 
 namespace Game
 {
@@ -17,6 +18,8 @@ namespace Game
 
         [SerializeField]
         private LocalizedString _localizedString;
+
+        public float GetCurrentVolume => _slider.value;
         
         private void Start()
         {
@@ -25,8 +28,8 @@ namespace Game
             _localizedString.Arguments = new List<object>() { (int)(_slider.value * 100) };
             _localizedString.StringChanged += UpdateText;
 
-            _slider.value = GameData.Volume;
-            ChangeValue(GameData.Volume);
+            _slider.value = YandexGame.savesData.Volume;
+            ChangeValue(YandexGame.savesData.Volume);
         }
 
         private void OnDestroy()
@@ -37,7 +40,7 @@ namespace Game
 
         private void ChangeValue(float value)
         {
-            GameData.Volume = value;
+            YandexGame.savesData.Volume = value;
             GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, value));
             _localizedString.Arguments = new List<object>() { (int)(_slider.value * 100) };
             _localizedString.RefreshString();
