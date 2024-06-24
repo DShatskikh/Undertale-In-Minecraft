@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Default.uss?fileID=7433441132597879392&amp;guid=0181a1f14f84b22418ca640ee8bf366f&amp;type=3#Default" />
+    <ui:Label tabindex="-1" text="90/90" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HPCount_label" class="text" style="position: absolute; top: 763px; left: 473px; font-size: 40px; display: none;" />
+    <ui:VisualElement name="Old" style="flex-grow: 1; position: absolute; display: none;">
+        <ui:VisualElement style="flex-grow: 1; background-image: url(&apos;project://database/Assets/[0]%20Game/[1]Sprites/wewe/reference1.png?fileID=2800000&amp;guid=ae2e8afacf2082d48b3359cd213ab468&amp;type=3#reference1&apos;); -unity-background-scale-mode: scale-to-fit; display: none;" />
+        <ui:Label tabindex="-1" text="*Курица преграждает вам путь" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Message_label" class="text" style="position: absolute; height: 169px; width: 1371px; top: 868px; left: 264px; font-size: 50px; -unity-font-style: normal; color: rgb(255, 255, 255);" />
+        <ui:Label tabindex="-1" text="HP&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HP_label" class="text" style="position: absolute; top: 763px; left: 404px; height: 42px;" />
+        <ui:Label tabindex="-1" text="HP" parse-escape-sequences="true" display-tooltip-when-elided="true" name="EnemyHP_label" class="text" style="position: absolute; top: 752px; left: 1212px;" />
+        <ui:Label tabindex="-1" text="90/90" parse-escape-sequences="true" display-tooltip-when-elided="true" name="EnemyHPCount_label" class="text" style="position: absolute; height: 41px; width: 231px; top: 753px; left: 1278px;" />
+        <ui:Button text="Attack" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Attack_button" class="text button" style="position: absolute; top: 598px; left: 436px; display: flex; visibility: visible;" />
+        <ui:Button text="Mercy" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Mercy_button" class="text button" style="position: absolute; top: 602px; left: 1133px; display: flex;" />
+        <ui:VisualElement style="flex-grow: 1; position: absolute; background-color: rgb(255, 255, 255); height: 6px; width: 1473px; top: 742px; left: 215px;" />
+        <ui:VisualElement style="flex-grow: 1; position: absolute; background-color: rgb(255, 255, 255); height: 6px; width: 1473px; top: 825px; left: 215px;" />
+    </ui:VisualElement>
+    <ui:Label tabindex="-1" text="Прогресс битвы 100%" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text" style="-unity-text-align: lower-center; position: absolute; width: 171px; top: 12px; left: 820px; color: rgb(255, 244, 0); display: none;" />
+    <ui:VisualElement style="flex-grow: 1; overflow: hidden; position: absolute; height: 22px; width: 935px; background-image: url(&apos;project://database/Assets/[0]%20Game/[1]Sprites/wewe/Icons.png?fileID=-209032537&amp;guid=33d6c4330dd91a64eb6b899f99d15ef4&amp;type=3#Icons_32&apos;); left: 435px; top: 74px; visibility: visible; display: none; -unity-background-scale-mode: stretch-to-fill;">
+        <ui:ProgressBar value="54.3" name="ProgressBar" style="position: absolute; -unity-text-align: upper-center; width: 966px; top: 0; left: -4px; overflow: visible; visibility: visible;" />
+    </ui:VisualElement>
+</ui:UXML>
