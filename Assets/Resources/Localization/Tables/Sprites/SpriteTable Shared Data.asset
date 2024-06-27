@@ -19,9 +19,14 @@ MonoBehaviour:
     m_Key: Cafe
     m_Metadata:
       m_Items: []
+  - m_Id: 1577918053859328
+    m_Key: HerobrinMeme
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 9106826515117244445
+    - rid: 9106826618324123655
   m_KeyGenerator:
     rid: 9106826515117244444
   references:
@@ -40,4 +45,14 @@ MonoBehaviour:
           - ru
           - en
         m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - rid: 9106826618324123655
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 1577918053859328
+          m_TableCodes:
+          - en
+          - ru
+        m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
