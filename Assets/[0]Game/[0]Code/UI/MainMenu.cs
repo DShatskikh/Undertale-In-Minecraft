@@ -40,6 +40,12 @@ namespace Game
         private GameObject _strangeEnd;
         
         [SerializeField]
+        private GameObject _palesosEnd;
+                
+        [SerializeField]
+        private GameObject _winDesiccant;
+        
+        [SerializeField]
         private GameObject _palesos;
 
         private void Awake()
@@ -91,16 +97,15 @@ namespace Game
                 if (YandexGame.savesData.IsGoodEnd && YandexGame.savesData.IsBadEnd) 
                     _guide.SetActive(true);
 
-                if (YandexGame.savesData.IsStrangeEnd)
-                {
+                if (YandexGame.savesData.IsStrangeEnd) 
                     _strangeEnd.SetActive(true);
-                }
 
-                if (YandexGame.savesData.IsGoldKey)
-                {
+                if (YandexGame.savesData.IsPalesosEnd) 
+                    _palesosEnd.SetActive(true);
+
+                if (YandexGame.savesData.IsGoldKey) 
                     _fullReset.SetActive(true);
-                }
-                
+
                 if (YandexGame.savesData.IsHat) 
                     _cake.SetActive(true);
                 
@@ -115,6 +120,9 @@ namespace Game
                 
                 if (YandexGame.savesData.Palesos != 0)
                     _palesos.SetActive(true);
+                
+                //if (YandexGame.savesData.IsGoodEnd) 
+                //    _winDesiccant.SetActive(true);
             }
         }
     }

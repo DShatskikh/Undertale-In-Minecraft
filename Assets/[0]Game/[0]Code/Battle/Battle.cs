@@ -28,6 +28,9 @@ namespace Game
         
         [SerializeField]
         private LocalizedString _winReplica;
+
+        [SerializeField]
+        private BlackPanel _blackPanel;
         
         private Label _healthLabel;
         private Label _enemyHealthLabel;
@@ -37,6 +40,8 @@ namespace Game
         private AudioClip _previousSound;
         private Vector2 _enemyStartPosition;
         private GameObject _attack;
+
+        public BlackPanel BlackPanel => _blackPanel;
 
         private void OnDisable()
         {
@@ -108,11 +113,17 @@ namespace Game
             {
                 GameData.Arena.SetActive(true);
                 yield return new WaitForSeconds(0.5f);
-                _attack = Instantiate(YandexGame.savesData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial, transform);
-                YandexGame.savesData.IsTutorialComplited = true;
+                _attack = Instantiate(
+                    YandexGame.savesData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial, transform);
                 yield return new WaitForSeconds(10);
                 Destroy(_attack.gameObject);
-                _attackIndex++;
+                
+                _blackPanel.Hide();
+                
+                if (YandexGame.savesData.IsTutorialComplited)
+                    _attackIndex++;
+                else
+                    YandexGame.savesData.IsTutorialComplited = true;
 
                 if (_attackIndex >= _attacks.Length)
                 {

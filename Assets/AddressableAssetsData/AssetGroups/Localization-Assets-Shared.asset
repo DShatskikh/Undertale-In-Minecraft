@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: Localization-Assets-Shared
   m_EditorClassIdentifier: 
   m_GroupName: Localization-Assets-Shared
-  m_Data:
-    m_SerializedData: []
   m_GUID: 274a1d6ef70b62048828a2e5ba734752
   m_SerializeEntries:
-  - m_GUID: efbfa5e23989a5a4797ec3b9e937868b
-    m_Address: Assets/Resources/Localization/Tables/Dialogues/Dialogues Shared Data.asset
+  - m_GUID: 21dde290d06ca3e4a8cf0b109b41d83e
+    m_Address: Assets/Resources/Localization/Tables/Other/Other Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59c4fe60b911b1e4b91120c3b5337045
+    m_Address: Assets/Resources/Localization/Tables/Sprites/SpriteTable Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -33,13 +36,8 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 21dde290d06ca3e4a8cf0b109b41d83e
-    m_Address: Assets/Resources/Localization/Tables/Other/Other Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 59c4fe60b911b1e4b91120c3b5337045
-    m_Address: Assets/Resources/Localization/Tables/Sprites/SpriteTable Shared Data.asset
+  - m_GUID: efbfa5e23989a5a4797ec3b9e937868b
+    m_Address: Assets/Resources/Localization/Tables/Dialogues/Dialogues Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -47,8 +45,8 @@ MonoBehaviour:
     m_Address: SpriteAssets
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-ru
     - Locale-en
+    - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 7286ce66124d9574a9a25ebe68d868df, type: 2}

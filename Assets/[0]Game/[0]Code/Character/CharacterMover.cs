@@ -10,9 +10,12 @@ namespace Game
         [SerializeField] 
         private float _speed;
 
-        public void Move(Vector2 direction)
+        [SerializeField] 
+        private float _runSpeed;
+        
+        public void Move(Vector2 direction, bool isRun)
         {
-            _rigidbody.velocity = direction * _speed;
+            _rigidbody.linearVelocity = direction * (isRun ? _runSpeed : _speed);
         }
     }
 }

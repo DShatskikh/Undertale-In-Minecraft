@@ -11,6 +11,12 @@ namespace Game
         
         public void Use()
         {
+            if (YandexGame.savesData.IsBuyDonat)
+            {
+                RewardVideoEvent(1);
+                return;
+            }
+            
             YandexGame.RewardVideoEvent += RewardVideoEvent;
             YandexGame.RewVideoShow(1);
             YandexGame.savesData.AdsViews += 1;

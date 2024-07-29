@@ -37,11 +37,15 @@ namespace Game
         private void Update()
         {
             var direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            var isRun = Input.GetButton("Cancel");
 
             if (direction == Vector2.zero && GameData.Joystick.Direction.magnitude > 0.5f)
+            {
                 direction = GameData.Joystick.Direction.normalized;
+                isRun = GameData.Joystick.Direction.magnitude >= 0.9f;
+            }
             
-            _mover.Move(direction);
+            _mover.Move(direction, isRun);
             
             if (direction.magnitude > 0)
             {
@@ -54,7 +58,7 @@ namespace Game
                 _view.Step();
                 _currentStepTime += Time.deltaTime;
                 
-                if (_currentStepTime >= _intervalStep)
+                if (_currentStepTime >= (isRun ? _intervalStep / 2 : _intervalStep))
                 {
                     _currentStepTime = 0;
 
@@ -86,7 +90,7 @@ namespace Game
 
         public void StopMove()
         {
-            _mover.Move(Vector2.zero);
+            _mover.Move(Vector2.zero, false);
         }
     }
 }

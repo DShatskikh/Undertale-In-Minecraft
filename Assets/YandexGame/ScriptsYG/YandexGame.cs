@@ -202,7 +202,11 @@ namespace YG
 
         #endregion Methods
 
-        
+        [ContextMenu("Удалить данные")]
+        private void ResetData()
+        {
+            savesData = new SavesYG();
+        }
 
         // Sending messages
 

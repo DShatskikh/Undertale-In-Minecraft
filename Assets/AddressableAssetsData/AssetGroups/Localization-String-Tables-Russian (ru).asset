@@ -13,18 +13,10 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Russian (ru)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Russian (ru)
-  m_Data:
-    m_SerializedData: []
   m_GUID: 94e512e6d82253d4f90112e0b0640f96
   m_SerializeEntries:
-  - m_GUID: fd6e5630a640f714aac0ce3354f136cf
-    m_Address: Dialogues_ru
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ru
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a3b459185a9e13145825b09fcef519a6
-    m_Address: Monologues_ru
+  - m_GUID: 06d796267ea9a66419e6cee2951f83f1
+    m_Address: Other_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
@@ -35,8 +27,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 06d796267ea9a66419e6cee2951f83f1
-    m_Address: Other_ru
+  - m_GUID: a3b459185a9e13145825b09fcef519a6
+    m_Address: Monologues_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd6e5630a640f714aac0ce3354f136cf
+    m_Address: Dialogues_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru

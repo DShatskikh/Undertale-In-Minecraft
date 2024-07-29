@@ -14,7 +14,10 @@ namespace Game
         
         private void Start()
         {
-            _spriteRenderer.sprite = (YandexGame.savesData.NumberGame % 4) switch
+            if (!YandexGame.savesData.IsAllEnd)
+                return;
+            
+            _spriteRenderer.sprite = (YandexGame.savesData.NumberGame % _sprites.Length) switch
             {
                 2 => _sprites[0],
                 3 => _sprites[1],

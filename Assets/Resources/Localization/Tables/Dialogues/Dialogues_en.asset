@@ -500,15 +500,21 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 275224836030530
-    m_Localized: '*Dodge attacks to avoid taking damage'
+    m_Localized: '*Hold down <color=yellow>X</color> to run
+
+      *I just found
+      out myself today'
     m_Metadata:
       m_Items: []
   - m_Id: 275224836030531
-    m_Localized: '*Be close to the attack to take away <color=yellow>Battle Progress</color>'
+    m_Localized: '*I have nothing to teach you'
     m_Metadata:
       m_Items: []
-  - m_Id: 275224836030532
-    m_Localized: '*Don''t make my mistakes'
+  - m_Id: 14324285213884416
+    m_Localized: '*Press <color="yellow">stick</color> to the limit to run
+
+      *I
+      just found out myself today'
     m_Metadata:
       m_Items: []
   - m_Id: 275224836030533
@@ -684,4 +690,6 @@ MonoBehaviour:
     - rid: 9106826515117244434
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 29c095c650fa0000
+        m_Entries: 
+        m_SharedEntries:
+        - id: 275224836030505

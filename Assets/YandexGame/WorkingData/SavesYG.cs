@@ -32,6 +32,7 @@ namespace YG
         public bool IsGoodEnd;
         public bool IsBadEnd;
         public bool IsStrangeEnd;
+        public bool IsPalesosEnd;
         public bool IsNotIntroduction;
         public float PositionX;
         public float PositionY;
@@ -43,12 +44,18 @@ namespace YG
         public bool IsGoldKey;
         public bool IsCheat;
         public bool IsNotFirstPlay;
-        
+        public bool IsTelephone;
+        public bool IsHerobrineKey;
+        public bool IsBuyDonat;
+
         public int NumberGame = 1;
         public float Volume = 1f;
         public int MaxHealth = 20;
 
         public List<IntStringPair> _intPairs = new List<IntStringPair>();
+
+        public bool IsOneOrMoreEnd => IsGoodEnd || IsBadEnd || IsStrangeEnd || IsPalesosEnd;
+        public bool IsAllEnd => IsGoodEnd && IsBadEnd && IsStrangeEnd && IsPalesosEnd;
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 

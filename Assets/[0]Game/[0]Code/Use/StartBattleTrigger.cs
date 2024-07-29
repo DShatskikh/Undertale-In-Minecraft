@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Game
@@ -17,10 +19,20 @@ namespace Game
         [SerializeField]
         private UnityEvent _event;
 
+        private bool _isCanStartBattle;
         public Vector2 Offset => _offset;
-        
+
+        private IEnumerator Start()
+        {
+            yield return new WaitForSeconds(1);
+            _isCanStartBattle = true;
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (!_isCanStartBattle)
+                return;
+            
             if (other.TryGetComponent(out Character character))
             {
                 StartBattle();
