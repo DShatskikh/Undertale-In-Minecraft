@@ -20,6 +20,9 @@ namespace Game
         
         [SerializeField]
         private GameObject _mobileInput, _pcInput;
+
+        [SerializeField]
+        private GameObject _herobrine;
         
         private void OnEnable()
         {
@@ -28,6 +31,12 @@ namespace Game
 
         private IEnumerator CutScene()
         {
+            if (YandexGame.savesData.IsTelephone)
+            {
+                _herobrine.SetActive(false);
+                yield break;
+            }
+
             yield return null;
             
             if (GameData.DeviceType == CurrentDeviceType.WebMobile)
