@@ -37,6 +37,14 @@ namespace Game
             }
         }
 
+        private void Start()
+        {
+            if (IsSolve())
+                Solved.Invoke();
+            else
+                NotSolved.Invoke();
+        }
+
         private void OnLeverUsed(Lever lever, bool isActive)
         {
             var index = GetIndex(lever);

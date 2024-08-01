@@ -1103,7 +1103,7 @@ TextureImporter:
         width: 1
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1112,6 +1112,28 @@ TextureImporter:
       bones: []
       spriteID: aa1a9c127e0a71d45ab55ef35c2aaeb6
       internalID: 1599144081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllMobs_44
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 90
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f452ce3414972488c2b14153699778
+      internalID: -612447902
       vertices: []
       indices: 
       edges: []
@@ -1169,6 +1191,7 @@ TextureImporter:
       AllMobs_41: 1983001471
       AllMobs_42: 1900560567
       AllMobs_43: 1599144081
+      AllMobs_44: -612447902
       AllMobs_5: -254688635
       AllMobs_6: -118845391
       AllMobs_7: 1182878170

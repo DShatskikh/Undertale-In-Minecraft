@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Super_Auto_Mobs;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Localization;
 using UnityEngine.UIElements;
 using YG;
@@ -177,12 +178,22 @@ namespace Game
         private IEnumerator Exit()
         {
             gameObject.SetActive(false);
+            var enemy = GameData.EnemyData.GameObject;
 
-            var disapperance = GameData.EnemyData.GameObject.AddComponent<SmoothDisappearance>();
-            disapperance.SetDuration(0.5f);
-            _sparePlaySound.Play();
-            yield return new WaitForSeconds(0.5f);
-
+            if (enemy.TryGetComponent(out EnemyDisappearanceBase disappearance))
+            {
+                var isEnd = false;
+                disappearance.Disappearance(() => isEnd = true);
+                yield return new WaitUntil(() => isEnd);
+            }
+            else if (enemy.GetComponent<SpriteRenderer>())
+            {
+                var disapperance = enemy.AddComponent<SmoothDisappearance>();
+                disapperance.SetDuration(0.5f);
+                _sparePlaySound.Play();
+                yield return new WaitForSeconds(0.5f);
+            }
+            
             var characterTransform = GameData.Character.transform;
 
             while ((Vector2)characterTransform.position != _normalWorldCharacterPosition)
@@ -222,6 +233,12 @@ namespace Game
         private void OnDamage(int value)
         {
             GameData.Character.View.Damage();
+        }
+        
+        [ContextMenu("Progress_100")]
+        private void Progress_100()
+        {
+            GameData.BattleProgress = 100;
         }
     }
 }

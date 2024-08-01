@@ -7,13 +7,9 @@ namespace Game
     {
         private SpriteRenderer _spriteRenderer;
 
-        private void Awake()
-        {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
         public void Activate(bool isOn)
         {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
             _spriteRenderer.color = isOn ? Color.white : new Color(0.2f, 0.2f, 0.2f);
         }
     }
