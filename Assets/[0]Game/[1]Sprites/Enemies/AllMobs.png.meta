@@ -1035,7 +1035,7 @@ TextureImporter:
         x: 35
         y: 86
         width: 14
-        height: 20
+        height: 12
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1125,7 +1125,7 @@ TextureImporter:
         width: 15
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1134,6 +1134,28 @@ TextureImporter:
       bones: []
       spriteID: 47f452ce3414972488c2b14153699778
       internalID: -612447902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllMobs_45
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 596
+        width: 16
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed25b7d7b81c8244afea07b9701f477
+      internalID: 98645717
       vertices: []
       indices: 
       edges: []
@@ -1192,6 +1214,7 @@ TextureImporter:
       AllMobs_42: 1900560567
       AllMobs_43: 1599144081
       AllMobs_44: -612447902
+      AllMobs_45: 98645717
       AllMobs_5: -254688635
       AllMobs_6: -118845391
       AllMobs_7: 1182878170

@@ -103,7 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onSprite: {fileID: -2113850551, guid: bee657d679aaf294c88bffd9b0dabf20, type: 3}
   _offSprite: {fileID: 93842380, guid: bee657d679aaf294c88bffd9b0dabf20, type: 3}
-  _activateSound: {fileID: 8300000, guid: 6a643c66682bb8d468854f1e098f8cb2, type: 3}
 --- !u!1001 &7389752627265722365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,6 +111,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 238228001586854456}
     m_Modifications:
+    - target: {fileID: 1614676646731479975, guid: cb20853d3e19ea644aef8b535c6cdf8e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4158294739662201602, guid: cb20853d3e19ea644aef8b535c6cdf8e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00999999
@@ -158,7 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7201664435275068458, guid: cb20853d3e19ea644aef8b535c6cdf8e, type: 3}
       propertyPath: _localizedString.m_TableEntryReference.m_KeyId
-      value: 275118002913311
+      value: 15905869901709312
       objectReference: {fileID: 0}
     - target: {fileID: 7201664435275068458, guid: cb20853d3e19ea644aef8b535c6cdf8e, type: 3}
       propertyPath: _yesEvent.m_PersistentCalls.m_Calls.Array.size
@@ -166,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7201664435275068458, guid: cb20853d3e19ea644aef8b535c6cdf8e, type: 3}
       propertyPath: _localizedString.m_TableReference.m_TableCollectionName
-      value: GUID:6f661cae60909ba47a785d3975d03854
+      value: GUID:84456c763d6ea4748a570993a6d17cc0
       objectReference: {fileID: 0}
     - target: {fileID: 7201664435275068458, guid: cb20853d3e19ea644aef8b535c6cdf8e, type: 3}
       propertyPath: _yesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
