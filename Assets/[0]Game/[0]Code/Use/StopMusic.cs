@@ -10,6 +10,11 @@ namespace Game
             StartCoroutine(Stop());
         }
 
+        public void Use()
+        {
+            StartCoroutine(Stop());
+        }
+        
         private IEnumerator Stop()
         {
             yield return null;

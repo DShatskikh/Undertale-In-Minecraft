@@ -16,6 +16,9 @@ namespace Game
         private SpriteRenderer _explosion;
 
         [SerializeField]
+        private PlaySound _explosionPlay;
+        
+        [SerializeField]
         private float _speed;
 
         [SerializeField]
@@ -38,6 +41,7 @@ namespace Game
             }
             
             _explosion.gameObject.SetActive(true);
+            _explosionPlay.Play();
             yield return new WaitForSeconds(0.5f);
             _explosion.gameObject.SetActive(false);
             
