@@ -20,8 +20,13 @@ namespace Game
 
         public void Play()
         {
-            GameData.MusicAudioSource.clip = _music;
-            GameData.MusicAudioSource.Play();
+            var source = GameData.MusicAudioSource;
+            
+            if (source.clip == _music && source.isPlaying)
+                return;
+            
+            source.clip = _music;
+            source.Play();
         }
 
         private IEnumerator AwaitPlay()

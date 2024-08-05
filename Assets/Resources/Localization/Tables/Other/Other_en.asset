@@ -333,10 +333,17 @@ MonoBehaviour:
     m_Localized: Buttons on the screen for <color="yellow">actions</color>
     m_Metadata:
       m_Items: []
+  - m_Id: 16948235869732864
+    m_Localized: Hospital
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 9106826449513873425
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00c0d5138904000000c0d53574db0300
+        m_Entries: 
+        m_SharedEntries:
+        - id: 4986789806080
+        - id: 1085717096022016

@@ -7,18 +7,23 @@ namespace Game
     {
         private void OnEnable()
         {
-            StartCoroutine(Stop());
+            StartCoroutine(AwaitStop());
         }
 
         public void Use()
         {
-            StartCoroutine(Stop());
+            StartCoroutine(AwaitStop());
+        }
+
+        public void Stop()
+        {
+            GameData.MusicAudioSource.Stop();
         }
         
-        private IEnumerator Stop()
+        private IEnumerator AwaitStop()
         {
             yield return null;
-            GameData.MusicAudioSource.Stop();
+            Stop();
         }
     }
 }

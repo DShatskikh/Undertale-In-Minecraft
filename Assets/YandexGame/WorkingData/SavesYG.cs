@@ -48,7 +48,8 @@ namespace YG
         public bool IsHerobrineKey;
         public bool IsBuyDonat;
         public bool IsNetherStar;
-        
+        public bool IsYouHealthy;
+
         public int NumberGame = 1;
         public float Volume = 1f;
         public int MaxHealth = 20;
