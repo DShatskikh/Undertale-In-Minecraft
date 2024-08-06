@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections;
-using Super_Auto_Mobs;
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game
 {
@@ -12,6 +11,9 @@ namespace Game
 
         [SerializeField] 
         private SpriteRenderer _spriteRenderer;
+        
+        [SerializeField]
+        private UnityEvent _event;
         
         public IEnumerator Start()
         {
@@ -27,6 +29,8 @@ namespace Game
                 _spriteRenderer.color = _spriteRenderer.color.SetA(alpha);
                 yield return null;
             }
+            
+            _event.Invoke();
         }
 
         public void SetDuration(float value)
