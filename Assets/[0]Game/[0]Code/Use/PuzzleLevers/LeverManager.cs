@@ -22,6 +22,9 @@ namespace Game
         [SerializeField]
         private UnityEvent NotSolved;
 
+        [SerializeField]
+        private string _identifier;
+        
         private bool _isSolve;
         
         private void Awake()
@@ -31,7 +34,7 @@ namespace Game
                 var pair = _pairs[i];
                 pair.Lever.Used += OnLeverUsed;
                 
-                var isActivated = YandexGame.savesData.GetInt($"Lever{i}") == 1;
+                var isActivated = YandexGame.savesData.GetInt($"Lever_{_identifier}_{i}") == 1;
                 pair.Lever.Init(isActivated);
                 pair.Lamp.Activate(isActivated);
             }

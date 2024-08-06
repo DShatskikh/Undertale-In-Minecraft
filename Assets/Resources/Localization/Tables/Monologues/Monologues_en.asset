@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 6f661cae60909ba47a785d3975d03854, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 1798153557836562513
   m_TableData:
   - m_Id: 275811833069568
     m_Localized: Test
@@ -34,10 +35,6 @@ MonoBehaviour:
     m_Localized: '*There was 1 golden apple in it'
     m_Metadata:
       m_Items: []
-  - m_Id: 275118007107624
-    m_Localized: '*Your maximum health has been increased by 5'
-    m_Metadata:
-      m_Items: []
   - m_Id: 275118007107625
     m_Localized: '*You did not open this suspicious chest'
     m_Metadata:
@@ -50,10 +47,6 @@ MonoBehaviour:
     m_Localized: '*There was 1 golden apple in it'
     m_Metadata:
       m_Items: []
-  - m_Id: 275118007107628
-    m_Localized: '*Your maximum health has been increased by 5'
-    m_Metadata:
-      m_Items: []
   - m_Id: 275118007107629
     m_Localized: '*You didn''t open the chest'
     m_Metadata:
@@ -64,10 +57,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 275118007107631
     m_Localized: '*There was 1 golden apple in it'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 275118007107632
-    m_Localized: '*Your maximum health has been increased by 5'
     m_Metadata:
       m_Items: []
   - m_Id: 275118007107633
@@ -108,10 +97,6 @@ MonoBehaviour:
     m_Localized: '*There was 1 golden apple in it'
     m_Metadata:
       m_Items: []
-  - m_Id: 275118007107642
-    m_Localized: '*Your maximum health has been increased by 5'
-    m_Metadata:
-      m_Items: []
   - m_Id: 275118007107643
     m_Localized: '*You did not open this suspicious chest'
     m_Metadata:
@@ -143,20 +128,12 @@ MonoBehaviour:
     m_Localized: '*There was 1 golden apple in it'
     m_Metadata:
       m_Items: []
-  - m_Id: 275118007107650
-    m_Localized: '*Your maximum health has been increased by 5'
-    m_Metadata:
-      m_Items: []
   - m_Id: 275118007107651
     m_Localized: '*You have opened the chest'
     m_Metadata:
       m_Items: []
   - m_Id: 275118007107652
     m_Localized: '*There was 1 golden apple in it'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 275118007107653
-    m_Localized: '*Your maximum health has been increased by 5'
     m_Metadata:
       m_Items: []
   - m_Id: 275118007107654
@@ -415,9 +392,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 275118007107618
-    m_Localized: '*Your maximum health has been increased by 5'
+    m_Localized: '*Your maximum health has been increased by {0}'
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 1798153557836562513
   - m_Id: 275118007107619
     m_Localized: '*You did not open this lonely chest'
     m_Metadata:
@@ -696,4 +674,10 @@ MonoBehaviour:
       m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1798153557836562513
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 275118007107618
