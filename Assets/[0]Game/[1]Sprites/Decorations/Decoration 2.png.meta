@@ -619,7 +619,7 @@ TextureImporter:
         width: 7
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -641,7 +641,7 @@ TextureImporter:
         width: 7
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -650,6 +650,28 @@ TextureImporter:
       bones: []
       spriteID: 30e0522e55b6cf94b8ce7b984007ae6f
       internalID: -2113850551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration 2_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 17
+        width: 14
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99139a28bfc9809448265531dd4d21c9
+      internalID: 578164327
       vertices: []
       indices: 
       edges: []
@@ -684,6 +706,7 @@ TextureImporter:
       Decoration 2_20: 1580423025
       Decoration 2_21: 93842380
       Decoration 2_22: -2113850551
+      Decoration 2_23: 578164327
       Decoration 2_3: 98989611
       Decoration 2_4: 1488277066
       Decoration 2_5: 779963482

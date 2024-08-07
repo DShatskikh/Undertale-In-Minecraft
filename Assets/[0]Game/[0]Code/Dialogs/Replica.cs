@@ -10,10 +10,6 @@ namespace Game
     public struct Replica
     {
         public Sprite Icon;
-        
-        [TextArea]
-        public string Text;
-
         public LocalizedString LocalizationString;
     }
 }

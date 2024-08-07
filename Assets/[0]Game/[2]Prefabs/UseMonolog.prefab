@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2472753590393064526}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.028941438, y: -0.6439475, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9840098, y: 0.67288905, z: 0.7235366}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,6 +41,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2472753590393064526}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -64,7 +65,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -75,7 +77,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &1263566951456282426
@@ -90,6 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1643787293e342e4902e14b53c0ca889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _texts:
-  - "\u0411\u0435\u0441\u0446\u0435\u043D\u043D\u043E\u0435 \u043F\u0440\u043E\u0438\u0437\u0432\u0435\u0434\u0435\u043D\u0438\u0435
-    \u0438\u0441\u043A\u0443\u0441\u0441\u0442\u0432\u0430"
+  _endEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _localizedStrings: []
+  references:
+    version: 2
+    RefIds: []

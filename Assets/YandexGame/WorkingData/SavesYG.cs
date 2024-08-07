@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Game;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace YG
 {
@@ -53,6 +54,7 @@ namespace YG
         public int NumberGame = 1;
         public float Volume = 1f;
         public int MaxHealth = 20;
+        [FormerlySerializedAs("GoldLily")] public int GoldTulip = 0;
 
         public List<IntStringPair> _intPairs = new List<IntStringPair>();
 
