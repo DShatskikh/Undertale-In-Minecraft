@@ -9,9 +9,6 @@ namespace Game
     {
         [SerializeField]
         private PairLeverLamp[] _pairs;
-
-        [SerializeField]
-        private AudioClip _activateSound;
         
         [SerializeField]
         private AudioClip _solvedSound;
@@ -58,7 +55,7 @@ namespace Game
                 Solve();
             else
             {
-                GameData.EffectAudioSource.clip = _activateSound;
+                GameData.EffectAudioSource.clip = GameData.AssetProvider.LeverSound;
                 GameData.EffectAudioSource.Play();
 
                 if (_isSolve)

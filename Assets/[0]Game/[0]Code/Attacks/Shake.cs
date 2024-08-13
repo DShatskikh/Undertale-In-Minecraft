@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -10,8 +11,26 @@ namespace Game
         
         [SerializeField, Range(0.001f, 1)]
         private float magnitude;
+
+        private Coroutine _coroutine;
+
+        private void OnEnable()
+        {
+            _coroutine = StartCoroutine(AwaitShake());
+        }
         
-        public IEnumerator Start()
+        private void OnDisable()
+        {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+        }
+
+        public void SetShake(float shaking)
+        {
+            magnitude = shaking;
+        }
+
+        private IEnumerator AwaitShake()
         {
             yield return null;
             

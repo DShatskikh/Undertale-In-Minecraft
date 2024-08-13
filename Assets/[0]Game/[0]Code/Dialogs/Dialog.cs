@@ -58,8 +58,8 @@ namespace Game
             _view.SetContinueText(_continueText);
             var button = _ui.rootVisualElement.Q<Button>("Next_button");
             button.clicked += Next;
-            EventBus.OnSubmit = Next;
-            EventBus.OnCancel = ShowFinallyText;
+            EventBus.Submit = Next;
+            EventBus.Cancel = ShowFinallyText;
             
             GameData.Character.enabled = false;
             _replicas = replicas;
@@ -159,12 +159,12 @@ namespace Game
         {
             print("Close");
             GameData.ToMenuButton.gameObject.SetActive(true);
-            EventBus.OnSubmit = null;
-            EventBus.OnCancel = null;
+            EventBus.Submit = null;
+            EventBus.Cancel = null;
             GameData.Character.enabled = true;
             gameObject.SetActive(false);
-            EventBus.OnCloseDialog?.Invoke();
-            EventBus.OnCloseDialog = null;
+            EventBus.CloseDialog?.Invoke();
+            EventBus.CloseDialog = null;
         }
     }
 }

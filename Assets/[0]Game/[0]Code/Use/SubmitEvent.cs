@@ -10,12 +10,12 @@ namespace Game
         
         private void OnEnable()
         {
-            EventBus.OnSubmit = _event.Invoke;
+            EventBus.Submit = _event.Invoke;
         }
 
         private void OnDisable()
         {
-            EventBus.OnSubmit -= _event.Invoke;
+            EventBus.Submit -= _event.Invoke;
         }
     }
 }

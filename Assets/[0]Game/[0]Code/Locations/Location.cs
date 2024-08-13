@@ -1,6 +1,4 @@
-﻿using Cinemachine;
-using Super_Auto_Mobs;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Analytics;
 using YG;
 

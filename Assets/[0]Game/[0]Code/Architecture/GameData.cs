@@ -26,6 +26,7 @@ namespace Game
         public static CurrentDeviceType DeviceType { get; set; }
         public static bool IsLoad { get; set; }
         public static VolumeSlider VolumeSlider { get; set; }
+        public static AssetProvider AssetProvider { get; set; }
 
         public static IEnumerable<Location> Locations;
         public static Monolog Monolog;
@@ -43,5 +44,7 @@ namespace Game
 
         public static Saver Saver;
         public static TimerBeforeAdsYG TimerBeforeAdsYG;
+
+        public static CommandManager CommandManager;
     }
 }

@@ -16,13 +16,13 @@ namespace Game
 
         private void OnEnable()
         {
-            EventBus.OnHealthChange += UpdateHealthView;
+            EventBus.HealthChange += UpdateHealthView;
             UpdateHealthView(YandexGame.savesData.MaxHealth,YandexGame.savesData.Health);
         }
 
         private void OnDisable()
         {
-            EventBus.OnHealthChange -= UpdateHealthView;
+            EventBus.HealthChange -= UpdateHealthView;
         }
 
         private void UpdateHealthView(int maxValue, int value)

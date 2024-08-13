@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Super_Auto_Mobs
+namespace Game
 {
     public static class VectorExtensions
     {

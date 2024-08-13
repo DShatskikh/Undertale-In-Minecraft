@@ -13,7 +13,7 @@ namespace Game
         
         private void Start()
         {
-            EventBus.OnPlayerWin += OnPlayerWin;
+            EventBus.PlayerWin += OnPlayerWin;
         }
 
         private void OnPlayerWin(EnemyConfig config)

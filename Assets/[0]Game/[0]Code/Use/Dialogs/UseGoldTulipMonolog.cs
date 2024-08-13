@@ -17,7 +17,7 @@ namespace Game
         {
             _localizedString.Arguments = new object[] { 4 - YandexGame.savesData.GoldTulip };
             GameData.Monolog.Show(new[] {_localizedString});
-            EventBus.OnCloseMonolog += _endEvent.Invoke;
+            EventBus.CloseMonolog += _endEvent.Invoke;
         }
     }
 }

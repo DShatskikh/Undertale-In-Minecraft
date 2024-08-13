@@ -68,6 +68,9 @@ namespace Game
         [SerializeField]
         private TimerBeforeAdsYG _timerBeforeAds;
 
+        [SerializeField]
+        private CommandManager _commandManager;
+
         private void Awake()
         {
             GameData.Character = _character;
@@ -89,6 +92,7 @@ namespace Game
             GameData.InputCanvas = _inputCanvas;
             GameData.GameOver = _gameOver;
             GameData.TimerBeforeAdsYG = _timerBeforeAds;
+            GameData.CommandManager = _commandManager;
         }
 
         private void Start()

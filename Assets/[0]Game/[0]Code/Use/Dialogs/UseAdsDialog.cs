@@ -18,7 +18,7 @@ namespace Game
         {
             _replica.LocalizationString.Arguments = new object[] { StartView - YandexGame.savesData.AdsViews };
             GameData.Dialog.SetReplicas(new[] {_replica});
-            EventBus.OnCloseDialog += _endEvent.Invoke;
+            EventBus.CloseDialog += _endEvent.Invoke;
         }
     }
 }

@@ -29,9 +29,7 @@ namespace Game
             var direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
             if (direction == Vector2.zero && GameData.Joystick.Direction.magnitude > 0.5f)
-            {
-                direction = GameData.Joystick.Direction.normalized; 
-            }
+                direction = GameData.Joystick.Direction.normalized;
 
             position += direction * _speed * Time.deltaTime;
 
@@ -49,7 +47,7 @@ namespace Game
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out Attack attack))
+            if (other.TryGetComponent(out Shell attack))
             {
                 if (!_isInvulnerability)
                 {
@@ -64,8 +62,8 @@ namespace Game
         private IEnumerator TakeDamage()
         {
             YandexGame.savesData.Health -= GameData.EnemyData.EnemyConfig.Attack;
-            EventBus.OnDamage?.Invoke(1);
-            EventBus.OnHealthChange?.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
+            EventBus.Damage?.Invoke(1);
+            EventBus.HealthChange?.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
             _damageSource.Play();
             _shield.gameObject.SetActive(false);
             yield return new WaitForSeconds(1);
@@ -78,7 +76,7 @@ namespace Game
 
         private void Death()
         {
-            EventBus.OnDeath?.Invoke();
+            EventBus.Death?.Invoke();
             GameData.GameOver.SetActive(true);
 
             Analytics.CustomEvent("Death " + GameData.EnemyData.EnemyConfig.name);

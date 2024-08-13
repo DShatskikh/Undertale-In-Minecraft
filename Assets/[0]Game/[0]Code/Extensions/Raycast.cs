@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Super_Auto_Mobs
+namespace Game
 {
     public static class Raycast
     {

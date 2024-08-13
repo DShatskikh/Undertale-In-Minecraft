@@ -1,5 +1,4 @@
-﻿using Super_Auto_Mobs;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game
 {

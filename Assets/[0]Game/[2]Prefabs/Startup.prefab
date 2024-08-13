@@ -71,6 +71,7 @@ MonoBehaviour:
   _musicAudioSource: {fileID: 6713232609774389252}
   _deviceTypeDetector: {fileID: 3114450107808566579}
   _volumeSlider: {fileID: 3788015507531524912}
+  _assetProvider: {fileID: 11400000, guid: 57a9160c90ac0244f8347b718ff3622c, type: 2}
 --- !u!114 &3114450107808566579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1

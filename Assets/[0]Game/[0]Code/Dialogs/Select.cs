@@ -75,12 +75,12 @@ namespace Game
             
             var yesButton = _ui.rootVisualElement.Q<Button>("Yes_button");
             yesButton.text = _yesResultString;
-            EventBus.OnSubmit = SelectTrue;
+            EventBus.Submit = SelectTrue;
             yesButton.clicked += SelectTrue;
 
             var noButton = _ui.rootVisualElement.Q<Button>("No_button");
             noButton.text = _noResultString;
-            EventBus.OnCancel = SelectFalse;
+            EventBus.Cancel = SelectFalse;
             noButton.clicked += SelectFalse;
 
             if (GameData.DeviceType == CurrentDeviceType.WebMobile)
@@ -123,16 +123,16 @@ namespace Game
 
         private void SelectTrue()
         {
-            EventBus.OnSubmit = null;
-            EventBus.OnCancel = null;
+            EventBus.Submit = null;
+            EventBus.Cancel = null;
             Close();
             _yesAction?.Invoke();
         }
         
         private void SelectFalse()
         {
-            EventBus.OnSubmit = null;
-            EventBus.OnCancel = null;
+            EventBus.Submit = null;
+            EventBus.Cancel = null;
             Close();
             _noAction?.Invoke();
         }

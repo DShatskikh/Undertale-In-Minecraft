@@ -52,7 +52,7 @@ namespace Game
                 GetComponent<Collider2D>().enabled = false;
             
             GameData.Battle.StartBattle();
-            EventBus.OnPlayerWin += OnPlayerWin;
+            EventBus.PlayerWin += OnPlayerWin;
         }
 
         private void OnPlayerWin(EnemyConfig config)

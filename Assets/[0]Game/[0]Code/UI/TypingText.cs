@@ -38,7 +38,7 @@ namespace Game
             
             _coroutine = StartCoroutine(TypingProcess());
 
-            EventBus.OnCancel = ShowAllText;
+            EventBus.Cancel = ShowAllText;
         }
 
         private void ShowAllText()

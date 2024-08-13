@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Super_Auto_Mobs;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Game
@@ -16,7 +14,7 @@ namespace Game
         [SerializeField]
         private AudioSource _source;
         
-        private Attack _attack;
+        private Shell _shell;
         private bool _isUseCoroutine;
         private Coroutine _coroutine;
 
@@ -28,7 +26,7 @@ namespace Game
 
         private void Update()
         {
-            if (_attack && !_isUseCoroutine)
+            if (_shell && !_isUseCoroutine)
             {
                 _isUseCoroutine = true;
                 
@@ -41,17 +39,17 @@ namespace Game
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out Attack attack))
+            if (other.TryGetComponent(out Shell shell))
             {
-                _attack = attack;
+                _shell = shell;
             }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.TryGetComponent(out Attack attack))
+            if (other.TryGetComponent(out Shell shell))
             {
-                _attack = null;
+                _shell = null;
             }
         }
 
@@ -68,7 +66,7 @@ namespace Game
             if (GameData.BattleProgress > 100)
                 GameData.BattleProgress = 100;
             
-            EventBus.OnBattleProgressChange?.Invoke(GameData.BattleProgress);
+            EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
         }
     }
 }

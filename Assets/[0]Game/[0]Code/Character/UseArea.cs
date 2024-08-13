@@ -56,13 +56,13 @@ namespace Game
         private void ButtonOn(UseObject nearestUseObject)
         {
             GameData.UseButton.gameObject.SetActive(true);
-            EventBus.OnSubmit = () => Use(nearestUseObject);
+            EventBus.Submit = () => Use(nearestUseObject);
             _previousUseObject = nearestUseObject;
         }
         
         private void ButtonOff()
         {
-            EventBus.OnSubmit = null;
+            EventBus.Submit = null;
             GameData.UseButton.gameObject.SetActive(false);
             _previousUseObject = null;
         }
@@ -70,7 +70,7 @@ namespace Game
         private void Use(UseObject nearestUseObject)
         {
             GameData.UseButton.gameObject.SetActive(false);
-            EventBus.OnSubmit = null;
+            EventBus.Submit = null;
             nearestUseObject.Use();
         }
     }

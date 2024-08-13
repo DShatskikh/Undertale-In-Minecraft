@@ -69,6 +69,9 @@ namespace Game
 
         [SerializeField]
         private VolumeSlider _volumeSlider;
+
+        [SerializeField]
+        private AssetProvider _assetProvider;
         
         private void Awake()
         {
@@ -116,6 +119,7 @@ namespace Game
         private void Start()
         {
             GameData.Startup = this;
+            GameData.AssetProvider = _assetProvider;
             GameData.EffectAudioSource = _effectAudioSource;
             GameData.MusicAudioSource = _musicAudioSource;
             GameData.Mixer = _mixer;

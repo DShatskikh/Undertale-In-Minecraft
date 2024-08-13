@@ -56,8 +56,8 @@ namespace Game
             var button = _ui.rootVisualElement.Q<Button>("Next_button");
             SetContinueText(_continueText);
             button.clicked += Next;
-            EventBus.OnSubmit = Next;
-            EventBus.OnCancel = ShowFinallyText;
+            EventBus.Submit = Next;
+            EventBus.Cancel = ShowFinallyText;
 
             if (GameData.DeviceType == CurrentDeviceType.WebMobile)
                 _ui.rootVisualElement.Q<Label>("Z").text = "";
@@ -146,12 +146,12 @@ namespace Game
         private void Close()
         {
             GameData.ToMenuButton.gameObject.SetActive(true);
-            EventBus.OnSubmit = null;
-            EventBus.OnCancel = null;
+            EventBus.Submit = null;
+            EventBus.Cancel = null;
             GameData.Character.enabled = true;
             gameObject.SetActive(false);
-            EventBus.OnCloseMonolog?.Invoke();
-            EventBus.OnCloseMonolog = null;
+            EventBus.CloseMonolog?.Invoke();
+            EventBus.CloseMonolog = null;
         }
 
         private void SetText(string text)

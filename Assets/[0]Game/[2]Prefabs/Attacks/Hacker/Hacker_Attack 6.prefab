@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 4331625391288735471}
   - component: {fileID: 6610863596384659156}
   - component: {fileID: 4656658923114514469}
+  - component: {fileID: 543458192730086276}
   m_Layer: 0
   m_Name: Hacker_Attack 6
   m_TagString: Untagged
@@ -538,6 +539,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1439b17e5e594d60b301d733af333a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &543458192730086276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745004289986295397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5135ca16bf29487292423ac0b679847b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Messages:
+  - LocalizedString:
+      m_TableReference:
+        m_TableCollectionName: GUID:21dde290d06ca3e4a8cf0b109b41d83e
+      m_TableEntryReference:
+        m_KeyId: 1115547397111808
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Shaking: 0.281
+  - LocalizedString:
+      m_TableReference:
+        m_TableCollectionName: GUID:21dde290d06ca3e4a8cf0b109b41d83e
+      m_TableEntryReference:
+        m_KeyId: 1115109750849536
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Shaking: 1
+  Delay: 10
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1985229911773254595
 GameObject:
   m_ObjectHideFlags: 0

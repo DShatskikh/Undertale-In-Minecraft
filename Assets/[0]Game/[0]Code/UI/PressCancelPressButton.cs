@@ -10,12 +10,12 @@ namespace Game
         
         private void OnEnable()
         {
-            EventBus.OnCancel = () => _button.onClick.Invoke();
+            EventBus.Cancel = () => _button.onClick.Invoke();
         }
 
         private void OnDisable()
         {
-            EventBus.OnCancel -= () => _button.onClick.Invoke();
+            EventBus.Cancel -= () => _button.onClick.Invoke();
         }
     }
 }

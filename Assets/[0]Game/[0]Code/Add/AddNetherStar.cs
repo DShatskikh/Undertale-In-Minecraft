@@ -8,5 +8,10 @@ namespace Game
         {
             YandexGame.savesData.IsNetherStar = true;
         }
+
+        public void Remove()
+        {
+            YandexGame.savesData.IsNetherStar = false;
+        }
     }
 }
