@@ -15,9 +15,6 @@ namespace Game
         [SerializeField] 
         private UIDocument _ui;
 
-        [SerializeField] 
-        private AudioClip _clickSound;
-
         [SerializeField]
         private LocalizedString _continueString;
         
@@ -30,7 +27,8 @@ namespace Game
         private string _continueText;
         private AsyncOperationHandle<string> _continueTextOperation;
         private AsyncOperationHandle<string> _finallyTextOperation;
-        
+        private AudioClip _sound;
+
         private IEnumerator Start()
         {
             _continueTextOperation = _continueString.GetLocalizedStringAsync();
@@ -44,10 +42,11 @@ namespace Game
             SetContinueText(_continueText);
         }
 
-        public void Show(LocalizedString[] texts)
+        public void Show(LocalizedString[] texts, AudioClip sound = null)
         {
             gameObject.SetActive(true);
             GameData.ToMenuButton.gameObject.SetActive(false);
+            _sound = sound;
             
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
@@ -110,14 +109,18 @@ namespace Game
                 ShowFinallyText();
                 return;
             }
-            
-            GameData.EffectAudioSource.clip = _clickSound;
-            GameData.EffectAudioSource.Play();
-            
+
             if (_index >= _texts.Length)
             {
+                GameData.EffectAudioSource.clip = GameData.AssetProvider.ClickSound;
+                GameData.EffectAudioSource.Play();
                 Close();
                 return;
+            }
+            else
+            {
+                GameData.EffectAudioSource.clip = _sound ? _sound : GameData.AssetProvider.ClickSound;
+                GameData.EffectAudioSource.Play();
             }
             
             if (_coroutine != null)

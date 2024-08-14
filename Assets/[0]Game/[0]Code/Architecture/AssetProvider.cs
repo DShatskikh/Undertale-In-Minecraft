@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -6,5 +7,9 @@ namespace Game
     public class AssetProvider : ScriptableObject
     {
         public AudioClip LeverSound;
+        public AudioClip ClickSound;
+        public AudioClip DoorSound;
+        public StepSoundPairsConfig StepSoundPairsConfig;
+        public TileTagConfig TileTagConfig;
     }
 }

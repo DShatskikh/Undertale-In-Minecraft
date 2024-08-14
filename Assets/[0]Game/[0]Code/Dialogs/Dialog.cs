@@ -33,6 +33,7 @@ namespace Game
         private string _continueText;
         private AsyncOperationHandle<string> _continueTextOperation;
         private AsyncOperationHandle<string> _finallyTextOperation;
+        private AudioClip _sound;
 
         private IEnumerator Start()
         {
@@ -47,10 +48,11 @@ namespace Game
             _view.SetContinueText(_continueText);
         }
 
-        public void SetReplicas(Replica[] replicas)
+        public void SetReplicas(Replica[] replicas, AudioClip sound = null)
         {
             gameObject.SetActive(true);
             GameData.ToMenuButton.gameObject.SetActive(false);
+            _sound = sound;
             
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
@@ -83,16 +85,20 @@ namespace Game
             }
 
             print("Next");
-            
-            GameData.EffectAudioSource.clip = _clickSound;
-            GameData.EffectAudioSource.Play();
-            
+
             _indexReplica++;
             
             if (_indexReplica >= _replicas.Length)
             {
+                GameData.EffectAudioSource.clip = _clickSound;
+                GameData.EffectAudioSource.Play();
                 Close();
                 return;
+            }
+            else
+            {
+                GameData.EffectAudioSource.clip = _sound ? _sound : GameData.AssetProvider.ClickSound;
+                GameData.EffectAudioSource.Play();
             }
 
             UpdateView();

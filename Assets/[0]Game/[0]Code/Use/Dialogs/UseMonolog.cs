@@ -11,15 +11,13 @@ namespace Game
 
         [SerializeField]
         private LocalizedString[] _localizedStrings;
-        
-        public LocalizedString[] SetLocalizedStrings
-        {
-            set { _localizedStrings = value; }
-        }
+
+        [SerializeField]
+        private AudioClip _sound;
 
         public override void Use()
         {
-            GameData.Monolog.Show(_localizedStrings);
+            GameData.Monolog.Show(_localizedStrings, _sound);
             EventBus.CloseMonolog += _endEvent.Invoke;
         }
     }

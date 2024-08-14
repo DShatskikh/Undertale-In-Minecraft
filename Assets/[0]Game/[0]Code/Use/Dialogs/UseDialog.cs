@@ -11,9 +11,12 @@ namespace Game
         [SerializeField] 
         private UnityEvent _endEvent;
 
+        [SerializeField]
+        private AudioClip _sound;
+        
         public override void Use()
         {
-            GameData.Dialog.SetReplicas(_replicas);
+            GameData.Dialog.SetReplicas(_replicas, _sound);
             EventBus.CloseDialog += _endEvent.Invoke;
         }
     }

@@ -11,28 +11,18 @@ namespace Game
         [SerializeField] 
         private CharacterView _view;
 
-        [SerializeField] 
-        private AudioSource _stepSource1, _stepSource2;
-
-        [SerializeField] 
-        private float _intervalStep;
-
         [SerializeField]
         private UseArea _useArea;
 
         [SerializeField]
         private HatPoint _hatPoint;
-        
-        private float _currentStepTime;
-        private bool _isStepRight;
+
+        [SerializeField]
+        private CharacterStep _characterStep;
+
         public CharacterView View => _view;
         public UseArea UseArea => _useArea;
         public HatPoint HatPoint => _hatPoint;
-
-        private void Start()
-        {
-            _currentStepTime = _intervalStep;
-        }
 
         private void Update()
         {
@@ -56,19 +46,7 @@ namespace Game
                     _view.Flip(true);
 
                 _view.Step();
-                _currentStepTime += Time.deltaTime;
-                
-                if (_currentStepTime >= (isRun ? _intervalStep / 2 : _intervalStep))
-                {
-                    _currentStepTime = 0;
-
-                    if (_isStepRight)
-                        _stepSource1.Play();
-                    else
-                        _stepSource2.Play();
-
-                    _isStepRight = !_isStepRight;
-                }
+                _characterStep.Execute(isRun);
             }
             else
             {
