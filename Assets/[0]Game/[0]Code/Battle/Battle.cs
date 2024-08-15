@@ -146,12 +146,6 @@ namespace Game
             {
                 _isSecondRound = true;
                 _attackIndex = Random.Range(0, _attacks.Length);
-
-                if (GameData.EnemyData.EnemyConfig.SkipAttack != null)
-                {
-                    while (_attacks[_attackIndex] == GameData.EnemyData.EnemyConfig.SkipAttack)
-                        _attackIndex = Random.Range(0, _attacks.Length);
-                }
             }
         }
         

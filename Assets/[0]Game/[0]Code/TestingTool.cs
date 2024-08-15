@@ -5,7 +5,7 @@ namespace Game
 {
     public class TestingTool : MonoBehaviour 
     {
-        [ContextMenu("FullReset")]
+        [ContextMenu("Полное удаление данных")]
         private void FullReset()
         {
             foreach (var location in GameData.Locations) 

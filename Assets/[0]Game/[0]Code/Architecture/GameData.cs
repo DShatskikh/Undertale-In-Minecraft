@@ -41,10 +41,10 @@ namespace Game
         public static TMP_Text SaveText;
         public static GameObject InputCanvas;
         public static GameObject GameOver;
-
+        
         public static Saver Saver;
         public static TimerBeforeAdsYG TimerBeforeAdsYG;
-
         public static CommandManager CommandManager;
+        public static CompanionManager CompanionManager;
     }
 }

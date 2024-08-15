@@ -71,6 +71,9 @@ namespace Game
         [SerializeField]
         private CommandManager _commandManager;
 
+        [SerializeField]
+        private CompanionManager _companionManager;
+        
         private void Awake()
         {
             GameData.Character = _character;
@@ -93,6 +96,7 @@ namespace Game
             GameData.GameOver = _gameOver;
             GameData.TimerBeforeAdsYG = _timerBeforeAds;
             GameData.CommandManager = _commandManager;
+            GameData.CompanionManager = _companionManager;
         }
 
         private void Start()

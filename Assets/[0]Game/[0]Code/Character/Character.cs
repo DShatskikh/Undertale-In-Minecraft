@@ -20,6 +20,9 @@ namespace Game
         [SerializeField]
         private CharacterStep _characterStep;
 
+        private float _currentSpeed;
+        private Vector3 _previousPosition;
+
         public CharacterView View => _view;
         public UseArea UseArea => _useArea;
         public HatPoint HatPoint => _hatPoint;
@@ -32,7 +35,7 @@ namespace Game
             if (direction == Vector2.zero && GameData.Joystick.Direction.magnitude > 0.5f)
             {
                 direction = GameData.Joystick.Direction.normalized;
-                isRun = GameData.Joystick.Direction.magnitude >= 0.9f;
+                isRun = GameData.Joystick.Direction.magnitude == 1f;
             }
             
             _mover.Move(direction, isRun);
@@ -45,13 +48,26 @@ namespace Game
                 if (direction.x < 0) 
                     _view.Flip(true);
 
-                _view.Step();
-                _characterStep.Execute(isRun);
+                if (_currentSpeed > 0)
+                {
+                    _view.Step();
+                    _characterStep.Execute(isRun);
+                }
+                else
+                {
+                    _view.Idle();
+                }
             }
             else
             {
                 _view.Idle();
             }
+        }
+        
+        private void FixedUpdate()
+        {
+            _currentSpeed = ((Vector2)((Vector3)_previousPosition - transform.position)).magnitude;
+            _previousPosition = transform.position;
         }
 
         private void OnDisable()
