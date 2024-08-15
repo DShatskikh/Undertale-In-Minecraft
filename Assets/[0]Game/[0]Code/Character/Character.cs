@@ -34,7 +34,7 @@ namespace Game
 
             if (direction == Vector2.zero && GameData.Joystick.Direction.magnitude > 0.5f)
             {
-                direction = GameData.Joystick.Direction.normalized;
+                direction = DirectionExtensions.GetDirection8(GameData.Joystick.Direction.normalized);
                 isRun = GameData.Joystick.Direction.magnitude == 1f;
             }
             

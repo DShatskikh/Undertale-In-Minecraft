@@ -35,19 +35,14 @@ namespace Game
 
         public void Update()
         {
-            var characterPosition = GameData.Character.transform.position;
-            var distance = Vector2.Distance(transform.position, characterPosition);
+            var targetPosition = GameData.CompanionManager.GetNearestTarget(this);
+            var distance = Vector2.Distance(transform.position, targetPosition);
 
             if (distance > _distanceFromTarget)
             {
-                _currentPoint = (Vector2)characterPosition + ((Vector2)(transform.position - characterPosition)).normalized * _distanceFromTarget;
-                _spriteRenderer.flipX = characterPosition.x - transform.position.x < 0;
+                _currentPoint = targetPosition + ((Vector2)transform.position - targetPosition).normalized * _distanceFromTarget;
+                _spriteRenderer.flipX = targetPosition.x - transform.position.x < 0;
             }
-
-            /*if (_currentSpeed > 0)
-                _delayIdle = 0.3f;
-            else if (_delayIdle > 0)
-                _delayIdle -= Time.deltaTime;*/
         }
 
         private void FixedUpdate()

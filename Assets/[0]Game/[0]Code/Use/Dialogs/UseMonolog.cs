@@ -6,11 +6,11 @@ namespace Game
 {
     public class UseMonolog : UseObject
     {
-        [SerializeField] 
-        private UnityEvent _endEvent;
-
         [SerializeField]
         private LocalizedString[] _localizedStrings;
+
+        [SerializeField] 
+        private UnityEvent _endEvent;
 
         [SerializeField]
         private AudioClip _sound;

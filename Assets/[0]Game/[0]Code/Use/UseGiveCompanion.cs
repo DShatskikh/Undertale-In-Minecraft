@@ -11,7 +11,7 @@ namespace Game
 
         public void Use()
         {
-            GameData.CompanionManager.GiveCompanion(_companion);
+            GameData.CompanionManager.TryActivateCompanion(_companion);
             
             if (YandexGame.savesData.Companions.Any(companion => companion == _companion))
                 return;

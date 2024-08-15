@@ -9,6 +9,10 @@ namespace Game
         {
             if (GameData.DeviceType == CurrentDeviceType.WebPC)
                 gameObject.SetActive(false);
+            
+            #if UNITY_EDITOR
+            gameObject.SetActive(false);
+            #endif
         }
     }
 }
