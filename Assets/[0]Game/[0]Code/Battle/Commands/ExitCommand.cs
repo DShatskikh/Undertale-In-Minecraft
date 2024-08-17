@@ -54,7 +54,7 @@ namespace Game
                 yield return new WaitForSeconds(0.5f);
             }
             
-            var characterTransform = GameData.Character.transform;
+            var characterTransform = GameData.CharacterController.transform;
 
             while ((Vector2)characterTransform.position != _normalWorldCharacterPosition)
             {
@@ -62,11 +62,9 @@ namespace Game
                 yield return null;
             }
             
-            GameData.Character.enabled = true;
-            GameData.Character.GetComponent<Collider2D>().isTrigger = false;
-
-            GameData.MusicAudioSource.clip = _previousSound;
-            GameData.MusicAudioSource.Play();
+            GameData.CharacterController.enabled = true;
+            GameData.CharacterController.GetComponent<Collider2D>().isTrigger = false;
+            GameData.MusicPlayer.Play(_previousSound);
 
             var eventParams = new Dictionary<string, string>
             {

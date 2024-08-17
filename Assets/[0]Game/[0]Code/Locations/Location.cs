@@ -1,19 +1,13 @@
-﻿using UnityEngine;
-using UnityEngine.Analytics;
-using YG;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Game
 {
     public class Location : MonoBehaviour
     {
         [SerializeField]
-        private int _index;
-        
-        private void OnEnable()
-        {
-            YandexGame.savesData.LocationIndex = _index;
-            GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
-            Analytics.CustomEvent("Location " + gameObject.name);
-        }
+        private Transform[] _points;
+
+        public Transform[] Points => _points;
     }
 }

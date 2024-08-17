@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 
 namespace Game
@@ -17,11 +18,8 @@ namespace Game
         [ContextMenu("Полное удаление данных")]
         private void FullReset()
         {
-            foreach (var location in GameData.Locations) 
-                location.gameObject.SetActive(false);
-
-            GameData.Introduction.SetActive(true);
             YandexGame.savesData.FullReset();
+            SceneManager.LoadScene(SceneManager.loadedSceneCount);
         }
     }
 }

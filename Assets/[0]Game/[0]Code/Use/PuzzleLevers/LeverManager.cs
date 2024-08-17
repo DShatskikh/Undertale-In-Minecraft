@@ -55,8 +55,7 @@ namespace Game
                 Solve();
             else
             {
-                GameData.EffectAudioSource.clip = GameData.AssetProvider.LeverSound;
-                GameData.EffectAudioSource.Play();
+                GameData.EffectSoundPlayer.Play(GameData.AssetProvider.LeverSound);
 
                 if (_isSolve)
                     NotSolved.Invoke();
@@ -68,9 +67,7 @@ namespace Game
         private void Solve()
         {
             _isSolve = true;
-            
-            GameData.EffectAudioSource.clip = _solvedSound;
-            GameData.EffectAudioSource.Play();
+            GameData.EffectSoundPlayer.Play(_solvedSound);
             
             Solved.Invoke();
         }

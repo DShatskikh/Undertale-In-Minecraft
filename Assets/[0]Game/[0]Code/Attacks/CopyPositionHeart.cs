@@ -7,7 +7,7 @@ namespace Game
     {
         private void Start()
         {
-            transform.position = GameData.Heart.transform.position;
+            transform.position = GameData.HeartController.transform.position;
         }
     }
 }

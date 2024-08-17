@@ -33,7 +33,7 @@ namespace Game
             if (!_isCanStartBattle)
                 return;
             
-            if (other.TryGetComponent(out Character character))
+            if (other.TryGetComponent(out CharacterController character))
             {
                 StartBattle();
             }

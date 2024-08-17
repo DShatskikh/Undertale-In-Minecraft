@@ -18,7 +18,7 @@ namespace Game
         
         public void StartCutscene()
         {
-            GameData.Character.enabled = false;
+            GameData.CharacterController.enabled = false;
             
             var speed = 0.1f;
             

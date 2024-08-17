@@ -10,7 +10,7 @@ namespace Game
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out Character character))
+            if (other.TryGetComponent(out CharacterController character))
             {
                 _event.Invoke();   
             }

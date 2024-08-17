@@ -4,6 +4,7 @@ using System.Linq;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using YG;
 
@@ -11,11 +12,11 @@ namespace Game
 {
     public class GameplayStartup : MonoBehaviour
     {
-        [SerializeField]
-        private Character _character;
+        [FormerlySerializedAs("_character")] [SerializeField]
+        private CharacterController characterController;
         
-        [SerializeField]
-        private Heart _heart;
+        [FormerlySerializedAs("_heart")] [SerializeField]
+        private HeartController heartController;
 
         [SerializeField]
         private Battle _battle;
@@ -51,7 +52,7 @@ namespace Game
         private GameObject _introduction;
         
         [SerializeField]
-        private Locations _locations;
+        private LocationsManager _locationsManager;
         
         [SerializeField]
         private TMP_Text _saveText;
@@ -76,8 +77,8 @@ namespace Game
         
         private void Awake()
         {
-            GameData.Character = _character;
-            GameData.Heart = _heart;
+            GameData.CharacterController = characterController;
+            GameData.HeartController = heartController;
             GameData.Battle = _battle;
             GameData.Dialog = _dialog;
             GameData.Monolog = _monolog;
@@ -88,7 +89,7 @@ namespace Game
             GameData.CharacterPoint = _characterPoint;
             GameData.EnemyPoint = _enemyPoint;
             GameData.CinemachineConfiner = _cinemachineConfiner;
-            GameData.Locations = _locations.Locations1;
+            GameData.LocationsManager = _locationsManager;
             GameData.Introduction = _introduction;
             GameData.SaveText = _saveText;
             GameData.ToMenuButton = _toMenuButton;
@@ -118,10 +119,10 @@ namespace Game
                 _input.SetActive(true);
                 GameData.Joystick.gameObject.SetActive(true);
                 GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
-                GameData.Character.enabled = true;
-                GameData.Character.gameObject.SetActive(true);
-                GameData.Character.transform.position = GameData.Saver.LoadPosition();
-                GameData.Locations.ToArray()[YandexGame.savesData.LocationIndex].gameObject.SetActive(true);
+                GameData.CharacterController.enabled = true;
+                GameData.CharacterController.gameObject.SetActive(true);
+                GameData.CharacterController.transform.position = GameData.Saver.LoadPosition();
+                GameData.LocationsManager.SwitchLocation(YandexGame.savesData.LocationIndex, YandexGame.savesData.PointIndex);
                 GameData.ToMenuButton.gameObject.SetActive(true);
             }
         }

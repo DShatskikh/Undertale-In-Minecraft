@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -17,17 +16,32 @@ namespace Game
         
         private bool _isStepRight;
         private float _currentStepTime;
-        
+        private CharacterModel _model;
+
         private void Start()
         {
             _currentStepTime = _intervalStep;
         }
-        
-        public void Execute(bool isRun)
+
+        public void SetModel(CharacterModel model)
         {
+            _model = model;
+            _model.SpeedChange += OnSpeedChange;
+        }
+
+        private void OnDestroy()
+        {
+            _model.SpeedChange -= OnSpeedChange;
+        }
+        
+        private void OnSpeedChange(float value)
+        {
+            if (value == 0)
+                return;
+            
             _currentStepTime += Time.deltaTime;
                 
-            if (_currentStepTime >= (isRun ? _intervalStep / 2 : _intervalStep))
+            if (_currentStepTime >= (_model.IsRun ? _intervalStep / 2 : _intervalStep))
             {
                 _currentStepTime = 0;
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, _layerMask);
@@ -44,7 +58,7 @@ namespace Game
                 _isStepRight = !_isStepRight;
             }
         }
-        
+
         private void PlayFootstepSound(TileBase tile)
         {
             var assetProvider = GameData.AssetProvider;

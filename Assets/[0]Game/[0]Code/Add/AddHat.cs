@@ -7,7 +7,7 @@ namespace Game
         public override void Use()
         {
             YandexGame.savesData.IsHat = true;
-            GameData.Character.HatPoint.HatShowAndHide(true);
+            GameData.CharacterController.HatPoint.HatShowAndHide(true);
         }
     }
 }

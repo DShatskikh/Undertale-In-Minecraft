@@ -1,22 +1,25 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game
 {
     public class ExitLocation : MonoBehaviour
     {
-        [SerializeField] 
-        private Transform _point;
+        [SerializeField]
+        private Location _location;
 
         [SerializeField]
-        private GameObject _exitLocation, _nextLocation;
+        private int _pointIndex;
         
         public void Exit()
         {
-            _exitLocation.SetActive(false);
-            GameData.Character.transform.position = _point.position;
-            _nextLocation.SetActive(true);
+            GameData.LocationsManager.SwitchLocation((int)_location, _pointIndex);
+        }
+        
+        public enum Location
+        {
+            HerobrineHome,
+            World,
+            
         }
     }
 }

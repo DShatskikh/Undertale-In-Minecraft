@@ -67,8 +67,8 @@ MonoBehaviour:
   _isNotIntroduction: 1
   _testDeviceType: 255
   _mixer: {fileID: 24300002, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
-  _effectAudioSource: {fileID: 1436111887442314858}
-  _musicAudioSource: {fileID: 6713232609774389252}
+  _effectSoundPlayer: {fileID: 2544995322125151895}
+  _musicPlayer: {fileID: 7978125149905417236}
   _deviceTypeDetector: {fileID: 3114450107808566579}
   _volumeSlider: {fileID: 3788015507531524912}
   _assetProvider: {fileID: 11400000, guid: 57a9160c90ac0244f8347b718ff3622c, type: 2}
@@ -268,6 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2758612059619545385}
   - component: {fileID: 1436111887442314858}
+  - component: {fileID: 2544995322125151895}
   m_Layer: 0
   m_Name: EffectAudioSource
   m_TagString: Untagged
@@ -387,6 +388,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2544995322125151895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372969743681952378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78e6afc7b9a4e61bbed95749f145cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2246926409618502933
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2967837730493376424}
   - component: {fileID: 6713232609774389252}
+  - component: {fileID: 7978125149905417236}
   m_Layer: 0
   m_Name: MusicAudioSource
   m_TagString: Untagged
@@ -1060,6 +1074,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7978125149905417236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9143945613772322554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c41ef85819042dfb85f6a6bb4d22270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1594746649387619398
 PrefabInstance:
   m_ObjectHideFlags: 0

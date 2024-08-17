@@ -17,7 +17,7 @@ namespace Game
 
         public void Stop()
         {
-            GameData.MusicAudioSource.Stop();
+            GameData.MusicPlayer.Stop();
         }
         
         private IEnumerator AwaitStop()

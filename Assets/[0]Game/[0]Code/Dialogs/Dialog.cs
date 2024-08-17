@@ -63,7 +63,7 @@ namespace Game
             EventBus.Submit = Next;
             EventBus.Cancel = ShowFinallyText;
             
-            GameData.Character.enabled = false;
+            GameData.CharacterController.enabled = false;
             _replicas = replicas;
             _indexReplica = 0;
 
@@ -90,15 +90,13 @@ namespace Game
             
             if (_indexReplica >= _replicas.Length)
             {
-                GameData.EffectAudioSource.clip = _clickSound;
-                GameData.EffectAudioSource.Play();
+                GameData.EffectSoundPlayer.Play(_clickSound);
                 Close();
                 return;
             }
             else
             {
-                GameData.EffectAudioSource.clip = _sound ? _sound : GameData.AssetProvider.ClickSound;
-                GameData.EffectAudioSource.Play();
+                GameData.EffectSoundPlayer.Play(_sound ? _sound : GameData.AssetProvider.ClickSound);
             }
 
             UpdateView();
@@ -167,7 +165,7 @@ namespace Game
             GameData.ToMenuButton.gameObject.SetActive(true);
             EventBus.Submit = null;
             EventBus.Cancel = null;
-            GameData.Character.enabled = true;
+            GameData.CharacterController.enabled = true;
             gameObject.SetActive(false);
             EventBus.CloseDialog?.Invoke();
             EventBus.CloseDialog = null;

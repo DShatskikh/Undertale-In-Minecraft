@@ -44,16 +44,16 @@ namespace Game
             else
                 _pcInput.SetActive(true);
             
-            GameData.Character.UseArea.gameObject.SetActive(false);
-            GameData.Character.transform.position = _startPoint.position;
-            GameData.Character.gameObject.SetActive(true);
-            yield return new WaitUntil(() => Vector3.Magnitude(GameData.Character.transform.position - _startPoint.position) > 2);
+            GameData.CharacterController.UseArea.gameObject.SetActive(false);
+            GameData.CharacterController.transform.position = _startPoint.position;
+            GameData.CharacterController.gameObject.SetActive(true);
+            yield return new WaitUntil(() => Vector3.Magnitude(GameData.CharacterController.transform.position - _startPoint.position) > 2);
             _event.Invoke();
             
             GameData.Dialog.SetReplicas(_replicas);
             yield return new WaitUntil(() => !GameData.Dialog.gameObject.activeSelf);
-            GameData.Character.enabled = true;
-            GameData.Character.UseArea.gameObject.SetActive(true);
+            GameData.CharacterController.enabled = true;
+            GameData.CharacterController.UseArea.gameObject.SetActive(true);
             _event2.Invoke();
         }
     }

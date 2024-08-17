@@ -9,8 +9,7 @@ namespace Game
         
         public void Play()
         {
-            GameData.EffectAudioSource.clip = _effect;
-            GameData.EffectAudioSource.Play();
+            GameData.EffectSoundPlayer.Play(_effect);
         }
     }
 }

@@ -56,7 +56,7 @@ namespace Game
                 }
             }
             
-            return GameData.Character.transform.position;
+            return GameData.CharacterController.transform.position;
         }
         
         private Companion GetCompanion(CompanionType companionType)

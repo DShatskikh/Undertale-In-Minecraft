@@ -21,7 +21,7 @@ namespace Game
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out Character character) && !IsActive)
+            if (other.TryGetComponent(out CharacterController character) && !IsActive)
             {
                 Activate();
                 _playSound.Play();

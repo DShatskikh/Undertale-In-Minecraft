@@ -10,7 +10,7 @@ public class SmoothRotation : MonoBehaviour
 
     private void Start()
     {
-        target = GameData.Heart.transform;
+        target = GameData.HeartController.transform;
     }
 
     private void Update()

@@ -51,7 +51,7 @@ namespace Game
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
-            GameData.Character.enabled = false;
+            GameData.CharacterController.enabled = false;
             var button = _ui.rootVisualElement.Q<Button>("Next_button");
             SetContinueText(_continueText);
             button.clicked += Next;
@@ -112,15 +112,13 @@ namespace Game
 
             if (_index >= _texts.Length)
             {
-                GameData.EffectAudioSource.clip = GameData.AssetProvider.ClickSound;
-                GameData.EffectAudioSource.Play();
+                GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
                 Close();
                 return;
             }
             else
             {
-                GameData.EffectAudioSource.clip = _sound ? _sound : GameData.AssetProvider.ClickSound;
-                GameData.EffectAudioSource.Play();
+                GameData.EffectSoundPlayer.Play(_sound ? _sound : GameData.AssetProvider.ClickSound);
             }
             
             if (_coroutine != null)
@@ -151,7 +149,7 @@ namespace Game
             GameData.ToMenuButton.gameObject.SetActive(true);
             EventBus.Submit = null;
             EventBus.Cancel = null;
-            GameData.Character.enabled = true;
+            GameData.CharacterController.enabled = true;
             gameObject.SetActive(false);
             EventBus.CloseMonolog?.Invoke();
             EventBus.CloseMonolog = null;

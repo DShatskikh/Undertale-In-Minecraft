@@ -14,12 +14,11 @@ namespace Game
         public void Skip()
         {
             YandexGame.savesData.IsTelephone = true;
-            GameData.EffectAudioSource.clip = GameData.AssetProvider.DoorSound;
-            GameData.EffectAudioSource.Play();
-            GameData.Character.transform.position = _point.position;
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.DoorSound);
+            GameData.CharacterController.transform.position = _point.position;
             _locationHerobrineHome.SetActive(false);
             _locationWorld.SetActive(true);
-            GameData.Character.gameObject.SetActive(true);
+            GameData.CharacterController.gameObject.SetActive(true);
         }
     }
 }

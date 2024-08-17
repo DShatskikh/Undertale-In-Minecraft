@@ -2,20 +2,23 @@
 
 namespace Game
 {
-    public class CharacterMover : MonoBehaviour
+    public class CharacterMover
     {
-        [SerializeField] 
-        private Rigidbody2D _rigidbody;
+        private const float Speed = 3;
+        private const float RunSpeed = 7;
+        
+        private readonly CharacterModel _model;
+        private readonly Rigidbody2D _rigidbody;
 
-        [SerializeField] 
-        private float _speed;
-
-        [SerializeField] 
-        private float _runSpeed;
+        public CharacterMover(CharacterModel model, Rigidbody2D rigidbody)
+        {
+            _model = model;
+            _rigidbody = rigidbody;
+        }
         
         public void Move(Vector2 direction, bool isRun)
         {
-            _rigidbody.linearVelocity = direction * (isRun ? _runSpeed : _speed);
+            _rigidbody.linearVelocity = direction * (isRun ? RunSpeed : Speed);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Game
         private void Start()
         {
             dialog.SetReplicas(_replicas);
-            GameData.Character.enabled = false;
+            GameData.CharacterController.enabled = false;
         }
     }
 }

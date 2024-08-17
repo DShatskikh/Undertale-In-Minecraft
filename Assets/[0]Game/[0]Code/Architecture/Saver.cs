@@ -54,7 +54,7 @@ namespace Game
 
         public void SavePlayerPosition()
         {
-            SavePosition(GameData.Character.transform.position);
+            SavePosition(GameData.CharacterController.transform.position);
         }
     }
 }

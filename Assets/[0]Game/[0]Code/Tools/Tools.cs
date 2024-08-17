@@ -16,13 +16,13 @@ namespace Game
         [SerializeField]
         private GameObject[] _ends;
 
-        [SerializeField]
-        private Character _character;
+        [FormerlySerializedAs("_character")] [SerializeField]
+        private CharacterController characterController;
         
         [ContextMenu("Сброс в состояние билда")]
         private void BuildState()
         {
-            _character.gameObject.SetActive(false);
+            characterController.gameObject.SetActive(false);
             
             foreach (var location in _locations)
             {
@@ -40,7 +40,7 @@ namespace Game
         [ContextMenu("Начало игры")]
         private void StartGame()
         {
-            _character.gameObject.SetActive(true);
+            characterController.gameObject.SetActive(true);
 
             foreach (var location in _locations)
             {
@@ -58,8 +58,8 @@ namespace Game
         [ContextMenu("Дом Херобрина")]
         private void HerobrineHome()
         {
-            _character.gameObject.SetActive(true);
-            _character.transform.position = _locations[0].transform.position;
+            characterController.gameObject.SetActive(true);
+            characterController.transform.position = _locations[0].transform.position;
 
             foreach (var location in _locations)
             {

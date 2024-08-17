@@ -28,7 +28,7 @@ namespace Game
 
         private void Start()
         {
-            _currentPoint = GameData.Character.transform.position;
+            _currentPoint = GameData.CharacterController.transform.position;
             transform.position = _currentPoint;
             _previousPosition = transform.position;
         }
@@ -51,7 +51,7 @@ namespace Game
             _previousPosition = transform.position;
             _animator.SetFloat("Speed", _currentSpeed > 0 ? 1 : 0);
             
-            var characterPosition = GameData.Character.transform.position;
+            var characterPosition = GameData.CharacterController.transform.position;
             var distance = Vector2.Distance(transform.position, characterPosition);
             var speed = distance > _maxDistance ? _speedRun : _speed;
             

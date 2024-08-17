@@ -63,10 +63,10 @@ namespace Game
 
         public void StartBattle()
         {
-            GameData.Character.enabled = false;
-            GameData.Heart.enabled = false;
-            GameData.Heart.transform.position = GameData.Arena.transform.position;
-            _previousSound = GameData.MusicAudioSource.clip;
+            GameData.CharacterController.enabled = false;
+            GameData.HeartController.enabled = false;
+            GameData.HeartController.transform.position = GameData.Arena.transform.position;
+            _previousSound = GameData.MusicPlayer.Clip;
             GameData.TimerBeforeAdsYG.gameObject.SetActive(false);
             GameData.ToMenuButton.gameObject.SetActive(false);
 
@@ -83,7 +83,7 @@ namespace Game
                 spriteRenderer.flipX = true;
             }
             
-            var character = GameData.Character;
+            var character = GameData.CharacterController;
             character.GetComponent<Collider2D>().isTrigger = true;
             character.View.Flip(false);
             
@@ -156,7 +156,7 @@ namespace Game
 
         private void OnDamage(int value)
         {
-            GameData.Character.View.Damage();
+            GameData.CharacterController.View.Damage();
         }
         
         [ContextMenu("Progress_100")]

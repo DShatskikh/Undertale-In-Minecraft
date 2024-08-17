@@ -1,5 +1,4 @@
-﻿using System;
-using RimuruDev;
+﻿using RimuruDev;
 using UnityEngine;
 using UnityEngine.Audio;
 using YG;
@@ -62,8 +61,11 @@ namespace Game
         private AudioMixerGroup _mixer;
         
         [SerializeField]
-        private AudioSource _effectAudioSource, _musicAudioSource;
+        private EffectSoundPlayer _effectSoundPlayer;
 
+        [SerializeField]
+        private MusicPlayer _musicPlayer;
+        
         [SerializeField]
         private DeviceTypeDetector _deviceTypeDetector;
 
@@ -89,6 +91,8 @@ namespace Game
             GameData.Saver = new Saver();
             
 #if UNITY_EDITOR
+            GameData.DeviceType = _testDeviceType;
+            
             if (_isNotLoad)
             {
                 YandexGame.savesData.MaxHealth = _startHealth;
@@ -107,8 +111,6 @@ namespace Game
                 YandexGame.savesData.IsNotIntroduction = _isNotIntroduction;
                 YandexGame.savesData.Volume = 1f;
 
-                GameData.DeviceType = _testDeviceType;
-                
                 return;
             }
 #endif
@@ -120,8 +122,8 @@ namespace Game
         {
             GameData.Startup = this;
             GameData.AssetProvider = _assetProvider;
-            GameData.EffectAudioSource = _effectAudioSource;
-            GameData.MusicAudioSource = _musicAudioSource;
+            GameData.EffectSoundPlayer = _effectSoundPlayer;
+            GameData.MusicPlayer = _musicPlayer;
             GameData.Mixer = _mixer;
             GameData.VolumeSlider = _volumeSlider;
             

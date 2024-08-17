@@ -25,7 +25,7 @@ namespace Game
 
         private IEnumerator Start()
         {
-            var direction = ((Vector2) GameData.Heart.transform.position - (Vector2)transform.position).normalized;
+            var direction = ((Vector2) GameData.HeartController.transform.position - (Vector2)transform.position).normalized;
             float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 180;
             transform.Rotate(0, 0, rotationZ + 90);
 

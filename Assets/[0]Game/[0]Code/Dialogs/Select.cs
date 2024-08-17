@@ -68,7 +68,7 @@ namespace Game
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
-            GameData.Character.enabled = false;
+            GameData.CharacterController.enabled = false;
 
             _yesAction = yesAction;
             _noAction = noAction;
@@ -140,10 +140,9 @@ namespace Game
         private void Close()
         {
             GameData.ToMenuButton.gameObject.SetActive(true);
-            GameData.EffectAudioSource.clip = _clickSound;
-            GameData.EffectAudioSource.Play();
+            GameData.EffectSoundPlayer.Play(_clickSound);
             gameObject.SetActive(false);
-            GameData.Character.enabled = true;
+            GameData.CharacterController.enabled = true;
         }
 
         private void SetText(string text)

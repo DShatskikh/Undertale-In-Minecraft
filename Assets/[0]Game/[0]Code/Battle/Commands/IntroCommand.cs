@@ -6,8 +6,8 @@ namespace Game
 {
     public class IntroCommand : CommandBase
     {
-        private PlaySound _startBattlePlaySound;
-        private float _speed;
+        private readonly PlaySound _startBattlePlaySound;
+        private readonly float _speed;
         
         public IntroCommand(PlaySound startBattlePlaySound, float speed)
         {
@@ -19,13 +19,12 @@ namespace Game
         {
             Debug.Log("IntroCommand");
             _startBattlePlaySound.Play();
-            GameData.Character.View.Idle();
             GameData.Startup.StartCoroutine(AwaitMove(action));
         }
 
         private IEnumerator AwaitMove(UnityAction action)
         {
-            var characterTransform = GameData.Character.transform;
+            var characterTransform = GameData.CharacterController.transform;
             var enemyTransform = GameData.EnemyData.GameObject.transform;
 
             while (characterTransform.position != GameData.CharacterPoint.position || enemyTransform.position != GameData.EnemyPoint.position)
@@ -35,7 +34,7 @@ namespace Game
                 yield return null;
             }
             
-            GameData.Heart.enabled = true;
+            GameData.HeartController.enabled = true;
             action?.Invoke();
         }
     }

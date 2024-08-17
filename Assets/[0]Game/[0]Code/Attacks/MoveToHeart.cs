@@ -14,7 +14,7 @@ namespace Game
         
         private IEnumerator Start()
         {
-            var point = GameData.Heart.transform;
+            var point = GameData.HeartController.transform;
             
             while (transform.position != point.position)
             {

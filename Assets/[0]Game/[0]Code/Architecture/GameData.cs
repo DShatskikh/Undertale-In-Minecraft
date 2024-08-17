@@ -10,8 +10,8 @@ namespace Game
 {
     public static class GameData
     {
-        public static Character Character;
-        public static Heart Heart { get; set; }
+        public static CharacterController CharacterController;
+        public static HeartController HeartController { get; set; }
         public static EnemyData EnemyData { get; set; }
         public static Transform CharacterPoint { get; set; }
         public static Transform EnemyPoint { get; set; }
@@ -28,11 +28,11 @@ namespace Game
         public static VolumeSlider VolumeSlider { get; set; }
         public static AssetProvider AssetProvider { get; set; }
 
-        public static IEnumerable<Location> Locations;
+        public static LocationsManager LocationsManager;
         public static Monolog Monolog;
         public static Select Select;
-        public static AudioSource EffectAudioSource;
-        public static AudioSource MusicAudioSource;
+        public static EffectSoundPlayer EffectSoundPlayer;
+        public static MusicPlayer MusicPlayer;
         public static int BattleProgress;
         public static CinemachineConfiner2D CinemachineConfiner;
         public static GameObject Arena;
