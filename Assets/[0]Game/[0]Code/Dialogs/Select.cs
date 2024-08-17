@@ -1,32 +1,69 @@
 ﻿using System;
 using System.Collections;
-using TMPro;
+using RimuruDev;
 using UnityEngine;
-using UnityEngine.UI;
-
+using UnityEngine.Localization;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.UIElements;
 
 namespace Game
 {
     public class Select : MonoBehaviour
     {
-        [SerializeField]
-        private Button _yesButton;
-        
-        [SerializeField]
-        private Button _noButton;
-        
-        [SerializeField]
-        private TMP_Text _label;
-        
-        private string _text;
-        private Coroutine _coroutine;
+        [SerializeField] 
+        private AudioSource _audioSource;
 
+        [SerializeField]
+        private UIDocument _ui;
+        
+        [SerializeField] 
+        private AudioClip _clickSound;
+        
+        [SerializeField]
+        private LocalizedString _yesString, _noString;
+        
+        private LocalizedString _textLocalization;
+        private Coroutine _coroutine;
         private Action _yesAction;
         private Action _noAction;
 
-        public void Show(string text, Action yesAction, Action noAction)
+        private string _yesResultString;
+        private string _noResultString;
+        private string _textResultString;
+        
+        private AsyncOperationHandle<string> _yesTextOperation;
+        private AsyncOperationHandle<string> _noTextOperation;
+        private AsyncOperationHandle<string> _textOperation;
+        
+        private IEnumerator Start()
+        {
+            _yesTextOperation = _yesString.GetLocalizedStringAsync();
+            
+            while (!_yesTextOperation.IsDone)
+            {
+                yield return null;
+            }
+
+            _yesResultString = _yesTextOperation.Result;
+            var yesButton = _ui.rootVisualElement.Q<Button>("Yes_button");
+            yesButton.text = _yesResultString;
+            
+            _noTextOperation = _noString.GetLocalizedStringAsync();
+            
+            while (!_noTextOperation.IsDone)
+            {
+                yield return null;
+            }
+
+            _noResultString = _noTextOperation.Result;
+            var noButton = _ui.rootVisualElement.Q<Button>("No_button");
+            noButton.text = _noResultString;
+        }
+        
+        public void Show(LocalizedString textLocalization, Action yesAction, Action noAction)
         {
             gameObject.SetActive(true);
+            GameData.ToMenuButton.gameObject.SetActive(false);
             
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
@@ -36,13 +73,23 @@ namespace Game
             _yesAction = yesAction;
             _noAction = noAction;
             
-            _yesButton.onClick.AddListener(SelectTrue);
-            EventBus.OnSubmit += SelectTrue;
+            var yesButton = _ui.rootVisualElement.Q<Button>("Yes_button");
+            yesButton.text = _yesResultString;
+            EventBus.Submit = SelectTrue;
+            yesButton.clicked += SelectTrue;
 
-            _noButton.onClick.AddListener(SelectFalse);
-            EventBus.OnCancel += SelectFalse;
+            var noButton = _ui.rootVisualElement.Q<Button>("No_button");
+            noButton.text = _noResultString;
+            EventBus.Cancel = SelectFalse;
+            noButton.clicked += SelectFalse;
 
-            _text = text;
+            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
+            {
+                _ui.rootVisualElement.Q<Label>("Z").text = "";
+                _ui.rootVisualElement.Q<Label>("X").text = "";
+            }
+            
+            _textLocalization = textLocalization;
             
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
@@ -54,12 +101,21 @@ namespace Game
         {
             int _countSymbol = 0;
             string currentText = "";
-
-            while (_countSymbol != _text.Length)
+            
+            _textOperation = _textLocalization.GetLocalizedStringAsync();
+            
+            while (!_textOperation.IsDone)
             {
-                currentText += _text[_countSymbol];
+                yield return null;
+            }
+            
+            _textResultString = _textOperation.Result;
+            
+            while (_countSymbol != _textResultString.Length)
+            {
+                currentText += _textResultString[_countSymbol];
                 SetText(currentText);
-                GameData.TextAudioSource.Play();
+                _audioSource.Play();
                 yield return new WaitForSeconds(0.05f);
                 _countSymbol++;
             }
@@ -67,34 +123,33 @@ namespace Game
 
         private void SelectTrue()
         {
-            EventBus.OnSubmit = null;
+            EventBus.Submit = null;
+            EventBus.Cancel = null;
             Close();
             _yesAction?.Invoke();
-            EventBus.OnCancel = null;
         }
         
         private void SelectFalse()
         {
-            EventBus.OnSubmit = null;
+            EventBus.Submit = null;
+            EventBus.Cancel = null;
             Close();
             _noAction?.Invoke();
-            EventBus.OnCancel = null;
         }
-
+        
         private void Close()
         {
-            GameData.EffectAudioSource.clip = GameData.ClickSound;
+            GameData.ToMenuButton.gameObject.SetActive(true);
+            GameData.EffectAudioSource.clip = _clickSound;
             GameData.EffectAudioSource.Play();
             gameObject.SetActive(false);
             GameData.Character.enabled = true;
-            
-            _yesButton.onClick.RemoveAllListeners();
-            _noButton.onClick.RemoveAllListeners();
         }
 
         private void SetText(string text)
         {
-            _label.text = text;
+            var label = _ui.rootVisualElement.Q<Label>("Label");
+            label.text = text;
         }
     }
 }

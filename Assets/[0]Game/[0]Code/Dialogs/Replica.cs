@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Tables;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -8,6 +10,6 @@ namespace Game
     public struct Replica
     {
         public Sprite Icon;
-        public LocalizedString Text;
+        public LocalizedString LocalizationString;
     }
 }

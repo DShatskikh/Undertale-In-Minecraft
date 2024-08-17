@@ -9,9 +9,7 @@ namespace Game
         
         [SerializeField] 
         private Animator _animator;
-
-        public bool IsFlip => _spriteRenderer.flipX;
-
+        
         public void Flip(bool isFlip)
         {
             _spriteRenderer.flipX = isFlip;
@@ -30,16 +28,6 @@ namespace Game
         public void Idle()
         {
             _animator.SetBool("IsMove", false);
-        }
-
-        public void SetBlock(bool value)
-        {
-            _animator.SetBool("IsBlock", value);
-        }
-
-        public void SetAim(bool value)
-        {
-            _animator.SetBool("IsAim", value);
         }
     }
 }

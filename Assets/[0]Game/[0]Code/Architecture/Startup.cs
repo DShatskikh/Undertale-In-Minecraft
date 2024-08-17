@@ -1,110 +1,142 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using RimuruDev;
 using UnityEngine;
 using UnityEngine.Audio;
+using YG;
 
 namespace Game
 {
     public class Startup : MonoBehaviour
     {
-        [Header("Переменные")] 
         [SerializeField]
         private bool _isNotLoad;
-
+        
+        [Header("Переменные")] 
         [SerializeField]
-        private List<SaveKeyBoolPair> _dataBool = new();
+        private bool _isCheat;
         
         [SerializeField]
-        private List<SaveKeyIntPair> _dataInt = new();
+        private bool _isPrisonKey;
+
+        [SerializeField]
+        private bool _isGoldKey;
+        
+        [SerializeField]
+        private bool _isDeveloperKey;
+        
+        [SerializeField]
+        private bool _isSpeakHerobrine;
+        
+        [SerializeField]
+        private int _startHealth;
+        
+        [SerializeField]
+        private bool _isHat;
+        
+        [SerializeField]
+        private bool _isCapturedWorld;
+        
+        [SerializeField]
+        private bool _isNotCapturedWorld;
 
         [SerializeField]
         private int _palesos;
 
+        [SerializeField] 
+        private bool _isGoodEnd;
+        
+        [SerializeField]
+        private bool _isBadEnd;
+        
+        [SerializeField]
+        private bool _isStrangeEnd;
+
+        [SerializeField]
+        private bool _isNotIntroduction;
+
+        [SerializeField]
+        private CurrentDeviceType _testDeviceType = CurrentDeviceType.WebMobile;
+        
         [Header("Ссылки")]
         [SerializeField]
         private AudioMixerGroup _mixer;
         
         [SerializeField]
-        private AudioSource _effectAudioSource, _musicAudioSource, _textAudioSource;
+        private AudioSource _effectAudioSource, _musicAudioSource;
 
         [SerializeField]
-        private AudioClip _clickSound;
+        private DeviceTypeDetector _deviceTypeDetector;
 
         [SerializeField]
-        private Saver _saver;
+        private VolumeSlider _volumeSlider;
 
+        [SerializeField]
+        private AssetProvider _assetProvider;
+        
         private void Awake()
         {
             if (FindObjectsOfType<Startup>().Length > 1)
+            {
                 Destroy(gameObject);
-            else
-                DontDestroyOnLoad(gameObject);
+                return;
+            }
+
+            DontDestroyOnLoad(gameObject);
+
+            GameData.DeviceType = _deviceTypeDetector.CurrentDeviceType;
             
-            GameData.Saver = _saver;
+            YandexGame.GetDataEvent += () => GameData.IsLoad = true;
+            GameData.Saver = new Saver();
             
 #if UNITY_EDITOR
             if (_isNotLoad)
             {
-                foreach (var saveKey in _dataBool) 
-                    _saver.Save(saveKey.Key, saveKey.Value);
+                YandexGame.savesData.MaxHealth = _startHealth;
+                YandexGame.savesData.IsCheat = _isCheat;
+                YandexGame.savesData.IsPrisonKey = _isPrisonKey;
+                YandexGame.savesData.IsGoldKey = _isGoldKey;
+                YandexGame.savesData.IsDeveloperKey = _isDeveloperKey;
+                YandexGame.savesData.IsSpeakHerobrine = _isSpeakHerobrine;
+                YandexGame.savesData.IsCapturedWorld = _isCapturedWorld;
+                YandexGame.savesData.IsNotCapturedWorld = _isNotCapturedWorld;
+                YandexGame.savesData.IsHat = _isHat;
+                YandexGame.savesData.Palesos = _palesos;
+                YandexGame.savesData.IsGoodEnd = _isGoodEnd;
+                YandexGame.savesData.IsBadEnd = _isBadEnd;
+                YandexGame.savesData.IsStrangeEnd = _isStrangeEnd;
+                YandexGame.savesData.IsNotIntroduction = _isNotIntroduction;
+                YandexGame.savesData.Volume = 1f;
 
-                foreach (var saveKey in _dataInt) 
-                    _saver.Save(saveKey.Key, saveKey.Value);
+                GameData.DeviceType = _testDeviceType;
                 
-                GameData.Palesos = _palesos;
-                GameData.Volume = 1f;
-
                 return;
             }
 #endif
             
-            GameData.Volume = 1f;
-            GameData.Saver.LoadKeysInInspector();
             GameData.Saver.Load();
         }
 
         private void Start()
         {
             GameData.Startup = this;
+            GameData.AssetProvider = _assetProvider;
             GameData.EffectAudioSource = _effectAudioSource;
             GameData.MusicAudioSource = _musicAudioSource;
             GameData.Mixer = _mixer;
-            GameData.TextAudioSource = _textAudioSource;
-            GameData.ClickSound = _clickSound;
+            GameData.VolumeSlider = _volumeSlider;
+            
+            YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
             Application.targetFrameRate = 60;
             
 #if UNITY_EDITOR
             if (_isNotLoad)
-            {
-                SaveCustomValues();
                 return;
-            }
 #endif
         }
 
-        [ContextMenu("LoadKeys")]
-        public void LoadKeys()
+        private void OnDestroy()
         {
-            _dataBool = new List<SaveKeyBoolPair>();
-            
-            //foreach (var saveKeyInt in Resources.LoadAll<SaveKeyInt>("Data/SaveKeys/Int"))
-                //_dataInt.Add(saveKeyInt.name, PlayerPrefs.GetInt(saveKeyInt.name, saveKeyInt.DefaultValue));
-            
-            foreach (var saveKeyBool in Resources.LoadAll<SaveKeyBool>("Data/SaveKeys/Bool"))
-                _dataBool.Add(new SaveKeyBoolPair(saveKeyBool, saveKeyBool.DefaultValue));
-            
-            //foreach (var saveKeyString in Resources.LoadAll<SaveKeyString>("Data/SaveKeys/String"))
-                //_dataString.Add(saveKeyString.name, PlayerPrefs.GetString(saveKeyString.name, saveKeyString.DefaultValue));
-                
-                print("Load Keys Successful");
-        }
-
-        [ContextMenu("SaveCustomValues")]
-        public void SaveCustomValues()
-        {
-            foreach (var data in _dataBool) 
-                _saver.Save(data.Key, data.Value);
-            
-            print("Save Custom Data Successful");
+            YandexGame.GetDataEvent -= () => GameData.IsLoad = true;
         }
     }
 }

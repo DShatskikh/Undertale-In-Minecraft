@@ -1,34 +1,44 @@
-﻿using MoreMountains.Feedbacks;
-using TMPro;
+﻿using System;
+using RimuruDev;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Localization;
+using UnityEngine.UIElements;
 
 namespace Game
 {
     public class DialogView : MonoBehaviour
     {
-        [SerializeField]
-        private Image _icon;
-        
-        [SerializeField]
-        private TMP_Text _label;
+        [SerializeField] 
+        private UIDocument _UI;
 
-        [SerializeField]
-        private MMFeedbacks _feedbacks;
-        
+        private VisualElement _icon;
+        private Label _label;
+
+        private void OnEnable()
+        {
+            _icon = _UI.rootVisualElement.Q<VisualElement>("Icon");
+            _label = _UI.rootVisualElement.Q<Label>("Label");
+            
+            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
+                _UI.rootVisualElement.Q<Label>("Z").text = "";
+        }
+
         public void SetIcon(Sprite icon)
         {
-            _feedbacks.PlayFeedbacks();
-            
-            if (_icon.sprite == icon)
-                return;
-
-            _icon.sprite = icon;
+            var back = _icon.style.backgroundImage.value;
+            back.sprite = icon;
+            _icon.style.backgroundImage = back;
         }
 
         public void SetText(string text)
         {
             _label.text = text;
+        }
+
+        public void SetContinueText(string text)
+        {
+            var button = _UI.rootVisualElement.Q<Button>("Next_button");
+            button.text = text;
         }
     }
 }

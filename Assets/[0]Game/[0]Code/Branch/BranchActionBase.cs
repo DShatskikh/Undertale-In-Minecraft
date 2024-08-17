@@ -17,11 +17,5 @@ namespace Game
             else
                 _falseEvent.Invoke();
         }
-
-        [ContextMenu("Swap")]
-        private void Swap()
-        {
-            (_trueEvent, _falseEvent) = (_falseEvent, _trueEvent);
-        }
     }
 }

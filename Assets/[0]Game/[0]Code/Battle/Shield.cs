@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using MoreMountains.Feedbacks;
 using UnityEngine;
 
 namespace Game
@@ -7,30 +6,27 @@ namespace Game
     public class Shield : MonoBehaviour
     {
         [SerializeField]
-        private SpriteRenderer _view, _view2;
+        private SpriteRenderer _view;
 
         [SerializeField]
         private float _delayUse;
-
+        
         [SerializeField]
         private AudioSource _source;
-
-        [SerializeField]
-        private MMF_Player _addScoreFeedback;
         
-        private Attack _attack;
+        private Shell _shell;
         private bool _isUseCoroutine;
         private Coroutine _coroutine;
 
         private void OnEnable()
         {
             _isUseCoroutine = false;
-            ViewHide();
+            _view.gameObject.SetActive(false);
         }
 
         private void Update()
         {
-            if (_attack && !_isUseCoroutine)
+            if (_shell && !_isUseCoroutine)
             {
                 _isUseCoroutine = true;
                 
@@ -43,56 +39,34 @@ namespace Game
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out Attack attack))
+            if (other.TryGetComponent(out Shell shell))
             {
-                _attack = attack;
+                _shell = shell;
             }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.TryGetComponent(out Attack attack))
+            if (other.TryGetComponent(out Shell shell))
             {
-                _attack = null;
+                _shell = null;
             }
         }
 
         private IEnumerator Use()
         {
             _source.Play();
-            ViewShow();
-            
-            if (_attack)
-                GameData.Heart.Push(_attack.Direction);
-            
+            _view.gameObject.SetActive(true);
             yield return new WaitForSeconds(_delayUse);
-            ViewHide();
+            _view.gameObject.SetActive(false);
             _isUseCoroutine = false;
 
-            var addProgress = 1;
-            
-            GameData.BattleProgress += addProgress;
-
-            MMF_FloatingText floatingText = _addScoreFeedback.GetFeedbackOfType<MMF_FloatingText>();
-            floatingText.Value = $"+{addProgress}";
-            _addScoreFeedback.PlayFeedbacks(transform.position);
+            GameData.BattleProgress += 1;
             
             if (GameData.BattleProgress > 100)
                 GameData.BattleProgress = 100;
             
-            EventBus.OnBattleProgressChange?.Invoke(GameData.BattleProgress);
-        }
-
-        private void ViewShow()
-        {
-            _view.color = _view.color.SetA(1);
-           // _view2.gameObject.SetActive(true);
-        }
-
-        private void ViewHide()
-        {
-            _view.color = _view.color.SetA(30 / 255f);
-            //_view2.gameObject.SetActive(false);
+            EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
         }
     }
 }

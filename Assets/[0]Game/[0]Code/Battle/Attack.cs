@@ -1,18 +1,22 @@
-﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game
 {
-    public class Attack : MonoBehaviour
+    public class Attack : AttackBase
     {
-        public Vector2 Direction;
+        public float Delay = 10f;
 
-        private Vector2 _previousPosition;
-        
-        private void FixedUpdate()
+        public override void Execute(UnityAction action)
         {
-            Direction = ((Vector2)transform.position - _previousPosition).normalized;
-            _previousPosition = transform.position;
+            GameData.Startup.StartCoroutine(AwaitExecute(action));
+        }
+
+        private IEnumerator AwaitExecute(UnityAction action)
+        {
+            yield return new WaitForSeconds(Delay);
+            action.Invoke();
         }
     }
 }

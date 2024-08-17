@@ -1,6 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections;
+using System.Linq;
 using Cinemachine;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using YG;
 
 namespace Game
 {
@@ -20,7 +25,16 @@ namespace Game
 
         [SerializeField]
         private Monolog _monolog;
+        
+        [SerializeField]
+        private GameObject _input;
 
+        [SerializeField]
+        private Button _useButton;
+
+        [SerializeField]
+        private Joystick _joystick;
+        
         [SerializeField]
         private Select _select;
 
@@ -31,100 +45,85 @@ namespace Game
         private Transform _characterPoint, _enemyPoint;
         
         [SerializeField]
+        private CinemachineConfiner2D _cinemachineConfiner;
+
+        [SerializeField]
         private GameObject _introduction;
         
         [SerializeField]
         private Locations _locations;
+        
+        [SerializeField]
+        private TMP_Text _saveText;
+                
+        [SerializeField]
+        private Button _toMenuButton;
+        
+        [SerializeField]
+        private GameObject _inputCanvas;
 
         [SerializeField]
         private GameObject _gameOver;
 
         [SerializeField]
-        private GameObject _arrow;
+        private TimerBeforeAdsYG _timerBeforeAds;
 
         [SerializeField]
-        private CinemachineConfiner2D _cinemachineConfiner;
+        private CommandManager _commandManager;
 
         [SerializeField]
-        private GameMenu _gameMenu;
-
-        [SerializeField]
-        private SubmitUpdater _submitUpdater;
-        
-        [SerializeField]
-        private CancelUpdater _cancelUpdater;
-        
-        [SerializeField]
-        private OpenMenuUpdater _openMenuUpdater;
-        
-        [Header("Keys")]
-        [SerializeField]
-        private SaveKeyInt _moneyKey;
-        
-        [SerializeField]
-        private SaveKeyBool _isIntroductionKey;
-        
-        [SerializeField]
-        private SaveKeyBool _isHatKey;
-
-        [SerializeField]
-        private SaveKeyBool _isCheatKey;
-
-        [SerializeField]
-        private MoneyLabel _moneyLabel;
+        private CompanionManager _companionManager;
         
         private void Awake()
         {
-            GameData.CoroutineRunner = this;
             GameData.Character = _character;
             GameData.Heart = _heart;
             GameData.Battle = _battle;
             GameData.Dialog = _dialog;
             GameData.Monolog = _monolog;
             GameData.Select = _select;
+            GameData.UseButton = _useButton;
+            GameData.Joystick = _joystick;
             GameData.Arena = _arena;
             GameData.CharacterPoint = _characterPoint;
             GameData.EnemyPoint = _enemyPoint;
-            GameData.Locations = _locations.Locations1;
-            GameData.GameOver = _gameOver;
-            GameData.Arrow = _arrow;
             GameData.CinemachineConfiner = _cinemachineConfiner;
-            GameData.GameMenu = _gameMenu;
-            GameData.SubmitUpdater = _submitUpdater;
-            GameData.CancelUpdater = _cancelUpdater;
-            GameData.OpenMenuUpdater = _openMenuUpdater;
-            GameData.MoneyKey = _moneyKey;
-            GameData.MoneyLabel = _moneyLabel;
+            GameData.Locations = _locations.Locations1;
+            GameData.Introduction = _introduction;
+            GameData.SaveText = _saveText;
+            GameData.ToMenuButton = _toMenuButton;
+            GameData.InputCanvas = _inputCanvas;
+            GameData.GameOver = _gameOver;
+            GameData.TimerBeforeAdsYG = _timerBeforeAds;
+            GameData.CommandManager = _commandManager;
+            GameData.CompanionManager = _companionManager;
         }
 
         private void Start()
         {
-            GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, GameData.Volume));
+            GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, YandexGame.savesData.Volume));
 
             foreach (var saveLoad in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             {
                 saveLoad.Load();
             }
-            
-            if (GameData.Saver.LoadKey(_isIntroductionKey))
+
+            if (!YandexGame.savesData.IsNotIntroduction)
             {
                 _introduction.SetActive(true);
+                YandexGame.savesData.IsNotFirstPlay = true;
             }
             else
             {
+                _input.SetActive(true);
+                GameData.Joystick.gameObject.SetActive(true);
+                GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
                 GameData.Character.enabled = true;
                 GameData.Character.gameObject.SetActive(true);
                 GameData.Character.transform.position = GameData.Saver.LoadPosition();
-                GameData.Locations.ToArray()[GameData.LocationIndex].gameObject.SetActive(true);
-
-                if (GameData.Saver.LoadKey(_isHatKey))
-                    GameData.Character.HatPoint.Show();
-                
-                if (GameData.Saver.LoadKey(_isCheatKey))
-                    GameData.Character.HackerMask.Show();
+                GameData.Locations.ToArray()[YandexGame.savesData.LocationIndex].gameObject.SetActive(true);
+                GameData.ToMenuButton.gameObject.SetActive(true);
             }
-            
-            GameData.Saver.Save(GameData.MoneyKey, 999);
         }
     }
 }

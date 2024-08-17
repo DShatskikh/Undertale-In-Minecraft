@@ -1,37 +1,66 @@
-﻿using System;
-using System.Collections;
-using TMPro;
+﻿using System.Collections;
+using RimuruDev;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Localization;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.UIElements;
 
 namespace Game
 {
     public class Monolog : MonoBehaviour
     {
         [SerializeField]
-        private TMP_Text _label;
+        private AudioSource _audioSource;
+        
+        [SerializeField] 
+        private UIDocument _ui;
 
+        [SerializeField]
+        private LocalizedString _continueString;
+        
         private int _index;
-        private string[] _texts;
+        private LocalizedString[] _texts;
         private Coroutine _coroutine;
-        private bool _isNotBackCharacter;
+        private string _finallyText;
+        private string _currentText;
 
-        public void Show(string[] texts)
+        private string _continueText;
+        private AsyncOperationHandle<string> _continueTextOperation;
+        private AsyncOperationHandle<string> _finallyTextOperation;
+        private AudioClip _sound;
+
+        private IEnumerator Start()
         {
-            Show(texts, false);
+            _continueTextOperation = _continueString.GetLocalizedStringAsync();
+            
+            while (!_continueTextOperation.IsDone)
+            {
+                yield return null;
+            }
+            
+            _continueText = _continueTextOperation.Result;
+            SetContinueText(_continueText);
         }
 
-        public void Show(string[] texts, bool isNotBackCharacter)
+        public void Show(LocalizedString[] texts, AudioClip sound = null)
         {
             gameObject.SetActive(true);
-            _isNotBackCharacter = isNotBackCharacter;
+            GameData.ToMenuButton.gameObject.SetActive(false);
+            _sound = sound;
             
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
             GameData.Character.enabled = false;
-            EventBus.OnSubmit += Next;
+            var button = _ui.rootVisualElement.Q<Button>("Next_button");
+            SetContinueText(_continueText);
+            button.clicked += Next;
+            EventBus.Submit = Next;
+            EventBus.Cancel = ShowFinallyText;
 
+            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
+                _ui.rootVisualElement.Q<Label>("Z").text = "";
+            
             SetText("");
             
             _index = 0;
@@ -42,37 +71,56 @@ namespace Game
         private IEnumerator TypeText()
         {
             int _countSymbol = 0;
-            var text = _texts[_index];
-            string currentText = "";
-
-            while (_countSymbol != text.Length)
+            
+            _finallyTextOperation = _texts[_index].GetLocalizedStringAsync();
+            
+            while (!_finallyTextOperation.IsDone)
             {
-                if (text[_countSymbol] == '<')
+                yield return null;
+            }
+            
+            _finallyText = _finallyTextOperation.Result;
+            
+            _currentText = "";
+
+            while (_countSymbol != _finallyText.Length)
+            {
+                if (_finallyText[_countSymbol] == '<')
                 {
-                    while (text[_countSymbol] != '>')
+                    while (_finallyText[_countSymbol] != '>')
                     {
-                        currentText += text[_countSymbol];
+                        _currentText += _finallyText[_countSymbol];
                         _countSymbol++;
                     }
                 }
 
-                currentText += text[_countSymbol];
-                SetText(currentText);
-                GameData.TextAudioSource.Play();
+                _currentText += _finallyText[_countSymbol];
+                SetText(_currentText);
+                _audioSource.Play();
                 yield return new WaitForSeconds(0.05f);
                 _countSymbol++;
             }
         }
-        
-        public void Next()
+
+        private void Next()
         {
-            GameData.EffectAudioSource.clip = GameData.ClickSound;
-            GameData.EffectAudioSource.Play();
-            
+            if (_currentText != _finallyText)
+            {
+                ShowFinallyText();
+                return;
+            }
+
             if (_index >= _texts.Length)
             {
+                GameData.EffectAudioSource.clip = GameData.AssetProvider.ClickSound;
+                GameData.EffectAudioSource.Play();
                 Close();
                 return;
+            }
+            else
+            {
+                GameData.EffectAudioSource.clip = _sound ? _sound : GameData.AssetProvider.ClickSound;
+                GameData.EffectAudioSource.Play();
             }
             
             if (_coroutine != null)
@@ -82,21 +130,43 @@ namespace Game
             _index++;
         }
 
+        private void ShowFinallyText()
+        {
+            if (!_finallyTextOperation.IsDone)
+                return;
+            
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+
+            _currentText = _finallyText;
+            SetText(_finallyText);
+            print("ShowFinallyText");
+        }
+
         private void Close()
         {
-            EventBus.OnSubmit = null;
-            
-            if (!_isNotBackCharacter)
-                GameData.Character.enabled = true;
-            
+            GameData.ToMenuButton.gameObject.SetActive(true);
+            EventBus.Submit = null;
+            EventBus.Cancel = null;
+            GameData.Character.enabled = true;
             gameObject.SetActive(false);
-            EventBus.OnCloseMonolog?.Invoke();
-            EventBus.OnCloseMonolog = null;
+            EventBus.CloseMonolog?.Invoke();
+            EventBus.CloseMonolog = null;
         }
 
         private void SetText(string text)
         {
-            _label.text = text;
+            var label = _ui.rootVisualElement.Q<Label>("Label");
+            label.text = text;
+        }
+
+        private void SetContinueText(string text)
+        {
+            var button = _ui.rootVisualElement.Q<Button>("Next_button");
+            button.text = text;
         }
     }
 }

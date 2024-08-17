@@ -1,4 +1,3 @@
-﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,20 +7,15 @@ namespace Game
     {
         [SerializeField]
         private UnityEvent _event;
-
-        private void Update()
+        
+        private void OnEnable()
         {
-            if (Input.GetButtonDown("Submit") || Input.GetMouseButtonDown(1))
-            {
-                OnSubmit();
-            }
+            EventBus.Submit = _event.Invoke;
         }
 
-        [ContextMenu("Submit")]
-        private void OnSubmit()
+        private void OnDisable()
         {
-            print("Submit");
-            _event.Invoke();
+            EventBus.Submit -= _event.Invoke;
         }
     }
 }

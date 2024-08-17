@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game
 {
@@ -6,13 +7,13 @@ namespace Game
     {
         public void Use()
         {
-            foreach (var saver in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-            {
-                saver.Reset();
-            }
+            GameData.Saver.Save();
             
+            foreach (var saver in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                saver.Reset();
+
             GameData.Saver.Reset();
-            GameData.Saver.Load();
+            SceneManager.LoadScene(0);
         }
     }
 }

@@ -1,5 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.UIElements;
 
 namespace Game
 {
@@ -8,75 +12,143 @@ namespace Game
         [SerializeField] 
         private DialogView _view;
 
+        [SerializeField] 
+        private UIDocument _ui;
+        
+        [SerializeField]
+        private AudioSource _audioSource;
+        
+        [SerializeField] 
+        private AudioClip _clickSound;
+        
+        [SerializeField]
+        private LocalizedString _continueString;
+        
         private Replica[] _replicas;
         private int _indexReplica;
         private Coroutine _coroutine;
-        private bool _isNotBackCharacter;
+        private string _finallyText;
+        private string _currentText;
+        
+        private string _continueText;
+        private AsyncOperationHandle<string> _continueTextOperation;
+        private AsyncOperationHandle<string> _finallyTextOperation;
+        private AudioClip _sound;
 
-        public void Show(Replica[] replicas)
+        private IEnumerator Start()
         {
-            Show(replicas, false);
+            _continueTextOperation = _continueString.GetLocalizedStringAsync();
+            
+            while (!_continueTextOperation.IsDone)
+            {
+                yield return null;
+            }
+            
+            _continueText = _continueTextOperation.Result;
+            _view.SetContinueText(_continueText);
         }
 
-        public void Show(Replica[] replicas, bool isNotBackCharacter)
+        public void SetReplicas(Replica[] replicas, AudioClip sound = null)
         {
             gameObject.SetActive(true);
-            _isNotBackCharacter = isNotBackCharacter;
+            GameData.ToMenuButton.gameObject.SetActive(false);
+            _sound = sound;
             
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
-            EventBus.OnSubmit += Next;
+            _view.SetContinueText(_continueText);
+            var button = _ui.rootVisualElement.Q<Button>("Next_button");
+            button.clicked += Next;
+            EventBus.Submit = Next;
+            EventBus.Cancel = ShowFinallyText;
+            
             GameData.Character.enabled = false;
             _replicas = replicas;
             _indexReplica = 0;
+
             UpdateView();
-            Next();
+            _coroutine = StartCoroutine(TypeText());
         }
 
-        public void Next()
+        private void Next()
         {
+            print("Work");
+            
             if (!gameObject.activeSelf)
                 Debug.LogError("Ошибка");
-            
-            GameData.EffectAudioSource.clip = GameData.ClickSound;
-            GameData.EffectAudioSource.Play();
-            
-            if (_indexReplica >= _replicas.Length)
+
+            if (_currentText != _finallyText)
             {
-                Close();
+                ShowFinallyText();
                 return;
             }
 
-            UpdateView();
-            
-            if (_coroutine != null)
-                StopCoroutine(_coroutine);
-            
-            _coroutine = StartCoroutine(TypeText());
+            print("Next");
+
             _indexReplica++;
+            
+            if (_indexReplica >= _replicas.Length)
+            {
+                GameData.EffectAudioSource.clip = _clickSound;
+                GameData.EffectAudioSource.Play();
+                Close();
+                return;
+            }
+            else
+            {
+                GameData.EffectAudioSource.clip = _sound ? _sound : GameData.AssetProvider.ClickSound;
+                GameData.EffectAudioSource.Play();
+            }
+
+            UpdateView();
+            _coroutine = StartCoroutine(TypeText());
         }
 
+        private void ShowFinallyText()
+        {
+            if (!_finallyTextOperation.IsDone)
+                return;
+            
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+
+            _currentText = _finallyText;
+            _view.SetText(_finallyText);
+            print("ShowFinallyText");
+        }
+        
         private IEnumerator TypeText()
         {
+            _currentText = "";
             int _countSymbol = 0;
-            var text = _replicas[_indexReplica].Text.GetLocalizedString();
-            string currentText = "";
-
-            while (_countSymbol != text.Length)
+            
+            _finallyTextOperation = _replicas[_indexReplica].LocalizationString.GetLocalizedStringAsync();
+            
+            while (!_finallyTextOperation.IsDone)
             {
-                if (text[_countSymbol] == '<')
+                yield return null;
+            }
+            
+            _finallyText = _finallyTextOperation.Result;
+
+            while (_countSymbol != _finallyText.Length)
+            {
+                if (_finallyText[_countSymbol] == '<')
                 {
-                    while (text[_countSymbol] != '>')
+                    while (_finallyText[_countSymbol] != '>')
                     {
-                        currentText += text[_countSymbol];
+                        _currentText += _finallyText[_countSymbol];
                         _countSymbol++;
                     }
                 }
 
-                currentText += text[_countSymbol];
-                _view.SetText(currentText);
-                GameData.TextAudioSource.Play();
+                _currentText += _finallyText[_countSymbol];
+                _view.SetText(_currentText);
+                _audioSource.Play();
                 yield return new WaitForSeconds(0.05f);
                 _countSymbol++;
             }
@@ -85,20 +157,20 @@ namespace Game
         private void UpdateView()
         {
             var replica = _replicas[_indexReplica];
-            _view.SetText(replica.Text.GetLocalizedString());
+            _view.SetText("");
             _view.SetIcon(replica.Icon);
         }
 
         private void Close()
         {
-            EventBus.OnSubmit = null;
-            
-            if (!_isNotBackCharacter)
-                GameData.Character.enabled = true;
-            
+            print("Close");
+            GameData.ToMenuButton.gameObject.SetActive(true);
+            EventBus.Submit = null;
+            EventBus.Cancel = null;
+            GameData.Character.enabled = true;
             gameObject.SetActive(false);
-            EventBus.OnCloseDialog?.Invoke();
-            EventBus.OnCloseDialog = null;
+            EventBus.CloseDialog?.Invoke();
+            EventBus.CloseDialog = null;
         }
     }
 }

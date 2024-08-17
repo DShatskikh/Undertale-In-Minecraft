@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -9,7 +10,7 @@ namespace Game
 
         public void Use()
         {
-            print("Добавь аналитику " + _nameEvent);
+            YandexMetrica.Send(_nameEvent);
         }
     }
 }

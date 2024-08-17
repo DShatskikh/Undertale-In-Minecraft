@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Game
 {
@@ -8,7 +8,7 @@ namespace Game
         {
             if (Input.GetButtonDown("Cancel"))
             {
-                EventBus.OnCancel?.Invoke();
+                EventBus.Cancel?.Invoke();
             }
         }
     }

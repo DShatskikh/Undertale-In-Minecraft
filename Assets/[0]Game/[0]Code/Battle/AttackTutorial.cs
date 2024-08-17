@@ -1,0 +1,39 @@
+using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
+
+namespace Game
+{
+    public class AttackTutorial : AttackBase
+    {
+        [SerializeField]
+        private TMP_Text _text;
+
+        public override void Execute(UnityAction action)
+        {
+            GameData.Startup.StartCoroutine(AwaitExecute(action));
+        }
+
+        private IEnumerator AwaitExecute(UnityAction action)
+        {
+            foreach (var message in Messages)
+            {
+                var localizedString = message.LocalizedString;
+                var messageOperation = localizedString.GetLocalizedStringAsync();
+            
+                while (!messageOperation.IsDone)
+                    yield return null;
+
+                var result = messageOperation.Result;
+                
+                _text.text = result;
+                bool isSubmit = false; 
+                EventBus.Submit = () => isSubmit = true;
+                yield return new WaitUntil(() => isSubmit);
+            }
+            
+            action.Invoke();
+        }
+    }
+}

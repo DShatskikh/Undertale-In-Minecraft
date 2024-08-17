@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Cinemachine;
+using RimuruDev;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -16,35 +17,34 @@ namespace Game
         public static Transform EnemyPoint { get; set; }
         public static Battle Battle { get; set; }
         public static Dialog Dialog { get; set; }
-        public static float Volume { get; set; }
+        public static Button UseButton { get; set; }
+        public static Joystick Joystick { get; set; }
         public static AudioMixerGroup Mixer { get; set; }
+        public static Button ToMenuButton { get; set; }
         public static Startup Startup { get; set; }
-        public static MonoBehaviour CoroutineRunner { get; set; }
-        public static int Palesos { get; set; }
-        public static AudioSource TextAudioSource { get; set; }
-        public static AudioClip ClickSound { get; set; }
-        public static string Version { get; set; }
-        public static GameMenu GameMenu { get; set; }
-        public static SubmitUpdater SubmitUpdater { get; set; }
-        public static CancelUpdater CancelUpdater { get; set; }
-        public static OpenMenuUpdater OpenMenuUpdater { get; set; }
-        public static SaveKeyInt MoneyKey { get; set; }
-        public static MoneyLabel MoneyLabel { get; set; }
+        public static End CurrentEnd { get; set; }
+        public static CurrentDeviceType DeviceType { get; set; }
+        public static bool IsLoad { get; set; }
+        public static VolumeSlider VolumeSlider { get; set; }
+        public static AssetProvider AssetProvider { get; set; }
 
         public static IEnumerable<Location> Locations;
-        
         public static Monolog Monolog;
         public static Select Select;
         public static AudioSource EffectAudioSource;
         public static AudioSource MusicAudioSource;
-        public static int LocationIndex;
         public static int BattleProgress;
-        public static GameObject Arena;
-        public static GameObject GameOver;
-
-        public static Saver Saver;
-        public static GameObject Arrow;
-
         public static CinemachineConfiner2D CinemachineConfiner;
+        public static GameObject Arena;
+        public static GameObject Introduction;
+        public static GameObject Menu;
+        public static TMP_Text SaveText;
+        public static GameObject InputCanvas;
+        public static GameObject GameOver;
+        
+        public static Saver Saver;
+        public static TimerBeforeAdsYG TimerBeforeAdsYG;
+        public static CommandManager CommandManager;
+        public static CompanionManager CompanionManager;
     }
 }

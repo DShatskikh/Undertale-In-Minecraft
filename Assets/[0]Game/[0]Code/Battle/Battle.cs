@@ -1,79 +1,80 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using PixelCrushers.DialogueSystem;
-using Super_Auto_Mobs;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
-using Random = UnityEngine.Random;
+using YG;
 
 namespace Game
 {
     public class Battle : MonoBehaviour
     {
-        [Header("Test Setting")]
-        [SerializeField]
-        private bool _isSkipBattle;
-        
-        [SerializeField]
-        private bool _isSkipIntro;
-        
-        [Header("Setting")]
+        [SerializeField] 
+        private float _speedPlacement;
+
         [SerializeField]
         private PlaySound _startBattlePlaySound;
+
+        [SerializeField]
+        private PlaySound _levelUpPlaySound;
         
         [SerializeField]
-        private GameObject _tutorialAttack;
+        private PlaySound _sparePlaySound;
 
         [SerializeField]
-        private SaveKeyBool _isFirstBattleKey;
-
-        [SerializeField]
-        private BattleIntro _intro;
-
-        [SerializeField]
-        private DialogueSystemTrigger _dialogueSystemTrigger;
-
-        [SerializeField]
-        private GameObject _hud;
-
-#if UNITY_EDITOR
-        [Header("Inspector")]
-        [SerializeField]
-        private GameObject _battle;
+        private AttackBase _attackTutorial;
         
         [SerializeField]
-        private GameObject _heart;
-#endif
+        private LocalizedString _winReplica;
+
+        [SerializeField]
+        private BlackPanel _blackPanel;
+
+        [SerializeField]
+        private BattleMessageBox _messageBox;
 
         private Label _healthLabel;
         private Label _enemyHealthLabel;
-        private int _attackIndex;
         private Vector2 _normalWorldCharacterPosition;
         private Coroutine _coroutine;
+        private AudioClip _previousSound;
         private Vector2 _enemyStartPosition;
-        private GameObject _attack;
+        private AttackBase[] _attacks;
+        private int _attackIndex;
+        private bool _isSecondRound;
+
+        public BlackPanel BlackPanel => _blackPanel;
 
         private void OnDisable()
         {
-            EventBus.OnDeath = null;
-            EventBus.OnDamage = null;
+            EventBus.Death = null;
+            EventBus.Damage = null;
             
-            if (_attack)
-                Destroy(_attack.gameObject);
-
             if (GameData.EnemyData != null)
             {
                 if (GameData.EnemyData.GameObject != null && GameData.EnemyData.StartBattleTrigger != null)
+                {
                     GameData.EnemyData.GameObject.transform.SetParent(GameData.EnemyData.StartBattleTrigger.transform);
-
+                }
+                
                 GameData.EnemyData.StartBattleTrigger = null;
             }
         }
 
         public void StartBattle()
         {
+            GameData.Character.enabled = false;
+            GameData.Heart.enabled = false;
+            GameData.Heart.transform.position = GameData.Arena.transform.position;
+            _previousSound = GameData.MusicAudioSource.clip;
+            GameData.TimerBeforeAdsYG.gameObject.SetActive(false);
+            GameData.ToMenuButton.gameObject.SetActive(false);
+
+            _isSecondRound = false;
             gameObject.SetActive(true);
-            transform.position = GameData.Character.transform.position.SetZ(0);
+
+            transform.position = Camera.main.transform.position.SetZ(0).AddY(-3.5f) +
+                                                 (Vector3) GameData.EnemyData.StartBattleTrigger.Offset;
             
             GameData.EnemyData.GameObject.transform.SetParent(GameData.EnemyPoint);
 
@@ -83,91 +84,71 @@ namespace Game
             }
             
             var character = GameData.Character;
-            character.enabled = false;
             character.GetComponent<Collider2D>().isTrigger = true;
             character.View.Flip(false);
             
+            YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
+            EventBus.HealthChange.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
+            
             GameData.BattleProgress = 0;
-
+            EventBus.BattleProgressChange?.Invoke(0);
+            
             _attackIndex = 0;
 
-            EventBus.OnDamage += OnDamage;
-            EventBus.OnDeath += OnDeath;
+            EventBus.Damage += OnDamage;
+            EventBus.Death += OnDeath;
             
-            _startBattlePlaySound.Play();
-            GameData.Character.View.Idle();
-            
-            if (_coroutine != null)
-                StopCoroutine(_coroutine);
-            
-            _coroutine = StartCoroutine(AwaitBattle());
-        }
-        
-        private IEnumerator AwaitBattle()
-        {
-            if (_isSkipBattle)
-                GameData.BattleProgress = 100;
+            _attacks = GameData.EnemyData.EnemyConfig.Attacks;
 
-            if (!_isSkipIntro)
-                yield return _intro.Intro();
-            else
-                _intro.ChangeLocation();
-
-            _hud.SetActive(true);
-            GameData.Heart.enabled = true;
-            
-            var _attacks = GameData.EnemyData.EnemyConfig.Attacks;
-            
-            yield return new WaitForSeconds(1);
-            
-            while (GameData.BattleProgress < 100)
+            var commands = new List<CommandBase>()
             {
-                yield return new WaitForSeconds(0.5f);
+                new IntroCommand(_startBattlePlaySound, _speedPlacement),
+                new DelayCommand(1f),
+                new StartTurnCommand(),
+            };
+            
+            GameData.CommandManager.StartCommands(commands);
+        }
 
-                if (GameData.Saver.LoadKey(_isFirstBattleKey))
-                {
-                    _attack = Instantiate(_tutorialAttack, transform);
-                    GameData.Saver.Save(_isFirstBattleKey, false);
-                }
-                else
-                {
-                    _attack = Instantiate(_attacks[_attackIndex], transform);
-                    _attackIndex++;
-                }
+        public void Turn()
+        {
+            var commands = new List<CommandBase>();
+
+            if (GameData.BattleProgress < 100)
+            {
+                var attackPrefab = YandexGame.savesData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial;
                 
-                yield return new WaitForSeconds(10);
-                Destroy(_attack.gameObject);
-
-                if (_attackIndex >= _attacks.Length)
-                {
-                    _attackIndex = Random.Range(0, _attacks.Length);
-
-                    if (GameData.EnemyData.EnemyConfig.SkipAttack != null)
-                    {
-                        while (_attacks[_attackIndex] == GameData.EnemyData.EnemyConfig.SkipAttack)
-                        {
-                            _attackIndex = Random.Range(0, _attacks.Length);
-                        }
-                    }
-                }
-
-                GameData.BattleProgress += GameData.EnemyData.EnemyConfig.ProgressAttack;
-
-                if (GameData.BattleProgress > 100)
-                    GameData.BattleProgress = 100;
+                if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null) 
+                    commands.Add(new MessageCommand(_messageBox, _attacks[_attackIndex].Messages));
                 
-                EventBus.OnBattleProgressChange?.Invoke(GameData.BattleProgress);
+                commands.Add(new EnemyAttackCommand(attackPrefab, _blackPanel));
+                commands.Add(new StartTurnCommand());
+            }
+            else
+            {
+                commands.Add(new DelayCommand(1f));
+                commands.Add(new ExitCommand(gameObject, _sparePlaySound, _levelUpPlaySound, _previousSound,
+                    _normalWorldCharacterPosition, _speedPlacement, _winReplica));
             }
             
-            yield return new WaitForSeconds(1);
-
-            Lua.Run("Variable[\"PrizeMoney\"] = 10");
-            Lua.Run("Variable[\"PrizeOther\"] = \"Ботинок\"");
-            
-            GameData.MusicAudioSource.Stop();
-            _dialogueSystemTrigger.OnUse();
+            GameData.CommandManager.StartCommands(commands);
+            GetIndex();
         }
 
+        private void GetIndex()
+        {
+            if (YandexGame.savesData.IsTutorialComplited)
+                _attackIndex++;
+            else
+                YandexGame.savesData.IsTutorialComplited = true;
+
+            if (_attackIndex >= _attacks.Length)
+            {
+                _isSecondRound = true;
+                _attackIndex = Random.Range(0, _attacks.Length);
+            }
+        }
+        
         private void OnDeath()
         {
             StopCoroutine(_coroutine);
@@ -177,23 +158,16 @@ namespace Game
         {
             GameData.Character.View.Damage();
         }
-
-#if UNITY_EDITOR
-        [ContextMenu("Show")]
-        private void ShowInspector()
+        
+        [ContextMenu("Progress_100")]
+        private void Progress_100()
         {
-            gameObject.SetActive(true);
-            _battle.SetActive(true);
-            _heart.SetActive(true);
+            GameData.BattleProgress = 100;
         }
 
-        [ContextMenu("Hide")]
-        private void HideInspector()
+        public AttackBase CreateAttack(AttackBase attackPrefab)
         {
-            gameObject.SetActive(false);
-            _battle.SetActive(false);
-            _heart.SetActive(false);
-        }  
-#endif
+            return Instantiate(attackPrefab.gameObject, transform).GetComponent<AttackBase>();
+        }
     }
 }

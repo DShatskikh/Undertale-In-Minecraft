@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Super_Auto_Mobs;
 using UnityEngine;
 
 namespace Game

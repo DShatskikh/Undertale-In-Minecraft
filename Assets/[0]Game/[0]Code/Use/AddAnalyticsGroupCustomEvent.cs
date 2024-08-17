@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -15,7 +16,7 @@ namespace Game
                 { _nameGroup, _nameEvent }
             };
             
-            print($"Добавь аналитику Имя группы {_nameGroup} События {eventParams}");
+            YandexMetrica.Send(_nameGroup, eventParams);
         }
     }
 }

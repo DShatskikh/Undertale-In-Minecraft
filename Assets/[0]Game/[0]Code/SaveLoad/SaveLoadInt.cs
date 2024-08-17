@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using YG;
 
 namespace Game
 {
     public class SaveLoadInt : SaveLoadBase
     {
-        [SerializeField]
-        private SaveKeyInt _saveKey;
-        
         [SerializeField] 
         private int _value;
 
@@ -16,13 +14,15 @@ namespace Game
         
         public void Save(int value)
         {
-            PlayerPrefs.SetInt(_saveKey.name, value);
+            YandexGame.savesData.SetInt(_key, value);
             _value = value;
+            
+            GameData.Saver.SavePlayerPosition();
         }
 
         public override void Load()
         {
-            _value = PlayerPrefs.GetInt(_saveKey.name);
+            _value = YandexGame.savesData.GetInt(_key);
             _events[_value].Invoke();
         }
 

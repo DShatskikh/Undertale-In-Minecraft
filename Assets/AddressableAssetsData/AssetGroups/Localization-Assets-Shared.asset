@@ -13,29 +13,40 @@ MonoBehaviour:
   m_Name: Localization-Assets-Shared
   m_EditorClassIdentifier: 
   m_GroupName: Localization-Assets-Shared
-  m_Data:
-    m_SerializedData: []
-  m_GUID: c6181f1beec444947a059994185296db
+  m_GUID: 274a1d6ef70b62048828a2e5ba734752
   m_SerializeEntries:
-  - m_GUID: 06d0afefdbac97f4692cde9a067e8b26
-    m_Address: Assets/Localization/UI Shared Data.asset
+  - m_GUID: 21dde290d06ca3e4a8cf0b109b41d83e
+    m_Address: Assets/Resources/Localization/Tables/Other/Other Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7b40a4d9473cbf341a7c76797caaf56a
-    m_Address: Assets/Localization/Dialogues/Dialogues Shared Data.asset
+  - m_GUID: 59c4fe60b911b1e4b91120c3b5337045
+    m_Address: Assets/Resources/Localization/Tables/Sprites/SpriteTable Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 29caf86880d24954ea117bbdb4c64de4
-    m_Address: Assets/Localization/Select/Select Shared Data.asset
+  - m_GUID: 6f661cae60909ba47a785d3975d03854
+    m_Address: Assets/Resources/Localization/Tables/Monologues/Monologues Shared
+      Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 19cec9f5ebbd7d649ae17acf71ff1087
-    m_Address: Assets/Localization/Monologues/Monologues Shared Data.asset
+  - m_GUID: 84456c763d6ea4748a570993a6d17cc0
+    m_Address: Assets/Resources/Localization/Tables/Selected/Selected Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efbfa5e23989a5a4797ec3b9e937868b
+    m_Address: Assets/Resources/Localization/Tables/Dialogues/Dialogues Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4c2beff4f7b75040a77522383bf9a24
+    m_Address: SpriteAssets
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 7286ce66124d9574a9a25ebe68d868df, type: 2}

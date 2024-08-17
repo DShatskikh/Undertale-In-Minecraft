@@ -21,7 +21,7 @@ namespace Game
 
         private void OnClick()
         {
-            GameData.Saver.SaveAll();
+            GameData.Saver.Save();
             SceneManager.LoadScene(0);
         }
     }

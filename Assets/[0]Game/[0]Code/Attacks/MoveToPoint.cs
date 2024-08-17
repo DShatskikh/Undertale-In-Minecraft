@@ -10,6 +10,9 @@ namespace Game
         private Transform _point;
         
         [SerializeField]
+        private Transform _transform;
+        
+        [SerializeField]
         private float _moveSpeed = 3;
 
         [SerializeField]
@@ -17,9 +20,12 @@ namespace Game
         
         private IEnumerator Start()
         {
-            while (transform.position != _point.position)
+            if (_transform == null)
+                _transform = transform;
+            
+            while (_transform.position != _point.position)
             {
-                transform.position = Vector2.MoveTowards(transform.position, _point.position, Time.deltaTime * _moveSpeed);
+                _transform.position = Vector2.MoveTowards(_transform.position, _point.position, Time.deltaTime * _moveSpeed);
                 yield return null;
             }
             
