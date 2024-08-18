@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Game
@@ -16,21 +15,19 @@ namespace Game
         public void SetModel(HeartModel model)
         {
             _model = model;
-        }
-        
-        private void OnEnable()
-        {
             _model.ShieldActivate += OnShieldActivate;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             _model.ShieldActivate -= OnShieldActivate;
         }
         
         private void OnShieldActivate(bool isActivate)
         {
-            _source.Play();
+            if (isActivate)
+                _source.Play();
+            
             _shield.gameObject.SetActive(isActivate);
         }
     }

@@ -33,6 +33,9 @@ namespace Game
         [SerializeField]
         private BattleMessageBox _messageBox;
 
+        [SerializeField]
+        private SelectActManager _selectActManager;
+        
         private Label _healthLabel;
         private Label _enemyHealthLabel;
         private Vector2 _normalWorldCharacterPosition;
@@ -104,25 +107,34 @@ namespace Game
             {
                 new IntroCommand(_startBattlePlaySound, _speedPlacement),
                 new DelayCommand(1f),
-                new StartTurnCommand(),
+                new StartEnemyTurnCommand(),
             };
             
             GameData.CommandManager.StartCommands(commands);
         }
 
-        public void Turn()
+        public void Turn(Act act = null)
         {
             var commands = new List<CommandBase>();
+            GameData.HeartController.gameObject.SetActive(true);
 
             if (GameData.BattleProgress < 100)
             {
                 var attackPrefab = YandexGame.savesData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial;
-                
+
+                if (act != null)
+                {
+                    commands.Add(new DelayCommand(1f));
+                    commands.Add(new MessageCommand(_messageBox, act.Reaction));
+                    commands.Add(new AddProgressCommand(act.Progress));
+                    commands.Add(new DelayCommand(1f));
+                }
+
                 if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null) 
                     commands.Add(new MessageCommand(_messageBox, _attacks[_attackIndex].Messages));
-                
+
                 commands.Add(new EnemyAttackCommand(attackPrefab, _blackPanel));
-                commands.Add(new StartTurnCommand());
+                commands.Add(new StartCharacterTurnCommand());
             }
             else
             {
@@ -133,6 +145,11 @@ namespace Game
             
             GameData.CommandManager.StartCommands(commands);
             GetIndex();
+        }
+
+        public void StartCharacterTurn()
+        {
+            _selectActManager.Activate(true);
         }
 
         private void GetIndex()
@@ -148,7 +165,7 @@ namespace Game
                 _attackIndex = Random.Range(0, _attacks.Length);
             }
         }
-        
+
         private void OnDeath()
         {
             StopCoroutine(_coroutine);
@@ -158,7 +175,7 @@ namespace Game
         {
             GameData.CharacterController.View.Damage();
         }
-        
+
         [ContextMenu("Progress_100")]
         private void Progress_100()
         {

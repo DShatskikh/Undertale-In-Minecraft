@@ -2,11 +2,10 @@ using UnityEngine.Events;
 
 namespace Game
 {
-    public class StartTurnCommand : CommandBase
+    public class StartEnemyTurnCommand : CommandBase
     {
         public override void Execute(UnityAction action)
         {
-            action.Invoke();
             GameData.Battle.Turn();
         }
     }

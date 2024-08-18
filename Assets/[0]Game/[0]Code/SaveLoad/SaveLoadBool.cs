@@ -28,6 +28,7 @@ namespace Game
                 _trueEvent.Invoke();
         }
 
+        [ContextMenu("Сбросить")]
         public override void Reset()
         {
             Save(false);

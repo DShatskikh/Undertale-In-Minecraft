@@ -60,6 +60,8 @@ namespace YG
 
         public bool IsOneOrMoreEnd => IsGoodEnd || IsBadEnd || IsStrangeEnd || IsPalesosEnd;
         public bool IsAllEnd => IsGoodEnd && IsBadEnd && IsStrangeEnd && IsPalesosEnd;
+        public bool IsAlternativeWorld;
+
         public int PointIndex;
 
         public List<CompanionType> Companions = new List<CompanionType>();

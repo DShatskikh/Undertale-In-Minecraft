@@ -31,6 +31,14 @@ namespace Game
                 YandexGame.savesData.Companions = new List<CompanionType>();
             }
         }
+
+        public void ResetAllPositions()
+        {
+            foreach (var companion in _activeCompanions)
+            {
+                companion.transform.position = GameData.CharacterController.transform.position;
+            }
+        }
         
         public void TryActivateCompanion(CompanionType companionType)
         {

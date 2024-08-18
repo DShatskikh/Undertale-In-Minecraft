@@ -1,0 +1,63 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Game
+{
+    public class SelectActManager : UIPanelBase
+    {
+        private void OnEnable()
+        {
+            var assetProvider = GameData.AssetProvider;
+            var acts = GameData.EnemyData.EnemyConfig.Acts;
+
+            for (int i = 0; i < acts.Length; i++)
+            {
+                var model = new ActSlotModel(acts[i]);
+                var slot = Instantiate(assetProvider.ActSlotPrefab, transform);
+                slot.Model = model;
+                int rowIndex = acts.Length - i - 1;
+                int columnIndex = 0;
+                slot.SetSelected(false);
+                _slots.Add(new Vector2(columnIndex, rowIndex), slot);
+            }
+            
+            _currentIndex = new Vector2(0, acts.Length - 1);
+            _slots[_currentIndex].SetSelected(true);
+        }
+        
+        private void OnDisable()
+        {
+            foreach (var slot in _slots) 
+                Destroy(slot.Value.gameObject);
+
+            _slots = new Dictionary<Vector2, BaseSlotController>();
+        }
+        
+        public override void OnSubmit()
+        {
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
+            GameData.Battle.Turn(((ActSlotController)_currentSlot).Model.Act);
+            gameObject.SetActive(false);
+        }
+
+        public override void OnCancel() { }
+
+        public override void OnSlotIndexChanged(Vector2 direction)
+        {
+            var newIndex = _currentIndex + direction;
+            
+            if (_slots.TryGetValue(newIndex, out var controller))
+            {
+                if (controller != null)
+                {
+                    controller.SetSelected(true);
+                    var oldVM = _slots[_currentIndex];
+                    oldVM.SetSelected(false);
+                    _currentIndex = newIndex;
+                    
+                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
+                }
+            }
+        }
+    }
+}

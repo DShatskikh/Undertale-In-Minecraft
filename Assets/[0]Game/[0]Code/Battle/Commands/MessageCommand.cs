@@ -17,6 +17,12 @@ namespace Game
             _messages = messages;
         }
         
+        public MessageCommand(BattleMessageBox messageBox, BattleMessageData message)
+        {
+            _messageBox = messageBox;
+            _messages = new []{ message };
+        }
+        
         public override void Execute(UnityAction action)
         {
             GameData.Startup.StartCoroutine(AwaitMessageShow(action));

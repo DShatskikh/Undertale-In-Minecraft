@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Analytics;
 using YG;
@@ -26,6 +27,11 @@ namespace Game
             _shield = new Shield(_model);
             _view = GetComponent<HeartView>();
             _view.SetModel(_model);
+        }
+
+        private void OnEnable()
+        {
+            _model.IsInvulnerability = false;
         }
 
         private void Update()
@@ -70,13 +76,18 @@ namespace Game
             YandexGame.savesData.Health -= GameData.EnemyData.EnemyConfig.Attack;
             EventBus.Damage?.Invoke(1);
             EventBus.HealthChange?.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
+            _shield.Off();
             _damageSource.Play();
+
+            if (YandexGame.savesData.Health <= 0 && !YandexGame.savesData.IsCheat)
+            {
+                Death();
+                yield break;
+            }
+
             _model.SetIsInvulnerability(true);
             yield return new WaitForSeconds(1);
             _model.SetIsInvulnerability(false);
-
-            if (YandexGame.savesData.Health <= 0 && !YandexGame.savesData.IsCheat)
-                Death();
         }
 
         private void Death()

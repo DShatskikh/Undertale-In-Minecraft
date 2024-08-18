@@ -6,8 +6,8 @@ namespace Game
     public class EnemyConfig : ScriptableObject
     {
         public AttackBase[] Attacks;
-        public int ProgressAttack = 20;
         public int Attack = 3;
         public int WinPrize = 2;
+        public Act[] Acts;
     }
 }

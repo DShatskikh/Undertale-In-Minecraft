@@ -7,7 +7,8 @@ namespace Game
     {
         private Coroutine _coroutine;
         private readonly HeartModel _model;
-        private const float DelayUse = 0.1f;
+        private const float ShieldActiveTime = 0.15f;
+        private const float ShieldDeactiveTime = 0.05f;
 
         public Shield(HeartModel model)
         {
@@ -18,9 +19,20 @@ namespace Game
         {
             if (_coroutine == null)
             {
-                if (IsShel(Physics2D.OverlapCircleAll(position, 0.55f)))
+                if (IsShel(Physics2D.OverlapBoxAll(position, Vector2.one * 1f, 0)))
                     _coroutine = GameData.Startup.StartCoroutine(Use());
             }
+        }
+
+        public void Off()
+        {
+            if (_coroutine != null)
+            {
+                GameData.Startup.StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+
+            _model.SetIsShield(false);
         }
 
         private bool IsShel(Collider2D[] colliders)
@@ -38,8 +50,9 @@ namespace Game
         {
             _model.AddTurnProgress(1);
             _model.SetIsShield(true);
-            yield return new WaitForSeconds(DelayUse);
+            yield return new WaitForSeconds(ShieldActiveTime);
             _model.SetIsShield(false);
+            yield return new WaitForSeconds(ShieldDeactiveTime);
             _coroutine = null;
         }
     }

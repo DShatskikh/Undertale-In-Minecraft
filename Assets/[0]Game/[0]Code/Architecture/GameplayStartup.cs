@@ -121,8 +121,8 @@ namespace Game
                 GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
                 GameData.CharacterController.enabled = true;
                 GameData.CharacterController.gameObject.SetActive(true);
-                GameData.CharacterController.transform.position = GameData.Saver.LoadPosition();
                 GameData.LocationsManager.SwitchLocation(YandexGame.savesData.LocationIndex, YandexGame.savesData.PointIndex);
+                GameData.CharacterController.transform.position = GameData.Saver.LoadPosition();
                 GameData.ToMenuButton.gameObject.SetActive(true);
             }
         }

@@ -22,6 +22,7 @@ namespace Game
 
         private IEnumerator AwaitAttack(UnityAction action)
         {
+            GameData.HeartController.gameObject.SetActive(true);
             GameData.Arena.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             AttackBase attack = GameData.Battle.CreateAttack(_attackPrefab);
@@ -31,13 +32,6 @@ namespace Game
             Object.Destroy(attack.gameObject);
                 
             _blackPanel.Hide();
-
-            GameData.BattleProgress += GameData.EnemyData.EnemyConfig.ProgressAttack;
-
-            if (GameData.BattleProgress > 100)
-                GameData.BattleProgress = 100;
-                
-            EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
             action.Invoke();
         }
     }

@@ -28,6 +28,7 @@ namespace Game
             _currentLocation.gameObject.SetActive(true);
             
             GameData.CharacterController.transform.position = _currentLocation.Points[pointIndex].position;
+            GameData.CompanionManager.ResetAllPositions();
             
             YandexGame.savesData.LocationIndex = index;
             GameData.TimerBeforeAdsYG.gameObject.SetActive(true);

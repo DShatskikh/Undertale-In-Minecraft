@@ -48,6 +48,8 @@ namespace Game
             YandexGame.savesData.IsSpeakHerobrine = false;
             YandexGame.savesData.IsCapturedWorld = false;
             YandexGame.savesData.IsNotCapturedWorld = false;
+            YandexGame.savesData.IsAlternativeWorld = YandexGame.savesData.IsBadEnd && YandexGame.savesData.IsGoodEnd && YandexGame.savesData.IsStrangeEnd 
+                                                      && YandexGame.savesData.IsPalesosEnd && Random.Range(1, 6) == 2;
             
             YandexGame.SaveProgress();
         }

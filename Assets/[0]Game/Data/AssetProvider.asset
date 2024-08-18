@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: AssetProvider
   m_EditorClassIdentifier: 
   LeverSound: {fileID: 8300000, guid: 74147c6e1eb426a40b6e7d478659c378, type: 3}
-  ClickSound: {fileID: 8300000, guid: 0a3c296f824d3e04e945e5e3c35304ba, type: 3}
+  ClickSound: {fileID: 8300000, guid: 8b26423a5e27bb343975d27c34c3b6db, type: 3}
+  SelectSound: {fileID: 8300000, guid: 0a3c296f824d3e04e945e5e3c35304ba, type: 3}
   DoorSound: {fileID: 8300000, guid: cd01c4a085ce19b4d9b0db80ad3ae3ec, type: 3}
   StepSoundPairsConfig: {fileID: 11400000, guid: 90e4c7439359ee74f917db220aa55d50, type: 2}
   TileTagConfig: {fileID: 11400000, guid: b628592479067e84e9e94aa18a244362, type: 2}
+  ActSlotPrefab: {fileID: 8027494126404655843, guid: 81c081ce26cc36d4394465f3433421cf, type: 3}
+  SelectColor: {r: 1, g: 0.9333334, b: 0.2509804, a: 1}
+  DeselectColor: {r: 0, g: 0.48627454, b: 0.8352942, a: 1}

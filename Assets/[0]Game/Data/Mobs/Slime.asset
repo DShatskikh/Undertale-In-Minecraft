@@ -17,7 +17,94 @@ MonoBehaviour:
   - {fileID: -1190512114627096115, guid: e20242661b5a20f4ab831fe68d5ce06a, type: 3}
   - {fileID: 3672391563526702508, guid: 2f4da0cfc54c3204a9ba1ec3cbdfec85, type: 3}
   - {fileID: -2825506948791563495, guid: 94523ad8c05764c4abeca5c03a94b30c, type: 3}
-  SkipAttack: {fileID: 0}
   ProgressAttack: 5
   Attack: 3
   WinPrize: 2
+  Acts:
+  - Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+      m_TableEntryReference:
+        m_KeyId: 9174368256
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Reaction:
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:6f661cae60909ba47a785d3975d03854
+        m_TableEntryReference:
+          m_KeyId: 17370140204449792
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+      Shaking: 0
+    Progress: 3
+  - Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+      m_TableEntryReference:
+        m_KeyId: 103722369024
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Reaction:
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:6f661cae60909ba47a785d3975d03854
+        m_TableEntryReference:
+          m_KeyId: 17798638647754752
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+      Shaking: 0
+    Progress: 7
+  - Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+      m_TableEntryReference:
+        m_KeyId: 142028947456
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Reaction:
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:6f661cae60909ba47a785d3975d03854
+        m_TableEntryReference:
+          m_KeyId: 20486693179473920
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+      Shaking: 0
+    Progress: -3
+  - Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+      m_TableEntryReference:
+        m_KeyId: 246198681600
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Reaction:
+      LocalizedString:
+        m_TableReference:
+          m_TableCollectionName: GUID:6f661cae60909ba47a785d3975d03854
+        m_TableEntryReference:
+          m_KeyId: 17794276433182720
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+      Shaking: 0
+    Progress: -7
+  references:
+    version: 2
+    RefIds: []
