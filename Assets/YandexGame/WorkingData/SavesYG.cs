@@ -29,7 +29,7 @@ namespace YG
         public bool IsSpeakHerobrine;
         public bool IsCapturedWorld;
         public bool IsNotCapturedWorld;
-        public bool IsHat;
+        [FormerlySerializedAs("IsHat")] public bool IsCake;
         public bool IsGoodEnd;
         public bool IsBadEnd;
         public bool IsStrangeEnd;
@@ -47,7 +47,7 @@ namespace YG
         public bool IsNotFirstPlay;
         public bool IsTelephone;
         public bool IsHerobrineKey;
-        public bool IsBuyDonat;
+        [FormerlySerializedAs("IsBuyDonat")] public bool IsBuySupport;
         public bool IsNetherStar;
         public bool IsYouHealthy;
 

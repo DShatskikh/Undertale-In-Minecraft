@@ -106,7 +106,7 @@ namespace Game
                 if (YandexGame.savesData.IsGoldKey) 
                     _fullReset.SetActive(true);
 
-                if (YandexGame.savesData.IsHat) 
+                if (YandexGame.savesData.IsCake) 
                     _cake.SetActive(true);
                 
                 if (YandexGame.savesData.IsCheat) 

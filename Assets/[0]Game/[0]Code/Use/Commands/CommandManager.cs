@@ -7,12 +7,16 @@ namespace Game
 {
     public class CommandManager : MonoBehaviour
     {
+        private CommandBase _currentCommand;
+        private Coroutine _coroutine;
+        public CommandBase CurrentCommand => _currentCommand;
+        
         public void StartCommands(List<CommandBase> commands)
         {
-            StartCoroutine(AwaitExecute(commands));
+            _coroutine = StartCoroutine(AwaitExecute(commands));
         }
 
-        public IEnumerator AwaitExecute(List<CommandBase> commands)
+        private IEnumerator AwaitExecute(List<CommandBase> commands)
         {
             foreach (var command in commands)
             {
@@ -21,6 +25,12 @@ namespace Game
                 command.Execute(action);
                 yield return new WaitUntil(() => isEnd);
             }
+        }
+
+        public void StopExecute()
+        {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
         }
     }
 }

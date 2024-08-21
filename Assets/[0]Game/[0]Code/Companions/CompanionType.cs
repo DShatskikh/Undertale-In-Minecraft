@@ -4,6 +4,7 @@ namespace Game
     {
         Bashar,
         CaptainEugene,
-        Mushroom
+        Mushroom,
+        Hacker,
     }
 }

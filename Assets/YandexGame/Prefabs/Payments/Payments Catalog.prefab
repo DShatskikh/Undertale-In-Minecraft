@@ -30,7 +30,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8641676098531048175}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -93,7 +92,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8641676099085248150}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -184,6 +182,7 @@ MonoBehaviour:
   it: 
   de: 
   hi: 
+  changeOnlyFont: 0
   fontNumber: 0
   uniqueFont: {fileID: 0}
   additionalText: {fileID: 0}
@@ -226,7 +225,6 @@ RectTransform:
   - {fileID: 8641676099085248150}
   - {fileID: 8641676097431393183}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -259,8 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPurchases: 1
   rootSpawnPurchases: {fileID: 8641676097431393183}
-  purchasePrefab: {fileID: 1072245818015344007, guid: 85a12be5ffc39d349bf6dccb22596603,
-    type: 3}
+  purchasePrefab: {fileID: 1072245818015344007, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
   updateListMethod: 0
   purchases: []
 --- !u!222 &8641676098531048173
@@ -334,7 +331,6 @@ RectTransform:
   m_Children:
   - {fileID: 8641676098234162426}
   m_Father: {fileID: 8641676098531048175}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}

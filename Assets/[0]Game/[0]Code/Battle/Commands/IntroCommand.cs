@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,12 +8,12 @@ namespace Game
     public class IntroCommand : CommandBase
     {
         private readonly PlaySound _startBattlePlaySound;
-        private readonly float _speed;
+        private readonly Transform[] _points;
         
-        public IntroCommand(PlaySound startBattlePlaySound, float speed)
+        public IntroCommand(PlaySound startBattlePlaySound, Transform[] points)
         {
             _startBattlePlaySound = startBattlePlaySound;
-            _speed = speed;
+            _points = points;
         }
         
         public override void Execute(UnityAction action)
@@ -26,11 +27,26 @@ namespace Game
         {
             var characterTransform = GameData.CharacterController.transform;
             var enemyTransform = GameData.EnemyData.GameObject.transform;
+            var companions = GameData.CompanionsManager.GetAllCompanions;
 
-            while (characterTransform.position != GameData.CharacterPoint.position || enemyTransform.position != GameData.EnemyPoint.position)
+            var progress = 0.0f;
+            var startCharacterPosition = characterTransform.position;
+            var startEnemyPosition = enemyTransform.position;
+            var startPositions = new List<Vector2>();
+            
+            for (int i = 0; i < companions.Count; i++) 
+                startPositions.Add(companions[i].transform.position);
+            
+            while (progress < 1)
             {
-                characterTransform.position = Vector2.MoveTowards(characterTransform.position, GameData.CharacterPoint.position, Time.deltaTime * _speed);
-                enemyTransform.position = Vector2.MoveTowards(enemyTransform.position, GameData.EnemyPoint.position, Time.deltaTime * _speed);
+                progress += Time.deltaTime * 0.75f;
+                
+                characterTransform.position = Vector2.Lerp(startCharacterPosition, GameData.CharacterPoint.position, progress);
+                enemyTransform.position = Vector2.Lerp(startEnemyPosition, GameData.EnemyPoint.position, progress);
+
+                for (int i = 0; i < companions.Count; i++) 
+                    companions[i].transform.position = Vector2.Lerp(startPositions[i], _points[i].position, progress);
+
                 yield return null;
             }
             

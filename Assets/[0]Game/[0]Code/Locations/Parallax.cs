@@ -17,10 +17,16 @@ namespace Game
         [SerializeField]
         private Transform _endPoint;
 
+        private Transform _target;
+
+        private void Start()
+        {
+            _target = Camera.main.transform;
+        }
+
         private void Update()
         {
-            float difference = _endPoint.position.x - _startPoint.position.x;
-            float progress = (_startPoint.position.x + GameData.CharacterController.transform.position.x) / _endPoint.position.x;
+            float progress = (_startPoint.position.x + _target.position.x) / _endPoint.position.x;
             _moon.transform.position = _moon.transform.position.SetX(Mathf.Lerp(_startPoint.position.x, _endPoint.position.x, progress * _parallaxEffect));
         }
     }

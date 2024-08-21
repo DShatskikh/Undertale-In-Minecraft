@@ -35,7 +35,7 @@ namespace Game
 
         public void Update()
         {
-            var targetPosition = GameData.CompanionManager.GetNearestTarget(this);
+            var targetPosition = GameData.CompanionsManager.GetNearestTarget(this);
             var distance = Vector2.Distance(transform.position, targetPosition);
 
             if (distance > _distanceFromTarget)

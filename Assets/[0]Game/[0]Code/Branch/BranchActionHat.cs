@@ -6,7 +6,7 @@ namespace Game
     {
         public override bool IsTrue()
         {
-            return YandexGame.savesData.IsHat;
+            return YandexGame.savesData.IsCake;
         }
     }
 }

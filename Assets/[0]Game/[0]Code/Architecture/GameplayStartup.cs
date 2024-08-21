@@ -35,13 +35,10 @@ namespace Game
 
         [SerializeField]
         private Joystick _joystick;
-        
+
         [SerializeField]
         private Select _select;
 
-        [SerializeField]
-        private GameObject _arena;
-        
         [SerializeField]
         private Transform _characterPoint, _enemyPoint;
         
@@ -72,8 +69,11 @@ namespace Game
         [SerializeField]
         private CommandManager _commandManager;
 
+        [FormerlySerializedAs("companionsManager")] [FormerlySerializedAs("_companionManager")] [SerializeField]
+        private CompanionsManager _companionsManager;
+        
         [SerializeField]
-        private CompanionManager _companionManager;
+        private EndingsManager _endingsManager;
         
         private void Awake()
         {
@@ -85,7 +85,6 @@ namespace Game
             GameData.Select = _select;
             GameData.UseButton = _useButton;
             GameData.Joystick = _joystick;
-            GameData.Arena = _arena;
             GameData.CharacterPoint = _characterPoint;
             GameData.EnemyPoint = _enemyPoint;
             GameData.CinemachineConfiner = _cinemachineConfiner;
@@ -97,7 +96,8 @@ namespace Game
             GameData.GameOver = _gameOver;
             GameData.TimerBeforeAdsYG = _timerBeforeAds;
             GameData.CommandManager = _commandManager;
-            GameData.CompanionManager = _companionManager;
+            GameData.CompanionsManager = _companionsManager;
+            GameData.EndingsManager = _endingsManager;
         }
 
         private void Start()
@@ -125,6 +125,14 @@ namespace Game
                 GameData.CharacterController.transform.position = GameData.Saver.LoadPosition();
                 GameData.ToMenuButton.gameObject.SetActive(true);
             }
+
+            StartCoroutine(Await());
+        }
+        
+        private IEnumerator Await()
+        {
+            yield return new WaitForSeconds(1);
+            GameData.IsCanStartBattle = true;
         }
     }
 }

@@ -4,7 +4,7 @@ using YG;
 
 namespace Game
 {
-    public class CompanionManager : MonoBehaviour
+    public class CompanionsManager : MonoBehaviour
     {
         [SerializeField]
         private Companion _bashar;
@@ -12,7 +12,11 @@ namespace Game
         [SerializeField]
         private Companion _mushroom;
 
+        [SerializeField]
+        private Companion _hacker;
+        
         private List<Companion> _activeCompanions = new List<Companion>();
+        public List<Companion> GetAllCompanions => _activeCompanions;
 
         private void Start()
         {
@@ -69,15 +73,13 @@ namespace Game
         
         private Companion GetCompanion(CompanionType companionType)
         {
-            switch (companionType)
+            return companionType switch
             {
-                case CompanionType.Bashar:
-                    return _bashar;
-                case CompanionType.Mushroom:
-                    return _mushroom;
-            }
-
-            return null;
+                CompanionType.Bashar => _bashar,
+                CompanionType.Mushroom => _mushroom,
+                CompanionType.Hacker => _hacker,
+                _ => null
+            };
         }
     }
 }

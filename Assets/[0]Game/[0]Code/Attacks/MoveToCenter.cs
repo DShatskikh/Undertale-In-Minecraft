@@ -14,7 +14,7 @@ namespace Game
         
         private IEnumerator Start()
         {
-            var target = GameData.Arena.transform;
+            var target = GameData.Battle.Arena.transform;
             
             while (transform.position != target.position)
             {

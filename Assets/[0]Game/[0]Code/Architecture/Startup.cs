@@ -74,6 +74,8 @@ namespace Game
 
         [SerializeField]
         private AssetProvider _assetProvider;
+
+        private PurchaseManager _purchaseManager;
         
         private void Awake()
         {
@@ -85,6 +87,7 @@ namespace Game
 
             DontDestroyOnLoad(gameObject);
 
+            _purchaseManager = new PurchaseManager();
             GameData.DeviceType = _deviceTypeDetector.CurrentDeviceType;
             
             YandexGame.GetDataEvent += () => GameData.IsLoad = true;
@@ -103,7 +106,7 @@ namespace Game
                 YandexGame.savesData.IsSpeakHerobrine = _isSpeakHerobrine;
                 YandexGame.savesData.IsCapturedWorld = _isCapturedWorld;
                 YandexGame.savesData.IsNotCapturedWorld = _isNotCapturedWorld;
-                YandexGame.savesData.IsHat = _isHat;
+                YandexGame.savesData.IsCake = _isHat;
                 YandexGame.savesData.Palesos = _palesos;
                 YandexGame.savesData.IsGoodEnd = _isGoodEnd;
                 YandexGame.savesData.IsBadEnd = _isBadEnd;

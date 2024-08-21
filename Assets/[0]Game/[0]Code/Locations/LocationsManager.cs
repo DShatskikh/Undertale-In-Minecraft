@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Analytics;
 using YG;
 
@@ -28,11 +29,16 @@ namespace Game
             _currentLocation.gameObject.SetActive(true);
             
             GameData.CharacterController.transform.position = _currentLocation.Points[pointIndex].position;
-            GameData.CompanionManager.ResetAllPositions();
+            GameData.CompanionsManager.ResetAllPositions();
             
             YandexGame.savesData.LocationIndex = index;
             GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
             Analytics.CustomEvent("Location " + _currentLocation.gameObject.name);
+        }
+
+        public void SwitchLocation(Location location)
+        {
+            _currentLocation = location;
         }
     }
 }

@@ -15,9 +15,10 @@ namespace Game
         [Header("Configs")]
         public StepSoundPairsConfig StepSoundPairsConfig;
         public TileTagConfig TileTagConfig;
-        
+
         [Header("Prefabs")]
         public ActSlotController ActSlotPrefab;
+        public TestButton TestButton;
 
         [Header("Other")]
         public Color SelectColor;

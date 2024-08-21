@@ -27,6 +27,7 @@ namespace Game
         public static bool IsLoad { get; set; }
         public static VolumeSlider VolumeSlider { get; set; }
         public static AssetProvider AssetProvider { get; set; }
+        public static bool IsCanStartBattle { get; set; }
 
         public static LocationsManager LocationsManager;
         public static Monolog Monolog;
@@ -35,7 +36,6 @@ namespace Game
         public static MusicPlayer MusicPlayer;
         public static int BattleProgress;
         public static CinemachineConfiner2D CinemachineConfiner;
-        public static GameObject Arena;
         public static GameObject Introduction;
         public static GameObject Menu;
         public static TMP_Text SaveText;
@@ -45,6 +45,7 @@ namespace Game
         public static Saver Saver;
         public static TimerBeforeAdsYG TimerBeforeAdsYG;
         public static CommandManager CommandManager;
-        public static CompanionManager CompanionManager;
+        public static CompanionsManager CompanionsManager;
+        public static EndingsManager EndingsManager;
     }
 }

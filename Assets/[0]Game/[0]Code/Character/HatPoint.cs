@@ -19,7 +19,7 @@ namespace Game
 
         private void Start()
         {
-            HatShowAndHide(YandexGame.savesData.IsHat);
+            HatShowAndHide(YandexGame.savesData.IsCake);
             MaskShowAndHide(YandexGame.savesData.IsCheat);
         }
 

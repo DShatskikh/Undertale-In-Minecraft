@@ -9,11 +9,14 @@ namespace Game
         {
             var assetProvider = GameData.AssetProvider;
             var acts = GameData.EnemyData.EnemyConfig.Acts;
+            var distance = new Vector2(2, 1.5f);
 
             for (int i = 0; i < acts.Length; i++)
             {
                 var model = new ActSlotModel(acts[i]);
-                var slot = Instantiate(assetProvider.ActSlotPrefab, transform);
+                var position = GameData.Battle.transform.position.AddX(i % 2 == 0 ? -distance.x : distance.x)
+                    .AddY(i < 2 ? -distance.y : distance.y).AddY(1.5f);
+                var slot = Instantiate(assetProvider.ActSlotPrefab, position, Quaternion.identity, transform);
                 slot.Model = model;
                 int rowIndex = acts.Length - i - 1;
                 int columnIndex = 0;
@@ -44,20 +47,41 @@ namespace Game
 
         public override void OnSlotIndexChanged(Vector2 direction)
         {
-            var newIndex = _currentIndex + direction;
+            var nearestKey = _currentIndex;
+            var nearestDistance = float.MaxValue;
+
+            var startPoint = _currentSlot.transform.position;
             
-            if (_slots.TryGetValue(newIndex, out var controller))
+            foreach (var slot in _slots)
             {
-                if (controller != null)
-                {
-                    controller.SetSelected(true);
-                    var oldVM = _slots[_currentIndex];
-                    oldVM.SetSelected(false);
-                    _currentIndex = newIndex;
+                var difference = slot.Value.transform.position - startPoint; 
+                var distance = Vector2.Distance(startPoint, slot.Value.transform.position);
+
+                if (slot.Key == nearestKey)
+                    continue;
                     
-                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
+                if (distance == 0)
+                    continue;
+                    
+                if ((direction.x > 0 && (difference.x < 0 || Mathf.Abs(difference.x) < Mathf.Abs(difference.y))) ||
+                    (direction.x < 0 && (difference.x > 0 || Mathf.Abs(difference.x) < Mathf.Abs(difference.y))) ||
+                    (direction.y > 0 && (difference.y < 0 || Mathf.Abs(difference.y) < Mathf.Abs(difference.x))) ||
+                    (direction.y < 0 && (difference.y > 0 || Mathf.Abs(difference.y) < Mathf.Abs(difference.x)))
+                   )
+                    continue;
+
+                if (nearestDistance >= distance)
+                {
+                    nearestKey = slot.Key;
+                    nearestDistance = distance;
                 }
+                    
+                Debug.Log("" + slot.Value.gameObject.name + " direction: " + direction.x + " difference: " + difference.x + " startPoint: " + startPoint + " distance: " + distance + " nearestDistance: " + nearestDistance);
             }
+            
+            _currentSlot.SetSelected(false);
+            _currentIndex = nearestKey;
+            _currentSlot.SetSelected(true);
         }
     }
 }

@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using YG;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -11,7 +13,7 @@ namespace Game
     {
         [SerializeField] 
         private float _speedPlacement;
-
+       
         [SerializeField]
         private PlaySound _startBattlePlaySound;
 
@@ -35,6 +37,12 @@ namespace Game
 
         [SerializeField]
         private SelectActManager _selectActManager;
+
+        [SerializeField]
+        private SpriteRenderer _arena;
+
+        [SerializeField]
+        private Transform[] _points;
         
         private Label _healthLabel;
         private Label _enemyHealthLabel;
@@ -47,6 +55,7 @@ namespace Game
         private bool _isSecondRound;
 
         public BlackPanel BlackPanel => _blackPanel;
+        public GameObject Arena => _arena.gameObject;
 
         private void OnDisable()
         {
@@ -64,11 +73,19 @@ namespace Game
             }
         }
 
+        private IEnumerator AwaitMaxProgress()
+        {
+            yield return new WaitUntil(() =>
+                GameData.BattleProgress >= 100 && GameData.CommandManager.CurrentCommand is not StartEnemyTurnCommand);
+            GameData.CommandManager.StopExecute();
+            EndBattle();
+        }
+
         public void StartBattle()
         {
             GameData.CharacterController.enabled = false;
             GameData.HeartController.enabled = false;
-            GameData.HeartController.transform.position = GameData.Arena.transform.position;
+            GameData.HeartController.transform.position = _arena.transform.position;
             _previousSound = GameData.MusicPlayer.Clip;
             GameData.TimerBeforeAdsYG.gameObject.SetActive(false);
             GameData.ToMenuButton.gameObject.SetActive(false);
@@ -105,46 +122,52 @@ namespace Game
 
             var commands = new List<CommandBase>()
             {
-                new IntroCommand(_startBattlePlaySound, _speedPlacement),
+                new IntroCommand(_startBattlePlaySound, _points),
+                //new SkipIntroCommand(_points),
                 new DelayCommand(1f),
                 new StartEnemyTurnCommand(),
             };
-            
+
+            StartCoroutine(AwaitMaxProgress());
             GameData.CommandManager.StartCommands(commands);
         }
 
         public void Turn(Act act = null)
         {
             var commands = new List<CommandBase>();
-            GameData.HeartController.gameObject.SetActive(true);
+            var attackPrefab = YandexGame.savesData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial;
 
-            if (GameData.BattleProgress < 100)
-            {
-                var attackPrefab = YandexGame.savesData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial;
-
-                if (act != null)
-                {
-                    commands.Add(new DelayCommand(1f));
-                    commands.Add(new MessageCommand(_messageBox, act.Reaction));
-                    commands.Add(new AddProgressCommand(act.Progress));
-                    commands.Add(new DelayCommand(1f));
-                }
-
-                if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null) 
-                    commands.Add(new MessageCommand(_messageBox, _attacks[_attackIndex].Messages));
-
-                commands.Add(new EnemyAttackCommand(attackPrefab, _blackPanel));
-                commands.Add(new StartCharacterTurnCommand());
-            }
-            else
+            if (act != null)
             {
                 commands.Add(new DelayCommand(1f));
-                commands.Add(new ExitCommand(gameObject, _sparePlaySound, _levelUpPlaySound, _previousSound,
-                    _normalWorldCharacterPosition, _speedPlacement, _winReplica));
+                commands.Add(new MessageCommand(_messageBox, act.Reaction));
+                commands.Add(new AddProgressCommand(act.Progress));
+                commands.Add(new DelayCommand(1f));
             }
-            
+
+            if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null) 
+                commands.Add(new MessageCommand(_messageBox, _attacks[_attackIndex].Messages));
+
+            if (_attackIndex != 0 || _isSecondRound)
+                commands.Add(new ShowArenaCommand(_arena, _blackPanel));
+                
+            commands.Add(new EnemyAttackCommand(attackPrefab, _blackPanel, _arena.gameObject));
+            commands.Add(new HideArenaCommand(_arena, _blackPanel));
+            commands.Add(new StartCharacterTurnCommand());
+
             GameData.CommandManager.StartCommands(commands);
             GetIndex();
+        }
+
+        private void EndBattle()
+        {
+            var commands = new List<CommandBase>();
+            
+            commands.Add(new DelayCommand(1f));
+            commands.Add(new ExitCommand(gameObject, _sparePlaySound, _levelUpPlaySound, _previousSound,
+                _normalWorldCharacterPosition, _speedPlacement, _winReplica));
+            
+            GameData.CommandManager.StartCommands(commands);
         }
 
         public void StartCharacterTurn()

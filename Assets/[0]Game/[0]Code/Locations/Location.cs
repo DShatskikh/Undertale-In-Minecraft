@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
 
 namespace Game
@@ -9,5 +9,13 @@ namespace Game
         private Transform[] _points;
 
         public Transform[] Points => _points;
+
+        private void OnEnable()
+        {
+            if (GameData.IsCanStartBattle)
+            {
+                GameData.LocationsManager.SwitchLocation(this);
+            }
+        }
     }
 }

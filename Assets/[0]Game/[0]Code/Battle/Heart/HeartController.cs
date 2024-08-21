@@ -45,13 +45,13 @@ namespace Game
 
             position += direction * _speed * Time.deltaTime;
 
-            if (GameData.Arena.activeSelf)
+            if (GameData.Battle.Arena.activeSelf)
             {
                 var limitX = _sizeField.x / 2;
                 var limitY = _sizeField.y / 2;
                 position = new Vector2(
-                    Mathf.Clamp(position.x, -limitX + GameData.Arena.transform.position.x, limitX + GameData.Arena.transform.position.x), 
-                    Mathf.Clamp(position.y, -limitY + GameData.Arena.transform.position.y, limitY + GameData.Arena.transform.position.y));
+                    Mathf.Clamp(position.x, -limitX + GameData.Battle.Arena.transform.position.x, limitX + GameData.Battle.Arena.transform.position.x), 
+                    Mathf.Clamp(position.y, -limitY + GameData.Battle.Arena.transform.position.y, limitY + GameData.Battle.Arena.transform.position.y));
             }
             
             if (!_model.IsInvulnerability)

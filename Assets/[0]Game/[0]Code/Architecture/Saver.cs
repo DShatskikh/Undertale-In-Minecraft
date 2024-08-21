@@ -40,7 +40,7 @@ namespace Game
             YandexGame.savesData.LocationIndex = 0;
             YandexGame.savesData.NumberGame += 1;
 
-            YandexGame.savesData.IsHat = false;
+            YandexGame.savesData.IsCake = false;
             YandexGame.savesData.IsNotIntroduction = false;
             YandexGame.savesData.IsCheat = false;
             YandexGame.savesData.IsPrisonKey = false;

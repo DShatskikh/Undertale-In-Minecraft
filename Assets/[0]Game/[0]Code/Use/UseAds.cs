@@ -11,7 +11,7 @@ namespace Game
         
         public void Use()
         {
-            if (YandexGame.savesData.IsBuyDonat)
+            if (YandexGame.savesData.IsBuySupport)
             {
                 RewardVideoEvent(1);
                 return;

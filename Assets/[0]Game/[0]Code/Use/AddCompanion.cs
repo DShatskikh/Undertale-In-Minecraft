@@ -4,14 +4,14 @@ using YG;
 
 namespace Game
 {
-    public class UseGiveCompanion : MonoBehaviour
+    public class AddCompanion : MonoBehaviour
     {
         [SerializeField]
         private CompanionType _companion;
 
         public void Use()
         {
-            GameData.CompanionManager.TryActivateCompanion(_companion);
+            GameData.CompanionsManager.TryActivateCompanion(_companion);
             
             if (YandexGame.savesData.Companions.Any(companion => companion == _companion))
                 return;

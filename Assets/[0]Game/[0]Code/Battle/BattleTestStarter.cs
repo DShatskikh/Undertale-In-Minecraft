@@ -6,22 +6,11 @@ namespace Game
     public class BattleTestStarter : MonoBehaviour
     {
         [SerializeField]
-        private EnemyConfig _enemyConfig;
-
-        [SerializeField]
-        private GameObject _enemyObject;
+        private StartBattleTrigger _startBattleTrigger;
         
         private void Start()
         {
-            GameData.EnemyData = new EnemyData()
-            {
-                EnemyConfig = _enemyConfig,
-                GameObject = _enemyObject
-            };
-
-            _enemyObject.transform.position = GameData.EnemyPoint.position;
-            GameData.CharacterController.transform.position = GameData.CharacterPoint.position;
-            GetComponent<Battle>().StartBattle();
+            _startBattleTrigger.StartBattle();
         }
     }
 }

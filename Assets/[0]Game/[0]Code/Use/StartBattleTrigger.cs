@@ -18,19 +18,12 @@ namespace Game
 
         [SerializeField]
         private UnityEvent _event;
-
-        private bool _isCanStartBattle;
+        
         public Vector2 Offset => _offset;
-
-        private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(1);
-            _isCanStartBattle = true;
-        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!_isCanStartBattle)
+            if (!GameData.IsCanStartBattle)
                 return;
             
             if (other.TryGetComponent(out CharacterController character))
@@ -57,10 +50,8 @@ namespace Game
 
         private void OnPlayerWin(EnemyConfig config)
         {
-            if (_config == config)
-            {
+            if (_config == config) 
                 _event.Invoke();
-            }
         }
     }
 }
