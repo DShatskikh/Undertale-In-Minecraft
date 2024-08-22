@@ -18,13 +18,13 @@ namespace Game
                     .AddY(i < 2 ? -distance.y : distance.y).AddY(1.5f);
                 var slot = Instantiate(assetProvider.ActSlotPrefab, position, Quaternion.identity, transform);
                 slot.Model = model;
-                int rowIndex = acts.Length - i - 1;
-                int columnIndex = 0;
+                int rowIndex = i / 2;
+                int columnIndex = i % 2;
                 slot.SetSelected(false);
                 _slots.Add(new Vector2(columnIndex, rowIndex), slot);
             }
             
-            _currentIndex = new Vector2(0, acts.Length - 1);
+            _currentIndex = new Vector2(0, (acts.Length - 1) / 2);
             _slots[_currentIndex].SetSelected(true);
         }
         
@@ -45,7 +45,7 @@ namespace Game
 
         public override void OnCancel() { }
 
-        public override void OnSlotIndexChanged(Vector2 direction)
+        /*public override void OnSlotIndexChanged(Vector2 direction)
         {
             var nearestKey = _currentIndex;
             var nearestDistance = float.MaxValue;
@@ -82,6 +82,6 @@ namespace Game
             _currentSlot.SetSelected(false);
             _currentIndex = nearestKey;
             _currentSlot.SetSelected(true);
-        }
+        }*/
     }
 }

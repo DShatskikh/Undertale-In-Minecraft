@@ -16,6 +16,7 @@ namespace Game
 
         public void UpdateView(ActSlotModel model)
         {
+            _label.text = "???";
             StartCoroutine(AwaitTextUpgrade(model.Act.Name));
             
             if (model.IsSelected)

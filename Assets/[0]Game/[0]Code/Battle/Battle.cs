@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UIElements;
@@ -44,6 +45,12 @@ namespace Game
         [SerializeField]
         private Transform[] _points;
         
+        [SerializeField]
+        private TMP_Text _addProgressLabel;
+
+        [SerializeField]
+        private AddProgressData _addProgressData;
+        
         private Label _healthLabel;
         private Label _enemyHealthLabel;
         private Vector2 _normalWorldCharacterPosition;
@@ -73,14 +80,6 @@ namespace Game
             }
         }
 
-        private IEnumerator AwaitMaxProgress()
-        {
-            yield return new WaitUntil(() =>
-                GameData.BattleProgress >= 100 && GameData.CommandManager.CurrentCommand is not StartEnemyTurnCommand);
-            GameData.CommandManager.StopExecute();
-            EndBattle();
-        }
-
         public void StartBattle()
         {
             GameData.CharacterController.enabled = false;
@@ -106,6 +105,7 @@ namespace Game
             var character = GameData.CharacterController;
             character.GetComponent<Collider2D>().isTrigger = true;
             character.View.Flip(false);
+            character.View.SetOrderInLayer(11);
             
             YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
             EventBus.HealthChange.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
@@ -127,8 +127,7 @@ namespace Game
                 new DelayCommand(1f),
                 new StartEnemyTurnCommand(),
             };
-
-            StartCoroutine(AwaitMaxProgress());
+            
             GameData.CommandManager.StartCommands(commands);
         }
 
@@ -139,19 +138,20 @@ namespace Game
 
             if (act != null)
             {
-                commands.Add(new DelayCommand(1f));
                 commands.Add(new MessageCommand(_messageBox, act.Reaction));
-                commands.Add(new AddProgressCommand(act.Progress));
-                commands.Add(new DelayCommand(1f));
+                commands.Add(new AddProgressCommand(act.Progress, _addProgressLabel, _addProgressData));
             }
-
-            if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null) 
+            
+            commands.Add(new CheckEndBattleCommand());
+            
+            if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null && _attacks[_attackIndex].Messages.Length != 0) 
                 commands.Add(new MessageCommand(_messageBox, _attacks[_attackIndex].Messages));
 
             if (_attackIndex != 0 || _isSecondRound)
                 commands.Add(new ShowArenaCommand(_arena, _blackPanel));
                 
             commands.Add(new EnemyAttackCommand(attackPrefab, _blackPanel, _arena.gameObject));
+            commands.Add(new CheckEndBattleCommand());
             commands.Add(new HideArenaCommand(_arena, _blackPanel));
             commands.Add(new StartCharacterTurnCommand());
 
@@ -159,11 +159,14 @@ namespace Game
             GetIndex();
         }
 
-        private void EndBattle()
+        public void EndBattle()
         {
+            GameData.CharacterController.View.SetOrderInLayer(0);
+            
             var commands = new List<CommandBase>();
             
             commands.Add(new DelayCommand(1f));
+            commands.Add(new MessageCommand(_messageBox, GameData.EnemyData.EnemyConfig.EndReplicas));
             commands.Add(new ExitCommand(gameObject, _sparePlaySound, _levelUpPlaySound, _previousSound,
                 _normalWorldCharacterPosition, _speedPlacement, _winReplica));
             

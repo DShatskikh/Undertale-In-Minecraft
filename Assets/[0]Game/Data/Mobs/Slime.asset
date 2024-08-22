@@ -17,7 +17,6 @@ MonoBehaviour:
   - {fileID: -1190512114627096115, guid: e20242661b5a20f4ab831fe68d5ce06a, type: 3}
   - {fileID: 3672391563526702508, guid: 2f4da0cfc54c3204a9ba1ec3cbdfec85, type: 3}
   - {fileID: -2825506948791563495, guid: 94523ad8c05764c4abeca5c03a94b30c, type: 3}
-  ProgressAttack: 5
   Attack: 3
   WinPrize: 2
   Acts:
@@ -105,6 +104,17 @@ MonoBehaviour:
         m_LocalVariables: []
       Shaking: 0
     Progress: -7
+  EndReplicas:
+  - LocalizedString:
+      m_TableReference:
+        m_TableCollectionName: GUID:efbfa5e23989a5a4797ec3b9e937868b
+      m_TableEntryReference:
+        m_KeyId: 22720181605613568
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Shaking: 0
   references:
     version: 2
     RefIds: []

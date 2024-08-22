@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Game
 {
@@ -11,6 +11,7 @@ namespace Game
         [SerializeField] 
         private Animator _animator;
 
+        private SortingGroup _sortingGroup;
         private CharacterModel _model;
 
         public void SetModel(CharacterModel model)
@@ -18,6 +19,8 @@ namespace Game
             _model = model;
             _model.SpeedChange += OnSpeedChange;
             _model.DirectionChange += OnDirectionChange;
+
+            _sortingGroup = _spriteRenderer.GetComponent<SortingGroup>();
         }
 
         private void OnDestroy()
@@ -48,6 +51,11 @@ namespace Game
         public void Damage()
         {
             _animator.SetTrigger("Damage");
+        }
+
+        public void SetOrderInLayer(int value)
+        {
+            _sortingGroup.sortingOrder = value;
         }
     }
 }

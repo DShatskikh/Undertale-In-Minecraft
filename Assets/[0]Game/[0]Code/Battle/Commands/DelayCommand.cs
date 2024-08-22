@@ -15,7 +15,6 @@ namespace Game
         
         public override void Execute(UnityAction action)
         {
-            Debug.Log("DelayCommand");
             GameData.Startup.StartCoroutine(Await(action));
         }
 

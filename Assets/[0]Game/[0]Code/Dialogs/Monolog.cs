@@ -34,10 +34,8 @@ namespace Game
             _continueTextOperation = _continueString.GetLocalizedStringAsync();
             
             while (!_continueTextOperation.IsDone)
-            {
                 yield return null;
-            }
-            
+
             _continueText = _continueTextOperation.Result;
             SetContinueText(_continueText);
         }

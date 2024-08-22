@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Game
 {
@@ -9,5 +10,6 @@ namespace Game
         public int Attack = 3;
         public int WinPrize = 2;
         public Act[] Acts;
+        public BattleMessageData[] EndReplicas;
     }
 }
