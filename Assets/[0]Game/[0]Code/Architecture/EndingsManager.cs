@@ -15,24 +15,24 @@ namespace Game
         [FormerlySerializedAs("_secretEnd")] [SerializeField]
         public GameObject _strangeEnd;
 
-        public void End(EndEnum endEnum)
+        public void End(Endings endings)
         {
             GameData.LocationsManager.gameObject.SetActive(false);
             GameData.CompanionsManager.gameObject.SetActive(false);
             
-            switch (endEnum)
+            switch (endings)
             {
-                case EndEnum.Bad:
+                case Endings.Bad:
                     _badEnd.SetActive(true);
                     break;
-                case EndEnum.Good:
+                case Endings.Good:
                     _goodEnd.SetActive(true);
                     break;
-                case EndEnum.Strange:
+                case Endings.Strange:
                     _strangeEnd.SetActive(true);
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(endEnum), endEnum, null);
+                    throw new ArgumentOutOfRangeException(nameof(endings), endings, null);
             }
         }
     }

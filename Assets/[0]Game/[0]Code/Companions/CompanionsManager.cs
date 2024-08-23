@@ -54,6 +54,30 @@ namespace Game
                 companion.gameObject.SetActive(true);
             }
         }
+        
+        public void TryDeactivateCompanion(CompanionType companionType)
+        {
+            var companion = GetCompanion(companionType);
+            var isHave = false;
+            
+            foreach (var activeCompanion in _activeCompanions)
+            {
+                if (activeCompanion == companion)
+                {
+                    isHave = true;
+                    break;
+                }
+            }
+
+            if (!isHave)
+                return;
+            
+            if (companion)
+            {
+                _activeCompanions.Remove(companion);
+                companion.gameObject.SetActive(false);
+            }
+        }
 
         public Vector2 GetNearestTarget(Companion companion)
         {
@@ -71,7 +95,7 @@ namespace Game
             return GameData.CharacterController.transform.position;
         }
         
-        private Companion GetCompanion(CompanionType companionType)
+        public Companion GetCompanion(CompanionType companionType)
         {
             return companionType switch
             {

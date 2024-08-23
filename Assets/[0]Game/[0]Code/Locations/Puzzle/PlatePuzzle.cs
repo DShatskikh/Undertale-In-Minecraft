@@ -15,6 +15,9 @@ namespace Game
         [SerializeField]
         private PlaySoundEffect _playSound;
         
+        [SerializeField]
+        private AudioClip _deactivateSound;
+        
         private Coroutine _coroutine;
 
         private void OnEnable()
@@ -48,13 +51,13 @@ namespace Game
 
         public void Deactivate()
         {
-            foreach (var plate in _plates)
-            {
+            foreach (var plate in _plates) 
                 plate.Deactivate();
-            }
-            
-            print("_deactivateEvent");
+
+            GameData.EffectSoundPlayer.Play(_deactivateSound);
             _deactivateEvent.Invoke();
+            
+            _coroutine = StartCoroutine(Process());
         }
         
         private IEnumerator Process()

@@ -39,6 +39,15 @@ namespace Game
         public void SwitchLocation(Location location)
         {
             _currentLocation = location;
+
+            for (int i = 0; i < _locations.Length; i++)
+            {
+                if (_locations[i] == _currentLocation)
+                {
+                    YandexGame.savesData.LocationIndex = i;
+                    break;
+                }
+            }
         }
     }
 }

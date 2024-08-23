@@ -63,6 +63,7 @@ namespace Game
         public void Show(LocalizedString textLocalization, Action yesAction, Action noAction)
         {
             gameObject.SetActive(true);
+            SetText("");
             GameData.ToMenuButton.gameObject.SetActive(false);
             
             if (_coroutine != null)

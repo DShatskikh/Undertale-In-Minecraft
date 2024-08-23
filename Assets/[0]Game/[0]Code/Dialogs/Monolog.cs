@@ -43,6 +43,7 @@ namespace Game
         public void Show(LocalizedString[] texts, AudioClip sound = null)
         {
             gameObject.SetActive(true);
+            SetText("");
             GameData.ToMenuButton.gameObject.SetActive(false);
             _sound = sound;
             

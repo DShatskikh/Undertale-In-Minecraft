@@ -35,7 +35,7 @@ namespace Game
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.V)) 
+            if (Input.GetKeyDown(KeyCode.F) && Input.GetKey(KeyCode.LeftShift)) 
                 _canvas.gameObject.SetActive(!_canvas.gameObject.activeSelf);
         }
 

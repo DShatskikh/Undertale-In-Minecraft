@@ -1,5 +1,5 @@
 {
-    "idSave": 900,
+    "idSave": 1067,
     "isFirstSession": true,
     "language": "ru",
     "promptDone": false,
@@ -17,15 +17,15 @@
     "IsNotCapturedWorld": false,
     "IsCake": false,
     "IsGoodEnd": false,
-    "IsBadEnd": false,
+    "IsBadEnd": true,
     "IsStrangeEnd": false,
     "IsPalesosEnd": false,
     "IsNotIntroduction": true,
-    "PositionX": 71.19346618652344,
-    "PositionY": -3.9739389419555666,
+    "PositionX": 81.8486557006836,
+    "PositionY": -3.381835699081421,
     "Palesos": 0,
-    "LocationIndex": 1,
-    "Health": 11,
+    "LocationIndex": 24,
+    "Health": 20,
     "IsPrisonKey": false,
     "IsDeveloperKey": false,
     "IsGoldKey": false,
@@ -38,17 +38,22 @@
     "IsYouHealthy": true,
     "NumberGame": 3,
     "Volume": 1.0,
-    "MaxHealth": 22,
+    "MaxHealth": 20,
     "GoldTulip": 1,
     "_intPairs": [
         {
             "Value": 1,
             "Key": "Slime"
+        },
+        {
+            "Value": 1,
+            "Key": "Puzzle_2"
         }
     ],
     "IsAlternativeWorld": false,
     "PointIndex": 0,
     "Companions": [
-        3
+        3,
+        2
     ]
 }

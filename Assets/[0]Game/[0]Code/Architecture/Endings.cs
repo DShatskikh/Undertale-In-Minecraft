@@ -1,6 +1,6 @@
 namespace Game
 {
-    public enum EndEnum
+    public enum Endings
     {
         Bad,
         Good,

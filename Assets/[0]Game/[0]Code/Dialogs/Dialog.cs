@@ -51,6 +51,7 @@ namespace Game
         public void SetReplicas(Replica[] replicas, AudioClip sound = null)
         {
             gameObject.SetActive(true);
+            _view.SetText("");
             GameData.ToMenuButton.gameObject.SetActive(false);
             _sound = sound;
             

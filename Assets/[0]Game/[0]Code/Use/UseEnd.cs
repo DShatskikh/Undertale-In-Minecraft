@@ -5,7 +5,7 @@ namespace Game
     public class UseEnd : MonoBehaviour
     {
         [SerializeField]
-        private EndEnum _end;
+        private Endings _end;
         
         public void Use()
         {

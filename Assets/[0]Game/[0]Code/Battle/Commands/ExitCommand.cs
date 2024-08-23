@@ -79,7 +79,9 @@ namespace Game
             {
                 _levelUpPlaySound.Play();
                 
-                YandexGame.savesData.MaxHealth += GameData.EnemyData.EnemyConfig.WinPrize;
+                if (!YandexGame.savesData.IsCheat)
+                    YandexGame.savesData.MaxHealth += GameData.EnemyData.EnemyConfig.WinPrize;
+                
                 EventBus.PlayerWin.Invoke(GameData.EnemyData.EnemyConfig);
                 EventBus.PlayerWin = null;
                 GameData.Saver.Save();
