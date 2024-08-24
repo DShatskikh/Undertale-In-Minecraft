@@ -56,9 +56,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1455902307320371952, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455902307320371952, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455902307320371952, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6394127692144840139}
+    - target: {fileID: 1455902307320371952, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455902307320371952, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455902307320371952, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Behaviour, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455902307320371952, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455902307320371952, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2693134652397900958, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
       propertyPath: m_Radius
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693134652397900958, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6272708339432658529, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
       propertyPath: m_Sprite
@@ -94,3 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: -0.25
+--- !u!58 &6394127692144840139 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2693134652397900958, guid: 17b44981894b084468060f4d8bfa99e5, type: 3}
+  m_PrefabInstance: {fileID: 9071216054657669461}
+  m_PrefabAsset: {fileID: 0}

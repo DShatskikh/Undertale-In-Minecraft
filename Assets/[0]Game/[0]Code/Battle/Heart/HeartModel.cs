@@ -7,7 +7,7 @@ namespace Game
     {
         public event Action<bool> ShieldActivate;
         public bool IsInvulnerability;
-        
+
         public void AddTurnProgress(int value)
         {
             GameData.BattleProgress += value;

@@ -102,8 +102,6 @@ namespace Game
 
         private void Start()
         {
-            GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, YandexGame.savesData.Volume));
-
             foreach (var saveLoad in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             {
                 saveLoad.Load();
@@ -131,7 +129,7 @@ namespace Game
         
         private IEnumerator Await()
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             GameData.IsCanStartBattle = true;
         }
     }

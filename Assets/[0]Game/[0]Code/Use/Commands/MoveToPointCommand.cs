@@ -6,15 +6,15 @@ namespace Game
 {
     public class MoveToPointCommand : CommandBase
     {
-        private Transform _transform;
-        private Vector2 _target;
-        private float _speed;
+        private readonly Transform _transform;
+        private readonly Vector2 _target;
+        private readonly float _duration;
         
-        public MoveToPointCommand(Transform transform, Vector2 target, float speed)
+        public MoveToPointCommand(Transform transform, Vector2 target, float duration)
         {
             _transform = transform;
             _target = target;
-            _speed = speed;
+            _duration = duration;
         }
         
         public override void Execute(UnityAction action)
@@ -25,12 +25,20 @@ namespace Game
         private IEnumerator Move(UnityAction action)
         {
             var progress = 0f;
+            var startPosition = _transform.position;
 
             do
             {
-                _transform.position = Vector2.Lerp(_transform.position, _target, progress);
+                if (_transform)
+                    _transform.position = Vector2.Lerp(startPosition, _target, progress);
+                else
+                {
+                    action.Invoke();
+                    yield break;
+                }
+
                 yield return null;
-                progress += Time.deltaTime * _speed;
+                progress += Time.deltaTime / _duration;
             } while (progress < 1f);
             
             action.Invoke();

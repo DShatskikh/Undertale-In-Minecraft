@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using YG;
@@ -104,6 +105,12 @@ namespace Game
                 CompanionType.Hacker => _hacker,
                 _ => null
             };
+        }
+
+        public void SetMove(bool value)
+        {
+            foreach (var companion in _activeCompanions) 
+                companion.SetMove(value);
         }
     }
 }

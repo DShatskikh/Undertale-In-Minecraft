@@ -58,5 +58,13 @@ namespace Game
             transform.position = Vector2.MoveTowards(transform.position, 
                 _currentPoint, speed);
         }
+
+        public void SetMove(bool value)
+        {
+            if (!value)
+                _animator.SetFloat("Speed", 0);
+            
+            enabled = value;
+        }
     }
 }

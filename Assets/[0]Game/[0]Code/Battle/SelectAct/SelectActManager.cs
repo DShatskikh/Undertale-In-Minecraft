@@ -44,44 +44,5 @@ namespace Game
         }
 
         public override void OnCancel() { }
-
-        /*public override void OnSlotIndexChanged(Vector2 direction)
-        {
-            var nearestKey = _currentIndex;
-            var nearestDistance = float.MaxValue;
-
-            var startPoint = _currentSlot.transform.position;
-            
-            foreach (var slot in _slots)
-            {
-                var difference = slot.Value.transform.position - startPoint; 
-                var distance = Vector2.Distance(startPoint, slot.Value.transform.position);
-
-                if (slot.Key == nearestKey)
-                    continue;
-                    
-                if (distance == 0)
-                    continue;
-                    
-                if ((direction.x > 0 && (difference.x < 0 || Mathf.Abs(difference.x) < Mathf.Abs(difference.y))) ||
-                    (direction.x < 0 && (difference.x > 0 || Mathf.Abs(difference.x) < Mathf.Abs(difference.y))) ||
-                    (direction.y > 0 && (difference.y < 0 || Mathf.Abs(difference.y) < Mathf.Abs(difference.x))) ||
-                    (direction.y < 0 && (difference.y > 0 || Mathf.Abs(difference.y) < Mathf.Abs(difference.x)))
-                   )
-                    continue;
-
-                if (nearestDistance >= distance)
-                {
-                    nearestKey = slot.Key;
-                    nearestDistance = distance;
-                }
-                    
-                Debug.Log("" + slot.Value.gameObject.name + " direction: " + direction.x + " difference: " + difference.x + " startPoint: " + startPoint + " distance: " + distance + " nearestDistance: " + nearestDistance);
-            }
-            
-            _currentSlot.SetSelected(false);
-            _currentIndex = nearestKey;
-            _currentSlot.SetSelected(true);
-        }*/
     }
 }

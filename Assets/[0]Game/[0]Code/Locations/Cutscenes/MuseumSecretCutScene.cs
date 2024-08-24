@@ -20,11 +20,11 @@ namespace Game
         {
             GameData.CharacterController.enabled = false;
             
-            var speed = 0.1f;
+            var duration = 1f;
             
             var commands = new List<CommandBase>()
             {
-                new MoveToPointCommand(_exhibitPoint, _points[0].position, speed),
+                new MoveToPointCommand(_exhibitPoint, _points[0].position, duration),
                 new UnityEventCommand(_event),
             };
             

@@ -8,7 +8,7 @@ namespace Game
         private Coroutine _coroutine;
         private readonly HeartModel _model;
         private const float ShieldActiveTime = 0.15f;
-        private const float ShieldDeactiveTime = 0.05f;
+        private const float ShieldDeactivateTime = 0.1f;
 
         public Shield(HeartModel model)
         {
@@ -52,7 +52,7 @@ namespace Game
             _model.SetIsShield(true);
             yield return new WaitForSeconds(ShieldActiveTime);
             _model.SetIsShield(false);
-            yield return new WaitForSeconds(ShieldDeactiveTime);
+            yield return new WaitForSeconds(ShieldDeactivateTime);
             _coroutine = null;
         }
     }

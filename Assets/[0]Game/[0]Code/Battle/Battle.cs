@@ -86,12 +86,14 @@ namespace Game
 
         public void StartBattle()
         {
+            _normalWorldCharacterPosition = GameData.CharacterController.transform.position;
             GameData.CharacterController.enabled = false;
             GameData.HeartController.enabled = false;
             GameData.HeartController.transform.position = _arena.transform.position;
             _previousSound = GameData.MusicPlayer.Clip;
             GameData.TimerBeforeAdsYG.gameObject.SetActive(false);
             GameData.ToMenuButton.gameObject.SetActive(false);
+            GameData.CompanionsManager.SetMove(false);
 
             _isSecondRound = false;
             gameObject.SetActive(true);
@@ -111,6 +113,9 @@ namespace Game
             character.View.Flip(false);
             character.View.SetOrderInLayer(11);
             
+            _arena.size = Vector2.zero;
+            GameData.HeartController.gameObject.SetActive(false);
+
             YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
             EventBus.HealthChange.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
             
@@ -138,7 +143,6 @@ namespace Game
         public void Turn(Act act = null)
         {
             var commands = new List<CommandBase>();
-            var attackPrefab = YandexGame.savesData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial;
 
             if (act != null)
             {
@@ -152,10 +156,12 @@ namespace Game
             if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null && _attacks[_attackIndex].Messages.Length != 0) 
                 commands.Add(new MessageCommand(_enemyMessageBox, _attacks[_attackIndex].Messages));
 
-            if (_attackIndex != 0 || _isSecondRound)
-                commands.Add(new ShowArenaCommand(_arena, _blackPanel));
-                
-            commands.Add(new EnemyAttackCommand(attackPrefab, _blackPanel, _arena.gameObject));
+            commands.Add(new ShowArenaCommand(_arena, _blackPanel));
+            
+            if (!YandexGame.savesData.IsTutorialComplited)
+                commands.Add(new EnemyAttackCommand(_attackTutorial, _blackPanel, _arena.gameObject)); 
+            
+            commands.Add(new EnemyAttackCommand(_attacks[_attackIndex], _blackPanel, _arena.gameObject));
             commands.Add(new CheckEndBattleCommand());
             commands.Add(new HideArenaCommand(_arena, _blackPanel));
             commands.Add(new StartCharacterTurnCommand());
@@ -167,6 +173,7 @@ namespace Game
         public void EndBattle()
         {
             GameData.CharacterController.View.SetOrderInLayer(0);
+            GameData.CompanionsManager.SetMove(true);
             var winReplica = YandexGame.savesData.IsCheat ? _winReplicaCheat : _winReplica;
             
             var commands = new List<CommandBase>();
@@ -188,8 +195,6 @@ namespace Game
         {
             if (YandexGame.savesData.IsTutorialComplited)
                 _attackIndex++;
-            else
-                YandexGame.savesData.IsTutorialComplited = true;
 
             if (_attackIndex >= _attacks.Length)
             {

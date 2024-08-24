@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Game
@@ -11,6 +12,7 @@ namespace Game
         private SpriteRenderer _shield;
 
         private HeartModel _model;
+        private Coroutine _coroutine;
 
         public void SetModel(HeartModel model)
         {
@@ -22,13 +24,31 @@ namespace Game
         {
             _model.ShieldActivate -= OnShieldActivate;
         }
-        
+
         private void OnShieldActivate(bool isActivate)
         {
             if (isActivate)
                 _source.Play();
+
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
             
-            _shield.gameObject.SetActive(isActivate);
+            _coroutine = StartCoroutine(AwaitTransparency(isActivate));
+        }
+
+        private IEnumerator AwaitTransparency(bool isActivate)
+        {
+            var progress = 0f;
+            var startA = _shield.color.a;
+            var endA = isActivate ? 1 : 0;
+            var duration = 0.1f;
+
+            while (progress < 1)
+            {
+                progress += Time.deltaTime / duration;
+                _shield.color = _shield.color.SetA(Mathf.Lerp(startA, endA, progress));
+                yield return null;
+            }
         }
     }
 }

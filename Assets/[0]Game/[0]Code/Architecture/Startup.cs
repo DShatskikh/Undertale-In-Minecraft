@@ -133,6 +133,8 @@ namespace Game
             YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
             Application.targetFrameRate = 60;
             
+            GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, YandexGame.savesData.Volume));
+
 #if UNITY_EDITOR
             if (_isNotLoad)
                 return;

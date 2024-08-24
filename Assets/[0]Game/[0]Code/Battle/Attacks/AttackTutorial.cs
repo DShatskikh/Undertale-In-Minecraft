@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using YG;
 
 namespace Game
 {
@@ -28,11 +29,13 @@ namespace Game
                 var result = messageOperation.Result;
                 
                 _text.text = result;
-                bool isSubmit = false; 
+                var isSubmit = false; 
                 EventBus.Submit = () => isSubmit = true;
                 yield return new WaitUntil(() => isSubmit);
+                EventBus.Submit = null;
             }
             
+            YandexGame.savesData.IsTutorialComplited = true;
             action.Invoke();
         }
     }

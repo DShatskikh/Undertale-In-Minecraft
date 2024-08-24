@@ -13,6 +13,7 @@ namespace Game
         
         public void StartCommands(List<CommandBase> commands)
         {
+            StopExecute();
             _coroutine = StartCoroutine(AwaitExecute(commands));
         }
 

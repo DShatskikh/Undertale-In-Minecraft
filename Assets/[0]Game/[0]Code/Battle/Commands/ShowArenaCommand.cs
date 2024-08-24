@@ -29,7 +29,7 @@ namespace Game
             
             while (progress < 1)
             {
-                progress += Time.deltaTime * 2f;
+                progress += Time.deltaTime * 2.5f;
                 GameData.HeartController.transform.position = Vector2.Lerp(GameData.CharacterController.transform.position.AddY(0.5f), 
                     position, progress);
                 yield return null;
@@ -39,7 +39,7 @@ namespace Game
 
             while (progress < 1)
             {
-                progress += Time.deltaTime * 1.5f;
+                progress += Time.deltaTime * 2f;
                 _arena.size = Vector2.Lerp(Vector2.zero, Vector2.one * 3, progress);
                 _arena.transform.eulerAngles = Vector3.Lerp(new Vector3(0, 0, -180), Vector3.zero, progress);
                 yield return null;

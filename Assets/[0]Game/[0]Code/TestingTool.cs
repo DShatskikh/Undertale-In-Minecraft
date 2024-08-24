@@ -31,6 +31,7 @@ namespace Game
             InitDropdown();
             CreateButton("Полное удаление данных", FullReset);
             CreateButton("Дать торт", AddCake);
+            CreateButton("Туториал", AddTutorial);
         }
 
         private void Update()
@@ -65,6 +66,12 @@ namespace Game
         private void AddCake()
         {
             YandexGame.savesData.IsCake = !YandexGame.savesData.IsCake;
+        }
+        
+        [ContextMenu("Туториал")]
+        private void AddTutorial()
+        {
+            YandexGame.savesData.IsTutorialComplited = !YandexGame.savesData.IsTutorialComplited;
         }
 
         [ContextMenu("Сменить локацию")]
