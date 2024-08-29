@@ -11,6 +11,7 @@ namespace Game
         public AudioClip ClickSound;
         public AudioClip SelectSound;
         public AudioClip DoorSound;
+        public AudioClip JumpSound;
         
         [Header("Configs")]
         public StepSoundPairsConfig StepSoundPairsConfig;

@@ -84,8 +84,8 @@ namespace Game
                 
                 EventBus.PlayerWin.Invoke(GameData.EnemyData.EnemyConfig);
                 EventBus.PlayerWin = null;
+                GameData.Saver.IsSavingPosition = true;
                 GameData.Saver.Save();
-                GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
                 GameData.ToMenuButton.gameObject.SetActive(true);
             };
             

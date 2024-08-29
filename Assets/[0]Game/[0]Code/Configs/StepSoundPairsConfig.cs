@@ -9,5 +9,7 @@ namespace Game
         public StepSoundPair GrassStepPair;
         public StepSoundPair WoodStepPair;
         public StepSoundPair DirtStepPair;
+        public StepSoundPair SpongeStepPair;
+        public StepSoundPair SandStepPair;
     }
 }

@@ -24,6 +24,7 @@ namespace Game
         public CharacterView View => _view;
         public UseArea UseArea => _useArea;
         public HatPoint HatPoint => _hatPoint;
+        public CharacterModel Model => _model;
 
         private void Awake()
         {

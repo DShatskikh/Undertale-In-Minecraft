@@ -12,6 +12,8 @@ namespace Game
         public List<TileBase> Grass;
         public List<TileBase> Dirt;
         public List<TileBase> Wood;
+        public List<TileBase> Sponge;
+        public List<TileBase> Sand;
 
         public StepSoundPair GetPair(TileBase tile, StepSoundPairsConfig config)
         {
@@ -26,6 +28,12 @@ namespace Game
 
             if (Wood.Any(currentTile => tile == currentTile))
                 return config.WoodStepPair;
+            
+            if (Sponge.Any(currentTile => tile == currentTile))
+                return config.SpongeStepPair;
+            
+            if (Sand.Any(currentTile => tile == currentTile))
+                return config.SandStepPair;
 
             return config.StoneStepPair;
         }

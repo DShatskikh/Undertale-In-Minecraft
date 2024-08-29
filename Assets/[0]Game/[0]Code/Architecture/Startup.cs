@@ -10,49 +10,7 @@ namespace Game
         [SerializeField]
         private bool _isNotLoad;
         
-        [Header("Переменные")] 
-        [SerializeField]
-        private bool _isCheat;
-        
-        [SerializeField]
-        private bool _isPrisonKey;
-
-        [SerializeField]
-        private bool _isGoldKey;
-        
-        [SerializeField]
-        private bool _isDeveloperKey;
-        
-        [SerializeField]
-        private bool _isSpeakHerobrine;
-        
-        [SerializeField]
-        private int _startHealth;
-        
-        [SerializeField]
-        private bool _isHat;
-        
-        [SerializeField]
-        private bool _isCapturedWorld;
-        
-        [SerializeField]
-        private bool _isNotCapturedWorld;
-
-        [SerializeField]
-        private int _palesos;
-
-        [SerializeField] 
-        private bool _isGoodEnd;
-        
-        [SerializeField]
-        private bool _isBadEnd;
-        
-        [SerializeField]
-        private bool _isStrangeEnd;
-
-        [SerializeField]
-        private bool _isNotIntroduction;
-
+        [Header("Переменные")]
         [SerializeField]
         private CurrentDeviceType _testDeviceType = CurrentDeviceType.WebMobile;
         
@@ -95,27 +53,6 @@ namespace Game
             
 #if UNITY_EDITOR
             GameData.DeviceType = _testDeviceType;
-            
-            if (_isNotLoad)
-            {
-                YandexGame.savesData.MaxHealth = _startHealth;
-                YandexGame.savesData.IsCheat = _isCheat;
-                YandexGame.savesData.IsPrisonKey = _isPrisonKey;
-                YandexGame.savesData.IsGoldKey = _isGoldKey;
-                YandexGame.savesData.IsDeveloperKey = _isDeveloperKey;
-                YandexGame.savesData.IsSpeakHerobrine = _isSpeakHerobrine;
-                YandexGame.savesData.IsCapturedWorld = _isCapturedWorld;
-                YandexGame.savesData.IsNotCapturedWorld = _isNotCapturedWorld;
-                YandexGame.savesData.IsCake = _isHat;
-                YandexGame.savesData.Palesos = _palesos;
-                YandexGame.savesData.IsGoodEnd = _isGoodEnd;
-                YandexGame.savesData.IsBadEnd = _isBadEnd;
-                YandexGame.savesData.IsStrangeEnd = _isStrangeEnd;
-                YandexGame.savesData.IsNotIntroduction = _isNotIntroduction;
-                YandexGame.savesData.Volume = 1f;
-
-                return;
-            }
 #endif
             
             GameData.Saver.Load();

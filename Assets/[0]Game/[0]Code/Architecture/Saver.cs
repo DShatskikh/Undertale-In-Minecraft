@@ -5,6 +5,8 @@ namespace Game
 {
     public class Saver
     {
+        public bool IsSavingPosition = true;
+        
         public void Save()
         {
             SavePlayerPosition();
@@ -55,7 +57,10 @@ namespace Game
         }
 
         public void SavePlayerPosition()
-        {
+        {            
+            if (!IsSavingPosition)
+                return;
+            
             SavePosition(GameData.CharacterController.transform.position);
         }
     }

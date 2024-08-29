@@ -32,7 +32,6 @@ namespace Game
             GameData.CompanionsManager.ResetAllPositions();
             
             YandexGame.savesData.LocationIndex = index;
-            GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
             Analytics.CustomEvent("Location " + _currentLocation.gameObject.name);
         }
 

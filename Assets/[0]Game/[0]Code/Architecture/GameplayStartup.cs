@@ -46,6 +46,9 @@ namespace Game
         private CinemachineConfiner2D _cinemachineConfiner;
 
         [SerializeField]
+        private CinemachineVirtualCamera _cinemachineVirtualCamera;
+        
+        [SerializeField]
         private GameObject _introduction;
         
         [SerializeField]
@@ -62,10 +65,7 @@ namespace Game
 
         [SerializeField]
         private GameObject _gameOver;
-
-        [SerializeField]
-        private TimerBeforeAdsYG _timerBeforeAds;
-
+        
         [SerializeField]
         private CommandManager _commandManager;
 
@@ -74,6 +74,9 @@ namespace Game
         
         [SerializeField]
         private EndingsManager _endingsManager;
+
+        [SerializeField]
+        private SaverTimer _saverTimer;
         
         private void Awake()
         {
@@ -94,10 +97,11 @@ namespace Game
             GameData.ToMenuButton = _toMenuButton;
             GameData.InputCanvas = _inputCanvas;
             GameData.GameOver = _gameOver;
-            GameData.TimerBeforeAdsYG = _timerBeforeAds;
             GameData.CommandManager = _commandManager;
             GameData.CompanionsManager = _companionsManager;
             GameData.EndingsManager = _endingsManager;
+            GameData.CinemachineVirtualCamera = _cinemachineVirtualCamera;
+            GameData.SaverTimer = _saverTimer;
         }
 
         private void Start()
@@ -116,7 +120,6 @@ namespace Game
             {
                 _input.SetActive(true);
                 GameData.Joystick.gameObject.SetActive(true);
-                GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
                 GameData.CharacterController.enabled = true;
                 GameData.CharacterController.gameObject.SetActive(true);
                 GameData.LocationsManager.SwitchLocation(YandexGame.savesData.LocationIndex, YandexGame.savesData.PointIndex);

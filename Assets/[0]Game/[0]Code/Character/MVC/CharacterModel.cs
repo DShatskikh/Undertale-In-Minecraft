@@ -7,9 +7,11 @@ namespace Game
     {
         public event Action<float> SpeedChange;
         public event Action<Vector2> DirectionChange;
-        
+        public event Action<bool> FlyChange;
+
         public float Speed;
         public bool IsRun;
+        public bool IsFly;
         public Vector2 Direction;
 
         public void SetSpeed(float value)
@@ -28,6 +30,12 @@ namespace Game
 
             Direction = value;
             DirectionChange?.Invoke(value);
+        }
+
+        public void SetFly(bool value)
+        {
+            IsFly = value;
+            FlyChange.Invoke(value);
         }
     }
 }

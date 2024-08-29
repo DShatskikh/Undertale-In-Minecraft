@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Cinemachine;
+﻿using Cinemachine;
 using RimuruDev;
 using TMPro;
 using UnityEngine;
@@ -28,6 +27,8 @@ namespace Game
         public static VolumeSlider VolumeSlider { get; set; }
         public static AssetProvider AssetProvider { get; set; }
         public static bool IsCanStartBattle { get; set; }
+        public static CinemachineVirtualCamera CinemachineVirtualCamera { get; set; }
+        public static SaverTimer SaverTimer { get; set; }
 
         public static LocationsManager LocationsManager;
         public static Monolog Monolog;
@@ -43,7 +44,6 @@ namespace Game
         public static GameObject GameOver;
         
         public static Saver Saver;
-        public static TimerBeforeAdsYG TimerBeforeAdsYG;
         public static CommandManager CommandManager;
         public static CompanionsManager CompanionsManager;
         public static EndingsManager EndingsManager;

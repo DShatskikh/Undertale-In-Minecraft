@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace Game
 {
-    public class MoveToPointCommand : CommandBase
+    public class MoveToPointCommand : AwaitCommand
     {
         private readonly Transform _transform;
         private readonly Vector2 _target;
@@ -21,7 +21,13 @@ namespace Game
         {
             GameData.Startup.StartCoroutine(Move(action));
         }
-        
+
+        public override IEnumerator Await()
+        {
+            Execute(_action);
+            yield return new WaitUntil(() => _isAction);
+        }
+
         private IEnumerator Move(UnityAction action)
         {
             var progress = 0f;

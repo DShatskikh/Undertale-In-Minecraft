@@ -91,7 +91,7 @@ namespace Game
             GameData.HeartController.enabled = false;
             GameData.HeartController.transform.position = _arena.transform.position;
             _previousSound = GameData.MusicPlayer.Clip;
-            GameData.TimerBeforeAdsYG.gameObject.SetActive(false);
+            GameData.Saver.IsSavingPosition = false;
             GameData.ToMenuButton.gameObject.SetActive(false);
             GameData.CompanionsManager.SetMove(false);
 
