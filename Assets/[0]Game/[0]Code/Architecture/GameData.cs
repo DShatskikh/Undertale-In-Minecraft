@@ -32,7 +32,7 @@ namespace Game
 
         public static LocationsManager LocationsManager;
         public static Monolog Monolog;
-        public static Select Select;
+        public static SelectViewModel Select;
         public static EffectSoundPlayer EffectSoundPlayer;
         public static MusicPlayer MusicPlayer;
         public static int BattleProgress;
@@ -40,7 +40,6 @@ namespace Game
         public static GameObject Introduction;
         public static GameObject Menu;
         public static TMP_Text SaveText;
-        public static GameObject InputCanvas;
         public static GameObject GameOver;
         
         public static Saver Saver;

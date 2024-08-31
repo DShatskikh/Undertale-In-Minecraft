@@ -27,6 +27,9 @@ namespace Game
             
             _currentLocation = _locations[index];
             _currentLocation.gameObject.SetActive(true);
+
+            if (_currentLocation.Points.Length >= pointIndex)
+                pointIndex = 0;
             
             GameData.CharacterController.transform.position = _currentLocation.Points[pointIndex].position;
             GameData.CompanionsManager.ResetAllPositions();

@@ -37,7 +37,7 @@ namespace Game
         private Joystick _joystick;
 
         [SerializeField]
-        private Select _select;
+        private SelectViewModel _select;
 
         [SerializeField]
         private Transform _characterPoint, _enemyPoint;
@@ -59,9 +59,6 @@ namespace Game
                 
         [SerializeField]
         private Button _toMenuButton;
-        
-        [SerializeField]
-        private GameObject _inputCanvas;
 
         [SerializeField]
         private GameObject _gameOver;
@@ -95,7 +92,6 @@ namespace Game
             GameData.Introduction = _introduction;
             GameData.SaveText = _saveText;
             GameData.ToMenuButton = _toMenuButton;
-            GameData.InputCanvas = _inputCanvas;
             GameData.GameOver = _gameOver;
             GameData.CommandManager = _commandManager;
             GameData.CompanionsManager = _companionsManager;
