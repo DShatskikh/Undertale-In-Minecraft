@@ -25,7 +25,7 @@ namespace Game
         private Dialog _dialog;
 
         [SerializeField]
-        private Monolog _monolog;
+        private MonologViewModel _monolog;
         
         [SerializeField]
         private GameObject _input;

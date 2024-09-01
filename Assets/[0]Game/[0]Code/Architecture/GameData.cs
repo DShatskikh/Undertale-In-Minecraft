@@ -31,7 +31,7 @@ namespace Game
         public static SaverTimer SaverTimer { get; set; }
 
         public static LocationsManager LocationsManager;
-        public static Monolog Monolog;
+        public static MonologViewModel Monolog;
         public static SelectViewModel Select;
         public static EffectSoundPlayer EffectSoundPlayer;
         public static MusicPlayer MusicPlayer;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Game.Commands;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -18,22 +19,18 @@ namespace Game
         private Coroutine _coroutine;
         private Action _yesAction;
         private Action _noAction;
-
-        private AsyncOperationHandle<string> _yesTextOperation;
-        private AsyncOperationHandle<string> _noTextOperation;
-        private AsyncOperationHandle<string> _textOperation;
+        private string _textResultString;
 
         private SelectModel _model;
         
-        public ReactiveProperty<string> YesResultString = new ReactiveProperty<string>();
-        public ReactiveProperty<string> NoResultString = new ReactiveProperty<string>();
-        public ReactiveProperty<string> Text = new ReactiveProperty<string>();
-        public ReactiveProperty<bool> IsEndWrite = new ReactiveProperty<bool>();
-        private string _textResultString;
+        public readonly ReactiveProperty<string> YesResultString = new ReactiveProperty<string>();
+        public readonly ReactiveProperty<string> NoResultString = new ReactiveProperty<string>();
+        public readonly ReactiveProperty<string> Text = new ReactiveProperty<string>();
+        public readonly ReactiveProperty<bool> IsEndWrite = new ReactiveProperty<bool>();
+        
         public event Action Showed;
         public event Action Closed;
         public event Action Write;
-        public event Action EndWrite;
 
         private void Awake()
         {
@@ -55,19 +52,11 @@ namespace Game
 
         private IEnumerator Start()
         {
-            _yesTextOperation = _yesString.GetLocalizedStringAsync();
-            
-            while (!_yesTextOperation.IsDone)
-                yield return null;
+            var loadTextCommand = new LoadTextCommand(_yesString);
+            yield return loadTextCommand.Await().ContinueWith(() => _model.YesResultString.Value = loadTextCommand.Result);
 
-            _model.YesResultString.Value = _yesTextOperation.Result;
-
-            _noTextOperation = _noString.GetLocalizedStringAsync();
-            
-            while (!_noTextOperation.IsDone)
-                yield return null;
-
-            _model.NoResultString.Value = _noTextOperation.Result;
+            loadTextCommand = new LoadTextCommand(_noString);
+            yield return loadTextCommand.Await().ContinueWith(() => _model.NoResultString.Value = loadTextCommand.Result);
         }
 
         public void Show(LocalizedString textLocalization, Action yesAction, Action noAction)
@@ -105,14 +94,10 @@ namespace Game
             int countSymbol = 0;
             _model.Text.Value = "";
             _textResultString = null;
-            
-            _textOperation = _textLocalization.GetLocalizedStringAsync();
-            
-            while (!_textOperation.IsDone)
-                yield return null;
 
-            _textResultString = _textOperation.Result;
-            
+            var loadTextCommand = new LoadTextCommand(_textLocalization);
+            yield return loadTextCommand.Await().ContinueWith(() => _textResultString = loadTextCommand.Result);
+
             while (countSymbol != _textResultString.Length)
             {
                 _model.Text.Value += _textResultString[countSymbol];
