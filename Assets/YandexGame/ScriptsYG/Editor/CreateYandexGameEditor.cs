@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace YG.Insides
@@ -6,6 +7,7 @@ namespace YG.Insides
     public class CreateYandexGameEditor
     {
         [MenuItem("Tools/PluginYG/Create YandexGame Object", false, 101)]
+        [Obsolete("Obsolete")]
         public static void InsertPrefab()
         {
             string fileLocation = "Assets/YandexGame/Prefabs/YandexGame.prefab";

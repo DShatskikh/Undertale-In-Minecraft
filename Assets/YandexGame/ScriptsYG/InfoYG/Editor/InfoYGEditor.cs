@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 using YG.Insides.Utils;
 using YG.EditorScr;
@@ -19,6 +20,7 @@ namespace YG.Insides
         const string define_Saves = "YG_NEWTONSOFT_FOR_SAVES";
         const string define_TextMP = "YG_TEXT_MESH_PRO";
 
+        [Obsolete("Obsolete")]
         private void OnEnable()
         {
             localization_IsActive = DefineSymbols.CheckDefine(define_Localization);
@@ -26,6 +28,7 @@ namespace YG.Insides
             textMP_IsActive = DefineSymbols.CheckDefine(define_TextMP);
         }
 
+        [Obsolete("Obsolete")]
         public override void OnInspectorGUI()
         {
             DocumentationEditor.DocButton();

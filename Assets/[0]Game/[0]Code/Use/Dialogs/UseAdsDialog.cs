@@ -17,7 +17,7 @@ namespace Game
         public override void Use()
         {
             _replica.LocalizationString.Arguments = new object[] { StartView - YandexGame.savesData.AdsViews };
-            GameData.Dialog.SetReplicas(new[] {_replica});
+            GameData.Dialog.Show(new[] {_replica});
             EventBus.CloseDialog += _endEvent.Invoke;
         }
     }

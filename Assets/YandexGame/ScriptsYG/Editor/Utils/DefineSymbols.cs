@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEditor;
 
 namespace YG.Insides.Utils
@@ -6,6 +7,7 @@ namespace YG.Insides.Utils
     [InitializeOnLoad]
     public class DefineSymbols
     {
+        [Obsolete("Obsolete")]
         public static bool CheckDefine(string define)
         {
             BuildTargetGroup buildTargetGroup = EditorUserBuildSettings.selectedBuildTargetGroup;
@@ -18,6 +20,7 @@ namespace YG.Insides.Utils
             else return false;
         }
 
+        [Obsolete("Obsolete")]
         public static void AddDefine(string define)
         {
             BuildTargetGroup buildTargetGroup = EditorUserBuildSettings.selectedBuildTargetGroup;
@@ -29,6 +32,7 @@ namespace YG.Insides.Utils
             PlayerSettings.SetScriptingDefineSymbolsForGroup(buildTargetGroup, (defines + ";" + define));
         }
 
+        [Obsolete("Obsolete")]
         public static void RemoveDefine(string define)
         {
             BuildTargetGroup buildTargetGroup = EditorUserBuildSettings.selectedBuildTargetGroup;
@@ -52,6 +56,7 @@ namespace YG.Insides.Utils
             }
         }
 
+        [Obsolete("Obsolete")]
         static DefineSymbols()
         {
             AddDefine("YG_PLUGIN_YANDEX_GAME");

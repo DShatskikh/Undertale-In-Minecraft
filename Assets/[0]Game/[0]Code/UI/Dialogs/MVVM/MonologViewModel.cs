@@ -29,11 +29,11 @@ namespace Game
         public readonly ReactiveProperty<string> Text = new ReactiveProperty<string>();
         public readonly ReactiveProperty<string> ContinueText = new ReactiveProperty<string>();
         public readonly ReactiveProperty<bool> IsEndWrite = new ReactiveProperty<bool>();
+        public readonly ReactiveProperty<bool> IsShowed = new ReactiveProperty<bool>();
         
         private AudioClip _sound;
-        public event Action Showed;
-        public event Action Closed;
         public event Action Write;
+        public event Action LoadText;
         
         private void Awake()
         {
@@ -69,7 +69,7 @@ namespace Game
         public void Show(LocalizedString[] texts, AudioClip sound = null)
         {
             gameObject.SetActive(true);
-            Showed?.Invoke();
+            IsShowed.Value = true;
             _model.Text.Value = "";
             GameData.ToMenuButton.gameObject.SetActive(false);
             _sound = sound;
@@ -88,14 +88,10 @@ namespace Game
         {
             int _countSymbol = 0;
             
-            _finallyTextOperation = _texts[_index].GetLocalizedStringAsync();
+            var loadTextCommand = new LoadTextCommand(_texts[_index]);
+            yield return loadTextCommand.Await().ContinueWith(() => _finallyText = loadTextCommand.Result);
             
-            while (!_finallyTextOperation.IsDone)
-            {
-                yield return null;
-            }
-            
-            _finallyText = _finallyTextOperation.Result;
+            LoadText?.Invoke();
             
             _currentText = "";
 
@@ -116,13 +112,17 @@ namespace Game
                 yield return new WaitForSeconds(0.05f);
                 _countSymbol++;
             }
+
+            _model.IsEndWrite.Value = true;
         }
 
         public void Next()
         {
+            _model.IsEndWrite.Value = false;
+            
             if (_currentText != _finallyText)
             {
-                ShowFinallyText();
+                ShowAll();
                 return;
             }
 
@@ -141,7 +141,7 @@ namespace Game
             _index++;
         }
 
-        public void ShowFinallyText()
+        public void ShowAll()
         {
             if (!_finallyTextOperation.IsDone)
                 return;
@@ -154,14 +154,13 @@ namespace Game
 
             _currentText = _finallyText;
             _model.Text.Value = _finallyText;
+            _model.IsEndWrite.Value = true;
         }
 
         private void Close()
         {
-            Closed?.Invoke();
+            IsShowed.Value = false;
             GameData.ToMenuButton.gameObject.SetActive(true);
-            EventBus.Submit = null;
-            EventBus.Cancel = null;
             GameData.CharacterController.enabled = true;
             gameObject.SetActive(false);
             EventBus.CloseMonolog?.Invoke();

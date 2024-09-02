@@ -1,6 +1,6 @@
-using RimuruDev;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -10,12 +10,15 @@ namespace Game
         private AudioSource _audioSource;
 
         [SerializeField]
-        private UIDocument _ui;
-
-        private SelectViewModel _selectViewModel;
         private Button _yesButton;
+        
+        [SerializeField]
         private Button _noButton;
-        private Label _label;
+        
+        [SerializeField]
+        private TMP_Text _label, _yesLabel, _noLabel;
+        
+        private SelectViewModel _selectViewModel;
 
         public void Init(SelectViewModel selectViewModel)
         {
@@ -23,9 +26,9 @@ namespace Game
             _selectViewModel.YesResultString.Changed += OnYesResultStringChanged;
             _selectViewModel.NoResultString.Changed += OnNoResultStringChanged;
             _selectViewModel.Text.Changed += OnTextChanged;
-            _selectViewModel.Showed += OnShowed;
-            _selectViewModel.Closed += OnClosed;
+            _selectViewModel.IsShowed.Changed += OnShowed;
             _selectViewModel.Write += OnWrite;
+            _selectViewModel.LoadText += OnLoadText;
         }
 
         private void OnDestroy()
@@ -33,9 +36,31 @@ namespace Game
             _selectViewModel.YesResultString.Changed -= OnYesResultStringChanged;
             _selectViewModel.NoResultString.Changed -= OnNoResultStringChanged;
             _selectViewModel.Text.Changed -= OnTextChanged;
-            _selectViewModel.Showed -= OnShowed;
-            _selectViewModel.Closed -= OnClosed;
+            _selectViewModel.IsShowed.Changed -= OnShowed;
             _selectViewModel.Write -= OnWrite;
+            _selectViewModel.LoadText -= OnLoadText;
+        }
+
+        private void OnLoadText()
+        {
+            EventBus.SubmitUp = _selectViewModel.ShowAll;
+            EventBus.CancelUp = _selectViewModel.ShowAll;
+        }
+
+        private void OnShowed(bool value)
+        {
+            if (value)
+            {
+                _yesButton.gameObject.SetActive(false);
+                _noButton.gameObject.SetActive(false);
+                
+                _selectViewModel.IsEndWrite.Changed += OnEndWriteChanged;
+            }
+            else
+            {
+                GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
+                _selectViewModel.IsEndWrite.Changed -= OnEndWriteChanged;
+            }
         }
 
         private void OnWrite()
@@ -43,47 +68,32 @@ namespace Game
             _audioSource.Play();
         }
 
-        private void OnShowed()
-        {
-            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
-            {
-                _ui.rootVisualElement.Q<Label>("Z").text = "";
-                _ui.rootVisualElement.Q<Label>("X").text = "";
-            }
-            
-            _yesButton = _ui.rootVisualElement.Q<Button>("Yes_button");
-            _noButton = _ui.rootVisualElement.Q<Button>("No_button");
-            _label = _ui.rootVisualElement.Q<Label>("Label");
-            _noButton = _ui.rootVisualElement.Q<Button>("No_button");
-            _yesButton = _ui.rootVisualElement.Q<Button>("Yes_button");
-
-            _yesButton.visible = false;
-            _noButton.visible = false;
-
-            EventBus.Submit = _selectViewModel.ShowAll;
-            _yesButton.clicked += _selectViewModel.ShowAll;
-            
-            EventBus.Cancel = _selectViewModel.ShowAll;
-            _noButton.clicked += _selectViewModel.ShowAll;
-            
-            _selectViewModel.IsEndWrite.Changed += OnEndWriteChanged;
-        }
-
         private void OnEndWriteChanged(bool value)
         {
-            _yesButton.visible = true;
-            _noButton.visible = true;
+            EventBus.SubmitUp = null;
+            EventBus.CancelUp = null;
+
+            _yesButton.gameObject.SetActive(true);
+            _noButton.gameObject.SetActive(true);
+
+            _yesButton.onClick.AddListener(OnYesClicked);
+            _noButton.onClick.AddListener(OnNoClicked);
+        }
+
+        private void OnYesClicked()
+        {
+            _yesButton.onClick.RemoveListener(OnYesClicked);
+            _noButton.onClick.RemoveListener(OnNoClicked);
             
-            _yesButton.text = _selectViewModel.YesResultString.Value;
-            _noButton.text = _selectViewModel.NoResultString.Value;
+            _selectViewModel.OnSelectYes();
+        }
+        
+        private void OnNoClicked()
+        {
+            _yesButton.onClick.RemoveListener(OnYesClicked);
+            _noButton.onClick.RemoveListener(OnNoClicked);
             
-            EventBus.Submit = _selectViewModel.OnSelectTrue;
-            _yesButton.clicked -= _selectViewModel.ShowAll;
-            _yesButton.clicked += _selectViewModel.OnSelectTrue;
-            
-            EventBus.Cancel = _selectViewModel.OnSelectFalse;
-            _noButton.clicked -= _selectViewModel.ShowAll;
-            _noButton.clicked += _selectViewModel.OnSelectFalse;
+            _selectViewModel.OnSelectNo();
         }
 
         private void OnTextChanged(string value)
@@ -91,20 +101,14 @@ namespace Game
             _label.text = value;
         }
 
-        private void OnClosed()
-        {
-            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
-            _selectViewModel.IsEndWrite.Changed -= OnEndWriteChanged;
-        }
-
         private void OnNoResultStringChanged(string value)
         {
-            _noButton.text = value;
+            _noLabel.text = value;
         }
 
         private void OnYesResultStringChanged(string value)
         {
-            _yesButton.text = value;
+            _yesLabel.text = value;
         }
     }
 }

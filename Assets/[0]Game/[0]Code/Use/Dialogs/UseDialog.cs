@@ -16,7 +16,7 @@ namespace Game
         
         public override void Use()
         {
-            GameData.Dialog.SetReplicas(_replicas, _sound);
+            GameData.Dialog.Show(_replicas, _sound);
             EventBus.CloseDialog += _endEvent.Invoke;
         }
     }

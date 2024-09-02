@@ -6,10 +6,11 @@ namespace Game
     {
         private void Update()
         {
-            if (Input.GetButtonDown("Cancel"))
-            {
+            if (Input.GetButtonDown("Cancel")) 
                 EventBus.Cancel?.Invoke();
-            }
+            
+            if (Input.GetButtonUp("Cancel")) 
+                EventBus.CancelUp?.Invoke();
         }
     }
 }

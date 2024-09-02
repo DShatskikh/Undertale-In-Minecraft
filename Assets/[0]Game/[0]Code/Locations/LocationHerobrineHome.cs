@@ -50,7 +50,7 @@ namespace Game
             yield return new WaitUntil(() => Vector3.Magnitude(GameData.CharacterController.transform.position - _startPoint.position) > 2);
             _event.Invoke();
             
-            GameData.Dialog.SetReplicas(_replicas);
+            GameData.Dialog.Show(_replicas);
             yield return new WaitUntil(() => !GameData.Dialog.gameObject.activeSelf);
             GameData.CharacterController.enabled = true;
             GameData.CharacterController.UseArea.gameObject.SetActive(true);

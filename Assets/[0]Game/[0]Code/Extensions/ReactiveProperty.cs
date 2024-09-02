@@ -16,6 +16,6 @@ namespace Game
                 _value = value;
                 Changed?.Invoke(value);
             }
-    }
+        }
     }
 }

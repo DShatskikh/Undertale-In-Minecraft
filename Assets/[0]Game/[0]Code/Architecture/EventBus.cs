@@ -17,7 +17,9 @@ namespace Game
         public static Action<EnemyConfig> PlayerWin;
         public static Action Death;
         public static Action Cancel;
+        public static Action CancelUp;
         public static Action Submit;
+        public static Action SubmitUp;
         public static Action ToggleInventory;
     }
 }

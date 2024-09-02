@@ -6,14 +6,14 @@ namespace Game
     public class HerobrineCutScene1 : MonoBehaviour
     {
         [SerializeField]
-        private Dialog dialog;
+        private DialogViewModel dialog;
         
         [SerializeField] 
         private Replica[] _replicas;
 
         private void Start()
         {
-            dialog.SetReplicas(_replicas);
+            dialog.Show(_replicas);
             GameData.CharacterController.enabled = false;
         }
     }

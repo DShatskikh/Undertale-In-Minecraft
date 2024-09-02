@@ -6,10 +6,11 @@ namespace Game
     {
         private void Update()
         {
-            if (Input.GetButtonDown("Submit"))
-            {
+            if (Input.GetButtonDown("Submit")) 
                 EventBus.Submit?.Invoke();
-            }
+
+            if (Input.GetButtonUp("Submit")) 
+                EventBus.SubmitUp?.Invoke();
         }
     }
 }

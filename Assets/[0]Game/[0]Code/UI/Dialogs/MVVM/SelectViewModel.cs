@@ -3,7 +3,6 @@ using System.Collections;
 using Game.Commands;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Game
 {
@@ -27,9 +26,9 @@ namespace Game
         public readonly ReactiveProperty<string> NoResultString = new ReactiveProperty<string>();
         public readonly ReactiveProperty<string> Text = new ReactiveProperty<string>();
         public readonly ReactiveProperty<bool> IsEndWrite = new ReactiveProperty<bool>();
-        
-        public event Action Showed;
-        public event Action Closed;
+        public readonly ReactiveProperty<bool> IsShowed = new ReactiveProperty<bool>();
+
+        public event Action LoadText;
         public event Action Write;
 
         private void Awake()
@@ -67,7 +66,7 @@ namespace Game
             
             gameObject.SetActive(true);
             GameData.ToMenuButton.gameObject.SetActive(false);
-            Showed?.Invoke();
+            IsShowed.Value = true;
             _model.Text.Value = "";
             GameData.CharacterController.enabled = false;
 
@@ -98,6 +97,8 @@ namespace Game
             var loadTextCommand = new LoadTextCommand(_textLocalization);
             yield return loadTextCommand.Await().ContinueWith(() => _textResultString = loadTextCommand.Result);
 
+            LoadText?.Invoke();
+            
             while (countSymbol != _textResultString.Length)
             {
                 _model.Text.Value += _textResultString[countSymbol];
@@ -129,18 +130,14 @@ namespace Game
             IsEndWrite.Value = value;
         }
 
-        public void OnSelectTrue()
+        public void OnSelectYes()
         {
-            EventBus.Submit = null;
-            EventBus.Cancel = null;
             Close();
             _yesAction?.Invoke();
         }
 
-        public void OnSelectFalse()
+        public void OnSelectNo()
         {
-            EventBus.Submit = null;
-            EventBus.Cancel = null;
             Close();
             _noAction?.Invoke();
         }
@@ -148,7 +145,7 @@ namespace Game
         private void Close()
         {
             GameData.ToMenuButton.gameObject.SetActive(true);
-            Closed?.Invoke();
+            IsShowed.Value = false;
             GameData.CharacterController.enabled = true;
             gameObject.SetActive(false);
         }

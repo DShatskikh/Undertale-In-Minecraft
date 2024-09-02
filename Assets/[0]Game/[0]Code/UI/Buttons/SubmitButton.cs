@@ -24,7 +24,7 @@ namespace Game
 
         private void OnSubmit()
         {
-            EventBus.Submit.Invoke();
+            EventBus.SubmitUp.Invoke();
         }
     }
 }

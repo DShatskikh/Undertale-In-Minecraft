@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using YG.Utils.Lang;
@@ -19,6 +20,7 @@ namespace YG.Insides
         Vector2 scrollPosition = Vector2.zero;
         List<GameObject> objectsTranlate = new List<GameObject>();
 
+        [Obsolete("Obsolete")]
         private void OnGUI()
         {
             GUILayout.Space(10);
@@ -27,7 +29,7 @@ namespace YG.Insides
             {
                 objectsTranlate.Clear();
 
-                foreach (LanguageYG obj in SceneAsset.FindObjectsOfType<LanguageYG>())
+                foreach (LanguageYG obj in FindObjectsOfType<LanguageYG>())
                 {
                     objectsTranlate.Add(obj.gameObject);
                 }

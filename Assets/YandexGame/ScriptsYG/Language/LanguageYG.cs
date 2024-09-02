@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using YG.Utils.Lang;
@@ -57,9 +58,10 @@ namespace YG
             infoYG = GetInfoYG();
         }
 
+        [Obsolete("Obsolete")]
         public InfoYG GetInfoYG() // For editor
         {
-            YandexGame yg = (YandexGame)GameObject.FindObjectOfType<YandexGame>();
+            YandexGame yg = (YandexGame)FindObjectOfType<YandexGame>();
 
             if (yg)
             {

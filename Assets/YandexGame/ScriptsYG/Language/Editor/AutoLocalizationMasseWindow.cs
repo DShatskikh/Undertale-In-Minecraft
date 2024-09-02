@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace YG.Insides
         Vector2 scrollPosition = Vector2.zero;
         List<GameObject> objectsTranlate = new List<GameObject>();
 
+        [Obsolete("Obsolete")]
         private void OnGUI()
         {
             if (GameObject.FindObjectOfType<YandexGame>().infoYG.translateMethod == InfoYG.TranslateMethod.AutoLocalization)
@@ -50,7 +52,7 @@ namespace YG.Insides
                 {
                     objectsTranlate.Clear();
 
-                    foreach (LanguageYG obj in SceneAsset.FindObjectsOfType<LanguageYG>(includeInactive: true))
+                    foreach (LanguageYG obj in FindObjectsOfType<LanguageYG>(includeInactive: true))
                     {
                         objectsTranlate.Add(obj.gameObject);
                     }

@@ -22,7 +22,7 @@ namespace Game
         private Battle _battle;
 
         [SerializeField]
-        private Dialog _dialog;
+        private DialogViewModel _dialog;
 
         [SerializeField]
         private MonologViewModel _monolog;
