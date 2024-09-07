@@ -58,6 +58,11 @@ namespace Game
             _mover.Move(Vector2.zero, false);
             _model.SetSpeed(0);
             _useArea.enabled = false;
+
+            EventBus.Cancel = null;
+            EventBus.CancelUp = null;
+            EventBus.Submit = null;
+            EventBus.SubmitUp = null;
         }
     }
 }

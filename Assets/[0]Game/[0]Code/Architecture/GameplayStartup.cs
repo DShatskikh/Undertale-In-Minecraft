@@ -78,7 +78,10 @@ namespace Game
 
         [SerializeField]
         private MMF_Player _impulseMMFPlayer;
-        
+
+        [SerializeField]
+        private InputManager _inputManager;
+
         private void Awake()
         {
             GameData.CharacterController = characterController;
@@ -102,6 +105,7 @@ namespace Game
             GameData.EndingsManager = _endingsManager;
             GameData.CinemachineVirtualCamera = _cinemachineVirtualCamera;
             GameData.SaverTimer = _saverTimer;
+            GameData.InputManager = _inputManager;
             GameData.ImpulseMMFPlayer = _impulseMMFPlayer;
         }
 

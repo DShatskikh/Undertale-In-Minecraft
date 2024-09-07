@@ -30,6 +30,7 @@ namespace Game
         public static bool IsCanStartBattle { get; set; }
         public static CinemachineVirtualCamera CinemachineVirtualCamera { get; set; }
         public static SaverTimer SaverTimer { get; set; }
+        public static InputManager InputManager { get; set; }
 
         public static LocationsManager LocationsManager;
         public static MonologViewModel Monolog;

@@ -531,7 +531,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -540,6 +540,28 @@ TextureImporter:
       bones: []
       spriteID: c165a7656f907c942a7120fc0c1a78a5
       internalID: 1001059184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration 1_2
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 17
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eccf41e6c0f4c81448de4e71e8beae4f
+      internalID: -1117344336
       vertices: []
       indices: 
       edges: []
@@ -560,6 +582,7 @@ TextureImporter:
     nameFileIdTable:
       Decoration 1_0: -268024307
       Decoration 1_1: 1001059184
+      Decoration 1_2: -1117344336
       Decorations_0: 699386624
       Decorations_1: 1377666274
       Decorations_10: -1017233116
