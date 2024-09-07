@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Febucci.UI;
 using Game.Commands;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -13,22 +14,24 @@ namespace Game
 
         [SerializeField]
         private LocalizedString _continueString;
+        
+        [SerializeField]
+        private TextAnimatorPlayer _textAnimatorPlayer;
 
         private DialogModel _model;
         private Replica[] _replicas;
         private int _indexReplica;
+        private bool _isLoad;
         private Coroutine _coroutine;
-        private string _finallyText;
 
-        public readonly ReactiveProperty<string> Text = new ReactiveProperty<string>();
-        public readonly ReactiveProperty<string> ContinueText = new ReactiveProperty<string>();
-        public readonly ReactiveProperty<bool> IsEndWrite = new ReactiveProperty<bool>();
-        public readonly ReactiveProperty<bool> IsShowed = new ReactiveProperty<bool>();
-        public readonly ReactiveProperty<Sprite> Icon = new ReactiveProperty<Sprite>();
+        public readonly ReactiveProperty<string> Text = new();
+        public readonly ReactiveProperty<string> ContinueText = new();
+        public readonly ReactiveProperty<bool> IsEndWrite = new();
+        public readonly ReactiveProperty<bool> IsShowed = new();
+        public readonly ReactiveProperty<Sprite> Icon = new();
 
-        public event Action LoadText;
         public event Action Write;
-        public event Action Next;
+        public event Action ShowedAll;
 
         private void Awake()
         {
@@ -37,6 +40,10 @@ namespace Game
             _model.IsShowed.Changed += IsShowedOnChanged;
             _model.IsEndWrite.Changed += IsEndWriteOnChanged;
             _model.Icon.Changed += IconOnChanged;
+            
+            _textAnimatorPlayer.onTextShowed.AddListener(() => _model.IsEndWrite.Value = true);
+            _textAnimatorPlayer.onTypewriterStart.AddListener(() => _model.IsEndWrite.Value = false);
+            _textAnimatorPlayer.onCharacterVisible.AddListener((c) => Write?.Invoke());
             
             _view.Init(this);
         }
@@ -47,6 +54,10 @@ namespace Game
             _model.IsShowed.Changed -= IsShowedOnChanged;
             _model.IsEndWrite.Changed -= IsEndWriteOnChanged;
             _model.Icon.Changed -= IconOnChanged;
+            
+            _textAnimatorPlayer.onTextShowed.RemoveListener(() => _model.IsEndWrite.Value = true);
+            _textAnimatorPlayer.onTypewriterStart.RemoveListener(() => _model.IsEndWrite.Value = false);
+            _textAnimatorPlayer.onCharacterVisible.RemoveListener((c) => Write?.Invoke());
         }
 
         private IEnumerator Start()
@@ -70,7 +81,7 @@ namespace Game
             _indexReplica = 0;
             _model.Text.Value = "";
             _model.Icon.Value = _replicas[_indexReplica].Icon;
-            _coroutine = StartCoroutine(TypeText());
+            _coroutine = StartCoroutine(AwaitLoad());
         }
 
         private void IsShowedOnChanged(bool value)
@@ -102,68 +113,41 @@ namespace Game
                 Close();
                 return;
             }
-
-            Next?.Invoke();
+            
             IsEndWrite.Value = false;
-            _model.Text.Value = "";
             _model.Icon.Value = _replicas[_indexReplica].Icon;
-            _coroutine = StartCoroutine(TypeText());
+            _coroutine = StartCoroutine(AwaitLoad());
         }
 
         private bool IsEndReplica() => 
             _indexReplica >= _replicas.Length;
 
-        public void ShowAllText()
+        public void ShowAll()
         {
+            if (!_isLoad)
+                return;
+            
             if (_coroutine != null)
             {
                 StopCoroutine(_coroutine);
                 _coroutine = null;
             }
-
-            var replica = _replicas[_indexReplica];
-            _model.Text.Value = _finallyText;
-            _model.Icon.Value = replica.Icon;
-            IsEndWrite.Value = true;
+            
+            ShowedAll?.Invoke();
         }
         
-        private IEnumerator TypeText()
+        private IEnumerator AwaitLoad()
         {
-            _model.Text.Value = "";
-            int _countSymbol = 0;
-            
             var loadTextCommand = new LoadTextCommand(_replicas[_indexReplica].LocalizationString);
-            yield return loadTextCommand.Await().ContinueWith(() => _finallyText = loadTextCommand.Result);
-            
-            LoadText?.Invoke();
-            
-            while (_countSymbol != _finallyText.Length)
-            {
-                if (_finallyText[_countSymbol] == '<')
-                {
-                    while (_finallyText[_countSymbol] != '>')
-                    {
-                        _model.Text.Value += _finallyText[_countSymbol];
-                        _countSymbol++;
-                    }
-                }
-
-                _model.Text.Value += _finallyText[_countSymbol];
-                Write?.Invoke();
-                yield return new WaitForSeconds(0.05f);
-                _countSymbol++;
-            }
-            
-            IsEndWrite.Value = true;
+            yield return loadTextCommand.Await().ContinueWith(() => _model.Text.Value = loadTextCommand.Result);
+            _model.Text.Value = loadTextCommand.Result;
+            _isLoad = true;
         }
 
         private void Close()
         {
-            print("Close");
             _model.IsShowed.Value = false;
             GameData.ToMenuButton.gameObject.SetActive(true);
-            EventBus.Submit = null;
-            EventBus.Cancel = null;
             GameData.CharacterController.enabled = true;
             gameObject.SetActive(false);
             EventBus.CloseDialog?.Invoke();

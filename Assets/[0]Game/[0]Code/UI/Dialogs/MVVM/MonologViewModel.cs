@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Febucci.UI;
 using Game.Commands;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -15,31 +16,35 @@ namespace Game
         [SerializeField]
         private LocalizedString _continueString;
 
+        [SerializeField]
+        private TextAnimatorPlayer _textAnimatorPlayer;
+
         private int _index;
         private LocalizedString[] _texts;
         private Coroutine _coroutine;
-        private string _finallyText;
-        private string _currentText;
-        
+        private bool _isLoad;
+
         private AsyncOperationHandle<string> _continueTextOperation;
-        private AsyncOperationHandle<string> _finallyTextOperation;
 
         private MonologModel _model;
         
-        public readonly ReactiveProperty<string> Text = new ReactiveProperty<string>();
-        public readonly ReactiveProperty<string> ContinueText = new ReactiveProperty<string>();
-        public readonly ReactiveProperty<bool> IsEndWrite = new ReactiveProperty<bool>();
-        public readonly ReactiveProperty<bool> IsShowed = new ReactiveProperty<bool>();
+        public readonly ReactiveProperty<string> Text = new();
+        public readonly ReactiveProperty<string> ContinueText = new();
+        public readonly ReactiveProperty<bool> IsEndWrite = new();
+        public readonly ReactiveProperty<bool> IsShowed = new();
         
         private AudioClip _sound;
         public event Action Write;
-        public event Action LoadText;
+        public event Action ShowedAll;
         
         private void Awake()
         {
             _model = new MonologModel();
             _model.Text.Changed += TextOnChanged;
             _model.IsEndWrite.Changed += IsEndWriteOnChanged;
+            _textAnimatorPlayer.onTextShowed.AddListener(() => _model.IsEndWrite.Value = true);
+            _textAnimatorPlayer.onTypewriterStart.AddListener(() => _model.IsEndWrite.Value = false);
+            _textAnimatorPlayer.onCharacterVisible.AddListener((c) => Write?.Invoke());
             
             _view.Init(this);
         }
@@ -48,6 +53,9 @@ namespace Game
         {
             _model.Text.Changed -= TextOnChanged;
             _model.IsEndWrite.Changed -= IsEndWriteOnChanged;
+            _textAnimatorPlayer.onTextShowed.RemoveListener(() => _model.IsEndWrite.Value = true);
+            _textAnimatorPlayer.onTypewriterStart.RemoveListener(() => _model.IsEndWrite.Value = false);
+            _textAnimatorPlayer.onCharacterVisible.RemoveListener((c) => Write?.Invoke());
         }
 
         private void TextOnChanged(string value)
@@ -70,7 +78,6 @@ namespace Game
         {
             gameObject.SetActive(true);
             IsShowed.Value = true;
-            _model.Text.Value = "";
             GameData.ToMenuButton.gameObject.SetActive(false);
             _sound = sound;
             
@@ -78,54 +85,21 @@ namespace Game
                 StopCoroutine(_coroutine);
             
             GameData.CharacterController.enabled = false;
-
             _index = 0;
             _texts = texts;
-            Next();
-        }
-
-        private IEnumerator TypeText()
-        {
-            int _countSymbol = 0;
-            
-            var loadTextCommand = new LoadTextCommand(_texts[_index]);
-            yield return loadTextCommand.Await().ContinueWith(() => _finallyText = loadTextCommand.Result);
-            
-            LoadText?.Invoke();
-            
-            _currentText = "";
-
-            while (_countSymbol != _finallyText.Length)
-            {
-                if (_finallyText[_countSymbol] == '<')
-                {
-                    while (_finallyText[_countSymbol] != '>')
-                    {
-                        _currentText += _finallyText[_countSymbol];
-                        _countSymbol++;
-                    }
-                }
-
-                _currentText += _finallyText[_countSymbol];
-                _model.Text.Value = _currentText;
-                Write?.Invoke();
-                yield return new WaitForSeconds(0.05f);
-                _countSymbol++;
-            }
-
-            _model.IsEndWrite.Value = true;
+            LoadText();
         }
 
         public void Next()
         {
-            _model.IsEndWrite.Value = false;
-            
-            if (_currentText != _finallyText)
+            if (!IsEndWrite.Value)
             {
                 ShowAll();
                 return;
             }
 
+            _isLoad = false;
+            
             if (IsEndReplica())
             {
                 Close();
@@ -133,17 +107,29 @@ namespace Game
             }
 
             GameData.EffectSoundPlayer.Play(_sound ? _sound : GameData.AssetProvider.ClickSound);
+            LoadText();
+        }
 
+        private void LoadText()
+        {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
-            _coroutine = StartCoroutine(TypeText());
+            _coroutine = StartCoroutine(AwaitLoadText());
             _index++;
+        }
+        
+        private IEnumerator AwaitLoadText()
+        {
+            var loadTextCommand = new LoadTextCommand(_texts[_index]);
+            yield return loadTextCommand.Await();
+            _model.Text.Value = loadTextCommand.Result;
+            _isLoad = true;
         }
 
         public void ShowAll()
         {
-            if (!_finallyTextOperation.IsDone)
+            if (!_isLoad)
                 return;
             
             if (_coroutine != null)
@@ -152,9 +138,7 @@ namespace Game
                 _coroutine = null;
             }
 
-            _currentText = _finallyText;
-            _model.Text.Value = _finallyText;
-            _model.IsEndWrite.Value = true;
+            ShowedAll?.Invoke();
         }
 
         private void Close()

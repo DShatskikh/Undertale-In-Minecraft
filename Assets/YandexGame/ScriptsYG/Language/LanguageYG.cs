@@ -57,11 +57,10 @@ namespace YG
 
             infoYG = GetInfoYG();
         }
-
-        [Obsolete("Obsolete")]
+        
         public InfoYG GetInfoYG() // For editor
         {
-            YandexGame yg = (YandexGame)FindObjectOfType<YandexGame>();
+            YandexGame yg = FindObjectsByType<YandexGame>(FindObjectsSortMode.None)[0];
 
             if (yg)
             {

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using Cinemachine;
+using MoreMountains.Feedbacks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -74,6 +75,9 @@ namespace Game
 
         [SerializeField]
         private SaverTimer _saverTimer;
+
+        [SerializeField]
+        private MMF_Player _impulseMMFPlayer;
         
         private void Awake()
         {
@@ -98,6 +102,7 @@ namespace Game
             GameData.EndingsManager = _endingsManager;
             GameData.CinemachineVirtualCamera = _cinemachineVirtualCamera;
             GameData.SaverTimer = _saverTimer;
+            GameData.ImpulseMMFPlayer = _impulseMMFPlayer;
         }
 
         private void Start()

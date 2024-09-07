@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Febucci.UI;
 using Game.Commands;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -14,22 +15,24 @@ namespace Game
         [SerializeField]
         private SelectView _view;
         
+        [SerializeField]
+        private TextAnimatorPlayer _textAnimatorPlayer;
+        
         private LocalizedString _textLocalization;
         private Coroutine _coroutine;
         private Action _yesAction;
         private Action _noAction;
-        private string _textResultString;
-
+        private bool _isLoad;
         private SelectModel _model;
         
-        public readonly ReactiveProperty<string> YesResultString = new ReactiveProperty<string>();
-        public readonly ReactiveProperty<string> NoResultString = new ReactiveProperty<string>();
-        public readonly ReactiveProperty<string> Text = new ReactiveProperty<string>();
-        public readonly ReactiveProperty<bool> IsEndWrite = new ReactiveProperty<bool>();
-        public readonly ReactiveProperty<bool> IsShowed = new ReactiveProperty<bool>();
-
-        public event Action LoadText;
+        public readonly ReactiveProperty<string> YesResultString = new();
+        public readonly ReactiveProperty<string> NoResultString = new();
+        public readonly ReactiveProperty<string> Text = new();
+        public readonly ReactiveProperty<bool> IsEndWrite = new();
+        public readonly ReactiveProperty<bool> IsShowed = new();
+        
         public event Action Write;
+        public event Action ShowedAll;
 
         private void Awake()
         {
@@ -39,6 +42,10 @@ namespace Game
             _model.Text.Changed += TextChanged;
             _model.IsEndWrite.Changed += IsEndWriteOnChanged;
             
+            _textAnimatorPlayer.onTextShowed.AddListener(() => _model.IsEndWrite.Value = true);
+            _textAnimatorPlayer.onTypewriterStart.AddListener(() => _model.IsEndWrite.Value = false);
+            _textAnimatorPlayer.onCharacterVisible.AddListener((c) => Write?.Invoke());
+            
             _view.Init(this);
         }
 
@@ -47,6 +54,11 @@ namespace Game
             _model.YesResultString.Changed -= YesResultStringChanged;
             _model.NoResultString.Changed -= NoResultStringChanged;
             _model.Text.Changed -= TextChanged;
+            _model.IsEndWrite.Changed -= IsEndWriteOnChanged;
+            
+            _textAnimatorPlayer.onTextShowed.RemoveListener(() => _model.IsEndWrite.Value = true);
+            _textAnimatorPlayer.onTypewriterStart.RemoveListener(() => _model.IsEndWrite.Value = false);
+            _textAnimatorPlayer.onCharacterVisible.RemoveListener((c) => Write?.Invoke());
         }
 
         private IEnumerator Start()
@@ -60,6 +72,7 @@ namespace Game
 
         public void Show(LocalizedString textLocalization, Action yesAction, Action noAction)
         {
+            _isLoad = false;
             _textLocalization = textLocalization;
             _yesAction = yesAction;
             _noAction = noAction;
@@ -73,41 +86,24 @@ namespace Game
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
 
-            _coroutine = StartCoroutine(TypeText());
+            _coroutine = StartCoroutine(AwaitLoad());
         }
 
         public void ShowAll()
         {
-            if (_textResultString == null)
+            if (!_isLoad)
                 return;
             
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
-            _model.Text.Value = _textResultString;
-            _model.IsEndWrite.Value = true;
+            ShowedAll?.Invoke();
         }
         
-        private IEnumerator TypeText()
+        private IEnumerator AwaitLoad()
         {
-            int countSymbol = 0;
-            _model.Text.Value = "";
-            _textResultString = null;
-
             var loadTextCommand = new LoadTextCommand(_textLocalization);
-            yield return loadTextCommand.Await().ContinueWith(() => _textResultString = loadTextCommand.Result);
-
-            LoadText?.Invoke();
-            
-            while (countSymbol != _textResultString.Length)
-            {
-                _model.Text.Value += _textResultString[countSymbol];
-                Write?.Invoke();
-                yield return new WaitForSeconds(0.05f);
-                countSymbol++;
-            }
-            
-            _model.IsEndWrite.Value = true;
+            yield return loadTextCommand.Await().ContinueWith(() => _model.Text.Value = loadTextCommand.Result);
         }
 
         private void NoResultStringChanged(string value)
@@ -118,6 +114,7 @@ namespace Game
         private void TextChanged(string value)
         {
             Text.Value = value;
+            _isLoad = true;
         }
 
         private void YesResultStringChanged(string value)

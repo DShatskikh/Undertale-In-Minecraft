@@ -1,4 +1,5 @@
 ﻿using Cinemachine;
+using MoreMountains.Feedbacks;
 using RimuruDev;
 using TMPro;
 using UnityEngine;
@@ -46,5 +47,6 @@ namespace Game
         public static CommandManager CommandManager;
         public static CompanionsManager CompanionsManager;
         public static EndingsManager EndingsManager;
+        public static MMF_Player ImpulseMMFPlayer;
     }
 }

@@ -68,6 +68,7 @@ namespace Game
         {
             _isSolve = true;
             GameData.EffectSoundPlayer.Play(_solvedSound);
+            GameData.ImpulseMMFPlayer.PlayFeedbacks();
             
             Solved.Invoke();
         }

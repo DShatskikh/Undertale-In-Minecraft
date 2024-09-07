@@ -67,6 +67,8 @@ namespace Game
 
             _viewImage.color = GameData.AssetProvider.SelectColor;
             _label.color = GameData.AssetProvider.SelectColor;
+            
+            print("Down");
         }
         
         protected void Up()
@@ -76,6 +78,8 @@ namespace Game
             
             _viewImage.color = GameData.AssetProvider.DeselectColor;
             _label.color = GameData.AssetProvider.DeselectColor;
+            
+            print("Up");
         }
     }
 }

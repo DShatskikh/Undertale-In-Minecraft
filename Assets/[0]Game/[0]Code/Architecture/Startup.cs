@@ -37,7 +37,7 @@ namespace Game
         
         private void Awake()
         {
-            if (FindObjectsOfType<Startup>().Length > 1)
+            if (FindObjectsByType<Startup>(FindObjectsSortMode.None).Length > 1)
             {
                 Destroy(gameObject);
                 return;

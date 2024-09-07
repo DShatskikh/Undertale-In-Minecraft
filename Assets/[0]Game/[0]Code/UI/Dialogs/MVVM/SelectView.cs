@@ -1,3 +1,4 @@
+using Febucci.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,10 @@ namespace Game
         private Button _noButton;
         
         [SerializeField]
-        private TMP_Text _label, _yesLabel, _noLabel;
+        private TMP_Text _label, _yesLabel, _noLabel, _hint;
+        
+        [SerializeField]
+        private TextAnimatorPlayer _textAnimatorPlayer;
         
         private SelectViewModel _selectViewModel;
 
@@ -25,42 +29,48 @@ namespace Game
             _selectViewModel = selectViewModel;
             _selectViewModel.YesResultString.Changed += OnYesResultStringChanged;
             _selectViewModel.NoResultString.Changed += OnNoResultStringChanged;
-            _selectViewModel.Text.Changed += OnTextChanged;
-            _selectViewModel.IsShowed.Changed += OnShowed;
+            _selectViewModel.Text.Changed += OnLoadingText;
+            _selectViewModel.IsShowed.Changed += IsShowedOnChanged;
             _selectViewModel.Write += OnWrite;
-            _selectViewModel.LoadText += OnLoadText;
+            _selectViewModel.ShowedAll += OnShowedAllText;
+            _selectViewModel.IsEndWrite.Changed += OnEndWriteChanged;
         }
 
         private void OnDestroy()
         {
             _selectViewModel.YesResultString.Changed -= OnYesResultStringChanged;
             _selectViewModel.NoResultString.Changed -= OnNoResultStringChanged;
-            _selectViewModel.Text.Changed -= OnTextChanged;
-            _selectViewModel.IsShowed.Changed -= OnShowed;
+            _selectViewModel.Text.Changed -= OnLoadingText;
+            _selectViewModel.IsShowed.Changed -= IsShowedOnChanged;
             _selectViewModel.Write -= OnWrite;
-            _selectViewModel.LoadText -= OnLoadText;
+            _selectViewModel.ShowedAll -= OnShowedAllText;
+            _selectViewModel.IsEndWrite.Changed -= OnEndWriteChanged;
         }
 
-        private void OnLoadText()
-        {
-            EventBus.SubmitUp = _selectViewModel.ShowAll;
-            EventBus.CancelUp = _selectViewModel.ShowAll;
-        }
-
-        private void OnShowed(bool value)
+        private void IsShowedOnChanged(bool value)
         {
             if (value)
             {
                 _yesButton.gameObject.SetActive(false);
                 _noButton.gameObject.SetActive(false);
-                
-                _selectViewModel.IsEndWrite.Changed += OnEndWriteChanged;
+                _hint.gameObject.SetActive(false);
             }
             else
             {
                 GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
-                _selectViewModel.IsEndWrite.Changed -= OnEndWriteChanged;
+                _label.gameObject.SetActive(false);
             }
+        }
+
+        private void OnLoadingText(string value)
+        {
+            EventBus.SubmitUp += _selectViewModel.ShowAll;
+            EventBus.CancelUp += _selectViewModel.ShowAll;
+            
+            _hint.gameObject.SetActive(true);
+            _label.gameObject.SetActive(true);
+            _label.text = value;
+            _textAnimatorPlayer.StartShowingText();
         }
 
         private void OnWrite()
@@ -70,14 +80,19 @@ namespace Game
 
         private void OnEndWriteChanged(bool value)
         {
-            EventBus.SubmitUp = null;
-            EventBus.CancelUp = null;
+            if (value)
+            {
+                _hint.gameObject.SetActive(false);
+            
+                EventBus.SubmitUp -= _selectViewModel.ShowAll;
+                EventBus.CancelUp -= _selectViewModel.ShowAll;
 
-            _yesButton.gameObject.SetActive(true);
-            _noButton.gameObject.SetActive(true);
+                _yesButton.gameObject.SetActive(true);
+                _noButton.gameObject.SetActive(true);
 
-            _yesButton.onClick.AddListener(OnYesClicked);
-            _noButton.onClick.AddListener(OnNoClicked);
+                _yesButton.onClick.AddListener(OnYesClicked);
+                _noButton.onClick.AddListener(OnNoClicked);
+            }
         }
 
         private void OnYesClicked()
@@ -96,11 +111,6 @@ namespace Game
             _selectViewModel.OnSelectNo();
         }
 
-        private void OnTextChanged(string value)
-        {
-            _label.text = value;
-        }
-
         private void OnNoResultStringChanged(string value)
         {
             _noLabel.text = value;
@@ -109,6 +119,11 @@ namespace Game
         private void OnYesResultStringChanged(string value)
         {
             _yesLabel.text = value;
+        }
+        
+        private void OnShowedAllText()
+        {
+            _textAnimatorPlayer.SkipTypewriter();
         }
     }
 }

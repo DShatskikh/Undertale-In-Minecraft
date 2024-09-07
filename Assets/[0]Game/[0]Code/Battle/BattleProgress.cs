@@ -1,8 +1,7 @@
-﻿using System;
+﻿using MoreMountains.Tools;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.UI;
 
 namespace Game
 {
@@ -12,7 +11,7 @@ namespace Game
         private TMP_Text _label;
         
         [SerializeField]
-        private Slider _slider;
+        private MMProgressBar _progressBar;
 
         [SerializeField]
         private LocalizedString _localizedString;
@@ -29,15 +28,16 @@ namespace Game
 
         private void Start()
         {
+            _progressBar.SetBar(100, 0, 100);
             ChangeProgress(GameData.BattleProgress);
         }
 
         private void ChangeProgress(int value)
         {
-            _slider.value = value;
+            _progressBar.UpdateBar(value, 0, 100);
 
             _localizedString.Arguments = new object[] { value };
-            _label.text = _localizedString.GetLocalizedString(); //$"Прогресс битвы {value}%";
+            _label.text = _localizedString.GetLocalizedString();
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Game
     {
         private readonly SpriteRenderer _arena;
         private readonly BlackPanel _blackPanel;
+        private readonly Vector2 _size = Vector2.one * 3;
 
         public ShowArenaCommand(SpriteRenderer arena, BlackPanel blackPanel)
         {
@@ -40,7 +41,7 @@ namespace Game
             while (progress < 1)
             {
                 progress += Time.deltaTime * 2f;
-                _arena.size = Vector2.Lerp(Vector2.zero, Vector2.one * 3, progress);
+                _arena.size = Vector2.Lerp(Vector2.zero, _size, progress);
                 _arena.transform.eulerAngles = Vector3.Lerp(new Vector3(0, 0, -180), Vector3.zero, progress);
                 yield return null;
             }
