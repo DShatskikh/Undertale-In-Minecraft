@@ -2,7 +2,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using YG;
 using Random = UnityEngine.Random;
@@ -98,16 +97,15 @@ namespace Game
             _isSecondRound = false;
             gameObject.SetActive(true);
 
-            transform.position = Camera.main.transform.position.SetZ(0).AddY(-3.5f) +
-                                                 (Vector3) GameData.EnemyData.StartBattleTrigger.Offset;
+            transform.position = 
+                Camera.main.transform.position.SetZ(0).AddY(-3.5f) 
+                + (Vector3) GameData.EnemyData.StartBattleTrigger.Offset;
             
             GameData.EnemyData.GameObject.transform.SetParent(GameData.EnemyPoint);
 
             if (GameData.EnemyData.GameObject.TryGetComponent(out SpriteRenderer spriteRenderer))
-            {
                 spriteRenderer.flipX = true;
-            }
-            
+
             var character = GameData.CharacterController;
             character.GetComponent<Collider2D>().isTrigger = true;
             character.View.Flip(false);

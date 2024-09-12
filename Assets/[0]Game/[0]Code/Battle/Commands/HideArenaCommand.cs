@@ -46,6 +46,9 @@ namespace Game
             }
             
             _blackPanel.Show();
+            
+            GameData.EnemyData.GameObject.transform.SetParent(GameData.EnemyPoint);
+            GameData.CharacterController.View.SetOrderInLayer(11);
             action?.Invoke();
         }
     }

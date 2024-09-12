@@ -11,20 +11,47 @@ namespace Game
         [SerializeField]
         private SpriteRenderer _shield;
 
+        private SpriteRenderer _spriteRenderer;
+        private Animator _animator;
         private HeartModel _model;
         private Coroutine _coroutine;
 
         public void SetModel(HeartModel model)
         {
             _model = model;
+            _animator = GetComponent<Animator>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
             _model.ShieldActivate += OnShieldActivate;
+            _model.SpeedChange += ModelOnSpeedChange;
+            _model.DirectionChange += OnDirectionChange;
         }
 
         private void OnDestroy()
         {
             _model.ShieldActivate -= OnShieldActivate;
+            _model.SpeedChange -= ModelOnSpeedChange;
+            _model.DirectionChange -= OnDirectionChange;
         }
 
+        private void ModelOnSpeedChange(float value)
+        {
+            _animator.SetFloat("Speed", value > 0 ? 1 : 0);
+        }
+
+        private void OnDirectionChange(Vector2 value)
+        {
+            if (value.x > 0) 
+                Flip(false);
+                
+            if (value.x < 0) 
+                Flip(true);
+        }
+        
+        private void Flip(bool isFlip)
+        {
+            _spriteRenderer.flipX = isFlip;
+        }
+        
         private void OnShieldActivate(bool isActivate)
         {
             if (isActivate)

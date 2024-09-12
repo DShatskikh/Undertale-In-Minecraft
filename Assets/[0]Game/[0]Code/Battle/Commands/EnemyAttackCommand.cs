@@ -34,7 +34,7 @@ namespace Game
             yield return new WaitUntil(() => isEndAttack);
             Object.Destroy(attack.gameObject);
 
-            _blackPanel.Hide();
+            //_blackPanel.Hide();
             GameData.HeartController.enabled = false;
             action.Invoke();
         }

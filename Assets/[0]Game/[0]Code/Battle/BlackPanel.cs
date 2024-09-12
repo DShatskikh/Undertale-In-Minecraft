@@ -8,16 +8,19 @@ namespace Game
     {
         private Coroutine _coroutine;
         private SpriteRenderer _spriteRenderer;
+        private float _targetA;
 
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        public void Show()
+        public void Show(float targetA = 0.88f)
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
+
+            _targetA = targetA;
             
             gameObject.SetActive(true);
             _coroutine = StartCoroutine(AwaitShow());
@@ -41,7 +44,7 @@ namespace Game
             
             while (duration < 0.5f)
             {
-                _spriteRenderer.color = _spriteRenderer.color.SetA(Mathf.Lerp(startA, 0.88f, duration / 0.5f));
+                _spriteRenderer.color = _spriteRenderer.color.SetA(Mathf.Lerp(startA, _targetA, duration / 0.5f));
                 yield return null;
                 duration += Time.deltaTime;
             }

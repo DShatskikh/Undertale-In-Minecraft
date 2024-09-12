@@ -1,15 +1,14 @@
-﻿using System;
+﻿using MoreMountains.Tools;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using YG;
 
 namespace Game
 {
     public class HealthBar : MonoBehaviour
     {
-        [SerializeField] 
-        private Slider _slider;
+        [SerializeField]
+        private MMProgressBar _progressBar;
         
         [SerializeField] 
         private TMP_Text _label;
@@ -17,6 +16,7 @@ namespace Game
         private void OnEnable()
         {
             EventBus.HealthChange += UpdateHealthView;
+            _progressBar.SetBar(YandexGame.savesData.MaxHealth, 0, YandexGame.savesData.MaxHealth);
             UpdateHealthView(YandexGame.savesData.MaxHealth,YandexGame.savesData.Health);
         }
 
@@ -28,8 +28,7 @@ namespace Game
         private void UpdateHealthView(int maxValue, int value)
         {
             _label.text = $"{value}/{maxValue}";
-            _slider.value = value;
-            _slider.maxValue = maxValue;
+            _progressBar.UpdateBar(value, 0, maxValue);
         }
     }
 }

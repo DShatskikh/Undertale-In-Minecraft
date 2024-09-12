@@ -147,6 +147,7 @@ namespace Game
         private void Close()
         {
             _model.IsShowed.Value = false;
+            _model.Text.Value = "";
             GameData.ToMenuButton.gameObject.SetActive(true);
             GameData.CharacterController.enabled = true;
             gameObject.SetActive(false);

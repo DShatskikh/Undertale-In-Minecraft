@@ -8,7 +8,7 @@ namespace Game
     {
         private readonly SpriteRenderer _arena;
         private readonly BlackPanel _blackPanel;
-        private readonly Vector2 _size = Vector2.one * 3;
+        private readonly Vector2 _size = new(7.95f, 4.59f);
 
         public ShowArenaCommand(SpriteRenderer arena, BlackPanel blackPanel)
         {
@@ -46,7 +46,10 @@ namespace Game
                 yield return null;
             }
 
-            _blackPanel.Show();
+            _blackPanel.Show(1);
+            
+            GameData.EnemyData.GameObject.transform.SetParent(null);
+            GameData.CharacterController.View.SetOrderInLayer(0);
             action?.Invoke();
         }
     }
