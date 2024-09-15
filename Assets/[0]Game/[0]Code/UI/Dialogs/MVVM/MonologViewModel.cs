@@ -78,7 +78,7 @@ namespace Game
         {
             gameObject.SetActive(true);
             IsShowed.Value = true;
-            GameData.ToMenuButton.gameObject.SetActive(false);
+            GameData.InputManager.Hide();
             _sound = sound;
             
             if (_coroutine != null)
@@ -145,7 +145,7 @@ namespace Game
         {
             IsShowed.Value = false;
             _model.Text.Value = "";
-            GameData.ToMenuButton.gameObject.SetActive(true);
+            GameData.InputManager.Show();
             GameData.CharacterController.enabled = true;
             gameObject.SetActive(false);
             EventBus.CloseMonolog?.Invoke();

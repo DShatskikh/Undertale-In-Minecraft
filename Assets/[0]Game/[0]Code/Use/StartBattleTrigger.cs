@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace Game
@@ -18,11 +16,17 @@ namespace Game
 
         [SerializeField]
         private UnityEvent _event;
+
+        [SerializeField]
+        private bool _isNotTrigger;
         
         public Vector2 Offset => _offset;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (_isNotTrigger)
+                return;
+            
             if (!GameData.IsCanStartBattle)
                 return;
             

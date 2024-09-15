@@ -78,7 +78,7 @@ namespace Game
             _noAction = noAction;
             
             gameObject.SetActive(true);
-            GameData.ToMenuButton.gameObject.SetActive(false);
+            GameData.InputManager.Hide();
             IsShowed.Value = true;
             _model.Text.Value = "";
             GameData.CharacterController.enabled = false;
@@ -142,7 +142,7 @@ namespace Game
         private void Close()
         {
             _model.Text.Value = "";
-            GameData.ToMenuButton.gameObject.SetActive(true);
+            GameData.InputManager.Show();
             IsShowed.Value = false;
             GameData.CharacterController.enabled = true;
             gameObject.SetActive(false);
