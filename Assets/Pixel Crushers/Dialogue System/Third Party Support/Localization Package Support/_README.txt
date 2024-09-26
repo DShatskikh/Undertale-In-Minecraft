@@ -1,0 +1,5 @@
+/*
+This folder contains Unity Localization Package integration files for the Dialogue System.
+
+See the online documentation for more information.
+*/

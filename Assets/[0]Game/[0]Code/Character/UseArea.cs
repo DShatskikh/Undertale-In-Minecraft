@@ -1,4 +1,4 @@
-﻿using System;
+﻿using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
 namespace Game
@@ -8,7 +8,7 @@ namespace Game
         [SerializeField]
         private float _radius;
 
-        private UseObject _previousUseObject;
+        private MonoBehaviour _previousUseObject;
 
         private void OnEnable()
         {
@@ -26,7 +26,7 @@ namespace Game
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _radius);
 
             float minDistance = float.MaxValue;
-            UseObject nearestUseObject = null;
+            MonoBehaviour nearestUseObject = null;
 
             foreach (Collider2D collider in colliders)
             {
@@ -38,6 +38,16 @@ namespace Game
                     {
                         minDistance = currentDistance;
                         nearestUseObject = useObject;
+                    }
+                }
+                else if (collider.TryGetComponent(out Usable usable))
+                {
+                    var currentDistance = Vector2.Distance(transform.position, usable.transform.position);
+                    
+                    if (minDistance > currentDistance)
+                    {
+                        minDistance = currentDistance;
+                        nearestUseObject = usable;
                     }
                 }
             }
@@ -53,7 +63,7 @@ namespace Game
                 ButtonOff();
         }
 
-        private void ButtonOn(UseObject nearestUseObject)
+        private void ButtonOn(MonoBehaviour nearestUseObject)
         {
             GameData.UseButton.gameObject.SetActive(true);
             EventBus.SubmitUp = () => Use(nearestUseObject);
@@ -67,11 +77,21 @@ namespace Game
             _previousUseObject = null;
         }
 
-        private void Use(UseObject nearestUseObject)
+        private void Use(MonoBehaviour nearestUseObject)
         {
             GameData.UseButton.gameObject.SetActive(false);
             EventBus.SubmitUp = null;
-            nearestUseObject.Use();
+
+            if (nearestUseObject is UseObject useObject) 
+                useObject.Use();
+            else if (nearestUseObject is Usable currentUsable)
+            {
+                currentUsable.OnUseUsable();
+                if (currentUsable != null)
+                {
+                    currentUsable.gameObject.BroadcastMessage("OnUse", transform, SendMessageOptions.DontRequireReceiver);
+                }
+            }
         }
     }
 }
