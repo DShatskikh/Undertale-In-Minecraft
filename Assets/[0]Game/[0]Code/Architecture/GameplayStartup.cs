@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using Cinemachine;
 using MoreMountains.Feedbacks;
+using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -111,6 +112,8 @@ namespace Game
 
         private void Start()
         {
+            RegisterLuaFunctions();
+            
             foreach (var saveLoad in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             {
                 saveLoad.Load();
@@ -134,7 +137,20 @@ namespace Game
 
             StartCoroutine(Await());
         }
-        
+
+        private void OnDestroy()
+        {
+            Lua.UnregisterFunction(nameof(IsWin));
+        }
+
+        private void RegisterLuaFunctions()
+        {
+            Lua.RegisterFunction(nameof(IsWin), this, SymbolExtensions.GetMethodInfo(() => IsWin(string.Empty)));
+        }
+
+        private bool IsWin(string nameEnemy) => 
+            (YandexGame.savesData.GetInt("IsWin" + nameEnemy) == 1);
+
         private IEnumerator Await()
         {
             yield return new WaitForSeconds(0.5f);

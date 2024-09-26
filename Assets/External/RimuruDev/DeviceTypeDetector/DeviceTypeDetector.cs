@@ -9,7 +9,9 @@
 // **************************************************************** //
 
 using System;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using YG;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -22,8 +24,8 @@ namespace RimuruDev
     [Serializable]
     public enum CurrentDeviceType : byte
     {
-        WebPC = 0,
-        WebMobile = 2,
+        PC = 0,
+        Mobile = 2,
     }
 
     [SelectionBase]
@@ -42,14 +44,27 @@ namespace RimuruDev
             if (IsMobile() && enableDeviceSimulator)
             {
                 Debug.Log("WEBGL -> Mobile");
-                CurrentDeviceType = CurrentDeviceType.WebMobile;
+                CurrentDeviceType = CurrentDeviceType.Mobile;
             }
             else
             {
                 Debug.Log("WEBGL -> PC");
-                CurrentDeviceType = CurrentDeviceType.WebPC;
+                CurrentDeviceType = CurrentDeviceType.PC;
             }
         }
+
+        private void Start()
+        {
+            Lua.RegisterFunction(nameof(IsPlatform), this, SymbolExtensions.GetMethodInfo(() => IsPlatform(string.Empty)));
+        }
+
+        private void OnDestroy()
+        {
+            Lua.UnregisterFunction(nameof(IsPlatform));
+        }
+        
+        private bool IsPlatform(string platformName) => 
+            Enum.GetName(typeof(CurrentDeviceType), CurrentDeviceType) == platformName;
 
 #if UNITY_EDITOR
         public static bool IsMobile()

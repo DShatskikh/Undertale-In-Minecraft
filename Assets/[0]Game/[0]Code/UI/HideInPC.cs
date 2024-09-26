@@ -7,7 +7,7 @@ namespace Game
     {
         private void Start()
         {
-            if (GameData.DeviceType == CurrentDeviceType.WebPC)
+            if (GameData.DeviceType == CurrentDeviceType.PC)
                 gameObject.SetActive(false);
             
             #if UNITY_EDITOR

@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using YG;
 
@@ -21,11 +23,21 @@ namespace Game
 
         private void Start()
         {
+            Lua.RegisterFunction(nameof(IsHaveCompanion), this, SymbolExtensions.GetMethodInfo(() => IsHaveCompanion(string.Empty)));
+            
             foreach (var companion in YandexGame.savesData.Companions)
             {
                 TryActivateCompanion(companion);
             }
         }
+
+        private void OnDestroy()
+        {
+            Lua.UnregisterFunction(nameof(IsHaveCompanion));
+        }
+
+        private bool IsHaveCompanion(string nameCompanion) => 
+            YandexGame.savesData.Companions.Any(companion => nameCompanion == Enum.GetName(typeof(Companion), companion));
 
         [ContextMenu("Удалить всех компаньонов")]
         public void DeactivateAllCompanion()

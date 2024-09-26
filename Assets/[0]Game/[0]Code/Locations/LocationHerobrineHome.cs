@@ -39,7 +39,7 @@ namespace Game
 
             yield return null;
             
-            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
+            if (GameData.DeviceType == CurrentDeviceType.Mobile)
                 _mobileInput.SetActive(true);
             else
                 _pcInput.SetActive(true);

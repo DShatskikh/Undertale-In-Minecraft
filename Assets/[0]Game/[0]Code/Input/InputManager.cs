@@ -24,7 +24,7 @@ namespace Game
             _inventoryButton.gameObject.SetActive(true);
             _menuButton.gameObject.SetActive(true);
             
-            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
+            if (GameData.DeviceType == CurrentDeviceType.Mobile)
                 _joystick.gameObject.SetActive(true);
         }
 

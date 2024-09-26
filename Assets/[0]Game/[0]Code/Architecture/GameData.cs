@@ -31,6 +31,7 @@ namespace Game
         public static CinemachineVirtualCamera CinemachineVirtualCamera { get; set; }
         public static SaverTimer SaverTimer { get; set; }
         public static InputManager InputManager { get; set; }
+        public static AdsManager AdsManager { get; set; }
 
         public static LocationsManager LocationsManager;
         public static MonologViewModel Monolog;

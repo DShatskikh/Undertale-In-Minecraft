@@ -6,7 +6,7 @@ namespace Game
     {
         public override bool IsTrue()
         {
-            return GameData.DeviceType == CurrentDeviceType.WebPC;
+            return GameData.DeviceType == CurrentDeviceType.PC;
         }
     }
 }

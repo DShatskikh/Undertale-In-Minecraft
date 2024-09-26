@@ -12,7 +12,7 @@ namespace Game
         
         [Header("Переменные")]
         [SerializeField]
-        private CurrentDeviceType _testDeviceType = CurrentDeviceType.WebMobile;
+        private CurrentDeviceType _testDeviceType = CurrentDeviceType.Mobile;
         
         [Header("Ссылки")]
         [SerializeField]
@@ -33,6 +33,9 @@ namespace Game
         [SerializeField]
         private AssetProvider _assetProvider;
 
+        [SerializeField]
+        private AdsManager _adsManager;
+        
         private PurchaseManager _purchaseManager;
         
         private void Awake()
@@ -66,6 +69,7 @@ namespace Game
             GameData.MusicPlayer = _musicPlayer;
             GameData.Mixer = _mixer;
             GameData.VolumeSlider = _volumeSlider;
+            GameData.AdsManager = _adsManager;
             
             YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
             Application.targetFrameRate = 60;

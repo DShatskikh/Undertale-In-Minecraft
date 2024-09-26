@@ -29,7 +29,7 @@ namespace Game
         
         private void Start()
         {
-            if (GameData.DeviceType == CurrentDeviceType.WebMobile)
+            if (GameData.DeviceType == CurrentDeviceType.Mobile)
                 _hint.gameObject.SetActive(false);
         }
 

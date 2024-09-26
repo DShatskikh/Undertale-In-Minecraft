@@ -88,9 +88,8 @@ namespace Game
             {
                 currentUsable.OnUseUsable();
                 if (currentUsable != null)
-                {
-                    currentUsable.gameObject.BroadcastMessage("OnUse", transform, SendMessageOptions.DontRequireReceiver);
-                }
+                    currentUsable.gameObject.BroadcastMessage("OnUse", transform,
+                        SendMessageOptions.DontRequireReceiver);
             }
         }
     }
