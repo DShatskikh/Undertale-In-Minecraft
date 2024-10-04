@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Analytics;
 using YG;
 
@@ -29,8 +28,11 @@ namespace Game
             _currentLocation.gameObject.SetActive(true);
 
             if (_currentLocation.Points.Length >= pointIndex)
+            {
                 pointIndex = 0;
-            
+                Debug.LogWarning("Такого индекса нет");
+            }
+
             GameData.CharacterController.transform.position = _currentLocation.Points[pointIndex].position;
             GameData.CompanionsManager.ResetAllPositions();
             
