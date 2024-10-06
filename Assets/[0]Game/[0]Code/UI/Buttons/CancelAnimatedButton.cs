@@ -1,18 +1,18 @@
 namespace Game
 {
-    public class CancelAnimatedButton : DialogueButton
+    public class CancelAnimatedButton : AnimatedButton
     {
-        public override void Enable()
+        protected override void Enable()
         {
-            EventBus.Cancel += Down;
-            EventBus.CancelUp += Up;
+            EventBus.Cancel += _view.Down;
+            EventBus.CancelUp += _view.Up;
             EventBus.CancelUp += _button.onClick.Invoke;
         }
 
-        public override void Disable()
+        protected override void Disable()
         {
-            EventBus.Cancel -= Down;
-            EventBus.CancelUp -= Up;
+            EventBus.Cancel -= _view.Down;
+            EventBus.CancelUp -= _view.Up;
             EventBus.CancelUp -= _button.onClick.Invoke;
         }
     }

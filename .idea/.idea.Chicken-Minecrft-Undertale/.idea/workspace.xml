@@ -5,16 +5,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35838e97-396e-4d76-86a1-560d1be97bc0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/FollowToCharacter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/FollowToCharacter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Acts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Acts/ActBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Acts/ActBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/AnimatedButtonOld.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/AnimatedButtonOld.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/ButtonViewBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/ButtonViewBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/ButtonViewMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/ButtonViewMenu.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/ButtonViewUse.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chicken-Minecrft-Undertale/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chicken-Minecrft-Undertale/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Battle/Battle_ru.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Battle/Battle_ru.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/YandexGame/WorkingData/Editor/SavesEditorYG.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/YandexGame/WorkingData/Editor/SavesEditorYG.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/Damage.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/Damage.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/Fly.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/Fly.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/Idle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/Idle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/Move.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/Move.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/View.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/View.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/AssetProvider.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/AssetProvider.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Dialogue Database.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Dialogue Database.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Mobs/Slime.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Mobs/Slime.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Materials/determinationmonorusbylyajk SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Materials/determinationmonorusbylyajk SDF 1.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Sounds/Music/Lava.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Sounds/Music/Lava.mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/AssetProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/AssetProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/EventBus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/EventBus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Act.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Acts/Act.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Act.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Acts/Act.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Battle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Battle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/BattleProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/BattleProgress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/HideArenaCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/HideArenaCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/ShowArenaCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/ShowArenaCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/MVC/ActSlotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/MVC/ActSlotController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/MVC/ActSlotModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/MVC/ActSlotModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/MVC/ActSlotView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/MVC/ActSlotView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/SelectActManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/SelectActManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Character/MVC/CharacterView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Character/MVC/CharacterView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Input/ToggleInventoryUpdater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Input/ToggleInventoryUpdater.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/LocationEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/LocationEnum.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/LocationsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/LocationsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/AnimatedButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/AnimatedButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/AnimatedButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/AnimatedButton.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/ButtonBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/ButtonBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/CancelAnimatedButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/CancelAnimatedButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/DialogueButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/ButtonViewUse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/DialogueButton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/InMenuAnimatedButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/InMenuAnimatedButtonOld.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/InMenuAnimatedButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/InMenuAnimatedButtonOld.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/OpenInventoryAnimatedButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/OpenInventoryAnimatedButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/OpenInventoryButton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/OpenInventoryButton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/SubmitAnimatedButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Buttons/SubmitAnimatedButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Attacks/Attacks.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Attacks/Attacks.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Attacks/Attacks.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Attacks/Attacks.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/UI/Icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/UI/Icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/UI/Icons.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/UI/Icons.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/UI/Act.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/UI/Act.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/UI/AnimatedButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/UI/AnimatedButton.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +87,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a87366a6dc74b3aa0e0421cf80e3ae51dd000/ae/c0379678/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a87366a6dc74b3aa0e0421cf80e3ae51dd000/b4/451c15c0/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62288a10ceeb4c0ca8194cda4984ebf4c400/32/987a924d/TileBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d7fcabcb364abf8ef20745f3ef102a4f200/59/f0e10349/InMenuAnimatedButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d7fcabcb364abf8ef20745f3ef102a4f200/ee/03ca023a/AnimatedButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9ebd9bb6f2b34dca84038b94287fa75e2ec00/35/3981120a/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9ebd9bb6f2b34dca84038b94287fa75e2ec00/cd/00eb9f70/ContactFilter2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c77f0cfb8c8749918602f6f7dc15c51620a00/f3/0bf49bf9/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
@@ -120,10 +178,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="336">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="336" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -206,7 +264,9 @@
       <workItem from="1726393503481" duration="6606000" />
       <workItem from="1727313831258" duration="1569000" />
       <workItem from="1727320104041" duration="20710000" />
-      <workItem from="1728007711440" duration="2822000" />
+      <workItem from="1728007711440" duration="2825000" />
+      <workItem from="1728080119673" duration="8219000" />
+      <workItem from="1728199476682" duration="11709000" />
     </task>
     <servers />
   </component>
@@ -220,45 +280,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/SelectActManager.cs</url>
-          <line>41</line>
-          <properties documentPath="C:\Users\s-den\Documents\Unity\Chicken-Minecrft-Undertale\Assets\[0]Game\[0]Code\Battle\SelectAct\SelectActManager.cs" initialLine="41" containingFunctionPresentation="Method 'OnSubmit'">
-            <startOffsets>
-              <option value="1500" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1566" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/StartEnemyTurnCommand.cs</url>
-          <line>8</line>
-          <properties documentPath="C:\Users\s-den\Documents\Unity\Chicken-Minecrft-Undertale\Assets\[0]Game\[0]Code\Battle\Commands\StartEnemyTurnCommand.cs" initialLine="8" containingFunctionPresentation="Method 'Execute'">
-            <startOffsets>
-              <option value="182" />
-            </startOffsets>
-            <endOffsets>
-              <option value="205" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/CommandManager.cs</url>
-          <line>14</line>
-          <properties documentPath="C:\Users\s-den\Documents\Unity\Chicken-Minecrft-Undertale\Assets\[0]Game\[0]Code\Use\Commands\CommandManager.cs" initialLine="14" containingFunctionPresentation="Method 'StartCommands'">
-            <startOffsets>
-              <option value="401" />
-            </startOffsets>
-            <endOffsets>
-              <option value="402" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Dialogs/MVVM/MonologView.cs</url>
           <line>40</line>
           <properties documentPath="C:\Users\s-den\Documents\Unity\Chicken-Minecrft-Undertale\Assets\[0]Game\[0]Code\UI\Dialogs\MVVM\MonologView.cs" initialLine="40" containingFunctionPresentation="Method 'OnDestroy'">
@@ -270,6 +291,71 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/BattleProgress.cs</url>
+          <line>48</line>
+          <properties documentPath="C:\Users\s-den\Documents\Unity\Chicken-Minecrft-Undertale\Assets\[0]Game\[0]Code\Battle\BattleProgress.cs" initialLine="48" containingFunctionPresentation="Method 'ChangeProgress'">
+            <startOffsets>
+              <option value="1316" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1371" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/BattleProgress.cs</url>
+          <line>46</line>
+          <properties documentPath="C:\Users\s-den\Documents\Unity\Chicken-Minecrft-Undertale\Assets\[0]Game\[0]Code\Battle\BattleProgress.cs" initialLine="46" containingFunctionPresentation="Method 'ChangeProgress'">
+            <startOffsets>
+              <option value="1203" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1261" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/BattleProgress.cs</url>
+          <line>44</line>
+          <properties documentPath="C:\Users\s-den\Documents\Unity\Chicken-Minecrft-Undertale\Assets\[0]Game\[0]Code\Battle\BattleProgress.cs" initialLine="44" containingFunctionPresentation="Method 'ChangeProgress'">
+            <startOffsets>
+              <option value="1124" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1148" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/SelectActManager.cs</url>
+          <line>41</line>
+          <properties documentPath="C:\Users\s-den\Documents\Unity\Chicken-Minecrft-Undertale\Assets\[0]Game\[0]Code\Battle\SelectAct\SelectActManager.cs" initialLine="41" containingFunctionPresentation="Method 'OnDisable'">
+            <startOffsets>
+              <option value="1581" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1612" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/SelectAct/SelectActManager.cs</url>
+          <line>53</line>
+          <properties documentPath="C:\Users\s-den\Documents\Unity\Chicken-Minecrft-Undertale\Assets\[0]Game\[0]Code\Battle\SelectAct\SelectActManager.cs" initialLine="53" containingFunctionPresentation="Method 'OnSubmit'">
+            <startOffsets>
+              <option value="2037" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2070" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

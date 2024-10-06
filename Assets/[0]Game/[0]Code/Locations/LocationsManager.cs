@@ -27,10 +27,10 @@ namespace Game
             _currentLocation = _locations[index];
             _currentLocation.gameObject.SetActive(true);
 
-            if (_currentLocation.Points.Length >= pointIndex)
+            if (_currentLocation.Points.Length <= pointIndex)
             {
+                Debug.LogWarning($"Такого индекса нет Всего точек: ({_currentLocation.Points.Length}) Текущий индекс: ({pointIndex}) Локация: ({((LocationEnum)index).ToString()})");
                 pointIndex = 0;
-                Debug.LogWarning("Такого индекса нет");
             }
 
             GameData.CharacterController.transform.position = _currentLocation.Points[pointIndex].position;

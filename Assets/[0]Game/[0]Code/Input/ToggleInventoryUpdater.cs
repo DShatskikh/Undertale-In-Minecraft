@@ -6,10 +6,11 @@ namespace Game
     {
         private void Update()
         {
-            if (Input.GetButtonDown("ToggleInventory"))
-            {
-                EventBus.ToggleInventory?.Invoke();
-            }
+            if (Input.GetButtonDown("ToggleInventory")) 
+                EventBus.OpenInventory?.Invoke();
+
+            if (Input.GetButtonUp("ToggleInventory")) 
+                EventBus.OpenInventoryUp?.Invoke();
         }
     }
 }

@@ -1,62 +1,39 @@
-using MoreMountains.Feedbacks;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace Game
 {
-    public class AnimatedButton : ButtonBase, IPointerDownHandler, IPointerUpHandler
+    public abstract class AnimatedButton : ButtonBase, IPointerDownHandler, IPointerUpHandler
     {
-        [SerializeField]
-        private MMF_Player _pressedMmfPlayer;
-        
-        [SerializeField]
-        private MMF_Player _notPressedMmfPlayer;
+        protected ButtonViewBase _view;
 
-        [SerializeField]
-        private TMP_Text _label;
+        protected override void OnAwake()
+        {
+            if (TryGetComponent(out ButtonViewBase view))
+                _view = view;
+            else
+                Debug.LogWarning("Не найден ButtonView");
+        }
 
-        [SerializeField]
-        private Transform _view;
-
-        [SerializeField]
-        private Image _icon;
+        private void OnEnable()
+        {
+            Enable();
+        }
 
         private void OnDisable()
         {
-            _pressedMmfPlayer.StopFeedbacks();
-            _notPressedMmfPlayer.StopFeedbacks();
-            
-            _label.color = Color.white;
-            _icon.color = Color.white;
-            _view.transform.localScale = Vector3.one;
+            _view.Disable();
+            Disable();
         }
-        
-        public override void OnClick() { }
-        
+
         public void OnPointerDown(PointerEventData eventData) => 
-            Down();
+            _view.Down();
 
         public void OnPointerUp(PointerEventData eventData) => 
-            Up();
+            _view.Up();
 
-        private void Down()
-        {
-            _pressedMmfPlayer.PlayFeedbacks();
-            _notPressedMmfPlayer.StopFeedbacks();
-
-            _label.color = GameData.AssetProvider.SelectColor;
-            _icon.color = GameData.AssetProvider.SelectColor;
-        }
-
-        private void Up()
-        {
-            _pressedMmfPlayer.StopFeedbacks();
-            _notPressedMmfPlayer.PlayFeedbacks();
-
-            _label.color = Color.white;
-            _icon.color = Color.white;
-        }
+        public override void OnClick() { }
+        protected abstract void Enable();
+        protected abstract void Disable();
     }
 }

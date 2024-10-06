@@ -24,5 +24,6 @@ namespace Game
         [Header("Other")]
         public Color SelectColor;
         public Color DeselectColor;
+        public Sprite CharacterIcon;
     }
 }

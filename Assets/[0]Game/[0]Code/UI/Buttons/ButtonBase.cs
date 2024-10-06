@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +11,7 @@ namespace Game
         {
             _button = GetComponent<Button>();
             _button.onClick.AddListener(OnClick);
+            OnAwake();
         }
 
         private void OnDestroy()
@@ -20,5 +20,10 @@ namespace Game
         }
 
         public abstract void OnClick();
+
+        protected virtual void OnAwake()
+        {
+            
+        }
     }
 }

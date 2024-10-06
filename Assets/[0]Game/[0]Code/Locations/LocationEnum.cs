@@ -26,7 +26,7 @@ namespace Game
         ErrorHerobrineHome,
         ErrorMuseum,
         PalesosWorld,
+        LawnPortal,
         Lawn,
-        
     }
 }

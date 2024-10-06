@@ -20,6 +20,9 @@ namespace Game
         public static Action CancelUp;
         public static Action Submit;
         public static Action SubmitUp;
-        public static Action ToggleInventory;
+        public static Action OpenInventory;
+        public static Action OpenInventoryUp;
+        public static Action OpenMenu;
+        public static Action OpenMenuUp;
     }
 }

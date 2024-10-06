@@ -1141,6 +1141,7 @@ GameObject:
   - component: {fileID: 180269073208135835}
   - component: {fileID: 6709130286945169051}
   - component: {fileID: 1198295238629171756}
+  - component: {fileID: 5836482975909323507}
   m_Layer: 0
   m_Name: AnimatedButton
   m_TagString: Untagged
@@ -1252,6 +1253,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5836482975909323507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613401375511067883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2bdc940ca44b5586c04ef1786c6783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pressedMmfPlayer: {fileID: 9089746580700767670}
+  _notPressedMmfPlayer: {fileID: 134749712585928092}
+  _label: {fileID: 3419925706976204348}
+  _hint: {fileID: 6119360412595039363}
+  _view: {fileID: 440938469239923921}
+  _viewImage: {fileID: 5745441094951399950}
 --- !u!1 &9139543496840949607
 GameObject:
   m_ObjectHideFlags: 0

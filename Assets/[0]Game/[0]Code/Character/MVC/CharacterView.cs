@@ -18,7 +18,17 @@ namespace Game
         private static readonly int MoveHash = Animator.StringToHash("IsMove");
         private static readonly int StartFlyHash = Animator.StringToHash("StartFly");
         private static readonly int EndFlyHash = Animator.StringToHash("EndFly");
+        private static readonly int StateHash = Animator.StringToHash("State");
 
+        private enum CharacterState
+        {
+            Idle = 0,
+            IdleDance = 1,
+            Damage = 2,
+            Move = 3,
+            Fly = 4
+        }
+        
         public void SetModel(CharacterModel model)
         {
             _model = model;
@@ -39,6 +49,7 @@ namespace Game
         private void OnSpeedChange(float speed)
         {
             _animator.SetBool(MoveHash, speed > 0);
+            //_animator.SetFloat(StateHash, (float)(speed > 0 ? CharacterState.Move : CharacterState.Idle));
         }
 
         private void OnDirectionChange(Vector2 value)
@@ -67,7 +78,13 @@ namespace Game
 
         private void OnFlyChange(bool value)
         {
-            _animator.SetTrigger(value ? StartFlyHash : EndFlyHash);
+            //_animator.SetTrigger(value ? StartFlyHash : EndFlyHash);
+            _animator.SetFloat(StateHash, (float)(value ? CharacterState.Fly : CharacterState.Idle));
+        }
+
+        public void Dance()
+        {
+            _animator.SetFloat(StateHash, (float)(CharacterState.IdleDance));
         }
     }
 }

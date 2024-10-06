@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -16,7 +15,12 @@ namespace Game
             _view = GetComponent<ActSlotView>();
         }
 
-        private IEnumerator Start()
+        private void Start()
+        {
+            GameData.Startup.StartCoroutine(AwaitMove());
+        }
+        
+        private IEnumerator AwaitMove()
         {
             var startPosition = transform.position;
             
@@ -39,6 +43,20 @@ namespace Game
         {
             Model.IsSelected = isSelected;
             UpdateView();
+
+            if (isSelected)
+            {
+                if (Model.IsSelectedOnce)
+                {
+                    GameData.Battle.AddProgress = Model.Act.Progress;
+                    EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
+                }
+                else
+                {
+                    GameData.Battle.AddProgress = 0;
+                    EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
+                }
+            }
         }
         
         private void UpdateView()

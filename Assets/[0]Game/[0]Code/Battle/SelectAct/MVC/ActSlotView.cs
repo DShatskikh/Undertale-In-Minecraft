@@ -9,7 +9,7 @@ namespace Game
     public class ActSlotView : MonoBehaviour
     {
         [SerializeField]
-        private Image _icon;
+        private Image _icon, _frame;
 
         [SerializeField]
         private TMP_Text _label;
@@ -17,28 +17,32 @@ namespace Game
         public void UpdateView(ActSlotModel model)
         {
             _label.text = "???";
-            StartCoroutine(AwaitTextUpgrade(model.Act.Name));
+            GameData.Startup.StartCoroutine(AwaitTextUpgrade(model.Act.Name));
             
             if (model.IsSelected)
             {
-                _icon.enabled = true;
+                _icon.sprite = GameData.AssetProvider.CharacterIcon;
+                _frame.color = GameData.AssetProvider.SelectColor;
                 _label.color = GameData.AssetProvider.SelectColor;
             }
             else
             {
-                _icon.enabled = false;
+                _icon.sprite = model.Act.Icon;
+                _frame.color = GameData.AssetProvider.DeselectColor;
                 _label.color = GameData.AssetProvider.DeselectColor;
             }
         }
 
         private IEnumerator AwaitTextUpgrade(LocalizedString text)
         {
+            gameObject.SetActive(false);
             var operation = text.GetLocalizedStringAsync();
             
             while (!operation.IsDone)
                 yield return null;
 
             _label.text = operation.Result;
+            gameObject.SetActive(true);
         }
     }
 }

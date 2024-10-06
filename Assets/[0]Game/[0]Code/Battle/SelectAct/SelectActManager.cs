@@ -5,6 +5,8 @@ namespace Game
 {
     public class SelectActManager : UIPanelBase
     {
+        private List<ActSlotModel> _models = new List<ActSlotModel>();
+        
         private void OnEnable()
         {
             var assetProvider = GameData.AssetProvider;
@@ -13,7 +15,7 @@ namespace Game
 
             for (int i = 0; i < acts.Length; i++)
             {
-                var model = new ActSlotModel(acts[i]);
+                var model = _models.Count == acts.Length ? _models[i] : new ActSlotModel(acts[i]);
                 var position = GameData.Battle.transform.position.AddX(i % 2 == 0 ? -distance.x : distance.x)
                     .AddY(i < 2 ? -distance.y : distance.y).AddY(1.5f);
                 var slot = Instantiate(assetProvider.ActSlotPrefab, position, Quaternion.identity, transform);
@@ -30,16 +32,27 @@ namespace Game
         
         private void OnDisable()
         {
-            foreach (var slot in _slots) 
+            _models = new List<ActSlotModel>();
+            
+            foreach (var slot in _slots)
+            {
+                var model = ((ActSlotController)slot.Value).Model;
+                model.IsSelected = false;
+                _models.Add(model);
                 Destroy(slot.Value.gameObject);
+            }
 
             _slots = new Dictionary<Vector2, BaseSlotController>();
+            GameData.Battle.AddProgress = null;
+            EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
         }
         
         public override void OnSubmit()
         {
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
-            GameData.Battle.Turn(((ActSlotController)_currentSlot).Model.Act);
+            var slot = (ActSlotController)_currentSlot;
+            slot.Model.IsSelectedOnce = true;
+            GameData.Battle.Turn(slot.Model.Act);
             gameObject.SetActive(false);
         }
 

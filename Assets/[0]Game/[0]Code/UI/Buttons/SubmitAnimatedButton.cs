@@ -1,18 +1,18 @@
 namespace Game
 {
-    public class SubmitAnimatedButton : DialogueButton
+    public class SubmitAnimatedButton : AnimatedButton
     {
-        public override void Enable()
+        protected override void Enable()
         {
-            EventBus.Submit += Down;
-            EventBus.SubmitUp += Up;
+            EventBus.Submit += _view.Down;
+            EventBus.SubmitUp += _view.Up;
             EventBus.SubmitUp += _button.onClick.Invoke;
         }
 
-        public override void Disable()
+        protected override void Disable()
         {
-            EventBus.Submit -= Down;
-            EventBus.SubmitUp -= Up;
+            EventBus.Submit -= _view.Down;
+            EventBus.SubmitUp -= _view.Up;
             EventBus.SubmitUp -= _button.onClick.Invoke;
         }
     }

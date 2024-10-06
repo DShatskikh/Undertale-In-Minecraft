@@ -38,6 +38,17 @@ namespace Game
 
             _localizedString.Arguments = new object[] { value };
             _label.text = _localizedString.GetLocalizedString();
+
+            var addProgress = GameData.Battle.AddProgress;
+            
+            if (addProgress == 0)
+                _label.text += $" (+?)";
+            else if (addProgress > 0)
+                _label.text += $"<Color=green> (+{addProgress}) </Color>";
+            else if (addProgress < 0)
+                _label.text += $"<Color=red> ({addProgress}) </Color>";
+            
+            print(addProgress);
         }
     }
 }
