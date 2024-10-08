@@ -28,10 +28,14 @@ namespace Game
 
             if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")) 
                 OnSlotIndexChanged(direction);
+
+            OnUpdate();
         }
 
         public abstract void OnSubmit();
         public abstract void OnCancel();
+
+        public virtual void OnUpdate() { }
 
         public virtual void OnSlotIndexChanged(Vector2 direction)
         {
