@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class GameplayMenu : UIPanelBase
+    public class GameplayMenu : MenuPanelBase
     {
         [SerializeField]
         private Transform _container;
@@ -21,44 +21,75 @@ namespace Game
 
         [SerializeField]
         private GameObject _menu;
-
+        
         [SerializeField]
-        private GameObject _inventory, _endings, _setting, _exit;
+        private InventoryScreen _inventory;
+        
+        [SerializeField]
+        private EndingsScreen _endings;
+        
+        [SerializeField]
+        private SettingScreen _setting;
+        
+        [SerializeField]
+        private ExitScreen _exit;
         
         private bool _isShow;
         private bool _isProcess;
-        private GameObject _currentScreen;
+        private MenuPanelBase _currentScreen;
+
+        private bool IsCanShow() => GameData.CharacterController.enabled;
+
+        private void OnEnable()
+        {
+            _isSelect = true;
+        }
 
         public override void OnUpdate()
         {
-            if (Input.GetButtonUp("Menu") && !_isProcess) 
-                StartCoroutine(_isShow ? AwaitHide() : AwaitShow());
+            if (Input.GetButtonUp("Menu") && !_isProcess)
+            {
+                if (_isShow)
+                {
+                    StartCoroutine(AwaitHide());
+                }
+                else if (IsCanShow())
+                {
+                    StartCoroutine(AwaitShow());
+                }
+            }
         }
-        
+
+        public override void Select()
+        {
+            base.Select();
+            _currentSlot.SetSelected(true);
+        }
+
+        public override void UnSelect()
+        {
+            base.UnSelect();
+            _currentSlot.SetSelected(false);
+        }
+
         public override void OnSubmit()
         {
-            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
-            var slot = (ActSlotController)_currentSlot;
-            slot.Model.IsSelectedOnce = true;
-            GameData.Battle.Turn(slot.Model.Act);
-            gameObject.SetActive(false);
+
         }
 
         public override void OnCancel() { }
 
         private IEnumerator AwaitShow()
         {
+            GameData.CharacterController.enabled = false;
             _menu.SetActive(true);
             
             if (!_currentScreen)
                 _currentScreen = _inventory;
             
-            _currentScreen.SetActive(false);
+            _currentScreen.Activate(false);
             
             var assetProvider = GameData.AssetProvider;
-            
-            Debug.Log($"{gameObject.name}: {assetProvider.GameplayMenuConfigs}");
-
             var slotsData = assetProvider.GameplayMenuConfigs;
 
             for (int i = 0; i < slotsData.Length; i++)
@@ -80,13 +111,15 @@ namespace Game
             yield return _showPlayer.PlayFeedbacksCoroutine(Vector3.zero);
             _isProcess = false;
             
-            _currentScreen.SetActive(true);
+            _currentScreen.Activate(true);
         }
 
         private IEnumerator AwaitHide()
         {
+            GameData.CharacterController.enabled = true;
+            
             if (_currentScreen)
-                _currentScreen.SetActive(false);
+                _currentScreen.Activate(false);
             
             _isShow = false;
             _isProcess = true;
@@ -103,6 +136,9 @@ namespace Game
 
         public override void OnSlotIndexChanged(Vector2 direction)
         {
+            if (!_isSelect)
+                return;
+            
             var newIndex = _currentIndex + direction;
             
             if (_slots.TryGetValue(newIndex, out var controller))
@@ -118,6 +154,12 @@ namespace Game
                     StartCoroutine(AwaitOnSlotIndexChanged(direction));
                 }
             }
+
+            if (direction.y == -1)
+            {
+                UnSelect();
+                _currentScreen.Select();
+            }
         }
 
         private IEnumerator AwaitOnSlotIndexChanged(Vector2 direction)
@@ -127,7 +169,7 @@ namespace Game
             yield return loadTextCommand.Await().ContinueWith(() => _selectSlotLabel.text = loadTextCommand.Result);
 
             if (_currentScreen)
-                _currentScreen.SetActive(false);
+                _currentScreen.Activate(false);
 
             _currentScreen = model.SlotType switch
             {
@@ -137,8 +179,8 @@ namespace Game
                 GameplayMenuSlotType.Exit => _exit,
                 _ => throw new ArgumentOutOfRangeException()
             };
-
-            _currentScreen.SetActive(true);
+            
+            _currentScreen.Activate(true);
         }
     }
 }

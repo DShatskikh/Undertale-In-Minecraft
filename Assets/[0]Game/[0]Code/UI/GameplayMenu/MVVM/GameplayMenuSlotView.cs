@@ -1,4 +1,4 @@
-using TMPro;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +12,9 @@ namespace Game
         [SerializeField]
         private Image _selectIcon;
 
+        [SerializeField]
+        private MMF_Player _selectPlayer;
+        
         public void Init(GameplayMenuSlotModel model)
         {
             _icon.sprite = model.Config.Icon;
@@ -24,6 +27,8 @@ namespace Game
                 _selectIcon.gameObject.SetActive(true);
                 _icon.color = GameData.AssetProvider.SelectColor;
                 _frame.color = GameData.AssetProvider.SelectColor;
+                
+                _selectPlayer.PlayFeedbacks();
             }
             else
             {

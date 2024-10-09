@@ -22,6 +22,7 @@ namespace Game
         public ActSlotController ActSlotPrefab;
         public TestButton TestButton;
         public GameplayMenuSlotViewModel GameplayMenuSlotPrefab;
+        public InventorySlotViewModel InventorySlotPrefab;
         
         [Header("Other")]
         public Color SelectColor;
