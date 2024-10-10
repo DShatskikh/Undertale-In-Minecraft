@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine.Localization;
 
-namespace Game.Commands
+namespace Game
 {
     public class LoadTextCommand
     {

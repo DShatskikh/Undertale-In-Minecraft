@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using Febucci.UI;
-using Game.Commands;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.ResourceManagement.AsyncOperations;

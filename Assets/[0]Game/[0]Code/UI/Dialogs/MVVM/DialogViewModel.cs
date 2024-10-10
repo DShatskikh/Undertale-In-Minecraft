@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using Febucci.UI;
-using Game.Commands;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -140,7 +139,6 @@ namespace Game
         {
             var loadTextCommand = new LoadTextCommand(_replicas[_indexReplica].LocalizationString);
             yield return loadTextCommand.Await().ContinueWith(() => _model.Text.Value = loadTextCommand.Result);
-            _model.Text.Value = loadTextCommand.Result;
             _isLoad = true;
         }
 
