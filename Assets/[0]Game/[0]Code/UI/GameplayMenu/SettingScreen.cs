@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -9,8 +11,12 @@ namespace Game
         [SerializeField]
         private MMF_Player _selectPlayer;
         
+        [FormerlySerializedAs("_gameplayMenu")]
         [SerializeField]
-        private GameplayMenu _gameplayMenu;
+        private MenuPanelBase _menu;
+
+        [SerializeField]
+        private bool _isExitUp = true;
         
         public override void Activate(bool isActive)
         {
@@ -19,22 +25,32 @@ namespace Game
             if (isActive)
             {
                 _selectPlayer.PlayFeedbacks();
+
+                _slots = new Dictionary<Vector2, BaseSlotController>();
+                var slots = GetComponentsInChildren<BaseSlotController>();
+                    
+                for (int i = 0; i < slots.Length; i++)
+                {
+                    _slots.Add(new Vector2(0, slots.Length - i - 1), slots[i]);
+                    slots[i].SetSelected(false);
+                }
+
+                _currentIndex = new Vector2(0, _slots.Count - 1);
             }
         }
 
         public override void Select()
         {
+            StartCoroutine(AwaitSelect());
+        }
+
+        private IEnumerator AwaitSelect()
+        {
+            yield return null;
             base.Select();
             
-            var slots = GetComponentsInChildren<BaseSlotController>();
-                    
-            for (int i = 0; i < slots.Length; i++)
-            {
-                _slots.Add(new Vector2(0, slots.Length - i - 1), slots[i]);
-                slots[i].SetSelected(false);
-            }
-                
-            slots[^1].SetSelected(true);
+            if (_slots.TryGetValue(_currentIndex, out var slot))
+                _currentSlot.SetSelected(true);
         }
 
         public override void UnSelect()
@@ -51,7 +67,14 @@ namespace Game
 
         public override void OnCancel()
         {
-            
+            UnSelect();
+            _menu.Select();
+
+            if (!_isExitUp)
+            {
+                Activate(false);
+                _menu.Activate(true); 
+            }
         }
         
         public override void OnSlotIndexChanged(Vector2 direction)
@@ -73,14 +96,17 @@ namespace Game
                     GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
                 }
             }
-            else
+            else if (direction is { y: 1, x: 0 } && _currentIndex.y == _slots.Count - 1)
             {
-                if (direction is { y: 1, x: 0 } && _currentIndex.y == _slots.Count - 1)
+                UnSelect();
+                    
+                if (!_isExitUp)
                 {
-                    UnSelect();
-                    _isSelect = false;
-                    _gameplayMenu.Select();
+                    Activate(false);
+                    _menu.Activate(true);
                 }
+                    
+                _menu.Select();
             }
         }
     }

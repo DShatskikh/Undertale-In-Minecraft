@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
@@ -7,29 +8,20 @@ using YG;
 
 namespace Game
 {
-    public class MainMenu : UIPanelBase
+    public class MainMenu : MenuPanelBase
     {
         [SerializeField]
         private Transform _container;
 
+        [SerializeField]
+        private SettingScreen _settingScreen;
+        
         [SerializeField]
         private MenuSlotConfig _startGameConfig, _continueConfig;
 
         [SerializeField]
         private MenuSlotViewModel _fullResetSlot;
         
-        [SerializeField]
-        private GameObject _menu;
-
-        [SerializeField]
-        private GameObject _notGamePreset;
-        
-        [SerializeField]
-        private GameObject _continuePreset;
-        
-        [SerializeField]
-        private GameObject _fullReset;
-
         [SerializeField]
         private GameObject _guide;
         
@@ -57,11 +49,6 @@ namespace Game
         [SerializeField]
         private GameObject _palesos;
 
-        private void Awake()
-        {
-            _menu.SetActive(false);
-        }
-
         /*private void Update()
         {
             if (Input.GetButtonDown("Cancel"))
@@ -74,13 +61,9 @@ namespace Game
             var slotsData = assetProvider.MenuSlotConfigs;
 
             if (!YandexGame.savesData.IsNotFirstPlay)
-            {
                 slotsData[0] = _startGameConfig;
-            }
             else
-            {
                 slotsData[0] = _continueConfig;
-            }
 
             for (int i = 0; i < slotsData.Length; i++)
             {
@@ -97,8 +80,9 @@ namespace Game
                 _slots.Add(new Vector2(0, slotsData.Length), _fullResetSlot);
             
             _currentIndex = new Vector2(0, _slots.Count - 1);
-            _slots[_currentIndex].SetSelected(true);
+            _currentSlot.SetSelected(true);
             
+            Activate(true);
             yield return LocalizationSettings.InitializationOperation;
 
             if (YandexGame.lang == "en")
@@ -119,19 +103,6 @@ namespace Game
             }
             else
             {
-                _menu.SetActive(true);
-
-                if (!YandexGame.savesData.IsNotIntroduction)
-                {
-                    _notGamePreset.SetActive(true);
-                    _continuePreset.SetActive(false);
-                }
-                else
-                {
-                    _notGamePreset.SetActive(false);
-                    _continuePreset.SetActive(true);
-                }
-
                 if (YandexGame.savesData.IsGoodEnd && YandexGame.savesData.IsBadEnd) 
                     _guide.SetActive(true);
 
@@ -140,10 +111,7 @@ namespace Game
 
                 if (YandexGame.savesData.IsPalesosEnd) 
                     _palesosEnd.SetActive(true);
-
-                if (YandexGame.savesData.IsGoldKey) 
-                    _fullReset.SetActive(true);
-
+                
                 if (YandexGame.savesData.IsCake) 
                     _cake.SetActive(true);
                 
@@ -164,6 +132,28 @@ namespace Game
             }
         }
 
+        private void OnDestroy()
+        {
+            foreach (var slot in _slots) 
+                Destroy(slot.Value.gameObject);
+
+            _slots = new Dictionary<Vector2, BaseSlotController>();
+        }
+
+        public override void Activate(bool isActive)
+        {
+            base.Activate(isActive);
+
+            if (isActive)
+            {
+
+            }
+            else
+            {
+                
+            }
+        }
+
         public override void OnSubmit()
         {
             switch (((MenuSlotViewModel)_currentSlot).Model.MenuSlotType)
@@ -176,7 +166,9 @@ namespace Game
                     SceneManager.LoadScene(1);
                     break;
                 case MenuSlotType.Setting:
-                    //Setting
+                    _settingScreen.Activate(true);
+                    _settingScreen.Select();
+                    Activate(false);
                     break;
                 case MenuSlotType.Exit:
                     Application.Quit();

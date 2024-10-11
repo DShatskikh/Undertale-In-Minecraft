@@ -17,6 +17,12 @@ namespace Game
         [SerializeField]
         private LocalizedString _localizedString;
 
+        [SerializeField]
+        private Sprite _iconSprite;
+
+        [SerializeField]
+        private Image _icon;
+        
         private VolumeSlotViewModel _viewModel;
         private bool _isInit;
 
@@ -47,10 +53,12 @@ namespace Game
             if (isSelect)
             {
                 _label.color = GameData.AssetProvider.SelectColor;
+                _icon.sprite = GameData.AssetProvider.CharacterIcon;
             }
             else
             {
                 _label.color = GameData.AssetProvider.DeselectColor;
+                _icon.sprite = _iconSprite;
             }
         }
         

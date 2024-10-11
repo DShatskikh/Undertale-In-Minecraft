@@ -135,7 +135,7 @@ namespace Game
 
         public override void OnSlotIndexChanged(Vector2 direction)
         {
-            if (!_isSelect)
+            if (!_isSelect || !_isShow)
                 return;
             
             var newIndex = _currentIndex + direction;

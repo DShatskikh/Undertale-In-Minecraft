@@ -1,10 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
 using YG;
 
 namespace Game
 {
-    public class VolumeSlotViewModel : BaseSlotController
+    public abstract class VolumeSlotViewModel : BaseSlotController
     {
         private VolumeSlotView _view;
 
@@ -20,11 +19,6 @@ namespace Game
         {
             _view.Init(this);
             Volume.Value = YandexGame.savesData.Volume;
-        }
-
-        private void OnDestroy()
-        {
-            
         }
 
         private void Update()
@@ -47,11 +41,6 @@ namespace Game
             _view.SetSelect(isSelect);
         }
 
-        public void OnSliderChanged(float value)
-        {
-            Volume.Value = value;
-            YandexGame.savesData.Volume = value;
-            GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, value));
-        }
+        public abstract void OnSliderChanged(float value);
     }
 }
