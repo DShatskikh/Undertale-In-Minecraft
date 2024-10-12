@@ -10,6 +10,7 @@ namespace Game
         protected Vector2 _currentIndex;
 
         protected BaseSlotController _currentSlot => _slots[_currentIndex];
+        public BaseSlotController CurrentSlot => _currentSlot;
 
         public virtual void Activate(bool isActive)
         {

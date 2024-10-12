@@ -1,5 +1,7 @@
+using System;
 using RimuruDev;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Game
@@ -14,7 +16,36 @@ namespace Game
         
         [SerializeField]
         private Joystick _joystick;
-        
+
+        public Vector2 MoveInput;
+
+        private PlayerInput _playerInput;
+
+        private InputAction _moveAction;
+
+        private void Awake()
+        {
+            _playerInput = GetComponent<PlayerInput>();
+
+            SetupInputActions();
+        }
+
+        private void Update()
+        {
+            UpdateInputs();
+        }
+
+        private void SetupInputActions()
+        {
+            _moveAction = _playerInput.actions["Move"];
+            
+        }
+
+        private void UpdateInputs()
+        {
+            MoveInput = _moveAction.ReadValue<Vector2>();
+        }
+
         public void Show()
         {
             _submitButton.gameObject.SetActive(true);
