@@ -19,7 +19,9 @@ namespace Game
         public GameplayMenuConfig[] GameplayMenuConfigs;
         public ExitSlotConfig[] ExitSlotConfigs;
         public MenuSlotConfig[] MenuSlotConfigs;
-
+        public ItemsConfigContainer ItemsConfigContainer;
+        public GuideConfig[] GuideConfigs;
+        
         [Header("Prefabs")]
         public ActSlotController ActSlotPrefab;
         public TestButton TestButton;
@@ -27,6 +29,7 @@ namespace Game
         public InventorySlotViewModel InventorySlotPrefab;
         public ExitSlotViewModel ExitSlotPrefab;
         public MenuSlotViewModel MenuSlotPrefab;
+        public GuideSlotViewModel GuideSlotPrefab;
         
         [Header("Other")]
         public Color SelectColor;

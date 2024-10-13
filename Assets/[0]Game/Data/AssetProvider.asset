@@ -28,15 +28,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 89cf5525ad5c7424db80a50be7b301f7, type: 2}
   - {fileID: 11400000, guid: 331f51f8b02517d488a2e07d0f0f86c6, type: 2}
   MenuSlotConfigs:
-  - {fileID: 11400000, guid: d1f7b25e9d49e8045a719e6f5fd8aa45, type: 2}
   - {fileID: 11400000, guid: d0fd8f1f946dc894784de4e1ae9598fd, type: 2}
   - {fileID: 11400000, guid: 2f3cd1edf8b985744b5a8e88e19e016d, type: 2}
+  ItemsConfigContainer: {fileID: 11400000, guid: a1ddee2ee61909f49931f71e757a479c, type: 2}
+  GuideConfigs:
+  - {fileID: 11400000, guid: f4cbfd29473024a4fa5d2ee462b218db, type: 2}
+  - {fileID: 11400000, guid: 988eaf1dbd502ae419baddece649a695, type: 2}
+  - {fileID: 11400000, guid: 249b3edd7dc5ba14196872e1ef82c009, type: 2}
+  - {fileID: 11400000, guid: 030545105b2eff64dafbf1251fbc5928, type: 2}
+  - {fileID: 11400000, guid: 24fe33c966fa21144b8cea30c9a94915, type: 2}
+  - {fileID: 11400000, guid: bdc8af23e03b95e4c9b55d4d98eb7257, type: 2}
   ActSlotPrefab: {fileID: 8027494126404655843, guid: 81c081ce26cc36d4394465f3433421cf, type: 3}
   TestButton: {fileID: 3697516056089641728, guid: 87b0b1cfc1dd1954e967b4a748e1c609, type: 3}
   GameplayMenuSlotPrefab: {fileID: 9179852214749871751, guid: 0a27421ac43a8c54a996d96579b3f698, type: 3}
   InventorySlotPrefab: {fileID: 9008230540406945208, guid: 1f9c50853fba7d94e8a6f33041dee257, type: 3}
   ExitSlotPrefab: {fileID: 5017060091444888361, guid: 9384f017418ad94488a16d0e011551ea, type: 3}
   MenuSlotPrefab: {fileID: 7653444289477782169, guid: be1b2bfe938cc60429093fb2fa9fd4d7, type: 3}
+  GuideSlotPrefab: {fileID: 7649450276483069210, guid: 3bbf1e23f2a5b7f4d9eb6fb4c6862102, type: 3}
   SelectColor: {r: 1, g: 0.9333334, b: 0.2509804, a: 1}
   DeselectColor: {r: 0, g: 0.6, b: 1, a: 1}
   CharacterIcon: {fileID: -2083921280, guid: 2fa026478351bf04499509ec41acad17, type: 3}

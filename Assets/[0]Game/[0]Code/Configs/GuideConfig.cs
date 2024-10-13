@@ -4,7 +4,7 @@ using UnityEngine.Localization;
 namespace Game
 {
     [CreateAssetMenu(fileName = "Gide", menuName = "Data/Gide", order = 35)]
-    public class GideConfig : ScriptableObject
+    public class GuideConfig : ScriptableObject
     {
         public Sprite Picture;
         public Sprite Icon;

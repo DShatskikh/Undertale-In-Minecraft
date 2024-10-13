@@ -17,10 +17,13 @@ namespace Game
         private SettingScreen _settingScreen;
         
         [SerializeField]
-        private MenuSlotConfig _startGameConfig, _continueConfig;
+        private MenuSlotConfig _startGameConfig, _continueConfig, _resetConfig;
 
         [SerializeField]
         private MenuSlotViewModel _fullResetSlot;
+
+        [SerializeField]
+        private ResetScreen _resetScreen;
         
         [SerializeField]
         private GameObject _guide;
@@ -58,26 +61,32 @@ namespace Game
         private IEnumerator Start()
         {
             var assetProvider = GameData.AssetProvider;
-            var slotsData = assetProvider.MenuSlotConfigs;
+            var slotsData = new List<MenuSlotConfig>();
 
             if (!YandexGame.savesData.IsNotFirstPlay)
-                slotsData[0] = _startGameConfig;
+                slotsData.Add(_startGameConfig);
             else
-                slotsData[0] = _continueConfig;
+            {
+                slotsData.Add(_continueConfig);
+                slotsData.Add(_resetConfig);
+            }
+            
+            foreach (var config in assetProvider.MenuSlotConfigs) 
+                slotsData.Add(config);
 
-            for (int i = 0; i < slotsData.Length; i++)
+            for (int i = 0; i < slotsData.Count; i++)
             {
                 var model = slotsData[i];
                 var slot = Instantiate(assetProvider.MenuSlotPrefab, _container);
                 slot.Model = model;
-                int rowIndex = slotsData.Length - i - 1;
+                int rowIndex = slotsData.Count - i - 1;
                 int columnIndex = 0;
                 slot.SetSelected(false);
                 _slots.Add(new Vector2(columnIndex, rowIndex), slot);
             }
             
             if (YandexGame.savesData.IsGoldKey) 
-                _slots.Add(new Vector2(0, slotsData.Length), _fullResetSlot);
+                _slots.Add(new Vector2(0, slotsData.Count), _fullResetSlot);
             
             _currentIndex = new Vector2(0, _slots.Count - 1);
             _currentSlot.SetSelected(true);
@@ -173,8 +182,12 @@ namespace Game
                 case MenuSlotType.Exit:
                     Application.Quit();
                     break;
-                case MenuSlotType.Reset:
+                case MenuSlotType.FullReset:
                     YandexGame.savesData.FullReset();
+                    break;
+                case MenuSlotType.Reset:
+                    Activate(false);
+                    _resetScreen.Activate(true);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

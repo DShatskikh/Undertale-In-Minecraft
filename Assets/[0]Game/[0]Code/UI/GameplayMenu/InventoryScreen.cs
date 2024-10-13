@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
+using PixelCrushers.DialogueSystem;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -15,29 +18,44 @@ namespace Game
 
         [SerializeField]
         private GameplayMenu _gameplayMenu;
+
+        [SerializeField]
+        private Image _icon, _frame;
+
+        [SerializeField]
+        private TMP_Text _nameLabel, _descriptionLabel;
+
+        [SerializeField]
+        private Button _useButton;
         
         public override void Activate(bool isActive)
         {
             base.Activate(isActive);
 
+            HideItemUI();
+
             if (isActive)
             {
-                _selectPlayer.PlayFeedbacks();
+                Lua.Run("Variable[\"IsHackerMask\"] = true");
+                Lua.Run("Variable[\"IsPrisonKey\"] = true");
                 
-                var assetProvider = GameData.AssetProvider;
+                _selectPlayer.PlayFeedbacks();
 
-                for (int i = 0; i < 5; i++)
+                var assetProvider = GameData.AssetProvider;
+                var itemConfigs = assetProvider.ItemsConfigContainer.GetAvailableItems();
+
+                for (int i = 0; i < itemConfigs.Length; i++)
                 {
-                    var model = new InventorySlotModel();
+                    var model = itemConfigs[i];
                     var slot = Instantiate(assetProvider.InventorySlotPrefab, _container);
                     slot.Model = model;
-                    int rowIndex = 4 - i;
+                    int rowIndex = itemConfigs.Length - i - 1;
                     int columnIndex = 0;
                     slot.SetSelected(false);
                     _slots.Add(new Vector2(columnIndex, rowIndex), slot);
                 }
             
-                _currentIndex = new Vector2(0, 4);
+                _currentIndex = new Vector2(0, itemConfigs.Length - 1);
             }
             else
             {
@@ -50,6 +68,7 @@ namespace Game
 
         public override void Select()
         {
+            HideItemUI();
             StartCoroutine(AwaitSelect());
         }
 
@@ -58,12 +77,14 @@ namespace Game
             yield return null;
             base.Select();
             _slots[_currentIndex].SetSelected(true);
+            ShowItemUI();
         }
 
         public override void UnSelect()
         {
             base.Select();
             _slots[_currentIndex].SetSelected(false);
+            HideItemUI();
         }
         
         public override void OnSubmit()
@@ -93,16 +114,48 @@ namespace Game
                     _currentIndex = newIndex;
                     
                     GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
+
+                    ShowItemUI();
                 }
             }
             else
             {
-                if (direction.y == 1 && _currentIndex.y == 4)
+                if (direction.y == 1 && _currentIndex.y == _slots.Count - 1)
                 {
                     UnSelect();
                     _isSelect = false;
                     _gameplayMenu.Select();
                 }
+            }
+        }
+
+        private void HideItemUI()
+        {
+            _icon.gameObject.SetActive(false);
+            _nameLabel.gameObject.SetActive(false);
+            _descriptionLabel.gameObject.SetActive(false);
+            _useButton.gameObject.SetActive(false);
+            _frame.gameObject.SetActive(false);
+        }
+
+        private void ShowItemUI()
+        {
+            _icon.gameObject.SetActive(true);
+            _nameLabel.gameObject.SetActive(true);
+            _descriptionLabel.gameObject.SetActive(true);
+            _frame.gameObject.SetActive(true);
+                    
+            var config = ((InventorySlotViewModel)_currentSlot).Model;
+            _icon.sprite = config.Icon;
+
+            if (config is IUsable usable)
+            {
+                //usable.Use();
+                _useButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                _useButton.gameObject.SetActive(false);
             }
         }
     }

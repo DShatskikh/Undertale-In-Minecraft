@@ -6,6 +6,7 @@ namespace Game
         Continue,
         Setting,
         Exit,
+        FullReset,
         Reset
     }
 }

@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -20,13 +22,13 @@ namespace Game
 
         [SerializeField]
         private Sprite _iconSprite;
-        
-        private KeySlotViewModel _viewModel;
 
-        public void Init(KeySlotViewModel viewModel, string keyHash)
+        [SerializeField]
+        private LocalizedString _localizedString;
+
+        public void Init()
         {
-            _viewModel = viewModel;
-            _keyLabel.text = "[Z]";
+            StartCoroutine(AwaitLoad());
         }
 
         public void SetSelect(bool isSelect, bool isRight)
@@ -59,6 +61,7 @@ namespace Game
                 _frame.color = GameData.AssetProvider.DeselectColor;
                 _resetFrame.color = GameData.AssetProvider.DeselectColor; 
                 _frame.color = GameData.AssetProvider.DeselectColor; 
+                _resetLabel.color = GameData.AssetProvider.DeselectColor; 
             }
         }
         
@@ -78,6 +81,12 @@ namespace Game
             }
             
             _keyLabel.text = displayString;
+        }
+        
+        private IEnumerator AwaitLoad()
+        {
+            var loadTextCommand = new LoadTextCommand(_localizedString);
+            yield return loadTextCommand.Await().ContinueWith(() => _nameLabel.text = loadTextCommand.Result);
         }
     }
 }

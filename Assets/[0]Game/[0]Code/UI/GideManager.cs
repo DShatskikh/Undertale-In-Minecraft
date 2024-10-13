@@ -22,7 +22,7 @@ namespace Game
         private GideButton _prefab;
         
         [SerializeField]
-        private List<GideConfig> _configs;
+        private List<GuideConfig> _configs;
         
         private List<GideButton> _buttons = new List<GideButton>();
         

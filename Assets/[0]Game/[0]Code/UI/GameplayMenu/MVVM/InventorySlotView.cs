@@ -12,13 +12,17 @@ namespace Game
 
         [SerializeField]
         private TMP_Text _label;
-        
-        public void Init(InventorySlotModel model)
+
+        private ItemConfig _model;
+
+        public void Init(ItemConfig model)
         {
             //_icon.sprite = model.Config.Icon;
+            _model = model;
+            _icon.sprite = _model.Icon;
         }
 
-        public void Upgrade(bool isSelect, InventorySlotModel model)
+        public void Upgrade(bool isSelect)
         {
             if (isSelect)
             {
@@ -27,7 +31,7 @@ namespace Game
             }
             else
             {
-                _icon.sprite = null;
+                _icon.sprite = _model.Icon;
                 _label.color = GameData.AssetProvider.DeselectColor;
             }
         }

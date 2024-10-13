@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace Game
 
         [SerializeField]
         private Transform _container;
+
+        private bool _isOpen;
         
         public override void Activate(bool isActive)
         {
@@ -58,6 +61,8 @@ namespace Game
         {
             base.UnSelect();
             _currentSlot.SetSelected(false);
+
+            _isOpen = false;
         }
         
         public override void OnSubmit()
@@ -87,6 +92,12 @@ namespace Game
         {
             if (!_isSelect)
                 return;
+
+            if (!_isOpen)
+            {
+                _isOpen = true;
+                return;
+            }
             
             var newIndex = _currentIndex + direction;
             

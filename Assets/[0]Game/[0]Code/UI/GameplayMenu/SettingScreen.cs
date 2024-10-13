@@ -37,6 +37,10 @@ namespace Game
 
                 _currentIndex = new Vector2(0, _slots.Count - 1);
             }
+            else
+            {
+                _slots = new Dictionary<Vector2, BaseSlotController>();
+            }
         }
 
         public override void Select()
@@ -57,12 +61,18 @@ namespace Game
         {
             base.UnSelect();
             _currentSlot.SetSelected(false);
-            _slots = new Dictionary<Vector2, BaseSlotController>();
         }
 
         public override void OnSubmit()
         {
+            if (!_isSelect)
+                return;
             
+            if (_currentSlot is LanguageSlotViewModel languageSlotView)
+            {
+                UnSelect();
+                languageSlotView.Click();
+            }
         }
 
         public override void OnCancel()
@@ -98,15 +108,13 @@ namespace Game
             }
             else if (direction is { y: 1, x: 0 } && _currentIndex.y == _slots.Count - 1)
             {
-                UnSelect();
-                    
-                if (!_isExitUp)
+                if (_isExitUp)
                 {
+                    UnSelect();
                     Activate(false);
                     _menu.Activate(true);
+                    _menu.Select();
                 }
-                    
-                _menu.Select();
             }
         }
     }

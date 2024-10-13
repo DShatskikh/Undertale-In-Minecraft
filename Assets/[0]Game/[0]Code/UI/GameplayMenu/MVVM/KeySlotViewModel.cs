@@ -26,7 +26,7 @@ namespace Game
 
         private void Start()
         {
-            //_view.Init(this, _keyHash);
+            _view.Init();
             UpdateBindingDisplay();
         }
 

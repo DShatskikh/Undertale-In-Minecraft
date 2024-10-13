@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -24,8 +25,10 @@ namespace Game
         [SerializeField]
         private InventoryScreen _inventory;
         
+        [FormerlySerializedAs("encyclopedia")]
+        [FormerlySerializedAs("_endings")]
         [SerializeField]
-        private EndingsScreen _endings;
+        private GuideScreen guide;
         
         [SerializeField]
         private SettingScreen _setting;
@@ -150,6 +153,23 @@ namespace Game
                     _currentIndex = newIndex;
                     
                     GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
+                    
+                    if (_currentScreen)
+                        _currentScreen.Activate(false);
+
+                    var model = ((GameplayMenuSlotViewModel)_slots[_currentIndex]).Model.Config;
+                    
+                    _currentScreen = model.SlotType switch
+                    {
+                        GameplayMenuSlotType.Inventory => _inventory,
+                        GameplayMenuSlotType.Endings => guide,
+                        GameplayMenuSlotType.Setting => _setting,
+                        GameplayMenuSlotType.Exit => _exit,
+                        _ => throw new ArgumentOutOfRangeException()
+                    };
+            
+                    _currentScreen.Activate(true);
+                    
                     StartCoroutine(AwaitOnSlotIndexChanged(direction));
                 }
             }
@@ -166,20 +186,6 @@ namespace Game
             var model = ((GameplayMenuSlotViewModel)_slots[_currentIndex]).Model.Config;
             var loadTextCommand = new LoadTextCommand(model.Name);
             yield return loadTextCommand.Await().ContinueWith(() => _selectSlotLabel.text = loadTextCommand.Result);
-
-            if (_currentScreen)
-                _currentScreen.Activate(false);
-
-            _currentScreen = model.SlotType switch
-            {
-                GameplayMenuSlotType.Inventory => _inventory,
-                GameplayMenuSlotType.Endings => _endings,
-                GameplayMenuSlotType.Setting => _setting,
-                GameplayMenuSlotType.Exit => _exit,
-                _ => throw new ArgumentOutOfRangeException()
-            };
-            
-            _currentScreen.Activate(true);
         }
     }
 }
