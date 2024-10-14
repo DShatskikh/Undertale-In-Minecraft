@@ -47,13 +47,18 @@ namespace Game
             EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
         }
         
-        public override void OnSubmit()
+        public override void OnSubmitDown()
         {
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
             var slot = (ActSlotController)_currentSlot;
             slot.Model.IsSelectedOnce = true;
             GameData.Battle.Turn(slot.Model.Act);
             gameObject.SetActive(false);
+        }
+
+        public override void OnSubmitUp()
+        {
+            throw new System.NotImplementedException();
         }
 
         public override void OnCancel() { }

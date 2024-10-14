@@ -25,14 +25,14 @@ namespace Game
 
         private void Awake()
         {
-            _playerInput = GetComponent<PlayerInput>();
+            //_playerInput = GetComponent<PlayerInput>();
 
-            SetupInputActions();
+            //SetupInputActions();
         }
 
         private void Update()
         {
-            UpdateInputs();
+            //UpdateInputs();
         }
 
         private void SetupInputActions()
@@ -43,7 +43,7 @@ namespace Game
 
         private void UpdateInputs()
         {
-            MoveInput = _moveAction.ReadValue<Vector2>();
+            //MoveInput = _moveAction.ReadValue<Vector2>();
         }
 
         public void Show()

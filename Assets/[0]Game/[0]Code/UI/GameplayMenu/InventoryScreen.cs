@@ -87,7 +87,7 @@ namespace Game
             HideItemUI();
         }
         
-        public override void OnSubmit()
+        public override void OnSubmitDown()
         {
             
         }

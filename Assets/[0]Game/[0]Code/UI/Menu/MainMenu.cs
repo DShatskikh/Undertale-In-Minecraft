@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using YG;
 
@@ -27,38 +25,8 @@ namespace Game
         
         [SerializeField]
         private GameObject _guide;
-        
-        [SerializeField]
-        private GameObject _cake;
-        
-        [SerializeField]
-        private GameObject _mask;
-        
-        [SerializeField]
-        private GameObject _badEnd;
-        
-        [SerializeField]
-        private GameObject _goodEnd;
-        
-        [SerializeField]
-        private GameObject _strangeEnd;
-        
-        [SerializeField]
-        private GameObject _palesosEnd;
-                
-        [SerializeField]
-        private GameObject _winDesiccant;
-        
-        [SerializeField]
-        private GameObject _palesos;
 
-        /*private void Update()
-        {
-            if (Input.GetButtonDown("Cancel"))
-                YandexGame.ResetSaveProgress();
-        }*/
-
-        private IEnumerator Start()
+        private void Start()
         {
             var assetProvider = GameData.AssetProvider;
             var slotsData = new List<MenuSlotConfig>();
@@ -87,58 +55,14 @@ namespace Game
             
             if (YandexGame.savesData.IsGoldKey) 
                 _slots.Add(new Vector2(0, slotsData.Count), _fullResetSlot);
-            
+
+            foreach (var slot in _slots) 
+                ((MenuSlotViewModel)slot.Value).Init(this);
+
             _currentIndex = new Vector2(0, _slots.Count - 1);
             _currentSlot.SetSelected(true);
             
             Activate(true);
-            yield return LocalizationSettings.InitializationOperation;
-
-            if (YandexGame.lang == "en")
-            {
-                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
-                yield return LocalizationSettings.InitializationOperation;  
-            }
-
-            yield return new WaitUntil(() => GameData.IsLoad);
-            
-            if (!YandexGame.savesData.IsNotFirstPlay)
-            {
-                print("IsNotFirstPlay False");
-                YandexGame.savesData.IsNotFirstPlay = true;
-                YandexGame.SaveProgress();
-                //yield return new WaitUntil(() => Input.GetButtonDown("Submit"));
-                SceneManager.LoadScene(1);
-            }
-            else
-            {
-                if (YandexGame.savesData.IsGoodEnd && YandexGame.savesData.IsBadEnd) 
-                    _guide.SetActive(true);
-
-                if (YandexGame.savesData.IsStrangeEnd) 
-                    _strangeEnd.SetActive(true);
-
-                if (YandexGame.savesData.IsPalesosEnd) 
-                    _palesosEnd.SetActive(true);
-                
-                if (YandexGame.savesData.IsCake) 
-                    _cake.SetActive(true);
-                
-                if (YandexGame.savesData.IsCheat) 
-                    _mask.SetActive(true);
-                
-                if (YandexGame.savesData.IsBadEnd) 
-                    _badEnd.SetActive(true);
-                
-                if (YandexGame.savesData.IsGoodEnd) 
-                    _goodEnd.SetActive(true);
-                
-                if (YandexGame.savesData.Palesos != 0)
-                    _palesos.SetActive(true);
-                
-                //if (YandexGame.savesData.IsGoodEnd) 
-                //    _winDesiccant.SetActive(true);
-            }
         }
 
         private void OnDestroy()
@@ -155,16 +79,23 @@ namespace Game
 
             if (isActive)
             {
-
+                Select();
             }
             else
             {
-                
+                UnSelect();
             }
         }
 
-        public override void OnSubmit()
+        public override void OnSubmitDown()
         {
+            _currentSlot.SubmitDown();
+        }
+
+        public override void OnSubmitUp()
+        {
+            _currentSlot.SubmitUp();
+            
             switch (((MenuSlotViewModel)_currentSlot).Model.MenuSlotType)
             {
                 case MenuSlotType.StartGame:

@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game
 {
@@ -37,6 +39,35 @@ namespace Game
         {
             _isSelect = isSelect;
             _view.Upgrade(isSelect, false);
+
+            if (isSelect)
+            {
+                
+            }
+            else
+            {
+                GameData.PlayerInput.actions["Submit"].performed -= OnSubmitPerformed;
+                GameData.PlayerInput.actions["Move"].performed -= OnMovePerformed;
+            }
+        }
+
+        private void OnSubmitPerformed(InputAction.CallbackContext obj)
+        {
+            Debug.Log("OnSubmitPerformed");
+            _dropdown.value = _selectIndex;
+            _dropdown.Show();
+            OnItemSelect(_selectIndex);
+            
+            GameData.PlayerInput.actions["Submit"].performed -= OnSubmitPerformed;
+            GameData.PlayerInput.actions["Move"].performed -= OnMovePerformed;
+        }
+
+        private void OnMovePerformed(InputAction.CallbackContext obj)
+        {
+            if (!_isShowDropdown)
+                return;
+            
+            Select(_selectIndex - (int)obj.ReadValue<Vector2>().y);
         }
 
         public void Click()
@@ -44,38 +75,28 @@ namespace Game
             _isSelect = true;
             _isShowDropdown = true;
 
-            if (_isShowDropdown)
-            {
-                _dropdown.Show();
-                Select(0);
-            }
-
             _view.Upgrade(_isSelect, _isShowDropdown);
+            _dropdown.Hide();
+            StartCoroutine(AwaitClick());
         }
 
-        private void Update()
+        private IEnumerator AwaitClick()
         {
-            if (!_isShowDropdown)
-                return;
-            
-            if (Input.GetButtonDown("Vertical")) 
-                Select(_selectIndex - (int)Input.GetAxisRaw("Vertical"));
+            yield return null;
+            Select(_selectIndex);
 
-            if (Input.GetButtonDown("Submit"))
-            {
-                _dropdown.value = _selectIndex;
-                _dropdown.Hide();
-                //_view.Upgrade(_isSelect, _isShowDropdown);
-                
-                //_settingScreen.Select();
-                OnItemSelect(_selectIndex);
-            }
+            Debug.Log("Click");
+            GameData.PlayerInput.actions["Submit"].performed += OnSubmitPerformed;
+            GameData.PlayerInput.actions["Move"].performed += OnMovePerformed;
         }
-
+        
         private void Select(int index)
         {
             var items = _dropdown.GetComponentsInChildren<DropdownItem>();
 
+            if (index == -1)
+                index = items.Length - 1;
+            
             if (index >= items.Length)
                 index = items.Length - 1;
             else if (index < 0)

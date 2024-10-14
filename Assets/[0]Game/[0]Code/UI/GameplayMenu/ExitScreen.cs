@@ -18,8 +18,6 @@ namespace Game
         [SerializeField]
         private Transform _container;
 
-        private bool _isOpen;
-        
         public override void Activate(bool isActive)
         {
             base.Activate(isActive);
@@ -61,11 +59,9 @@ namespace Game
         {
             base.UnSelect();
             _currentSlot.SetSelected(false);
-
-            _isOpen = false;
         }
         
-        public override void OnSubmit()
+        public override void OnSubmitDown()
         {
             if (!_isSelect)
                 return;
@@ -92,12 +88,6 @@ namespace Game
         {
             if (!_isSelect)
                 return;
-
-            if (!_isOpen)
-            {
-                _isOpen = true;
-                return;
-            }
             
             var newIndex = _currentIndex + direction;
             

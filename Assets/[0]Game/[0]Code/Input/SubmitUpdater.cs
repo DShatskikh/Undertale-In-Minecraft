@@ -1,16 +1,20 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Game
 {
     public class SubmitUpdater : MonoBehaviour
     {
-        private void Update()
+        private void Awake()
         {
-            if (Input.GetButtonDown("Submit")) 
-                EventBus.Submit?.Invoke();
+            GameData.PlayerInput.actions["Submit"].performed += context => EventBus.Submit?.Invoke();
+            GameData.PlayerInput.actions["Submit"].canceled +=  context => EventBus.SubmitUp?.Invoke();
+        }
 
-            if (Input.GetButtonUp("Submit")) 
-                EventBus.SubmitUp?.Invoke();
+        private void OnDestroy()
+        {
+            GameData.PlayerInput.actions["Submit"].performed -= context => EventBus.Submit?.Invoke();
+            GameData.PlayerInput.actions["Submit"].canceled -=  context => EventBus.SubmitUp?.Invoke();
         }
     }
 }

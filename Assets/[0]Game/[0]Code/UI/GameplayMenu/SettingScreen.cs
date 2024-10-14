@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -11,7 +10,6 @@ namespace Game
         [SerializeField]
         private MMF_Player _selectPlayer;
         
-        [FormerlySerializedAs("_gameplayMenu")]
         [SerializeField]
         private MenuPanelBase _menu;
 
@@ -33,6 +31,9 @@ namespace Game
                 {
                     _slots.Add(new Vector2(0, slots.Length - i - 1), slots[i]);
                     slots[i].SetSelected(false);
+                    
+                    if (slots[i] is VolumeSlotViewModel volumeSlot)
+                        volumeSlot.Init(this);
                 }
 
                 _currentIndex = new Vector2(0, _slots.Count - 1);
@@ -63,7 +64,7 @@ namespace Game
             _currentSlot.SetSelected(false);
         }
 
-        public override void OnSubmit()
+        public override void OnSubmitDown()
         {
             if (!_isSelect)
                 return;
@@ -92,30 +93,18 @@ namespace Game
             if (!_isSelect)
                 return;
             
-            var newIndex = _currentIndex + direction;
-            
-            if (_slots.TryGetValue(newIndex, out var controller))
-            {
-                if (controller != null)
-                {
-                    controller.SetSelected(true);
-                    var oldVM = _slots[_currentIndex];
-                    oldVM.SetSelected(false);
-                    _currentIndex = newIndex;
-                    
-                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
-                }
-            }
-            else if (direction is { y: 1, x: 0 } && _currentIndex.y == _slots.Count - 1)
+            if (direction is { y: 1, x: 0 } && _currentIndex.y == _slots.Count - 1)
             {
                 if (_isExitUp)
                 {
                     UnSelect();
-                    Activate(false);
-                    _menu.Activate(true);
+                    //Activate(false);
+                    //_menu.Activate(true);
                     _menu.Select();
                 }
             }
+            
+            base.OnSlotIndexChanged(direction);
         }
     }
 }

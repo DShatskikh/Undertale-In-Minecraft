@@ -1,16 +1,20 @@
+using System;
 using UnityEngine;
 
 namespace Game
 {
     public class CancelUpdater : MonoBehaviour
     {
-        private void Update()
+        private void Awake()
         {
-            if (Input.GetButtonDown("Cancel")) 
-                EventBus.Cancel?.Invoke();
-            
-            if (Input.GetButtonUp("Cancel")) 
-                EventBus.CancelUp?.Invoke();
+            GameData.PlayerInput.actions["Cancel"].performed += context => EventBus.Cancel?.Invoke();
+            GameData.PlayerInput.actions["Cancel"].canceled +=  context => EventBus.CancelUp?.Invoke();
+        }
+        
+        private void OnDestroy()
+        {
+            GameData.PlayerInput.actions["Cancel"].performed -= context => EventBus.Cancel?.Invoke();
+            GameData.PlayerInput.actions["Submit"].canceled -=  context => EventBus.CancelUp?.Invoke();
         }
     }
 }

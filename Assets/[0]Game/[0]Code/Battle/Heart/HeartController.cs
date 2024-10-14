@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Analytics;
+using UnityEngine.InputSystem;
 using YG;
 
 namespace Game
@@ -31,21 +32,26 @@ namespace Game
             _view.SetModel(_model);
         }
 
+        private void OnMovePerformed(InputAction.CallbackContext obj)
+        {
+            _model.SetDirection(obj.ReadValue<Vector2>().normalized);
+        }
+
         private void OnEnable()
         {
             _model.IsInvulnerability = false;
+            GameData.PlayerInput.actions["Move"].performed += OnMovePerformed;
         }
 
         private void OnDisable()
         {
             _model.SetSpeed(0);
+            GameData.PlayerInput.actions["Move"].performed -= OnMovePerformed;
         }
 
         private void Update()
         {
             var position = (Vector2)transform.position;
-            
-            _model.SetDirection(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized);
 
             if (_model.Direction == Vector2.zero && GameData.Joystick.Direction.magnitude > 0.5f)
                 _model.Direction = GameData.Joystick.Direction.normalized;

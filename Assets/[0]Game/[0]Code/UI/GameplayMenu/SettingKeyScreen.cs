@@ -61,7 +61,7 @@ namespace Game
 
         }
 
-        public override void OnSubmit()
+        public override void OnSubmitDown()
         {
             if (!_isSelect)
                 return;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 namespace Game
@@ -25,8 +26,6 @@ namespace Game
         [SerializeField]
         private InventoryScreen _inventory;
         
-        [FormerlySerializedAs("encyclopedia")]
-        [FormerlySerializedAs("_endings")]
         [SerializeField]
         private GuideScreen guide;
         
@@ -44,23 +43,15 @@ namespace Game
 
         private void OnEnable()
         {
-            _isSelect = true;
+            GameData.PlayerInput.actions["Menu"].performed += OnMenuPerformed;
         }
 
-        public override void OnUpdate()
+        private void OnDisable()
         {
-            if (Input.GetButtonUp("Menu") && !_isProcess)
-            {
-                if (_isShow)
-                {
-                    StartCoroutine(AwaitHide());
-                }
-                else if (IsCanShow())
-                {
-                    StartCoroutine(AwaitShow());
-                }
-            }
+            GameData.PlayerInput.actions["Menu"].performed -= OnMenuPerformed;
         }
+
+        public override void OnUpdate() { }
 
         public override void Select()
         {
@@ -74,10 +65,31 @@ namespace Game
             _currentSlot.SetSelected(false);
         }
 
-        public override void OnSubmit()
+        private void OnMenuPerformed(InputAction.CallbackContext obj)
         {
-
+            if (!_isProcess)
+            {
+                if (_isShow)
+                {
+                    StartCoroutine(AwaitHide());
+                }
+                else 
+                    TryShow();
+            }
         }
+
+        public bool TryShow()
+        {
+            if (IsCanShow())
+            {
+                StartCoroutine(AwaitShow());
+                return true;
+            }
+            
+            return false;
+        }
+        
+        public override void OnSubmitDown() { }
 
         public override void OnCancel() { }
 
@@ -90,7 +102,7 @@ namespace Game
                 _currentScreen = _inventory;
             
             _currentScreen.Activate(false);
-            
+
             var assetProvider = GameData.AssetProvider;
             var slotsData = assetProvider.GameplayMenuConfigs;
 
@@ -114,6 +126,7 @@ namespace Game
             _isProcess = false;
             
             _currentScreen.Activate(true);
+            Select();
         }
 
         private IEnumerator AwaitHide()
@@ -128,6 +141,8 @@ namespace Game
             yield return _hidePlayer.PlayFeedbacksCoroutine(Vector3.zero);
             _isProcess = false;
             
+            UnSelect();
+            
             foreach (var slot in _slots) 
                 Destroy(slot.Value.gameObject);
 
@@ -141,51 +156,41 @@ namespace Game
             if (!_isSelect || !_isShow)
                 return;
             
-            var newIndex = _currentIndex + direction;
-            
-            if (_slots.TryGetValue(newIndex, out var controller))
-            {
-                if (controller != null)
-                {
-                    controller.SetSelected(true);
-                    var oldVM = _slots[_currentIndex];
-                    oldVM.SetSelected(false);
-                    _currentIndex = newIndex;
-                    
-                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
-                    
-                    if (_currentScreen)
-                        _currentScreen.Activate(false);
-
-                    var model = ((GameplayMenuSlotViewModel)_slots[_currentIndex]).Model.Config;
-                    
-                    _currentScreen = model.SlotType switch
-                    {
-                        GameplayMenuSlotType.Inventory => _inventory,
-                        GameplayMenuSlotType.Endings => guide,
-                        GameplayMenuSlotType.Setting => _setting,
-                        GameplayMenuSlotType.Exit => _exit,
-                        _ => throw new ArgumentOutOfRangeException()
-                    };
-            
-                    _currentScreen.Activate(true);
-                    
-                    StartCoroutine(AwaitOnSlotIndexChanged(direction));
-                }
-            }
-
-            if (direction.y == -1)
-            {
-                UnSelect();
-                _currentScreen.Select();
-            }
+            StartCoroutine(AwaitOnSlotIndexChanged(direction));
         }
 
         private IEnumerator AwaitOnSlotIndexChanged(Vector2 direction)
         {
-            var model = ((GameplayMenuSlotViewModel)_slots[_currentIndex]).Model.Config;
-            var loadTextCommand = new LoadTextCommand(model.Name);
-            yield return loadTextCommand.Await().ContinueWith(() => _selectSlotLabel.text = loadTextCommand.Result);
+            var startIndex = _currentIndex;
+            base.OnSlotIndexChanged(direction);
+
+            if (startIndex != _currentIndex)
+            {
+                var model = ((GameplayMenuSlotViewModel)_slots[_currentIndex]).Model.Config;
+                var loadTextCommand = new LoadTextCommand(model.Name);
+                yield return loadTextCommand.Await().ContinueWith(() => _selectSlotLabel.text = loadTextCommand.Result);
+            
+                if (_currentScreen)
+                    _currentScreen.Activate(false);
+            
+                _currentScreen = model.SlotType switch
+                {
+                    GameplayMenuSlotType.Inventory => _inventory,
+                    GameplayMenuSlotType.Endings => guide,
+                    GameplayMenuSlotType.Setting => _setting,
+                    GameplayMenuSlotType.Exit => _exit,
+                    _ => throw new ArgumentOutOfRangeException()
+                };
+            
+                _currentScreen.Activate(true);
+            }
+            else if (direction.y == -1)
+            {
+                UnSelect();
+                _currentScreen.Select();
+            }
+            
+            print("AwaitOnSlotIndexChanged");
         }
     }
 }

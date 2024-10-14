@@ -4,6 +4,7 @@ using RimuruDev;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Game
@@ -32,6 +33,7 @@ namespace Game
         public static SaverTimer SaverTimer { get; set; }
         public static InputManager InputManager { get; set; }
         public static AdsManager AdsManager { get; set; }
+        public static PlayerInput PlayerInput { get; set; }
 
         public static LocationsManager LocationsManager;
         public static MonologViewModel Monolog;

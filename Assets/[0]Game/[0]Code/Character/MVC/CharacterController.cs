@@ -37,8 +37,9 @@ namespace Game
 
         private void Update()
         {
-            _model.SetDirection(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized);
-            _model.IsRun = Input.GetButton("Cancel");
+            var playerInput = GameData.PlayerInput;
+            _model.SetDirection(playerInput.actions["Move"].ReadValue<Vector2>().normalized);
+            _model.IsRun = playerInput.actions["Cancel"].IsPressed();
             _mover.Move(_model.Direction,  _model.IsRun);
         }
         

@@ -1,6 +1,7 @@
 ﻿using RimuruDev;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 using YG;
 
 namespace Game
@@ -35,6 +36,9 @@ namespace Game
 
         [SerializeField]
         private AdsManager _adsManager;
+
+        [SerializeField]
+        private PlayerInput _playerInput;
         
         private PurchaseManager _purchaseManager;
         
@@ -53,6 +57,7 @@ namespace Game
             
             YandexGame.GetDataEvent += () => GameData.IsLoad = true;
             GameData.Saver = new Saver();
+            GameData.PlayerInput = _playerInput;
             
 #if UNITY_EDITOR
             GameData.DeviceType = _testDeviceType;

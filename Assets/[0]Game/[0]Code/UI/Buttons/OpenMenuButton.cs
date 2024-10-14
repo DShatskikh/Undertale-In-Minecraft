@@ -1,13 +1,15 @@
-using UnityEngine.SceneManagement;
+using UnityEngine;
 
 namespace Game
 {
     public class OpenMenuButton : AnimatedButtonOld
     {
+        [SerializeField]
+        private GameplayMenu _menu;
+        
         public override void OnClick()
         {
-            GameData.Saver.Save();
-            SceneManager.LoadScene(0);
+            _menu.TryShow();
         }
     }
 }
