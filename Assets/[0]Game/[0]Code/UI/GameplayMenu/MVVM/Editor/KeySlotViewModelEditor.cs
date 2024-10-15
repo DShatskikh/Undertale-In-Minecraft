@@ -12,6 +12,8 @@ namespace Game
         {
             m_ActionProperty = serializedObject.FindProperty("m_Action");
             m_BindingIdProperty = serializedObject.FindProperty("m_BindingId");
+            _resetKeyButtonProperty = serializedObject.FindProperty("_resetKeyButton");
+            _keyButtonProperty = serializedObject.FindProperty("_keyButton");
 
             RefreshBindingOptions();
         }
@@ -38,6 +40,9 @@ namespace Game
                 var optionsNew = (InputBinding.DisplayStringOptions)EditorGUILayout.EnumFlagsField(m_DisplayOptionsLabel, optionsOld);
                 if (optionsOld != optionsNew)
                     m_DisplayStringOptionsProperty.intValue = (int)optionsNew;*/
+                
+                EditorGUILayout.PropertyField(_resetKeyButtonProperty);
+                EditorGUILayout.PropertyField(_keyButtonProperty);
             }
 
             if (EditorGUI.EndChangeCheck())
@@ -117,6 +122,8 @@ namespace Game
         
         private SerializedProperty m_ActionProperty;
         private SerializedProperty m_BindingIdProperty;
+        private SerializedProperty _resetKeyButtonProperty;
+        private SerializedProperty _keyButtonProperty;
         
         private GUIContent m_BindingLabel = new GUIContent("Binding");
         private GUIContent[] m_BindingOptions;

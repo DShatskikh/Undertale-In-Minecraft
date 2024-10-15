@@ -14,8 +14,11 @@ namespace Game
         private MenuPanelBase _menu;
 
         [SerializeField]
+        private SettingKeyScreen _settingKeyScreen;
+
+        [SerializeField]
         private bool _isExitUp = true;
-        
+
         public override void Activate(bool isActive)
         {
             base.Activate(isActive);
@@ -32,8 +35,21 @@ namespace Game
                     _slots.Add(new Vector2(0, slots.Length - i - 1), slots[i]);
                     slots[i].SetSelected(false);
                     
-                    if (slots[i] is VolumeSlotViewModel volumeSlot)
-                        volumeSlot.Init(this);
+                    switch (slots[i])
+                    {
+                        case VolumeSlotViewModel volumeSlot:
+                            volumeSlot.Init(this);
+                            break;
+                        case LanguageSlotViewModel languageSlot:
+                            languageSlot.Init(this);
+                            break;
+                        case HintSlotViewModel hintSlot:
+                            hintSlot.Init(this);
+                            break;
+                        case ReassigningKeysSlotViewModel reassigningKeysSlot:
+                            reassigningKeysSlot.Init(this);
+                            break;
+                    }
                 }
 
                 _currentIndex = new Vector2(0, _slots.Count - 1);
@@ -64,15 +80,26 @@ namespace Game
             _currentSlot.SetSelected(false);
         }
 
-        public override void OnSubmitDown()
+        public override void OnSubmitDown() { }
+
+        public override void OnSubmitUp()
         {
             if (!_isSelect)
                 return;
             
-            if (_currentSlot is LanguageSlotViewModel languageSlotView)
+            print(_isSelect);
+
+            switch (_currentSlot)
             {
-                UnSelect();
-                languageSlotView.Click();
+                case LanguageSlotViewModel languageSlot:
+                    languageSlot.Click();
+                    break;
+                case HintSlotViewModel hintSlot:
+                    hintSlot.IsToggle.Value = !hintSlot.IsToggle.Value;
+                    break;
+                case ReassigningKeysSlotViewModel reassigningKeysSlot:
+                    reassigningKeysSlot.Click();
+                    break;
             }
         }
 

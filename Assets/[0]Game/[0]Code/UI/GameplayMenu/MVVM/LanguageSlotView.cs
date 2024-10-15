@@ -1,10 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game
 {
-    public class LanguageSlotView : MonoBehaviour
+    public class LanguageSlotView : MonoBehaviour, IPointerEnterHandler
     {
         [SerializeField]
         private Image _icon, _frame;
@@ -15,9 +16,11 @@ namespace Game
         [SerializeField]
         private Sprite _defaultIcon;
 
-        public void Init()
+        private LanguageSlotViewModel _viewModel;
+        
+        public void Init(LanguageSlotViewModel viewModel)
         {
-            
+            _viewModel = viewModel;
         }
 
         public void Upgrade(bool isSelect, bool isShow)
@@ -46,6 +49,11 @@ namespace Game
                 _frame.color = GameData.AssetProvider.DeselectColor;
                 _dropDownLabel.color = GameData.AssetProvider.DeselectColor;
             }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            _viewModel.Select();
         }
     }
 }

@@ -113,6 +113,7 @@ namespace Game
                 slot.Model = model;
                 int rowIndex = 0;
                 int columnIndex = i;
+                slot.Init(this);
                 slot.SetSelected(false);
                 _slots.Add(new Vector2(columnIndex, rowIndex), slot);
             }
@@ -156,11 +157,34 @@ namespace Game
             if (!_isSelect || !_isShow)
                 return;
             
-            StartCoroutine(AwaitOnSlotIndexChanged(direction));
+            if (direction.y == -1)
+            {
+                UnSelect();
+                _currentScreen.Select();
+            }
+            else
+            {
+                StartCoroutine(AwaitOnSlotIndexChanged(direction));   
+            }
         }
 
+        public void SelectSlot(GameplayMenuSlotViewModel viewModel)
+        {
+            _isSelect = true;
+            
+            foreach (var slot in _slots)
+            {
+                if (slot.Value == viewModel)
+                {
+                    StartCoroutine(AwaitOnSlotIndexChanged(slot.Key - _currentIndex));   
+                    break;
+                } 
+            }
+        }
+        
         private IEnumerator AwaitOnSlotIndexChanged(Vector2 direction)
         {
+            print(direction);
             var startIndex = _currentIndex;
             base.OnSlotIndexChanged(direction);
 
@@ -184,13 +208,6 @@ namespace Game
             
                 _currentScreen.Activate(true);
             }
-            else if (direction.y == -1)
-            {
-                UnSelect();
-                _currentScreen.Select();
-            }
-            
-            print("AwaitOnSlotIndexChanged");
         }
     }
 }

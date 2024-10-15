@@ -5,35 +5,39 @@ namespace Game
     public class HintSlotViewModel : BaseSlotController
     {
         private HintSlotView _view;
+        private SettingScreen _settingScreen;
         private bool _isSelect;
 
         public readonly ReactiveProperty<bool> IsToggle = new();
-        
+
+        public void Init(SettingScreen settingScreen)
+        {
+            _settingScreen = settingScreen;
+        }
+
         private void Awake()
         {
             _view = GetComponent<HintSlotView>();
         }
-        
+
         private void Start()
         {
             _view.Init(this);
-        }
-
-        private void Update()
-        {
-            if (!_isSelect)
-                return;
-
-            if (Input.GetButtonDown("Submit"))
-            {
-                IsToggle.Value = !IsToggle.Value;
-            }
         }
 
         public override void SetSelected(bool isSelect)
         {
             _isSelect = isSelect;
             _view.SetSelect(isSelect);
+        }
+        
+        public override void Select()
+        {
+            _settingScreen.SelectSlot(this);
+        }
+        public override void Use()
+        {
+            _settingScreen.OnSubmitUp();
         }
     }
 }

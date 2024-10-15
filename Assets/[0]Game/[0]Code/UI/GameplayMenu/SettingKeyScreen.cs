@@ -35,6 +35,13 @@ namespace Game
                 for (int i = 0; i < slots.Length; i++)
                 {
                     _slots.Add(new Vector2(0, slots.Length - i - 1), slots[i]);
+                    
+                    if (slots[i] is KeySlotViewModel keySlotViewModel)
+                        keySlotViewModel.Init(this);
+                    
+                    if (slots[i] is AllResetKeySlotViewModel allReset)
+                        allReset.Init(this);
+                    
                     slots[i].SetSelected(false);
                 }
 
@@ -61,7 +68,7 @@ namespace Game
 
         }
 
-        public override void OnSubmitDown()
+        public override void OnSubmitUp()
         {
             if (!_isSelect)
                 return;
@@ -85,6 +92,11 @@ namespace Game
             }
         }
 
+        public override void OnSubmitDown()
+        {
+
+        }
+
         public override void OnSlotIndexChanged(Vector2 direction)
         {
             if (!_isSelect)
@@ -105,6 +117,12 @@ namespace Game
             }
         }
 
+        public void SetIsRight(bool value)
+        {
+            _isRight = value;
+            _keySlot.SetRight(_isRight);
+        }
+        
         public override void OnCancel()
         {
             if (!_isSelect)

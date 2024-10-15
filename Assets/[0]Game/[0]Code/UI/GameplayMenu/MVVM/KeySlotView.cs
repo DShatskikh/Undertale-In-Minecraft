@@ -1,15 +1,14 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Localization;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game
 {
-    public class KeySlotView : MonoBehaviour
+    public class KeySlotView : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField]
         private Image _icon, _frame, _resetFrame;
@@ -26,8 +25,26 @@ namespace Game
         [SerializeField]
         private LocalizedString _localizedString;
 
-        public void Init()
+        private KeySlotViewModel _viewModel;
+
+        public void OnPointerEnter(PointerEventData eventData)
         {
+            _viewModel.Select();
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _viewModel.SubmitDown();
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _viewModel.Use();
+        }
+        
+        public void Init(KeySlotViewModel viewModel)
+        {
+            _viewModel = viewModel;
             StartCoroutine(AwaitLoad());
         }
 

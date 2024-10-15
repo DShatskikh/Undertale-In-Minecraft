@@ -32,7 +32,7 @@ namespace Game
             {
                 GameData.PlayerInput.actions["Move"].performed -= OnMovePerformed;
                 GameData.PlayerInput.actions["Submit"].performed -= OnSubmitPerformed;
-                GameData.PlayerInput.actions["Submit"].canceled += OnSubmitCanceled;
+                GameData.PlayerInput.actions["Submit"].canceled -= OnSubmitCanceled;
                 GameData.PlayerInput.actions["Cancel"].performed -= OnCancelPerformed;
             }
         }

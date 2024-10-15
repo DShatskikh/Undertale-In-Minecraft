@@ -1188,6 +1188,7 @@ GameObject:
   - component: {fileID: 2610812317019934685}
   - component: {fileID: 1992296722672500907}
   - component: {fileID: 3885193221816407329}
+  - component: {fileID: 5044948909836783473}
   m_Layer: 0
   m_Name: Dropdown
   m_TagString: Untagged
@@ -1317,6 +1318,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_AlphaFadeSpeed: 0.15
+--- !u!114 &5044948909836783473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983803709342230618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62db7d218fba4bf585a3e461b76c553a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dropdown: {fileID: 3885193221816407329}
 --- !u!1 &3173077861191015724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,6 +2332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selectPlayer: {fileID: 7666881801147333472}
   _menu: {fileID: 0}
+  _settingKeyScreen: {fileID: 0}
   _isExitUp: 0
 --- !u!1 &5167528654151573765
 GameObject:
@@ -3783,8 +3798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de101b7524c4aca80fa1e5b04022563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingKeyScreen: {fileID: 0}
-  _settingScreen: {fileID: 5039575816614642247}
 --- !u!114 &8319377553268161401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3953,8 +3966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d7c14543fb48fbb3d7fb25a343399d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dropdown: {fileID: 3885193221816407329}
-  _settingScreen: {fileID: 5039575816614642247}
+  _languageDropdown: {fileID: 5044948909836783473}
 --- !u!114 &7637155007878028993
 MonoBehaviour:
   m_ObjectHideFlags: 0

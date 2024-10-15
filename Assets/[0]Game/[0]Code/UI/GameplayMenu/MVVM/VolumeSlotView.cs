@@ -47,8 +47,7 @@ namespace Game
             _viewModel = viewModel;
             _viewModel.Volume.Changed += VolumeOnChanged;
             _slider.onValueChanged.AddListener(_viewModel.OnSliderChanged);
-            
-            //_localizedString.Arguments = new List<object>() { (int)(_slider.value * 100) };
+
             StartCoroutine(AwaitLoad());
         }
 

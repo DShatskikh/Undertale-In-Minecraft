@@ -75,16 +75,12 @@ namespace Game
 
         public override void Activate(bool isActive)
         {
-            base.Activate(isActive);
-
             if (isActive)
-            {
                 Select();
-            }
             else
-            {
                 UnSelect();
-            }
+
+            base.Activate(isActive);
         }
 
         public override void OnSubmitDown()

@@ -1,10 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game
 {
-    public class ReassigningKeysSlotView : MonoBehaviour
+    public class ReassigningKeysSlotView : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField]
         private Image _icon;
@@ -16,6 +17,21 @@ namespace Game
         private Sprite _iconSprite;
 
         private ReassigningKeysSlotViewModel _viewModel;
+        
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            _viewModel.Select();
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _viewModel.SubmitDown();
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _viewModel.Use();
+        }
         
         public void Init(ReassigningKeysSlotViewModel viewModel)
         {
