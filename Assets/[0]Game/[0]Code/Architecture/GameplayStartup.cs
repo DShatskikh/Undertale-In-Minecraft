@@ -99,7 +99,6 @@ namespace Game
             GameData.LocationsManager = _locationsManager;
             GameData.Introduction = _introduction;
             GameData.SaveText = _saveText;
-            GameData.ToMenuButton = _toMenuButton;
             GameData.GameOver = _gameOver;
             GameData.CommandManager = _commandManager;
             GameData.CompanionsManager = _companionsManager;
@@ -132,7 +131,6 @@ namespace Game
                 GameData.CharacterController.gameObject.SetActive(true);
                 GameData.LocationsManager.SwitchLocation(YandexGame.savesData.LocationIndex, YandexGame.savesData.PointIndex);
                 GameData.CharacterController.transform.position = GameData.Saver.LoadPosition();
-                GameData.ToMenuButton.gameObject.SetActive(true);
             }
 
             StartCoroutine(Await());

@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization.Settings;
 
 namespace Game
 {
@@ -107,20 +108,29 @@ namespace Game
             for (int i = 0; i < _elements.Count; i++) 
                 _elements[i].Select(i == _selectIndex);
             
-            print($"SelectSlot: {_elements[_selectIndex].gameObject.name} {_selectIndex}");
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
         }
         
         private void OnValueChanged(int value)
         {
             Activate(false);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
+            StartCoroutine(AwaitChangeLanguage(value));
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             if (!_isActive)
                 ShowDropDown(false);
+        }
+
+
+        private IEnumerator AwaitChangeLanguage(int id)
+        {
+            yield return LocalizationSettings.InitializationOperation;
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[id];
             
-            print("OnPointerUp");
+            print($"id: {id}");
         }
     }
 }

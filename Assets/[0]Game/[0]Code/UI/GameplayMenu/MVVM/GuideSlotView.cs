@@ -1,11 +1,12 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game
 {
-    public class GuideSlotView : MonoBehaviour
+    public class GuideSlotView : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField]
         private Image _icon;
@@ -14,10 +15,26 @@ namespace Game
         private TMP_Text _label;
 
         private GuideConfig _model;
+        private GuideSlotViewModel _viewModel;
         
-        public void Init(GuideConfig model)
+        public void OnPointerEnter(PointerEventData eventData)
         {
-            //_icon.sprite = model.Config.Icon;
+            _viewModel.Select();
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _viewModel.SubmitSlotDown();
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _viewModel.SubmitSlotUp(); 
+        }
+        
+        public void Init(GuideConfig model, GuideSlotViewModel viewModel)
+        {
+            _viewModel = viewModel;
             _model = model;
             _icon.sprite = _model.Icon;
             StartCoroutine(AwaitLoadText());

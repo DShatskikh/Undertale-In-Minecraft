@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using MoreMountains.Feedbacks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 namespace Game
@@ -47,6 +50,18 @@ namespace Game
             _model = model;
             GameData.Startup.StartCoroutine(AwaitLoad());
             _viewModel = viewModel;
+            
+            LocalizationSettings.SelectedLocaleChanged += LocalizationSettingsOnSelectedLocaleChanged;
+        }
+
+        private void OnDestroy()
+        {
+            LocalizationSettings.SelectedLocaleChanged -= LocalizationSettingsOnSelectedLocaleChanged;
+        }
+
+        private void LocalizationSettingsOnSelectedLocaleChanged(Locale obj)
+        {
+            GameData.Startup.StartCoroutine(AwaitLoad());
         }
 
         public void SubmitUp()

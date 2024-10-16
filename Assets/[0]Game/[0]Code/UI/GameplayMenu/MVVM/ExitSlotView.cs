@@ -1,11 +1,12 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game
 {
-    public class ExitSlotView : MonoBehaviour
+    public class ExitSlotView : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField]
         private TMP_Text _label;
@@ -14,10 +15,27 @@ namespace Game
         private Image _icon;
         
         private ExitSlotConfig _model;
+        private ExitSlotViewModel _viewModel;
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            _viewModel.Select();
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _viewModel.SubmitSlotDown();
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _viewModel.SubmitSlotUp(); 
+        }
         
-        public void Init(ExitSlotConfig model)
+        public void Init(ExitSlotConfig model, ExitSlotViewModel viewModel)
         {
             _model = model;
+            _viewModel = viewModel;
             StartCoroutine(AwaitLoad());
         }
 

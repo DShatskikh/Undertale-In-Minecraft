@@ -86,6 +86,8 @@ namespace Game
                     oldVM.SetSelected(false);
                     controller.SetSelected(true);
                     _currentIndex = newIndex;
+                    
+                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
                 }
             }
         }

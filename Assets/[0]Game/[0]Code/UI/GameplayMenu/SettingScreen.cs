@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
+using RimuruDev;
 using UnityEngine;
 
 namespace Game
@@ -12,10 +13,7 @@ namespace Game
         
         [SerializeField]
         private MenuPanelBase _menu;
-
-        [SerializeField]
-        private SettingKeyScreen _settingKeyScreen;
-
+        
         [SerializeField]
         private bool _isExitUp = true;
 
@@ -28,11 +26,38 @@ namespace Game
                 _selectPlayer.PlayFeedbacks();
 
                 _slots = new Dictionary<Vector2, BaseSlotController>();
-                var slots = GetComponentsInChildren<BaseSlotController>();
-                    
-                for (int i = 0; i < slots.Length; i++)
+                var slotsAll = GetComponentsInChildren<BaseSlotController>();
+                var slots = new List<BaseSlotController>();
+
+                for (int i = 0; i < slotsAll.Length; i++)
                 {
-                    _slots.Add(new Vector2(0, slots.Length - i - 1), slots[i]);
+                    bool isSkip = false;
+                    
+                    if (GameData.DeviceType == CurrentDeviceType.Mobile)
+                    {
+                        switch (slotsAll[i])
+                        {
+                            case HintSlotViewModel hintSlot:
+                                isSkip = true;
+                                break;
+                            case ReassigningKeysSlotViewModel reassigningKeysSlot:
+                                isSkip = true;
+                                break;
+                        } 
+                    }
+
+                    if (isSkip)
+                    {
+                        slotsAll[i].gameObject.SetActive(false);
+                        continue;
+                    }
+
+                    slots.Add(slotsAll[i]);
+                }
+
+                for (int i = 0; i < slots.Count; i++)
+                {
+                    _slots.Add(new Vector2(0, slots.Count - i - 1), slots[i]);
                     slots[i].SetSelected(false);
                     
                     switch (slots[i])
@@ -60,6 +85,13 @@ namespace Game
             }
         }
 
+        public void SelectZero()
+        {
+            UnSelect();
+            _currentIndex = new Vector2(0, _slots.Count - 1);
+            Select();
+        }
+
         public override void Select()
         {
             StartCoroutine(AwaitSelect());
@@ -72,6 +104,8 @@ namespace Game
             
             if (_slots.TryGetValue(_currentIndex, out var slot))
                 _currentSlot.SetSelected(true);
+            
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
         }
 
         public override void UnSelect()
@@ -96,9 +130,11 @@ namespace Game
                     break;
                 case HintSlotViewModel hintSlot:
                     hintSlot.IsToggle.Value = !hintSlot.IsToggle.Value;
+                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
                     break;
                 case ReassigningKeysSlotViewModel reassigningKeysSlot:
                     reassigningKeysSlot.Click();
+                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
                     break;
             }
         }
@@ -114,6 +150,16 @@ namespace Game
                 _menu.Activate(true); 
             }
         }
+
+        public override void SelectSlot(BaseSlotController slotViewModel)
+        {
+            base.SelectSlot(slotViewModel);
+            
+            if (_menu is GameplayMenu gameplayMenu)
+                gameplayMenu.UnSelect();
+            
+            Select();
+        }
         
         public override void OnSlotIndexChanged(Vector2 direction)
         {
@@ -125,8 +171,6 @@ namespace Game
                 if (_isExitUp)
                 {
                     UnSelect();
-                    //Activate(false);
-                    //_menu.Activate(true);
                     _menu.Select();
                 }
             }

@@ -38,6 +38,7 @@ namespace Game
         {
             _settingScreen.UnSelect();
             _languageDropdown.Activate(true);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
         }
 
         public override void Select()

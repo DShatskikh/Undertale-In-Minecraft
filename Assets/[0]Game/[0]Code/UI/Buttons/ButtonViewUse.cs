@@ -49,8 +49,6 @@ namespace Game
 
             _viewImage.color = GameData.AssetProvider.SelectColor;
             _label.color = GameData.AssetProvider.SelectColor;
-            
-            print("Down");
         }
 
         public override void Up()
@@ -61,7 +59,7 @@ namespace Game
             _viewImage.color = GameData.AssetProvider.DeselectColor;
             _label.color = GameData.AssetProvider.DeselectColor;
             
-            print("Up");
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
         }
     }
 }

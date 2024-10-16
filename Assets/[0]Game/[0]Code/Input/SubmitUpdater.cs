@@ -13,8 +13,11 @@ namespace Game
 
         private void OnDestroy()
         {
-            GameData.PlayerInput.actions["Submit"].performed -= context => EventBus.Submit?.Invoke();
-            GameData.PlayerInput.actions["Submit"].canceled -=  context => EventBus.SubmitUp?.Invoke();
+            if (GameData.PlayerInput != null)
+            {
+                GameData.PlayerInput.actions["Submit"].performed -= context => EventBus.Submit?.Invoke();
+                GameData.PlayerInput.actions["Submit"].canceled -= context => EventBus.SubmitUp?.Invoke();
+            }
         }
     }
 }

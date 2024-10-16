@@ -33,6 +33,7 @@ namespace Game
                 {
                     var slot = Instantiate(assetProvider.ExitSlotPrefab, _container);
                     slot.Model = slotsData[i];
+                    slot.Init(this);
                     int rowIndex = slotsData.Length - i - 1;
                     int columnIndex = 0;
                     _slots.Add(new Vector2(columnIndex, rowIndex), slot);
@@ -53,6 +54,7 @@ namespace Game
         {
             base.Select();
             _currentSlot.SetSelected(true);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
         }
 
         public override void UnSelect()
@@ -112,6 +114,20 @@ namespace Game
                     _gameplayMenu.Select();
                 }
             }
+        }
+        
+        public override void SelectSlot(BaseSlotController slotViewModel)
+        {
+            base.SelectSlot(slotViewModel);
+            _gameplayMenu.UnSelect();
+            Select();
+        }
+        
+        public void SelectZero()
+        {
+            UnSelect();
+            _currentIndex = new Vector2(0, _slots.Count - 1);
+            Select();
         }
     }
 }

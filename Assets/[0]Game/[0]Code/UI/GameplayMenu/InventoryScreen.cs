@@ -27,7 +27,7 @@ namespace Game
 
         [SerializeField]
         private Button _useButton;
-        
+
         public override void Activate(bool isActive)
         {
             base.Activate(isActive);
@@ -51,6 +51,7 @@ namespace Game
                     slot.Model = model;
                     int rowIndex = itemConfigs.Length - i - 1;
                     int columnIndex = 0;
+                    slot.Init(this);
                     slot.SetSelected(false);
                     _slots.Add(new Vector2(columnIndex, rowIndex), slot);
                 }
@@ -72,12 +73,20 @@ namespace Game
             StartCoroutine(AwaitSelect());
         }
 
+        public override void SelectSlot(BaseSlotController slotViewModel)
+        {
+            base.SelectSlot(slotViewModel);
+            _gameplayMenu.UnSelect();
+            Select();
+        }
+
         private IEnumerator AwaitSelect()
         {
             yield return null;
             base.Select();
             _slots[_currentIndex].SetSelected(true);
             ShowItemUI();
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
         }
 
         public override void UnSelect()
@@ -86,7 +95,14 @@ namespace Game
             _slots[_currentIndex].SetSelected(false);
             HideItemUI();
         }
-        
+
+        public void SelectZero()
+        {
+            UnSelect();
+            _currentIndex = new Vector2(0, _slots.Count - 1);
+            Select();
+        }
+
         public override void OnSubmitDown()
         {
             
@@ -113,9 +129,8 @@ namespace Game
                     oldVM.SetSelected(false);
                     _currentIndex = newIndex;
                     
-                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
-
                     ShowItemUI();
+                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
                 }
             }
             else
@@ -136,6 +151,7 @@ namespace Game
             _descriptionLabel.gameObject.SetActive(false);
             _useButton.gameObject.SetActive(false);
             _frame.gameObject.SetActive(false);
+            _useButton.onClick.RemoveAllListeners();
         }
 
         private void ShowItemUI()
@@ -150,8 +166,8 @@ namespace Game
 
             if (config is IUsable usable)
             {
-                //usable.Use();
                 _useButton.gameObject.SetActive(true);
+                _useButton.onClick.AddListener(usable.Use);
             }
             else
             {

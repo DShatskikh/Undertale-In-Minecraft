@@ -6,27 +6,33 @@ namespace Game
         
         private InventorySlotView _view;
         private bool _isInit;
-        
-        private void Awake()
+        private InventoryScreen _inventoryScreen;
+
+        public void Init(InventoryScreen inventoryScreen)
         {
             _view = GetComponent<InventorySlotView>();
-        }
-
-        private void Start()
-        {
-            if (!_isInit)
-                _view.Init(Model);
+            _view.Init(Model, this);
+            _inventoryScreen = inventoryScreen;
         }
 
         public override void SetSelected(bool isSelect)
         {
-            if (!_isInit)
-            {
-                _isInit = true;
-                _view.Init(Model);
-            }
-            
             _view.Upgrade(isSelect);
+        }
+
+        public override void Select()
+        {
+            _inventoryScreen.SelectSlot(this);
+        }
+
+        public void SubmitSlotDown()
+        {
+            
+        }
+
+        public void SubmitSlotUp()
+        {
+            
         }
     }
 }

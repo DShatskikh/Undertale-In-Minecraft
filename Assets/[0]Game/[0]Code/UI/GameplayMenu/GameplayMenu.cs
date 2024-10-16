@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
+using RimuruDev;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -34,6 +35,12 @@ namespace Game
         
         [SerializeField]
         private ExitScreen _exit;
+
+        [SerializeField]
+        private Button _exitButton;
+
+        [SerializeField]
+        private SettingKeyScreen _settingKeyScreen;
         
         private bool _isShow;
         private bool _isProcess;
@@ -48,7 +55,8 @@ namespace Game
 
         private void OnDisable()
         {
-            GameData.PlayerInput.actions["Menu"].performed -= OnMenuPerformed;
+            if (GameData.PlayerInput)
+                GameData.PlayerInput.actions["Menu"].performed -= OnMenuPerformed;
         }
 
         public override void OnUpdate() { }
@@ -57,6 +65,11 @@ namespace Game
         {
             base.Select();
             _currentSlot.SetSelected(true);
+            
+            if (_settingKeyScreen.gameObject.activeSelf)
+                _settingKeyScreen.Activate(false);
+            
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
         }
 
         public override void UnSelect()
@@ -128,11 +141,19 @@ namespace Game
             
             _currentScreen.Activate(true);
             Select();
+
+            if (GameData.DeviceType == CurrentDeviceType.Mobile)
+            {
+                _exitButton.gameObject.SetActive(true);
+                _exitButton.onClick.AddListener(() => StartCoroutine(AwaitHide())); 
+            }
         }
 
         private IEnumerator AwaitHide()
         {
             GameData.CharacterController.enabled = true;
+            _exitButton.onClick.RemoveAllListeners();
+            _exitButton.gameObject.SetActive(false);
             
             if (_currentScreen)
                 _currentScreen.Activate(false);
@@ -160,7 +181,15 @@ namespace Game
             if (direction.y == -1)
             {
                 UnSelect();
-                _currentScreen.Select();
+                
+                if (_currentScreen is InventoryScreen inventoryScreen)
+                    inventoryScreen.SelectZero();
+                else if (_currentScreen is GuideScreen guideScreen)
+                    guideScreen.SelectZero();
+                else if (_currentScreen is SettingScreen settingScreen)
+                    settingScreen.SelectZero();
+                else if (_currentScreen is ExitScreen exitScreen)
+                    exitScreen.SelectZero();
             }
             else
             {
@@ -168,10 +197,8 @@ namespace Game
             }
         }
 
-        public void SelectSlot(GameplayMenuSlotViewModel viewModel)
+        public override void SelectSlot(BaseSlotController viewModel)
         {
-            _isSelect = true;
-            
             foreach (var slot in _slots)
             {
                 if (slot.Value == viewModel)
@@ -186,6 +213,7 @@ namespace Game
         {
             print(direction);
             var startIndex = _currentIndex;
+            Select();
             base.OnSlotIndexChanged(direction);
 
             if (startIndex != _currentIndex)
@@ -207,6 +235,10 @@ namespace Game
                 };
             
                 _currentScreen.Activate(true);
+            }
+            else
+            {
+                _currentScreen.UnSelect();
             }
         }
     }

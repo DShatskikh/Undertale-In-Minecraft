@@ -69,6 +69,7 @@ namespace Game
         {
             _isRight = isRight;
             _view.SetSelect(_isSelect, _isRight);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
         }
     }
 }

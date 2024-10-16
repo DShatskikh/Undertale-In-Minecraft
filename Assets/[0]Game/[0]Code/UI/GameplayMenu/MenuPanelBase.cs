@@ -3,8 +3,9 @@ namespace Game
     public class MenuPanelBase : UIPanelBase
     {
         protected bool _isSelect;
-        
+
         public override void OnSubmitDown() { }
+
         public override void OnSubmitUp() { }
         public override void OnCancel() { }
 
@@ -31,7 +32,7 @@ namespace Game
             _isSelect = false;
         }
         
-        public void SelectSlot(BaseSlotController slotViewModel)
+        public virtual void SelectSlot(BaseSlotController slotViewModel)
         {
             _currentSlot.SetSelected(false);
             

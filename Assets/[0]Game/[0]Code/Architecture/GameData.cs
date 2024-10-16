@@ -21,7 +21,6 @@ namespace Game
         public static Button UseButton { get; set; }
         public static Joystick Joystick { get; set; }
         public static AudioMixerGroup Mixer { get; set; }
-        public static Button ToMenuButton { get; set; }
         public static Startup Startup { get; set; }
         public static End CurrentEnd { get; set; }
         public static CurrentDeviceType DeviceType { get; set; }

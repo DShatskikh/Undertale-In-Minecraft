@@ -5,20 +5,33 @@ namespace Game
         public ExitSlotConfig Model;
         
         private ExitSlotView _view;
+        private ExitScreen _screen;
 
-        private void Awake()
+        public void Init(ExitScreen screen)
         {
+            _screen = screen;
             _view = GetComponent<ExitSlotView>();
-        }
-
-        private void Start()
-        {
-            _view.Init(Model);
+            _view.Init(Model, this);
         }
 
         public override void SetSelected(bool isSelect)
         {
             _view.Upgrade(isSelect);
+        }
+
+        public override void Select()
+        {
+            _screen.SelectSlot(this);
+        }
+        
+        public void SubmitSlotDown()
+        {
+            
+        }
+
+        public void SubmitSlotUp()
+        {
+            
         }
     }
 }

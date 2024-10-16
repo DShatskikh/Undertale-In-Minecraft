@@ -20,12 +20,11 @@ using UnityEditor.DeviceSimulation;
 
 namespace RimuruDev
 {
-    [Flags]
     [Serializable]
     public enum CurrentDeviceType : byte
     {
         PC = 0,
-        Mobile = 2,
+        Mobile = 1,
     }
 
     [SelectionBase]

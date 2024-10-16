@@ -22,5 +22,11 @@ namespace Game
         {
             _audioSource.Stop();
         }
+
+        [ContextMenu("TestPlay")]
+        private void TestPlay()
+        {
+            Play(GameData.AssetProvider.ClickSound);
+        }
     }
 }

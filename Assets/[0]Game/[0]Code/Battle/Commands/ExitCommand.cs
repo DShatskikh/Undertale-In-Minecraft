@@ -86,7 +86,7 @@ namespace Game
                 EventBus.PlayerWin = null;
                 GameData.Saver.IsSavingPosition = true;
                 GameData.Saver.Save();
-                GameData.ToMenuButton.gameObject.SetActive(true);
+                GameData.InputManager.Show();
             };
             
             action.Invoke();

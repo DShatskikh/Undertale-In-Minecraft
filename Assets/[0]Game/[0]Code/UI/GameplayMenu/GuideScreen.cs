@@ -44,6 +44,7 @@ namespace Game
                     slot.Model = model;
                     int rowIndex = configs.Length - i - 1;
                     int columnIndex = 0;
+                    slot.Init(this);
                     slot.SetSelected(false);
                     _slots.Add(new Vector2(columnIndex, rowIndex), slot);
                 }
@@ -64,6 +65,7 @@ namespace Game
             base.Select();
             _slots[_currentIndex].SetSelected(true);
             ShowItemUI();
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
         }
 
         public override void UnSelect()
@@ -99,8 +101,9 @@ namespace Game
                     oldVM.SetSelected(false);
                     _currentIndex = newIndex;
                     
-                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
                     ShowItemUI();
+                    
+                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
                 }
             }
             else
@@ -138,6 +141,20 @@ namespace Game
             var model = ((GuideSlotViewModel)_slots[_currentIndex]).Model;
             var loadTextCommand = new LoadTextCommand(model.Info);
             yield return loadTextCommand.Await().ContinueWith(() => _descriptionLabel.text = loadTextCommand.Result);
+        }
+
+        public override void SelectSlot(BaseSlotController slotViewModel)
+        {
+            base.SelectSlot(slotViewModel);
+            _gameplayMenu.UnSelect();
+            Select();
+        }
+
+        public void SelectZero()
+        {
+            UnSelect();
+            _currentIndex = new Vector2(0, _slots.Count - 1);
+            Select();
         }
     }
 }

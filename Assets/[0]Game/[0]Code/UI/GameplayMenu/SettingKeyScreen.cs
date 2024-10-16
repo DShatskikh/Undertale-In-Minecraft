@@ -59,12 +59,22 @@ namespace Game
         public override void Select()
         {
             base.Select();
-            
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
+        }
+
+        public override void SelectSlot(BaseSlotController slotViewModel)
+        {
+            base.SelectSlot(slotViewModel);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
         }
 
         public override void UnSelect()
         {
             base.UnSelect();
+        }
+
+        public override void OnSubmitDown()
+        {
 
         }
 
@@ -90,11 +100,8 @@ namespace Game
                         ResetToDefault(keySlot);
                 }
             }
-        }
-
-        public override void OnSubmitDown()
-        {
-
+            
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
         }
 
         public override void OnSlotIndexChanged(Vector2 direction)
@@ -201,6 +208,7 @@ namespace Game
                         CleanUp();
                         Select();
                         _keySlot.UpdateBindingDisplay();
+                        GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
                     })
                 .OnComplete(
                     operation =>

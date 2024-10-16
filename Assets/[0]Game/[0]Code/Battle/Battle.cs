@@ -93,7 +93,7 @@ namespace Game
             GameData.HeartController.transform.position = _arena.transform.position;
             _previousSound = GameData.MusicPlayer.Clip;
             GameData.Saver.IsSavingPosition = false;
-            GameData.ToMenuButton.gameObject.SetActive(false);
+            GameData.InputManager.Show();
             GameData.CompanionsManager.SetMove(false);
 
             _isSecondRound = false;

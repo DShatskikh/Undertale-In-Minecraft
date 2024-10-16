@@ -22,9 +22,6 @@ namespace Game
 
         [SerializeField]
         private ResetScreen _resetScreen;
-        
-        [SerializeField]
-        private GameObject _guide;
 
         private void Start()
         {
@@ -90,6 +87,7 @@ namespace Game
 
         public override void OnSubmitUp()
         {
+            base.OnSubmitUp();
             _currentSlot.SubmitUp();
             
             switch (((MenuSlotViewModel)_currentSlot).Model.MenuSlotType)
@@ -114,11 +112,19 @@ namespace Game
                     break;
                 case MenuSlotType.Reset:
                     Activate(false);
-                    _resetScreen.Activate(true);
+                    _resetScreen.gameObject.SetActive(true);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
+        }
+
+        public override void SelectSlot(BaseSlotController slotViewModel)
+        {
+            base.SelectSlot(slotViewModel);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
         }
 
         public override void OnCancel()
