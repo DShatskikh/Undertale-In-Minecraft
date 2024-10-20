@@ -4,6 +4,7 @@ using MoreMountains.Feedbacks;
 using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 namespace Game
@@ -173,6 +174,14 @@ namespace Game
             {
                 _useButton.gameObject.SetActive(false);
             }
+
+            StartCoroutine(AwaitLoadDescription(config.Description));
+        }
+        
+        private IEnumerator AwaitLoadDescription(LocalizedString localizedString)
+        {
+            var loadTextCommand = new LoadTextCommand(localizedString);
+            yield return loadTextCommand.Await().ContinueWith(() => _descriptionLabel.text = loadTextCommand.Result);
         }
     }
 }

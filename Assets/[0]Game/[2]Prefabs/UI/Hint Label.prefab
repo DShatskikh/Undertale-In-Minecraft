@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2127558124481247233}
   - component: {fileID: 2076198181686126591}
   - component: {fileID: 6291470251845468996}
+  - component: {fileID: 9150890776821657162}
   m_Layer: 5
   m_Name: Hint Label
   m_TagString: Untagged
@@ -136,3 +137,29 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9150890776821657162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538917013496452040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3db75ebb644acf8c3cf0a133283625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Action: {fileID: 2426882071051437336, guid: 5dedec86905dad44480e6a3f7827b16a, type: 3}
+  m_BindingId: 8060f6f8-1732-43d7-be76-afc6c1de2e04
+  m_localizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:21dde290d06ca3e4a8cf0b109b41d83e
+    m_TableEntryReference:
+      m_KeyId: 44247336541863936
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

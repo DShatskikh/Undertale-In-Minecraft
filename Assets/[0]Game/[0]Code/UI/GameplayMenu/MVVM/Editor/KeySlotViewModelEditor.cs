@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 namespace Game
 {
     [CustomEditor(typeof(KeySlotViewModel))]
-    public class KeySlotViewModelEditor : UnityEditor.Editor
+    public class KeySlotViewModelEditor : Editor
     {
         protected void OnEnable()
         {

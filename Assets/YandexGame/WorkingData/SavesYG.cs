@@ -52,7 +52,7 @@ namespace YG
         public bool IsYouHealthy;
 
         public int NumberGame = 1;
-        public float Volume = 1f;
+        public SettingData SettingData;
         public int MaxHealth = 20;
         [FormerlySerializedAs("GoldLily")] public int GoldTulip = 0;
 
@@ -76,8 +76,9 @@ namespace YG
             openLevels[1] = true;
             
             NumberGame = 1;
-            Volume = GameData.VolumeSlider ? GameData.VolumeSlider.GetCurrentVolume : 1f;
             MaxHealth = 20;
+
+            SettingData = new SettingData();
         }
 
         public void ResetAllIntPair()

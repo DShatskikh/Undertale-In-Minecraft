@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using YG;
 
 namespace Game
 {
@@ -36,12 +37,12 @@ namespace Game
         public void Init(HintSlotViewModel viewModel)
         {
             _viewModel = viewModel;
-            _viewModel.IsToggle.Changed += IsToggleOnChanged;
+            YandexGame.savesData.SettingData.IsShowHint.Changed += IsToggleOnChanged;
         }
 
         private void OnDestroy()
         {
-            _viewModel.IsToggle.Changed -= IsToggleOnChanged;
+            YandexGame.savesData.SettingData.IsShowHint.Changed -= IsToggleOnChanged;
         }
 
         public void SetSelect(bool isSelect)
@@ -58,7 +59,7 @@ namespace Game
             }
         }
 
-        private void IsToggleOnChanged(bool value)
+        public void IsToggleOnChanged(bool value)
         {
             _toggleIcon.gameObject.SetActive(value);
         }

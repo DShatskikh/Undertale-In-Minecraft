@@ -118,6 +118,8 @@ namespace Game
                 saveLoad.Load();
             }
 
+            YandexGame.savesData.IsNotIntroduction = true;
+
             if (!YandexGame.savesData.IsNotIntroduction)
             {
                 _introduction.SetActive(true);

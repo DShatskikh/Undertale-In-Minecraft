@@ -1,6 +1,9 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 namespace Game
@@ -36,6 +39,14 @@ namespace Game
             _model = model;
             _icon.sprite = _model.Icon;
             _viewModel = viewModel;
+            
+            StartCoroutine(AwaitLoadText());
+            LocalizationSettings.SelectedLocaleChanged += LocalizationSettingsOnSelectedLocaleChanged;
+        }
+        
+        private void OnDestroy()
+        {
+            LocalizationSettings.SelectedLocaleChanged -= LocalizationSettingsOnSelectedLocaleChanged;
         }
 
         public void Upgrade(bool isSelect)
@@ -50,6 +61,17 @@ namespace Game
                 _icon.sprite = _model.Icon;
                 _label.color = GameData.AssetProvider.DeselectColor;
             }
+        }
+        
+        private void LocalizationSettingsOnSelectedLocaleChanged(Locale obj)
+        {
+            StartCoroutine(AwaitLoadText());
+        }
+        
+        private IEnumerator AwaitLoadText()
+        {
+            var loadTextCommand = new LoadTextCommand(_model.Name);
+            yield return loadTextCommand.Await().ContinueWith(() => _label.text = loadTextCommand.Result);
         }
     }
 }

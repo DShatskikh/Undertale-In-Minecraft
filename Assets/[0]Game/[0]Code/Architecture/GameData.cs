@@ -20,12 +20,11 @@ namespace Game
         public static DialogViewModel Dialog { get; set; }
         public static Button UseButton { get; set; }
         public static Joystick Joystick { get; set; }
-        public static AudioMixerGroup Mixer { get; set; }
+        public static AudioMixer AudioMixer;
         public static Startup Startup { get; set; }
         public static End CurrentEnd { get; set; }
         public static CurrentDeviceType DeviceType { get; set; }
         public static bool IsLoad { get; set; }
-        public static VolumeSlider VolumeSlider { get; set; }
         public static AssetProvider AssetProvider { get; set; }
         public static bool IsCanStartBattle { get; set; }
         public static CinemachineVirtualCamera CinemachineVirtualCamera { get; set; }

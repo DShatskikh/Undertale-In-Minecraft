@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -6,9 +7,6 @@ namespace Game
     {
         private HintSlotView _view;
         private SettingScreen _settingScreen;
-        private bool _isSelect;
-
-        public readonly ReactiveProperty<bool> IsToggle = new();
 
         public void Init(SettingScreen settingScreen)
         {
@@ -23,11 +21,11 @@ namespace Game
         private void Start()
         {
             _view.Init(this);
+            _view.IsToggleOnChanged(YandexGame.savesData.SettingData.IsShowHint.Value);
         }
 
         public override void SetSelected(bool isSelect)
         {
-            _isSelect = isSelect;
             _view.SetSelect(isSelect);
         }
         

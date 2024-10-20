@@ -25,6 +25,7 @@ namespace Game
 
         public string BindingId => m_BindingId;
         public InputActionReference InputActionReference => m_Action;
+        public KeySlotView View => _view;
 
         public void Init(SettingKeyScreen settingKeyScreen)
         {

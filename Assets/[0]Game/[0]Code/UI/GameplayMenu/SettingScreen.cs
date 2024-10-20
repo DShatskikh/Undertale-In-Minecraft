@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using RimuruDev;
 using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -129,7 +130,8 @@ namespace Game
                     languageSlot.Click();
                     break;
                 case HintSlotViewModel hintSlot:
-                    hintSlot.IsToggle.Value = !hintSlot.IsToggle.Value;
+                    YandexGame.savesData.SettingData.IsShowHint.Value =
+                        !YandexGame.savesData.SettingData.IsShowHint.Value;
                     GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
                     break;
                 case ReassigningKeysSlotViewModel reassigningKeysSlot:

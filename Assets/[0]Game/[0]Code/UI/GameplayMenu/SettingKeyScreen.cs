@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization;
 
 namespace Game
 {
@@ -17,9 +19,14 @@ namespace Game
         [SerializeField]
         private RebindKey _rebindKey;
 
+        [SerializeField]
+        private LocalizedString _inputLocalizedString1, _inputLocalizedString2;
+        
         private InputActionRebindingExtensions.RebindingOperation m_RebindOperation;
         private KeySlotViewModel _keySlot => (KeySlotViewModel)CurrentSlot;
         private bool _isRight;
+        private string _inputText1;
+        private string _inputText2;
 
         public override void Activate(bool isActive)
         {
@@ -48,6 +55,8 @@ namespace Game
                 _currentIndex = new Vector2(0, _slots.Count - 1);
                 Select();
                 _currentSlot.SetSelected(true);
+
+                GameData.Startup.StartCoroutine(AwaitLoadText());
             }
             else
             {
@@ -231,16 +240,20 @@ namespace Game
                     });
 
             // If it's a part binding, show the name of the part in the UI.
-            var partName = default(string);
+            /*var partName = default(string);
             if (action.bindings[bindingIndex].isPartOfComposite)
-                partName = $"Binding '{action.bindings[bindingIndex].name}'. ";
+                partName = $"Binding '{action.bindings[bindingIndex].name}'. ";*/
 
             // Bring up rebind overlay, if we have one.
             _rebindKey.gameObject.SetActive(true);
  
-            var text = !string.IsNullOrEmpty(m_RebindOperation.expectedControlType)
+            /*var text = !string.IsNullOrEmpty(m_RebindOperation.expectedControlType)
                 ? $"{partName}Waiting for {m_RebindOperation.expectedControlType} input..."
-                : $"{partName}Waiting for input...";
+                : $"{partName}Waiting for input...";*/
+
+            var keyDisplay = action.GetBindingDisplayString(bindingIndex);
+            
+            var text = $"{_inputText1}: \"{((KeySlotViewModel)_currentSlot).View.LoadText}\"\n{_inputText2}: [{keyDisplay}]";
             _rebindKey.SetText(text);
             
             // Give listeners a chance to act on the rebind starting.
@@ -266,6 +279,14 @@ namespace Game
             
             Select();
             keySlot.UpdateBindingDisplay();
+        }
+
+        private IEnumerator AwaitLoadText()
+        {
+            var loadTextCommand = new LoadTextCommand(_inputLocalizedString1);
+            yield return loadTextCommand.Await().ContinueWith(() => _inputText1 = loadTextCommand.Result);
+            var loadTextCommand2 = new LoadTextCommand(_inputLocalizedString2);
+            yield return loadTextCommand2.Await().ContinueWith(() => _inputText2 = loadTextCommand2.Result);
         }
     }
 }

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using YG;
 
 namespace Game
@@ -15,9 +16,13 @@ namespace Game
         [SerializeField]
         private CurrentDeviceType _testDeviceType = CurrentDeviceType.Mobile;
         
+        [FormerlySerializedAs("_soundMixer")]
         [Header("Ссылки")]
         [SerializeField]
-        private AudioMixerGroup _mixer;
+        private AudioMixer _audioMixer;
+        
+        [SerializeField]
+        private AudioMixer _musicMixer;
         
         [SerializeField]
         private EffectSoundPlayer _effectSoundPlayer;
@@ -27,9 +32,6 @@ namespace Game
         
         [SerializeField]
         private DeviceTypeDetector _deviceTypeDetector;
-
-        [SerializeField]
-        private VolumeSlider _volumeSlider;
 
         [SerializeField]
         private AssetProvider _assetProvider;
@@ -72,14 +74,11 @@ namespace Game
             GameData.AssetProvider = _assetProvider;
             GameData.EffectSoundPlayer = _effectSoundPlayer;
             GameData.MusicPlayer = _musicPlayer;
-            GameData.Mixer = _mixer;
-            GameData.VolumeSlider = _volumeSlider;
+            GameData.AudioMixer = _audioMixer;
             GameData.AdsManager = _adsManager;
             
             YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
             Application.targetFrameRate = 60;
-            
-            GameData.Mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, YandexGame.savesData.Volume));
 
 #if UNITY_EDITOR
             if (_isNotLoad)

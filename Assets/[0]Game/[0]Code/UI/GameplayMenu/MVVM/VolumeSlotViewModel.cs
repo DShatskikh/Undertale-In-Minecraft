@@ -8,9 +8,9 @@ namespace Game
         [SerializeField]
         private PlusMinusVolumeView _plus, _minus;
         
-        private VolumeSlotView _view;
-
-        public readonly ReactiveProperty<float> Volume = new();
+        [SerializeField]
+        protected VolumeSlotView _view;
+        
         private bool _isSelect;
         private SettingScreen _settingScreen;
         private float _currentHorizontal;
@@ -18,8 +18,11 @@ namespace Game
         public void Init(SettingScreen settingScreen)
         {
             _settingScreen = settingScreen;
+            OnInit();
         }
-        
+
+        protected abstract void OnInit();
+
         private void Awake()
         {
             _view = GetComponent<VolumeSlotView>();
@@ -28,7 +31,6 @@ namespace Game
         private void Start()
         {
             _view.Init(this);
-            Volume.Value = YandexGame.savesData.Volume;
         }
 
         private void Update()
@@ -73,10 +75,7 @@ namespace Game
             _currentHorizontal = horizontal;
         }
 
-        public void AddVolume(float value)
-        {
-            Volume.Value = Mathf.Clamp(Volume.Value + value, 0f, 1f);
-        }
+        public abstract void AddVolume(float value);
 
         public override void SetSelected(bool isSelect)
         {

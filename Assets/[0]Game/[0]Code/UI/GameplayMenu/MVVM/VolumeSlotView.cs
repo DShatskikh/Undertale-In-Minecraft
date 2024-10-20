@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization;
 using UnityEngine.UI;
+using YG;
 
 namespace Game
 {
@@ -14,9 +15,6 @@ namespace Game
         
         [SerializeField]
         private TMP_Text _valueLabel, _label;
-
-        [SerializeField]
-        private LocalizedString _localizedString;
 
         [SerializeField]
         private Sprite _iconSprite;
@@ -45,22 +43,19 @@ namespace Game
         public void Init(VolumeSlotViewModel viewModel)
         {
             _viewModel = viewModel;
-            _viewModel.Volume.Changed += VolumeOnChanged;
             _slider.onValueChanged.AddListener(_viewModel.OnSliderChanged);
-
-            StartCoroutine(AwaitLoad());
         }
 
         private void OnDestroy()
         {
-            _viewModel.Volume.Changed -= VolumeOnChanged;
             _slider.onValueChanged.RemoveListener(_viewModel.OnSliderChanged);
         }
 
-        private void VolumeOnChanged(float value)
+        public void VolumeOnChanged(float value)
         {
             _slider.value = value;
             _valueLabel.text = $"{(int)(value * 100)}%";
+            print("VolumeOnChanged");
         }
 
         public void SetSelect(bool isSelect)
@@ -75,12 +70,6 @@ namespace Game
                 _label.color = GameData.AssetProvider.DeselectColor;
                 _icon.sprite = _iconSprite;
             }
-        }
-        
-        private IEnumerator AwaitLoad()
-        {
-            var loadTextCommand = new LoadTextCommand(_localizedString);
-            yield return loadTextCommand.Await().ContinueWith(() => _label.text = loadTextCommand.Result);
         }
 
         public void SubmitDown()
