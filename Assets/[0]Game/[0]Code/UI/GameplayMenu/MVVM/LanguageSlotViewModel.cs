@@ -1,22 +1,15 @@
-using System;
-using TMPro;
-using UnityEngine;
-using UnityEngine.InputSystem;
+using YG;
 
 namespace Game
 {
     public class LanguageSlotViewModel : BaseSlotController
     {
-        [SerializeField]
-        private LanguageDropdown _languageDropdown;
-        
         private SettingScreen _settingScreen;
         private LanguageSlotView _view;
 
         public void Init(SettingScreen settingScreen)
         {
             _settingScreen = settingScreen;
-            _languageDropdown.Init(_settingScreen);
         }
 
         private void Awake()
@@ -36,9 +29,12 @@ namespace Game
 
         public void Click()
         {
-            _settingScreen.UnSelect();
-            _languageDropdown.Activate(true);
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
+
+            if (YandexGame.savesData.SettingData.Language.Value == 0)
+                YandexGame.savesData.SettingData.Language.Value = 1;
+            else
+                YandexGame.savesData.SettingData.Language.Value = 0;
         }
 
         public override void Select()
@@ -59,6 +55,7 @@ namespace Game
         public override void SubmitUp()
         {
             //_view.SubmitUp();
+            Click();
         }
     }
 }

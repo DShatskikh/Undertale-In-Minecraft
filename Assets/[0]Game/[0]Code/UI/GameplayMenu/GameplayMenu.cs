@@ -211,7 +211,6 @@ namespace Game
         
         private IEnumerator AwaitOnSlotIndexChanged(Vector2 direction)
         {
-            print(direction);
             var startIndex = _currentIndex;
             Select();
             base.OnSlotIndexChanged(direction);

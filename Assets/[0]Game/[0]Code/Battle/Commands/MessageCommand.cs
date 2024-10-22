@@ -1,21 +1,22 @@
 using UnityEngine.Events;
+using UnityEngine.Localization;
 
 namespace Game
 {
     public class MessageCommand : CommandBase
     {
         private readonly BattleMessageBox _messageBox;
-        private readonly BattleMessageData[] _messages;
+        private readonly LocalizedString[] _messages;
 
         private int _index;
         
-        public MessageCommand(BattleMessageBox messageBox, BattleMessageData[] messages)
+        public MessageCommand(BattleMessageBox messageBox, LocalizedString[] messages)
         {
             _messageBox = messageBox;
             _messages = messages;
         }
         
-        public MessageCommand(BattleMessageBox messageBox, BattleMessageData message)
+        public MessageCommand(BattleMessageBox messageBox, LocalizedString message)
         {
             _messageBox = messageBox;
             _messages = new []{ message };

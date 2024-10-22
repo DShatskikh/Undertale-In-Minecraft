@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -9,7 +10,9 @@ namespace Game
         public AttackBase[] Attacks;
         public int Attack = 3;
         public int WinPrize = 2;
-        public Act[] Acts;
-        public BattleMessageData[] EndReplicas;
+        public BaseActConfig[] Acts;
+        [FormerlySerializedAs("Acts")]
+        public Act[] OldActs;
+        public LocalizedString[] EndReplicas;
     }
 }

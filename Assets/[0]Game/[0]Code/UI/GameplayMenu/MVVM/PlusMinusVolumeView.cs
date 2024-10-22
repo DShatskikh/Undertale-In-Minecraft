@@ -1,3 +1,4 @@
+using System;
 using MoreMountains.Feedbacks;
 using TMPro;
 using UnityEngine;
@@ -53,6 +54,12 @@ namespace Game
         {
             if (_isPressed)
                 _viewModel.AddVolume(_isPlus ? Time.deltaTime : -Time.deltaTime);
+        }
+
+        private void OnDisable()
+        {
+            _isPressed = false;
+            OnPointerExit(null);
         }
     }
 }

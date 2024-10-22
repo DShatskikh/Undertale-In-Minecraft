@@ -24,13 +24,10 @@ namespace Game
         {
             YandexGame.savesData.PositionX = value.x;
             YandexGame.savesData.PositionY = value.y;
-            
-            Debug.Log("Позиция сохранена");
         }
         
         public Vector2 LoadPosition()
         {
-            Debug.Log("Позиция загруженна");
             return new Vector2(YandexGame.savesData.PositionX, YandexGame.savesData.PositionY);
         }
 

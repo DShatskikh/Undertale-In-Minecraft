@@ -80,9 +80,10 @@ namespace Game
             
             if (_slots.TryGetValue(newIndex, out var controller))
             {
-                if (controller != null)
+                var oldVM = _slots[_currentIndex];
+                
+                if (controller != null && oldVM != controller)
                 {
-                    var oldVM = _slots[_currentIndex];
                     oldVM.SetSelected(false);
                     controller.SetSelected(true);
                     _currentIndex = newIndex;

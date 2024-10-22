@@ -55,7 +55,6 @@ namespace Game
         {
             _slider.value = value;
             _valueLabel.text = $"{(int)(value * 100)}%";
-            print("VolumeOnChanged");
         }
 
         public void SetSelect(bool isSelect)

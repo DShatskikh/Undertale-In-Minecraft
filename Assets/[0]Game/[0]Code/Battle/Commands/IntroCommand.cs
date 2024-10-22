@@ -18,7 +18,6 @@ namespace Game
         
         public override void Execute(UnityAction action)
         {
-            Debug.Log("IntroCommand");
             _startBattlePlaySound.Play();
             GameData.Startup.StartCoroutine(AwaitMove(action));
         }

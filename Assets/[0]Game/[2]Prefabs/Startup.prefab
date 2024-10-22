@@ -32,8 +32,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2758612059619545385}
   - {fileID: 2967837730493376424}
+  - {fileID: 2758612059619545385}
   - {fileID: 617172567467814441}
   - {fileID: 4255928844105495190}
   - {fileID: 1156216691372119646}
@@ -55,8 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isNotLoad: 1
   _testDeviceType: 0
-  _soundMixer: {fileID: 24100000, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
-  _musicMixer: {fileID: 24100000, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
+  _audioMixer: {fileID: 24100000, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
   _effectSoundPlayer: {fileID: 2544995322125151895}
   _musicPlayer: {fileID: 7978125149905417236}
   _deviceTypeDetector: {fileID: 3114450107808566579}
@@ -119,7 +118,7 @@ GameObject:
   - component: {fileID: 1436111887442314858}
   - component: {fileID: 2544995322125151895}
   m_Layer: 0
-  m_Name: EffectAudioSource
+  m_Name: SoundAudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +148,7 @@ AudioSource:
   m_GameObject: {fileID: 1372969743681952378}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
+  OutputAudioMixerGroup: {fileID: -4951080177512256925, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
   m_audioClip: {fileID: 8300000, guid: cd01c4a085ce19b4d9b0db80ad3ae3ec, type: 3}
   m_Resource: {fileID: 8300000, guid: cd01c4a085ce19b4d9b0db80ad3ae3ec, type: 3}
   m_PlayOnAwake: 0
@@ -446,7 +445,7 @@ AudioSource:
   m_GameObject: {fileID: 9143945613772322554}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
+  OutputAudioMixerGroup: {fileID: -5344174313350737772, guid: 227a44bd4542e824f84466a8f69d2954, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6def673554d89114cb300ef15827e6f9, type: 3}
   m_Resource: {fileID: 8300000, guid: 6def673554d89114cb300ef15827e6f9, type: 3}
   m_PlayOnAwake: 0

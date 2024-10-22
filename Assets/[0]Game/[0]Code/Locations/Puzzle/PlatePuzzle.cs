@@ -38,8 +38,6 @@ namespace Game
 
         public void ActivateNoEvent()
         {
-            print("ActivateNoEvent");
-            
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
 

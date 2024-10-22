@@ -2,25 +2,53 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using YG;
 
 namespace Game
 {
-    public class LanguageSlotView : MonoBehaviour, IPointerEnterHandler
+    public class LanguageSlotView : MonoBehaviour, IPointerEnterHandler, IPointerUpHandler
     {
         [SerializeField]
-        private Image _icon, _frame;
+        private Image _icon, _bracketL, _bracketR, _flag;
 
         [SerializeField]
-        private TMP_Text _label, _dropDownLabel;
+        private TMP_Text _label, _languageLabel;
 
         [SerializeField]
-        private Sprite _defaultIcon;
-
-        private LanguageSlotViewModel _viewModel;
+        private Sprite[] _flags;
         
+        private LanguageSlotViewModel _viewModel;
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            _viewModel.Select();
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _viewModel.Click();
+        }
+
         public void Init(LanguageSlotViewModel viewModel)
         {
             _viewModel = viewModel;
+        }
+
+        private void OnEnable()
+        {
+            YandexGame.savesData.SettingData.Language.Changed += LanguageOnChanged;
+            LanguageOnChanged(YandexGame.savesData.SettingData.Language.Value);
+        }
+
+        private void OnDisable()
+        {
+            YandexGame.savesData.SettingData.Language.Changed -= LanguageOnChanged;
+        }
+        
+        private void LanguageOnChanged(int value)
+        {
+            _flag.sprite = _flags[value];
+            _languageLabel.text = value == 0 ? "Русский" : "English";
         }
 
         public void Upgrade(bool isSelect, bool isShow)
@@ -31,29 +59,26 @@ namespace Game
 
                 if (isShow)
                 {
-                    _frame.color = GameData.AssetProvider.DeselectColor;
-                    _dropDownLabel.color = GameData.AssetProvider.DeselectColor;
+                    _bracketL.color = GameData.AssetProvider.DeselectColor;
+                    _bracketR.color = GameData.AssetProvider.DeselectColor;
+                    _languageLabel.color = GameData.AssetProvider.DeselectColor;
                     _label.color = GameData.AssetProvider.DeselectColor;
                 }
                 else
                 {
-                    _frame.color = GameData.AssetProvider.SelectColor;
-                    _dropDownLabel.color = GameData.AssetProvider.SelectColor;  
+                    _bracketL.color = GameData.AssetProvider.SelectColor;
+                    _bracketR.color = GameData.AssetProvider.SelectColor;
+                    _languageLabel.color = GameData.AssetProvider.SelectColor;  
                     _label.color = GameData.AssetProvider.SelectColor;
                 }
             }
             else
             {
                 _label.color = GameData.AssetProvider.DeselectColor;
-                _icon.sprite = _defaultIcon;
-                _frame.color = GameData.AssetProvider.DeselectColor;
-                _dropDownLabel.color = GameData.AssetProvider.DeselectColor;
+                _bracketL.color = GameData.AssetProvider.DeselectColor;
+                _bracketR.color = GameData.AssetProvider.DeselectColor;
+                _languageLabel.color = GameData.AssetProvider.DeselectColor;
             }
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            _viewModel.Select();
         }
     }
 }

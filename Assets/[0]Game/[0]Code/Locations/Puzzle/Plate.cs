@@ -31,12 +31,10 @@ namespace Game
         {
             _spriteRenderer.sprite = _activeSprite;
             IsActive = true;
-            print(IsActive);
         }
 
         public void Deactivate()
         {
-            print("Deactivate");
             _spriteRenderer.sprite = _deactivateSprite;
             IsActive = false;
         }

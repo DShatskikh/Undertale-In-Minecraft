@@ -17,7 +17,7 @@ namespace Game
 
         private void Start()
         {
-            GameData.Startup.StartCoroutine(AwaitMove());
+            StartCoroutine(AwaitMove());
         }
         
         private IEnumerator AwaitMove()
@@ -48,7 +48,7 @@ namespace Game
             {
                 if (Model.IsSelectedOnce)
                 {
-                    GameData.Battle.AddProgress = Model.Act.Progress;
+                    GameData.Battle.AddProgress = Model.Act.GetProgress();
                     EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
                 }
                 else

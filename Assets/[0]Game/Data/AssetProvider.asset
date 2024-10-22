@@ -17,6 +17,7 @@ MonoBehaviour:
   SelectSound: {fileID: 8300000, guid: 0a3c296f824d3e04e945e5e3c35304ba, type: 3}
   DoorSound: {fileID: 8300000, guid: cd01c4a085ce19b4d9b0db80ad3ae3ec, type: 3}
   JumpSound: {fileID: 8300000, guid: 71c4623fd47a65c4583e6417cdc87d3f, type: 3}
+  PistonSound: {fileID: 8300000, guid: 12d1d81337f7b9e4297647013872ee06, type: 3}
   StepSoundPairsConfig: {fileID: 11400000, guid: 90e4c7439359ee74f917db220aa55d50, type: 2}
   TileTagConfig: {fileID: 11400000, guid: b628592479067e84e9e94aa18a244362, type: 2}
   GameplayMenuConfigs:
@@ -45,6 +46,11 @@ MonoBehaviour:
   ExitSlotPrefab: {fileID: 5017060091444888361, guid: 9384f017418ad94488a16d0e011551ea, type: 3}
   MenuSlotPrefab: {fileID: 7653444289477782169, guid: be1b2bfe938cc60429093fb2fa9fd4d7, type: 3}
   GuideSlotPrefab: {fileID: 7649450276483069210, guid: 3bbf1e23f2a5b7f4d9eb6fb4c6862102, type: 3}
+  PuzzleLeverSlotPrefab: {fileID: 8614161134555207894, guid: 7c8a8b7b75ac24f48bf0cf26996efbc4, type: 3}
+  PuzzleButtonSlotPrefab: {fileID: 4084222857976235010, guid: dc5138acae0950043b461f2986c9f001, type: 3}
+  SpeakActScreenPrefab: {fileID: 1875159168665320668, guid: 9b3aaf5eedf3b9a4e88c48e7f46cb05f, type: 3}
+  SpeakAtcSlotPrefab: {fileID: 3186821470277044284, guid: 32eef43ee9c8251439e3532fa195ccc9, type: 3}
+  CharacterIcon: {fileID: -2083921280, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  SpeakActIcon: {fileID: 457446701, guid: 2fa026478351bf04499509ec41acad17, type: 3}
   SelectColor: {r: 1, g: 0.9333334, b: 0.2509804, a: 1}
   DeselectColor: {r: 0, g: 0.6, b: 1, a: 1}
-  CharacterIcon: {fileID: -2083921280, guid: 2fa026478351bf04499509ec41acad17, type: 3}

@@ -4,9 +4,9 @@ namespace Game
     {
         public bool IsSelected;
         public bool IsSelectedOnce;
-        public readonly Act Act;
+        public readonly BaseActConfig Act;
         
-        public ActSlotModel(Act act)
+        public ActSlotModel(BaseActConfig act)
         {
             Act = act;
         }

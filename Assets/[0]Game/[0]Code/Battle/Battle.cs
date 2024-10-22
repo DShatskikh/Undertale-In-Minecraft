@@ -56,6 +56,9 @@ namespace Game
         [SerializeField]
         private AddProgressData _addProgressData;
 
+        [SerializeField]
+        private Transform _actScreenContainer;
+        
         private Label _healthLabel;
         private Label _enemyHealthLabel;
         private Vector2 _normalWorldCharacterPosition;
@@ -69,6 +72,11 @@ namespace Game
         public BlackPanel BlackPanel => _blackPanel;
         public GameObject Arena => _arena.gameObject;
         public SelectActManager SelectActManager => _selectActManager;
+        public Transform ActScreenContainer => _actScreenContainer;
+        public BattleMessageBox EnemyMessageBox => _enemyMessageBox;
+        public TMP_Text AddProgressLabel => _addProgressLabel;
+        public AddProgressData AddProgressData => _addProgressData;
+
         public int? AddProgress = null;
 
         private void OnDisable()
@@ -140,30 +148,30 @@ namespace Game
             GameData.CommandManager.StartCommands(commands);
         }
 
-        public void Turn(Act act = null)
+        public void Turn(BaseActConfig act = null)
         {
             var commands = new List<CommandBase>();
 
-            if (act != null)
+            /*if (act != null)
             {
                 commands.Add(new MessageCommand(_messageBox, act.Description));
                 commands.Add(new MessageCommand(_enemyMessageBox, act.Reaction));
                 commands.Add(new AddProgressCommand(act.Progress, _addProgressLabel, _addProgressData));
-            }
+            }*/
             
-            commands.Add(new CheckEndBattleCommand());
+            //commands.Add(new CheckEndBattleCommand());
             
             //if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null && _attacks[_attackIndex].Messages.Length != 0) 
             //    commands.Add(new MessageCommand(_enemyMessageBox, _attacks[_attackIndex].Messages));
 
-            commands.Add(new ShowArenaCommand(_arena, _blackPanel));
+            //commands.Add(new ShowArenaCommand(_arena, _blackPanel));
             
             //if (!YandexGame.savesData.IsTutorialComplited)
             //    commands.Add(new EnemyAttackCommand(_attackTutorial, _blackPanel, _arena.gameObject)); 
             
             //commands.Add(new EnemyAttackCommand(_attacks[_attackIndex], _blackPanel, _arena.gameObject));
-            commands.Add(new CheckEndBattleCommand());
-            commands.Add(new HideArenaCommand(_arena, _blackPanel));
+            //commands.Add(new CheckEndBattleCommand());
+            //commands.Add(new HideArenaCommand(_arena, _blackPanel));
             commands.Add(new StartCharacterTurnCommand());
 
             GameData.CommandManager.StartCommands(commands);

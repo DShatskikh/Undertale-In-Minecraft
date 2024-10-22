@@ -31,7 +31,6 @@ namespace Game
         public void OnPointerEnter(PointerEventData eventData)
         {
             _viewModel.SelectSlot(_index);
-            print($"OnPointerEnter: {_index}");
         }
 
         public void OnPointerUp(PointerEventData eventData)

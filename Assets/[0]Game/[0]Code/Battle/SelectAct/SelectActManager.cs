@@ -49,16 +49,17 @@ namespace Game
         
         public override void OnSubmitDown()
         {
-            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
-            var slot = (ActSlotController)_currentSlot;
-            slot.Model.IsSelectedOnce = true;
-            GameData.Battle.Turn(slot.Model.Act);
-            gameObject.SetActive(false);
+
         }
 
         public override void OnSubmitUp()
         {
-            throw new System.NotImplementedException();
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
+            var slot = (ActSlotController)_currentSlot;
+            slot.Model.IsSelectedOnce = true;
+            Activate(false);
+            slot.Model.Act.Use();
+            //GameData.Battle.Turn(slot.Model.Act);
         }
 
         public override void OnCancel() { }

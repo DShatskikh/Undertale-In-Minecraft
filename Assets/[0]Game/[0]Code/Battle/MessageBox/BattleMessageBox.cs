@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Localization;
 
 namespace Game
 {
@@ -12,9 +13,9 @@ namespace Game
         private int _index;
         private string _result;
         private UnityAction _action;
-        private BattleMessageData[] _messages;
+        private LocalizedString[] _messages;
 
-        public void Show(BattleMessageData[] messages, UnityAction action)
+        public void Show(LocalizedString[] messages, UnityAction action)
         {
             if (!_view)
                 _view = GetComponent<BattleMessageBoxView>();
@@ -89,15 +90,15 @@ namespace Game
             _action.Invoke();
         }
 
-        private IEnumerator TypeText(BattleMessageData message)
+        private IEnumerator TypeText(LocalizedString message)
         {
             _countSymbol = 0;
             var text = "";
             _result = "";
             _view.SetText("");
-            _view.SetShake(message.Shaking);
+            //_view.SetShake(message.Shaking);
             
-            var messageOperation = message.LocalizedString.GetLocalizedStringAsync();
+            var messageOperation = message.GetLocalizedStringAsync();
             
             while (!messageOperation.IsDone)
                 yield return null;

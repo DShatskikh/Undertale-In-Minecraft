@@ -27,7 +27,7 @@ namespace Game
             }
             else
             {
-                _icon.sprite = model.Act.Icon;
+                _icon.sprite = model.Act.GetIcon();
                 _frame.color = GameData.AssetProvider.DeselectColor;
                 _label.color = GameData.AssetProvider.DeselectColor;
             }

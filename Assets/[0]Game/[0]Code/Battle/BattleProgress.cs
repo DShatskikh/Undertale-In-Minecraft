@@ -47,8 +47,6 @@ namespace Game
                 _label.text += $"<Color=green> (+{addProgress}) </Color>";
             else if (addProgress < 0)
                 _label.text += $"<Color=red> ({addProgress}) </Color>";
-            
-            print(addProgress);
         }
     }
 }

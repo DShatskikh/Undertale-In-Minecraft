@@ -12,6 +12,7 @@ namespace Game
         public AudioClip SelectSound;
         public AudioClip DoorSound;
         public AudioClip JumpSound;
+        public AudioClip PistonSound;
         
         [Header("Configs")]
         public StepSoundPairsConfig StepSoundPairsConfig;
@@ -30,10 +31,17 @@ namespace Game
         public ExitSlotViewModel ExitSlotPrefab;
         public MenuSlotViewModel MenuSlotPrefab;
         public GuideSlotViewModel GuideSlotPrefab;
+        public PuzzleLeverSlotView PuzzleLeverSlotPrefab;
+        public PuzzleButtonSlotView PuzzleButtonSlotPrefab;
+        public SpeakActScreen SpeakActScreenPrefab;
+        public SpeakAtcSlot SpeakAtcSlotPrefab;
+        
+        [Header("Iocns")]
+        public Sprite CharacterIcon;
+        public Sprite SpeakActIcon;
         
         [Header("Other")]
         public Color SelectColor;
         public Color DeselectColor;
-        public Sprite CharacterIcon;
     }
 }

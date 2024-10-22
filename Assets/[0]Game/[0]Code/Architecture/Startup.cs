@@ -20,10 +20,7 @@ namespace Game
         [Header("Ссылки")]
         [SerializeField]
         private AudioMixer _audioMixer;
-        
-        [SerializeField]
-        private AudioMixer _musicMixer;
-        
+
         [SerializeField]
         private EffectSoundPlayer _effectSoundPlayer;
 

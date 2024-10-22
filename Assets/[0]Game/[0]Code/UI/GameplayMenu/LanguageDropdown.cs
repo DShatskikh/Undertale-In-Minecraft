@@ -69,7 +69,6 @@ namespace Game
             for (var index = 0; index < _elements.Count; index++)
             {
                 var element = _elements[index];
-                print(index);
                 element.SetIndex(index);
             }
 
