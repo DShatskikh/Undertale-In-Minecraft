@@ -36,7 +36,7 @@ namespace Game
             YandexGame.savesData.ResetAllIntPair();
             
             YandexGame.savesData.MaxHealth = 20;
-            YandexGame.savesData.LocationIndex = 0;
+            YandexGame.savesData.LocationName = "HerobrineHome";
             YandexGame.savesData.NumberGame += 1;
 
             YandexGame.savesData.IsCake = false;

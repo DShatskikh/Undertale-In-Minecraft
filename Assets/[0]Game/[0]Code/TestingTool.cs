@@ -79,7 +79,7 @@ namespace Game
         {
             if (int.TryParse(_inputField.text, out int result))
             {
-                GameData.LocationsManager.SwitchLocation((int)location, result);
+                //GameData.LocationsManager.SwitchLocation((int)location, result);
             }
         }
     }

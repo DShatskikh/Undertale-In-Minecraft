@@ -13,6 +13,7 @@ namespace Game
         public AudioClip DoorSound;
         public AudioClip JumpSound;
         public AudioClip PistonSound;
+        public AudioClip HypnosisSound;
         
         [Header("Configs")]
         public StepSoundPairsConfig StepSoundPairsConfig;

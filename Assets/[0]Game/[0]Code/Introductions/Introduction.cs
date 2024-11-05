@@ -65,7 +65,7 @@ namespace Game
             
             GameData.InputManager.Show();
             GameData.LocationsManager.gameObject.SetActive(true);
-            GameData.LocationsManager.SwitchLocation((int)LocationEnum.HerobrineHome, 0);
+            GameData.LocationsManager.SwitchLocation("HerobrineHome", 0);
             GameData.CharacterController.gameObject.SetActive(true);
             _unityEvent.Invoke();
         }

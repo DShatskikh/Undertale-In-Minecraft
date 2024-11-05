@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace Game
 {
-    public class TransparencyCommand : CommandBase
+    public class TransparencyCommand : AwaitCommand
     {
         private readonly SpriteRenderer _spriteRenderer;
         private readonly float _alpha;
@@ -20,6 +20,12 @@ namespace Game
         public override void Execute(UnityAction action)
         {
             GameData.Startup.StartCoroutine(AwaitTransparency(action));
+        }
+
+        public override IEnumerator Await()
+        {
+            Execute(_action);
+            yield return new WaitUntil(() => _isAction);
         }
 
         private IEnumerator AwaitTransparency(UnityAction action)

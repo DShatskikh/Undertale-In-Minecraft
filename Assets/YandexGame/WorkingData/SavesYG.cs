@@ -38,7 +38,7 @@ namespace YG
         public float PositionX;
         public float PositionY;
         public int Palesos;
-        public int LocationIndex;
+        public string LocationName;
         public int Health;
         public bool IsPrisonKey;
         public bool IsDeveloperKey;

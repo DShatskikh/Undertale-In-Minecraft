@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Analytics;
 using YG;
 
@@ -13,45 +14,45 @@ namespace Game
 
         private void Awake()
         {
+            _locations = GetComponentsInChildren<Location>(true);
+            
             foreach (var location in _locations)
             {
                 location.gameObject.SetActive(false);
             }
         }
 
-        public void SwitchLocation(int index, int pointIndex)
+        public void SwitchLocation(string nextLocationName, int pointIndex)
         {
-            if (_currentLocation) 
-                _currentLocation.gameObject.SetActive(false);
-            
-            _currentLocation = _locations[index];
-            _currentLocation.gameObject.SetActive(true);
-
-            if (_currentLocation.Points.Length <= pointIndex)
+            foreach (var location in _locations)
             {
-                Debug.LogWarning($"Такого индекса нет Всего точек: ({_currentLocation.Points.Length}) Текущий индекс: ({pointIndex}) Локация: ({((LocationEnum)index).ToString()})");
-                pointIndex = 0;
-            }
-
-            GameData.CharacterController.transform.position = _currentLocation.Points[pointIndex].position;
-            GameData.CompanionsManager.ResetAllPositions();
-            
-            YandexGame.savesData.LocationIndex = index;
-            Analytics.CustomEvent("Location " + _currentLocation.gameObject.name);
-        }
-
-        public void SwitchLocation(Location location)
-        {
-            _currentLocation = location;
-
-            for (int i = 0; i < _locations.Length; i++)
-            {
-                if (_locations[i] == _currentLocation)
+                if (location.GetName == nextLocationName)
                 {
-                    YandexGame.savesData.LocationIndex = i;
+                    if (_currentLocation) 
+                        _currentLocation.gameObject.SetActive(false);
+            
+                    _currentLocation = location;
+                    _currentLocation.gameObject.SetActive(true);
+                    
+                    if (_currentLocation.Points.Length <= pointIndex)
+                    {
+                        Debug.LogWarning($"Такого индекса нет Всего точек: ({_currentLocation.Points.Length}) Текущий индекс: ({pointIndex}) Локация: ({_currentLocation})");
+                        pointIndex = 0;
+                    }
+                    
+                    GameData.CharacterController.transform.position = _currentLocation.Points[pointIndex].position;
+                    GameData.CompanionsManager.ResetAllPositions();
+                    
+                    Analytics.CustomEvent("Location " + _currentLocation.gameObject.name);
                     break;
                 }
+                else
+                {
+                    location.gameObject.SetActive(false);
+                }
             }
+            
+            Debug.LogWarning($"Нет такой локации: ({_currentLocation})");
         }
     }
 }

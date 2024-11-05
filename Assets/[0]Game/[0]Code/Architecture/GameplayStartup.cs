@@ -131,7 +131,7 @@ namespace Game
                 GameData.Joystick.gameObject.SetActive(true);
                 GameData.CharacterController.enabled = true;
                 GameData.CharacterController.gameObject.SetActive(true);
-                GameData.LocationsManager.SwitchLocation(YandexGame.savesData.LocationIndex, YandexGame.savesData.PointIndex);
+                GameData.LocationsManager.SwitchLocation(YandexGame.savesData.LocationName, YandexGame.savesData.PointIndex);
                 GameData.CharacterController.transform.position = GameData.Saver.LoadPosition();
             }
 
