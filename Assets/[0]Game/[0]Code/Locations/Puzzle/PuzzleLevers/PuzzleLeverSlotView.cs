@@ -15,7 +15,7 @@ namespace Game
         [SerializeField]
         private PuzzleLeverSlotLever _lever;
         
-        private PuzzleLeversView _viewModel;
+        private IPuzzleView _viewModel;
         private bool _isOn;
         private bool _isSelect;
 
@@ -34,7 +34,7 @@ namespace Game
             _viewModel.OnSubmitUp();
         }
         
-        public void Init(PuzzleLeversView viewModel)
+        public void Init(IPuzzleView viewModel)
         {
             _viewModel = viewModel;
             _lever.Init(this);

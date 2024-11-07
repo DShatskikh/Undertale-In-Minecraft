@@ -25,7 +25,12 @@ namespace Game
 
         private void ShowRewardVideo(double value)
         {
-            var index = (int)value;
+            EventBus.CloseDialog = () => CloseDialog((int)value);
+        }
+
+        private void CloseDialog(int index)
+        {
+            EventBus.CloseDialog = null;
             
             if (YandexGame.savesData.IsBuySupport)
             {
@@ -33,9 +38,9 @@ namespace Game
                 return;
             }
 
-            YandexGame.RewVideoShow(1);
+            YandexGame.RewVideoShow(index);
         }
-        
+
         private void RewardVideoEvent(int value)
         {
             YandexGame.RewardVideoEvent = null;
@@ -55,6 +60,10 @@ namespace Game
                         case AdsType.BuyMask:
                             pair.Event.Invoke();
                             break;
+                        case AdsType.ConciergeBuyKey:
+                            Lua.Run("Variable[\"ConciergeState\"] = 2");
+                            pair.Event.Invoke();
+                            break;
                         default:
                             Debug.LogError("Не то число ????");
                             break;
@@ -66,7 +75,9 @@ namespace Game
         private enum AdsType
         {
             Other,
-            BuyMask
+            BuyMask,
+            ConciergeBuyKey,
+            
         }
         
         [Serializable]

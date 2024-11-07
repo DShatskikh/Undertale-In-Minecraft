@@ -2,6 +2,7 @@ using System;
 
 namespace Game
 {
+    [Serializable]
     public class ReactiveProperty<T>
     {
         public event Action<T> Changed;

@@ -34,12 +34,15 @@ namespace Game
         public GuideSlotViewModel GuideSlotPrefab;
         public PuzzleLeverSlotView PuzzleLeverSlotPrefab;
         public PuzzleButtonSlotView PuzzleButtonSlotPrefab;
+        public PuzzleArrowSlotView PuzzleArrowSlotPrefab;
         public SpeakActScreen SpeakActScreenPrefab;
         public SpeakAtcSlot SpeakAtcSlotPrefab;
         
         [Header("Iocns")]
         public Sprite CharacterIcon;
         public Sprite SpeakActIcon;
+        public Sprite DanceActIcon;
+        public Sprite AttackActIcon;
         
         [Header("Other")]
         public Color SelectColor;

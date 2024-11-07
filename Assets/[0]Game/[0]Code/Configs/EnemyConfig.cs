@@ -13,6 +13,7 @@ namespace Game
         public BaseActConfig[] Acts;
         [FormerlySerializedAs("Acts")]
         public Act[] OldActs;
+        public LocalizedString[] ProgressLocalized;
         public LocalizedString[] EndReplicas;
     }
 }

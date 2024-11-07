@@ -54,5 +54,11 @@ namespace Game
             
             Debug.LogWarning($"Нет такой локации: ({_currentLocation})");
         }
+
+        public void CloseCurrentLocation()
+        {
+            if (_currentLocation) 
+                _currentLocation.gameObject.SetActive(false);
+        }
     }
 }

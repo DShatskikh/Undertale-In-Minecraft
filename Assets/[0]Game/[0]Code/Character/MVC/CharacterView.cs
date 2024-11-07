@@ -26,7 +26,8 @@ namespace Game
             IdleDance = 1,
             Damage = 2,
             Move = 3,
-            Fly = 4
+            Fly = 4,
+            Sleep = 5
         }
         
         public void SetModel(CharacterModel model)
@@ -85,6 +86,16 @@ namespace Game
         public void Dance()
         {
             _animator.SetFloat(StateHash, (float)(CharacterState.IdleDance));
+        }
+
+        public void Sleep()
+        {
+            _animator.SetFloat(StateHash, (float)(CharacterState.Sleep)); 
+        }
+
+        public void Reset()
+        {
+            _animator.SetFloat(StateHash, (float)(CharacterState.Idle)); 
         }
     }
 }

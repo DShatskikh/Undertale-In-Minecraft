@@ -36,5 +36,46 @@ namespace Game
 
             throw new Exception("Добавь направление");
         }
+        
+        public static Vector2 GetDirection4(Vector2 direction)
+        {
+            var x = direction.x;
+            var y =  direction.y;
+
+            if (Mathf.Abs(x) > Mathf.Abs(y))
+            {
+                if (x < 0)
+                    return Vector2.left;
+                else
+                    return Vector2.right;
+            }
+            else
+            {
+                if (y > 0f)
+                    return Vector2.up;
+                else
+                    return Vector2.down;
+            }
+
+            throw new Exception("Добавь направление");
+        }
+        
+        public static Vector3 GetAngle(this ArrowDirection arrowDirection)
+        {
+            var angle = arrowDirection switch
+            {
+                ArrowDirection.Up => 0,
+                ArrowDirection.RightUp => -45,
+                ArrowDirection.Right => -90,
+                ArrowDirection.RightDown => -135,
+                ArrowDirection.Down => -180,
+                ArrowDirection.LeftDown => -225,
+                ArrowDirection.Left => -270,
+                ArrowDirection.LeftUp => -315,
+                _ => throw new ArgumentOutOfRangeException(nameof(arrowDirection), arrowDirection, null)
+            };
+
+            return new Vector3(0, 0, angle);
+        }
     }
 }

@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using RimuruDev;
 using UnityEngine;
-using UnityEngine.Localization;
 using UnityEngine.UI;
 
 namespace Game
 {
-    public class PuzzleLeversView : UIPanelBase
+    public class PuzzleLeversView : UIPanelBase, IPuzzleView
     {
         [SerializeField]
         private Transform _container;

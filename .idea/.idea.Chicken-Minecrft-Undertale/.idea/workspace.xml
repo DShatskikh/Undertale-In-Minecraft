@@ -5,54 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35838e97-396e-4d76-86a1-560d1be97bc0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/ChickenExtras.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/ChickenExtras.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/OctopusTrolleyCutScene_1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/OctopusTrolleyCutScene_1.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/OctopusTrolleyCutScene_2.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/OctopusTrolleyCutScene_2.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrows.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrows.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Camera/CameraResetTarget.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Camera/CameraResetTarget.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Camera/CameraSetTarget.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Camera/CameraSetTarget.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/MonologueCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/MonologueCommand.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects/TheBedAtTheBusStop.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects/TheBedAtTheBusStop.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/Acts/AttackActConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/Acts/AttackActConfig.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/IPuzzleView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/IPuzzleView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/ArrowDirection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/ArrowDirection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrowSlotData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrowSlotData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrowSlotView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrowSlotView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrowView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrowView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleEnderCrystal.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleEnderCrystal/PuzzleEnderCrystal.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleEnderCrystal/PuzzleEnderCrystal.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleEnderCrystal/PuzzleEnderCrystalsManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleEnderCrystal/PuzzleEnderCrystalsManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/StonePuzzle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/StonePuzzle.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Dialogs/UseDialogCloseEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/Dialogs/UseDialogCloseEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Branch/BranchActionLua.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Branch/BranchActionLua.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/RotationCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/RotationCommand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects/BedTeleport.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects/BedTeleport.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chicken-Minecrft-Undertale/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chicken-Minecrft-Undertale/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Battle/Battle Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Battle/Battle Shared Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Battle/Battle_ru.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Battle/Battle_ru.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Dialogues/Dialogues Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Dialogues/Dialogues Shared Data.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Dialogues/Dialogues_ru.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Dialogues/Dialogues_ru.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Monologues/Monologues Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Monologues/Monologues Shared Data.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Monologues/Monologues_ru.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Monologues/Monologues_ru.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Selected/Selected Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Selected/Selected Shared Data.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Selected/Selected_ru.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Selected/Selected_ru.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/YandexGame/WorkingData/Editor/SavesEditorYG.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/YandexGame/WorkingData/Editor/SavesEditorYG.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YandexGame/WorkingData/SavesYG.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/YandexGame/WorkingData/SavesYG.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/Character/View.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Animations/Character/View.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/AssetProvider.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/AssetProvider.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Dialogue Database (Auto-Backup).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Dialogue Database (Auto-Backup).asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Dialogue Database (Auto-Backup).asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Dialogue Database (Auto-Backup).asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Dialogue Database.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Dialogue Database.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/TileTagConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/TileTagConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Materials/determinationmonorusbylyajk SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Materials/determinationmonorusbylyajk SDF 1.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Tilemaps/Colliders.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Tilemaps/Colliders.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Tilemaps/Ground.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Tilemaps/Ground.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Timelines/Octopus Trolley CutScene 1Timeline.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Timelines/Octopus Trolley CutScene 1Timeline.playable" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Timelines/Octopus Trolley CutScene 2Timeline.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Timelines/Octopus Trolley CutScene 2Timeline.playable" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/AdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/AdsManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/AssetProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/AssetProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/GameplayStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/GameplayStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/Saver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/Saver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/TransparencyCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/TransparencyCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Introductions/Introduction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Introductions/Introduction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Location.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Location.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Character/MVC/CharacterView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Character/MVC/CharacterView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/EnemyConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/EnemyConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Extensions/DirectionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Extensions/DirectionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Extensions/ReactiveProperty.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Extensions/ReactiveProperty.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/LocationsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/LocationsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/TestingTool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/TestingTool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/ExitLocation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/ExitLocation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/43fcdse.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/43fcdse.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrows.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrows.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleLevers/PuzzleButtonSlotView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleLevers/PuzzleButtonSlotView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleLevers/PuzzleLeverSlotView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleLevers/PuzzleLeverSlotView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleLevers/PuzzleLeversView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleLevers/PuzzleLeversView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects/TheBedAtTheBusStop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects/TheBedAtTheBusStop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 2.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 3.png" afterDir="false" />
@@ -61,23 +72,18 @@
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/AllMobs.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/AllMobs.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Grief.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Grief.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Main.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Main.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Main.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Main.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/InventoryRef.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/InventoryRef.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/Tileset1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/Tileset1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/Tileset1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/Tileset1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/dwq3q2rweq.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/dwq3q2rweq.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/geo-karta-park-2022.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/geo-karta-park-2022.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/menuref.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/menuref.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/ref3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/ref3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/wareewfdas.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/wareewfdas.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/PlatePuzzle 2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/PlatePuzzle 2/Plate.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/PlatePuzzle 2/Plate.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/PlatePuzzle 2/ResetPlate.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/PlatePuzzle 2/ResetPlate.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Objects/Light Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Objects/Light Block.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Objects/PlatePuzzle 2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Objects/PlatePuzzle 2/Plate.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Objects/PlatePuzzle 2/Plate.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Objects/PlatePuzzle 2/ResetPlate.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Objects/PlatePuzzle 2/ResetPlate.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Startup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Startup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/UI/LUA Dialog.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/UI/LUA Dialog.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +115,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/ShowArenaCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Heart/HeartController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Introductions/SkipIntro.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Puzzle/PuzzleArrows/PuzzleArrowSlotData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/GameplayMenu/GuideScreen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/GameplayMenu/MVVM/AllResetKeySlotView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/GameplayMenu/MVVM/LanguageSlotViewModel.cs" root0="FORCE_HIGHLIGHTING" />
@@ -197,10 +204,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4712">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="4712" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -305,6 +312,8 @@
       <workItem from="1729675270334" duration="2864000" />
       <workItem from="1730723253570" duration="5580000" />
       <workItem from="1730756880659" duration="5712000" />
+      <workItem from="1730832171147" duration="3584000" />
+      <workItem from="1730893039164" duration="23839000" />
     </task>
     <servers />
   </component>
@@ -332,5 +341,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#UnityEngine.RaycastHit2D" memberName="centroid" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
