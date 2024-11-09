@@ -9,7 +9,7 @@ namespace Game
         private EnemyConfig _config;
 
         [SerializeField] 
-        private GameObject _enemyObject;
+        private EnemyBase _enemyObject;
 
         [SerializeField] 
         private Vector2 _offset;
@@ -41,7 +41,7 @@ namespace Game
             GameData.EnemyData = new EnemyData()
             {
                 EnemyConfig = _config,
-                GameObject = _enemyObject,
+                Enemy = _enemyObject,
                 StartBattleTrigger = this
             };
 

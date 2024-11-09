@@ -43,6 +43,7 @@ namespace Game
         public Sprite SpeakActIcon;
         public Sprite DanceActIcon;
         public Sprite AttackActIcon;
+        public Sprite SightActIcon;
         
         [Header("Other")]
         public Color SelectColor;

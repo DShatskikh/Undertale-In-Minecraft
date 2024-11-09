@@ -8,22 +8,19 @@ namespace Game
     {
         private Coroutine _coroutine;
         private SpriteRenderer _spriteRenderer;
-        private float _targetA;
 
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        public void Show(float targetA = 0.88f)
+        public void Show(float targetA = 1f)
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
-
-            _targetA = targetA;
             
             gameObject.SetActive(true);
-            _coroutine = StartCoroutine(AwaitShow());
+            _coroutine = StartCoroutine(AwaitShow(targetA));
         }
 
         public void Hide()
@@ -37,20 +34,20 @@ namespace Game
             _coroutine = StartCoroutine(AwaitHide());
         }
 
-        private IEnumerator AwaitShow()
+        public IEnumerator AwaitShow(float targetA)
         {
             var duration = 0f;
             var startA = _spriteRenderer.color.a;
             
             while (duration < 0.5f)
             {
-                _spriteRenderer.color = _spriteRenderer.color.SetA(Mathf.Lerp(startA, _targetA, duration / 0.5f));
+                _spriteRenderer.color = _spriteRenderer.color.SetA(Mathf.Lerp(startA, targetA, duration / 0.5f));
                 yield return null;
                 duration += Time.deltaTime;
             }
         }
         
-        private IEnumerator AwaitHide()
+        public IEnumerator AwaitHide()
         {
             var duration = 0f;
             var startA = _spriteRenderer.color.a;

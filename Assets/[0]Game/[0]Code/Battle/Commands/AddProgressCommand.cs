@@ -54,7 +54,7 @@ namespace Game
 
             var startScale = new Vector2(2, 0.2f);
             _label.transform.localScale = startScale;
-            var startPosition = GameData.EnemyData.GameObject.transform.position.AddY(1);
+            var startPosition = GameData.EnemyData.Enemy.transform.position.AddY(1);
             _label.transform.position = startPosition;
 
             LocalizedString message = _progress switch

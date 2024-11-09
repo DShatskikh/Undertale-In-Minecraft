@@ -12,6 +12,9 @@ namespace Game
         
         [SerializeField]
         private float _distanceFromTarget;
+
+        [SerializeField]
+        private string _name;
         
         private SpriteRenderer _spriteRenderer;
         private Animator _animator;
@@ -20,6 +23,8 @@ namespace Game
         private float _delayIdle;
         private Vector2 _previousPosition;
 
+        public string GetName => _name;
+        
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();

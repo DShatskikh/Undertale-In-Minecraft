@@ -7,6 +7,7 @@ namespace Game
     {
         public event Action<float> SpeedChange;
         public event Action<bool> ShieldActivate;
+        public event Action<bool> Invulnerability;
         public event Action<Vector2> DirectionChange;
         
         public bool IsInvulnerability;
@@ -40,6 +41,7 @@ namespace Game
         public void SetIsInvulnerability(bool isInvulnerability)
         {
             IsInvulnerability = isInvulnerability;
+            Invulnerability?.Invoke(isInvulnerability);
             
             if (isInvulnerability)
                 ShieldActivate?.Invoke(false);

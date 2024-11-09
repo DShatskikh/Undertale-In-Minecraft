@@ -24,6 +24,7 @@ namespace Game
             _model.ShieldActivate += OnShieldActivate;
             _model.SpeedChange += ModelOnSpeedChange;
             _model.DirectionChange += OnDirectionChange;
+            _model.Invulnerability += OnInvulnerability;
         }
 
         private void OnDestroy()
@@ -31,6 +32,7 @@ namespace Game
             _model.ShieldActivate -= OnShieldActivate;
             _model.SpeedChange -= ModelOnSpeedChange;
             _model.DirectionChange -= OnDirectionChange;
+            _model.Invulnerability -= OnInvulnerability;
         }
 
         private void ModelOnSpeedChange(float value)
@@ -63,6 +65,11 @@ namespace Game
             _coroutine = StartCoroutine(AwaitTransparency(isActivate));
         }
 
+        private void OnInvulnerability(bool value)
+        {
+            _spriteRenderer.color = value ? new Color(1, 163 / 255f, 163 / 255f) : Color.white;
+        }
+        
         private IEnumerator AwaitTransparency(bool isActivate)
         {
             var progress = 0f;

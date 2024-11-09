@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 using YG;
 using Random = UnityEngine.Random;
@@ -26,7 +27,7 @@ namespace Game
         private SelectActManager _selectActManager;
 
         [SerializeField]
-        private SpriteRenderer _arena;
+        private BattleArena _arena;
 
         [SerializeField]
         private Transform[] _points;
@@ -86,8 +87,8 @@ namespace Game
             
             if (GameData.EnemyData != null)
             {
-                if (GameData.EnemyData.GameObject != null && GameData.EnemyData.StartBattleTrigger != null)
-                    GameData.EnemyData.GameObject.transform.SetParent(GameData.EnemyData.StartBattleTrigger.transform);
+                if (GameData.EnemyData.Enemy != null && GameData.EnemyData.StartBattleTrigger != null)
+                    GameData.EnemyData.Enemy.transform.SetParent(GameData.EnemyData.StartBattleTrigger.transform);
 
                 GameData.EnemyData.StartBattleTrigger = null;
             }
@@ -111,17 +112,13 @@ namespace Game
                 Camera.main.transform.position.SetZ(0).AddY(-3.5f) 
                 + (Vector3) GameData.EnemyData.StartBattleTrigger.Offset;
             
-            GameData.EnemyData.GameObject.transform.SetParent(GameData.EnemyPoint);
-
-            if (GameData.EnemyData.GameObject.TryGetComponent(out SpriteRenderer spriteRenderer))
-                spriteRenderer.flipX = true;
+            GameData.EnemyData.Enemy.transform.SetParent(GameData.EnemyPoint);
 
             var character = GameData.CharacterController;
             character.GetComponent<Collider2D>().isTrigger = true;
             character.View.Flip(false);
             character.View.SetOrderInLayer(11);
             
-            _arena.size = Vector2.zero;
             GameData.HeartController.gameObject.SetActive(false);
 
             YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
@@ -139,7 +136,7 @@ namespace Game
 
             var commands = new List<CommandBase>()
             {
-                new IntroCommand(_startBattlePlaySound, _points),
+                new IntroCommand(_startBattlePlaySound, _points, _blackPanel),
                 //new SkipIntroCommand(_points),
                 new DelayCommand(1f),
                 new StartEnemyTurnCommand(),
@@ -159,19 +156,20 @@ namespace Game
                 commands.Add(new AddProgressCommand(act.Progress, _addProgressLabel, _addProgressData));
             }*/
             
-            //commands.Add(new CheckEndBattleCommand());
+            commands.Add(new CheckEndBattleCommand());
             
             //if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null && _attacks[_attackIndex].Messages.Length != 0) 
             //    commands.Add(new MessageCommand(_enemyMessageBox, _attacks[_attackIndex].Messages));
 
-            //commands.Add(new ShowArenaCommand(_arena, _blackPanel));
+            commands.Add(new ShowArenaCommand(_arena));
+            commands.Add(new DelayCommand(0.5f));
             
             //if (!YandexGame.savesData.IsTutorialComplited)
             //    commands.Add(new EnemyAttackCommand(_attackTutorial, _blackPanel, _arena.gameObject)); 
             
-            //commands.Add(new EnemyAttackCommand(_attacks[_attackIndex], _blackPanel, _arena.gameObject));
+            commands.Add(new EnemyAttackCommand(_attacks[_attackIndex], _blackPanel, _arena.gameObject));
             //commands.Add(new CheckEndBattleCommand());
-            //commands.Add(new HideArenaCommand(_arena, _blackPanel));
+            commands.Add(new HideArenaCommand(_arena, _blackPanel));
             commands.Add(new StartCharacterTurnCommand());
 
             GameData.CommandManager.StartCommands(commands);

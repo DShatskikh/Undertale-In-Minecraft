@@ -64,7 +64,7 @@ namespace YG
 
         public int PointIndex;
 
-        public List<CompanionType> Companions = new List<CompanionType>();
+        public List<string> Companions = new List<string>();
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 

@@ -1,4 +1,5 @@
 using System.Collections;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -8,10 +9,7 @@ namespace Game
     {
         [SerializeField]
         private PlayableDirector _playableDirector;
-
-        [SerializeField]
-        private GameObject _science1, _science2;
-
+        
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(20);
@@ -29,9 +27,8 @@ namespace Game
 
             yield return new WaitUntil(() => isEndTimeline);
 
-            _science1.SetActive(false);
-            _science2.SetActive(true);
-            
+            Lua.Run("Variable[\"BavStopState\"] = 1");
+
             GameData.CharacterController.enabled = true;
         }
     }

@@ -6,10 +6,10 @@ namespace Game
 {
     public class HideArenaCommand : CommandBase
     {
-        private readonly SpriteRenderer _arena;
+        private readonly BattleArena _arena;
         private readonly BlackPanel _blackPanel;
 
-        public HideArenaCommand(SpriteRenderer arena, BlackPanel blackPanel)
+        public HideArenaCommand(BattleArena arena, BlackPanel blackPanel)
         {
             _arena = arena;
             _blackPanel = blackPanel;
@@ -22,38 +22,34 @@ namespace Game
         
         private IEnumerator AwaitHide(UnityAction action)
         {
-            GameData.HeartController.transform.position = GameData.Battle.Arena.transform.position;
+            //GameData.HeartController.transform.position = GameData.Battle.Arena.transform.position;
             
             var progress = 0.0f;
 
-            while (progress < 1)
-            {
-                progress += Time.deltaTime * 3f;
-                _arena.color = _arena.color.SetA(1 - progress);
-                //_arena.size = Vector2.Lerp(Vector2.one * 3, Vector2.zero, progress);
-                //_arena.transform.eulerAngles = Vector3.Lerp(Vector3.zero, new Vector3(0, 0, -180), progress);
-                yield return null;
-            }
-
-            var position =  GameData.HeartController.transform.position;
+            yield return _arena.AwaitUpgradeA(0, 1);
+            
             _blackPanel.Show();
-            GameData.EnemyData.GameObject.transform.SetParent(GameData.EnemyPoint);
+            GameData.EnemyData.Enemy.transform.SetParent(GameData.EnemyPoint);
             GameData.CharacterController.View.SetOrderInLayer(11);
+
+            _arena.ShowAdditionalObjects(false);
             
             progress = 0.0f;
-            var startPosition = GameData.CharacterController.transform.position;
+            var heart = GameData.HeartController;
+            var heartStartPosition =  heart.transform.localPosition;
 
             while (progress < 1)
             {
-                progress += Time.deltaTime * 1.0f;
-                GameData.HeartController.transform.position = Vector2.Lerp(position, 
-                    startPosition.AddY(0.5f).AddX(-3), progress);
+                progress += Time.deltaTime / 1;
+                heart.transform.localPosition = Vector2.Lerp(heartStartPosition, heartStartPosition.SetY(3.16f), progress);
+                heart.View.GetComponent<SpriteRenderer>().color = heart.View.GetComponent<SpriteRenderer>().color.SetA(Mathf.Lerp(1, 0, progress));
                 yield return null;
             }
-
+            
             progress = 0.0f;
             
-            var enemyStartPosition = GameData.EnemyData.GameObject.transform.position;
+            var startPosition = GameData.CharacterController.transform.position;
+            var enemyStartPosition = GameData.EnemyData.Enemy.transform.position;
             
             while (progress < 1)
             {
@@ -62,11 +58,10 @@ namespace Game
                 GameData.CharacterController.transform.position = Vector2.Lerp(startPosition, 
                     GameData.CharacterPoint.position, progress);
 
-                GameData.EnemyData.GameObject.transform.position = Vector2.Lerp(enemyStartPosition, 
+                GameData.EnemyData.Enemy.transform.position = Vector2.Lerp(enemyStartPosition, 
                     GameData.EnemyPoint.position, progress);
                 yield return null;
             }
-            
 
             action?.Invoke();
         }

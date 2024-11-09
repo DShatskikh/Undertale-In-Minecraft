@@ -21,6 +21,9 @@ namespace Game
 
         [SerializeField]
         private MMF_Player _mmfPlayer;
+
+        [SerializeField]
+        private FakeHeroCutscene_3 _cutscene3;
         
         private void Start()
         {
@@ -53,7 +56,7 @@ namespace Game
             _enderCrystals.SetActive(false);
             _explosions.SetActive(true);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.7f);
             
             _explosions.SetActive(false);
             
@@ -62,6 +65,7 @@ namespace Game
             yield return _mmfPlayer.PlayFeedbacksCoroutine(Vector3.zero);
             
             GameData.CharacterController.enabled = true;
+            _cutscene3.StartCutscene();
         }
     }
 }

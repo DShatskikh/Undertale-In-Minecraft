@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using Language.Lua;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using YG;
 
@@ -22,6 +25,17 @@ namespace Game
             if (GameData.IsCanStartBattle)
             {
                 //GameData.LocationsManager.SwitchLocation(_name);
+            }
+        }
+
+        private void Start()
+        {
+            var funNumber = Lua.Run("return Variable[\"FUN\"]").AsInt;
+            
+            foreach (var funComponent in GetComponentsInChildren<FUN>())
+            {
+                if (funComponent.IsNumber(funNumber))
+                    funComponent.gameObject.SetActive(true);
             }
         }
     }

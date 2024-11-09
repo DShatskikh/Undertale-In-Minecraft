@@ -10,13 +10,7 @@ namespace Game
     public class CompanionsManager : MonoBehaviour
     {
         [SerializeField]
-        private Companion _bashar;
-
-        [SerializeField]
-        private Companion _mushroom;
-
-        [SerializeField]
-        private Companion _hacker;
+        private Companion[] _companions;
         
         private List<Companion> _activeCompanions = new List<Companion>();
         public List<Companion> GetAllCompanions => _activeCompanions;
@@ -45,7 +39,7 @@ namespace Game
             foreach (var companion in _activeCompanions)
             {
                 companion.gameObject.SetActive(false);
-                YandexGame.savesData.Companions = new List<CompanionType>();
+                YandexGame.savesData.Companions = new List<string>();
             }
         }
 
@@ -57,9 +51,9 @@ namespace Game
             }
         }
         
-        public void TryActivateCompanion(CompanionType companionType)
+        public void TryActivateCompanion(string companionName)
         {
-            var companion = GetCompanion(companionType);
+            var companion = GetCompanion(companionName);
 
             if (companion)
             {
@@ -68,9 +62,9 @@ namespace Game
             }
         }
         
-        public void TryDeactivateCompanion(CompanionType companionType)
+        public void TryDeactivateCompanion(string companionName)
         {
-            var companion = GetCompanion(companionType);
+            var companion = GetCompanion(companionName);
             var isHave = false;
             
             foreach (var activeCompanion in _activeCompanions)
@@ -108,15 +102,15 @@ namespace Game
             return GameData.CharacterController.transform.position;
         }
         
-        public Companion GetCompanion(CompanionType companionType)
+        public Companion GetCompanion(string companionName)
         {
-            return companionType switch
+            foreach (var companion in _companions)
             {
-                CompanionType.Bashar => _bashar,
-                CompanionType.Mushroom => _mushroom,
-                CompanionType.Hacker => _hacker,
-                _ => null
-            };
+                if (companionName == companion.GetName)
+                    return companion;
+            }
+
+            throw new Exception($"Not Companion: {companionName}");
         }
 
         public void SetMove(bool value)

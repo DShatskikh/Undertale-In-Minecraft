@@ -38,7 +38,7 @@ namespace Game
         private IEnumerator AwaitExit(UnityAction action)
         {
             _gameObject.SetActive(false);
-            var enemy = GameData.EnemyData.GameObject;
+            var enemy = GameData.EnemyData.Enemy;
 
             if (enemy.TryGetComponent(out EnemyDisappearanceBase disappearance))
             {
@@ -48,7 +48,7 @@ namespace Game
             }
             else if (enemy.GetComponent<SpriteRenderer>())
             {
-                var disapperance = enemy.AddComponent<SmoothDisappearance>();
+                var disapperance = enemy.gameObject.AddComponent<SmoothDisappearance>();
                 disapperance.SetDuration(0.5f);
                 _sparePlaySound.Play();
                 yield return new WaitForSeconds(0.5f);

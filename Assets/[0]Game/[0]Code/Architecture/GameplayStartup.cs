@@ -119,6 +119,7 @@ namespace Game
             }
 
             YandexGame.savesData.IsNotIntroduction = true;
+            //Lua.Run("Value[\"FUN\"] = 1");
 
             if (!YandexGame.savesData.IsNotIntroduction)
             {

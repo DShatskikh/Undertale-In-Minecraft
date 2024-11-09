@@ -9,11 +9,13 @@ namespace Game
     {
         private readonly PlaySound _startBattlePlaySound;
         private readonly Transform[] _points;
-        
-        public IntroCommand(PlaySound startBattlePlaySound, Transform[] points)
+        private readonly BlackPanel _blackPanel;
+
+        public IntroCommand(PlaySound startBattlePlaySound, Transform[] points, BlackPanel blackPanel)
         {
             _startBattlePlaySound = startBattlePlaySound;
             _points = points;
+            _blackPanel = blackPanel;
         }
         
         public override void Execute(UnityAction action)
@@ -24,8 +26,10 @@ namespace Game
 
         private IEnumerator AwaitMove(UnityAction action)
         {
+            yield return GameData.EnemyData.Enemy.AwaitCustomEvent("StartBattle");
+            
             var characterTransform = GameData.CharacterController.transform;
-            var enemyTransform = GameData.EnemyData.GameObject.transform;
+            var enemyTransform = GameData.EnemyData.Enemy.transform;
             var companions = GameData.CompanionsManager.GetAllCompanions;
 
             var progress = 0.0f;
@@ -48,7 +52,9 @@ namespace Game
 
                 yield return null;
             }
-            
+
+            yield return _blackPanel.AwaitShow(1);
+
             GameData.HeartController.enabled = true;
             action?.Invoke();
         }

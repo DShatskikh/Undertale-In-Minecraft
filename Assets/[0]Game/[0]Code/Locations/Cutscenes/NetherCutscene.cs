@@ -15,8 +15,8 @@ namespace Game
         {
             GameData.CharacterController.enabled = false;
             
-            _muhomor.transform.position = GameData.CompanionsManager.GetCompanion(CompanionType.Mushroom).transform.position;
-            GameData.CompanionsManager.TryDeactivateCompanion(CompanionType.Mushroom);
+            _muhomor.transform.position = GameData.CompanionsManager.GetCompanion("Mushroom").transform.position;
+            GameData.CompanionsManager.TryDeactivateCompanion("Mushroom");
             _muhomor.SetActive(true);
             _muhomor.GetComponent<Animator>().SetFloat("Speed", 3);
 

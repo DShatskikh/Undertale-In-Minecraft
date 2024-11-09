@@ -1,11 +1,9 @@
-﻿using UnityEngine;
-
-namespace Game
+﻿namespace Game
 {
     public class EnemyData
     {
         public EnemyConfig EnemyConfig;
-        public GameObject GameObject { get; set; }
-        public StartBattleTrigger StartBattleTrigger { get; set; }
+        public EnemyBase Enemy;
+        public StartBattleTrigger StartBattleTrigger;
     }
 }

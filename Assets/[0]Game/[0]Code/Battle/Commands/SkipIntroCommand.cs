@@ -15,7 +15,7 @@ namespace Game
         public override void Execute(UnityAction action)
         {
             var characterTransform = GameData.CharacterController.transform;
-            var enemyTransform = GameData.EnemyData.GameObject.transform;
+            var enemyTransform = GameData.EnemyData.Enemy.transform;
             
             characterTransform.position = GameData.CharacterPoint.position;
             enemyTransform.position = GameData.EnemyPoint.position;

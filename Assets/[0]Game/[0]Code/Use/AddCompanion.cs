@@ -7,16 +7,16 @@ namespace Game
     public class AddCompanion : MonoBehaviour
     {
         [SerializeField]
-        private CompanionType _companion;
+        private string _companionName;
 
         public void Use()
         {
-            GameData.CompanionsManager.TryActivateCompanion(_companion);
+            GameData.CompanionsManager.TryActivateCompanion(_companionName);
             
-            if (YandexGame.savesData.Companions.Any(companion => companion == _companion))
+            if (YandexGame.savesData.Companions.Any(companion => companion == _companionName))
                 return;
 
-            YandexGame.savesData.Companions.Add(_companion);
+            YandexGame.savesData.Companions.Add(_companionName);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Game
             GameData.AssetProvider.SpeakActIcon;
         
         public override int GetProgress() => 
-            SuccessProgress;
+            SuccessProgress > FailedProgress ? SuccessProgress : FailedProgress;
 
         public override void Use()
         {

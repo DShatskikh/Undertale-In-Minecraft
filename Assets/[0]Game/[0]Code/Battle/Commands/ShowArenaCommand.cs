@@ -1,19 +1,17 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Tilemaps;
 
 namespace Game
 {
     public class ShowArenaCommand : CommandBase
     {
-        private readonly SpriteRenderer _arena;
-        private readonly BlackPanel _blackPanel;
-        private readonly Vector2 _size = new(8f, 5f);
+        private readonly BattleArena _arena;
 
-        public ShowArenaCommand(SpriteRenderer arena, BlackPanel blackPanel)
+        public ShowArenaCommand(BattleArena arena)
         {
             _arena = arena;
-            _blackPanel = blackPanel;
         }
 
         public override void Execute(UnityAction action)
@@ -24,10 +22,8 @@ namespace Game
         private IEnumerator AwaitShow(UnityAction action)
         {
             var progress = 0.0f;
-            var position = GameData.Battle.Arena.transform.position;
-            
             var startPosition = GameData.CharacterController.transform.position;
-            var enemyStartPosition = GameData.EnemyData.GameObject.transform.position;
+            var enemyStartPosition = GameData.EnemyData.Enemy.transform.position;
             
             while (progress < 1)
             {
@@ -36,39 +32,34 @@ namespace Game
                 GameData.CharacterController.transform.position = Vector2.Lerp(startPosition, 
                     startPosition.AddX(-6), progress);
                 
-                GameData.EnemyData.GameObject.transform.position = Vector2.Lerp(enemyStartPosition, 
+                GameData.EnemyData.Enemy.transform.position = Vector2.Lerp(enemyStartPosition, 
                     enemyStartPosition.AddX(6), progress);
                 yield return null;
             }
             
-            GameData.EnemyData.GameObject.transform.SetParent(null);
+            GameData.EnemyData.Enemy.transform.SetParent(null);
             GameData.CharacterController.View.SetOrderInLayer(0);
             
             progress = 0.0f;
             
-            GameData.HeartController.gameObject.SetActive(true);
+            var heart = GameData.HeartController;
+            heart.GetComponent<Collider2D>().enabled = false;
+            heart.gameObject.SetActive(true);
+            heart.transform.position = _arena.StartPoint.position.AddY(4);
             
-            while (progress < 1)
-            {
-                progress += Time.deltaTime * 1.0f;
-                GameData.HeartController.transform.position = Vector2.Lerp(GameData.CharacterController.transform.position.AddY(0.5f), 
-                    position, progress);
-                yield return null;
-            }
-
-            _blackPanel.Show(1);
-            _arena.size = _size;
-            
-            progress = 0.0f;
+            _arena.gameObject.SetActive(true);
+            GameData.Startup.StartCoroutine(_arena.AwaitUpgradeA(1, 1));
 
             while (progress < 1)
             {
-                progress += Time.deltaTime * 2f;
-                //_arena.size = Vector2.Lerp(Vector2.zero, _size, progress);
-                _arena.color = _arena.color.SetA(progress);
-                //_arena.transform.eulerAngles = Vector3.Lerp(new Vector3(0, 0, -180), Vector3.zero, progress);
+                progress += Time.deltaTime / 1;
+                heart.transform.position = Vector2.Lerp( _arena.StartPoint.position.AddY(4),  _arena.StartPoint.position, progress);
+                heart.View.GetComponent<SpriteRenderer>().color = heart.View.GetComponent<SpriteRenderer>().color.SetA(Mathf.Lerp(0, 1, progress));
                 yield return null;
             }
+
+            _arena.ShowAdditionalObjects(true);
+            heart.GetComponent<Collider2D>().enabled = true;
             
             action?.Invoke();
         }
