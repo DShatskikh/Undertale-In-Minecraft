@@ -19,7 +19,7 @@ namespace Game
 
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HypnosisSound);
             
-            var transparencyCommand = new TransparencyCommand(_spriteRenderer, 0, 1);
+            var transparencyCommand = new ChangeAlphaCommand(_spriteRenderer, 0, 1);
             yield return transparencyCommand.Await();
             
             _spriteRenderer.gameObject.SetActive(false);

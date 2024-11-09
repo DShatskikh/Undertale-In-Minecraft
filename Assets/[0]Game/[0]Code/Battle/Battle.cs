@@ -163,6 +163,7 @@ namespace Game
 
             commands.Add(new ShowArenaCommand(_arena));
             commands.Add(new DelayCommand(0.5f));
+            commands.Add(new DelayCommand(1.5f));
             
             //if (!YandexGame.savesData.IsTutorialComplited)
             //    commands.Add(new EnemyAttackCommand(_attackTutorial, _blackPanel, _arena.gameObject)); 

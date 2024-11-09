@@ -18,7 +18,7 @@ namespace Game
         
         public Transform StartPoint => _startPoint;
         
-        private void Start()
+        private void Awake()
         {
             gameObject.SetActive(false);
             _tilemap.color = _tilemap.color.SetA(0);
@@ -41,6 +41,11 @@ namespace Game
                 _tilemap.color = _tilemap.color.SetA(Mathf.Lerp(startA, alpha, progress));
                 yield return null;
             }
+        }
+        
+        public void UpgradeA(float alpha)
+        {
+            _tilemap.color = _tilemap.color.SetA(alpha);
         }
     }
 }

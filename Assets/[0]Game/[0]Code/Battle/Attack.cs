@@ -8,12 +8,7 @@ namespace Game
     {
         public float Delay = 10f;
 
-        public override void Execute(UnityAction action)
-        {
-            GameData.Startup.StartCoroutine(AwaitExecute(action));
-        }
-
-        private IEnumerator AwaitExecute(UnityAction action)
+        protected override IEnumerator AwaitExecute(UnityAction action)
         {
             yield return new WaitForSeconds(Delay);
             action.Invoke();

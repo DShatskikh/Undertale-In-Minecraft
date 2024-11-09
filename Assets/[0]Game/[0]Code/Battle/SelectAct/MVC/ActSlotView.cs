@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -13,6 +14,31 @@ namespace Game
 
         [SerializeField]
         private TMP_Text _label;
+
+        private Vector3 _startPosition;
+        private Vector3 _start;
+        private Vector3 _end;
+        private float _progress = 1;
+        
+        private void Start()
+        {
+            _startPosition = transform.position;
+        }
+
+        private void Update()
+        {
+            if (_progress < 1f)
+            {
+                _progress += Time.deltaTime / 6;
+                transform.position = Vector2.Lerp(_start, _end, _progress);
+            }
+            else
+            {
+                _start = transform.position;
+                _end = _startPosition.AddX(Random.Range(-2, 2)).AddY(Random.Range(-1, 1));
+                _progress = 0;
+            }
+        }
 
         public void UpdateView(ActSlotModel model)
         {

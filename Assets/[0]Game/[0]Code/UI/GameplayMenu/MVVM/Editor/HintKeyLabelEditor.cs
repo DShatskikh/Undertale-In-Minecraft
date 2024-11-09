@@ -13,6 +13,7 @@ namespace Game
             m_ActionProperty = serializedObject.FindProperty("m_Action");
             m_BindingIdProperty = serializedObject.FindProperty("m_BindingId");
             m_localizedStringProperty = serializedObject.FindProperty("m_localizedString");
+            m_isEmptyStringProperty = serializedObject.FindProperty("m_isEmptyString");
 
             RefreshBindingOptions();
         }
@@ -34,6 +35,8 @@ namespace Game
                     m_BindingIdProperty.stringValue = bindingId;
                     m_SelectedBindingOption = newSelectedBinding;
                 }
+                
+                EditorGUILayout.PropertyField(m_isEmptyStringProperty);
             }
 
             if (EditorGUI.EndChangeCheck())
@@ -116,6 +119,7 @@ namespace Game
         private SerializedProperty m_ActionProperty;
         private SerializedProperty m_BindingIdProperty;
         private SerializedProperty m_localizedStringProperty;
+        private SerializedProperty m_isEmptyStringProperty;
 
         private GUIContent m_BindingLabel = new GUIContent("Binding");
         private GUIContent[] m_BindingOptions;

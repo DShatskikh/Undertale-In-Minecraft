@@ -22,17 +22,16 @@ namespace Game
             GameData.Dialog.Show(_replicas, _sound);
             EventBus.CloseDialog += () => OnCloseDialog(action);
         }
-
-        public override IEnumerator Await()
-        {
-            Execute(_action);
-            yield return new WaitUntil(() => _isAction);
-        }
-
+        
         private void OnCloseDialog(UnityAction action)
         {
             _endEvent?.Invoke();
             action.Invoke();
+        }
+
+        protected override IEnumerator AwaitExecute(UnityAction action)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -2,6 +2,7 @@
 using MoreMountains.Feedbacks;
 using RimuruDev;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
@@ -32,6 +33,7 @@ namespace Game
         public static InputManager InputManager { get; set; }
         public static AdsManager AdsManager { get; set; }
         public static PlayerInput PlayerInput { get; set; }
+        public static MonoBehaviour CoroutineRunner { get; set; }
 
         public static LocationsManager LocationsManager;
         public static MonologViewModel Monolog;

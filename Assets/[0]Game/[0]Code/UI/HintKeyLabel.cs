@@ -18,6 +18,9 @@ namespace Game
         private string m_BindingId;
 
         [SerializeField]
+        private bool m_isEmptyString;
+        
+        [SerializeField]
         private LocalizedString m_localizedString;
         
         private TMP_Text _label;
@@ -59,7 +62,7 @@ namespace Game
                     displayString = action.GetBindingDisplayString(bindingIndex, out _, out _);
             }
             
-            if (!m_localizedString.IsEmpty)
+            if (!m_isEmptyString)
             {
                 var loadTextCommand = new LoadTextCommand(m_localizedString);
                 yield return loadTextCommand.Await().ContinueWith(() => 

@@ -1,18 +1,25 @@
 using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Game
 {
     public abstract class AwaitCommand : CommandBase
     {
-        protected bool _isAction = false;
+        protected bool _isAction;
         protected UnityAction _action;
 
-        public AwaitCommand()
+        protected AwaitCommand()
         {
             _action = () => _isAction = true;
         }
         
-        public abstract IEnumerator Await();
+        public virtual IEnumerator Await()
+        {
+            Execute(_action);
+            yield return new WaitUntil(() => _isAction);
+        }
+
+        protected abstract IEnumerator AwaitExecute(UnityAction action);
     }
 }

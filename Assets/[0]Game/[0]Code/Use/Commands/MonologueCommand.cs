@@ -23,16 +23,15 @@ namespace Game
             EventBus.CloseMonolog += () => OnCloseMonolog(action);
         }
 
-        public override IEnumerator Await()
-        {
-            Execute(_action);
-            yield return new WaitUntil(() => _isAction);
-        }
-
         private void OnCloseMonolog(UnityAction action)
         {
             _endEvent?.Invoke();
             action.Invoke();
+        }
+
+        protected override IEnumerator AwaitExecute(UnityAction action)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

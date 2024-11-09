@@ -19,16 +19,10 @@ namespace Game
         
         public override void Execute(UnityAction action)
         {
-            GameData.Startup.StartCoroutine(Move(action));
-        }
-
-        public override IEnumerator Await()
-        {
-            Execute(_action);
-            yield return new WaitUntil(() => _isAction);
+            GameData.CoroutineRunner.StartCoroutine(AwaitExecute(action));
         }
         
-        private IEnumerator Move(UnityAction action)
+        protected override IEnumerator AwaitExecute(UnityAction action)
         {
             var progress = 0f;
             var startPosition = _transform.rotation.eulerAngles;

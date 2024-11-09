@@ -57,6 +57,7 @@ namespace Game
             YandexGame.GetDataEvent += () => GameData.IsLoad = true;
             GameData.Saver = new Saver();
             GameData.PlayerInput = _playerInput;
+            GameData.CoroutineRunner = this;
             
 #if UNITY_EDITOR
             GameData.DeviceType = _testDeviceType;
