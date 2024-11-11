@@ -25,6 +25,10 @@ namespace Game
         protected override IEnumerator AwaitExecute(UnityAction action)
         {
             var progress = 0f;
+            
+            if (!_spriteRenderer)
+                yield break;
+            
             var startA = _spriteRenderer.color.a;
 
             while (progress < 1)

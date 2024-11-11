@@ -25,12 +25,13 @@ namespace Game
         private IEnumerator AwaitUse()
         {
             GameData.CharacterController.enabled = false;
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.JumpSound);
 
             GetComponent<Collider2D>().enabled = false;
             _sortingGroup.sortingOrder = 1;
             _shadow.gameObject.SetActive(false);
             
-            var moveToPointCommand = new MoveToPointCommand(transform, GameData.CharacterController.View.transform.position.AddY(1.2f), 0.5f);
+            var moveToPointCommand = new MoveToPointCommand(transform, GameData.CharacterController.View.transform.position.AddY(1.2f), 0.5f / 2);
             yield return moveToPointCommand.Await();
 
             _barrier.Show(this);

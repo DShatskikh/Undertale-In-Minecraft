@@ -69,6 +69,12 @@ namespace Game
 
         public override void StartTyping(string text, int fromIndex = 0)
         {
+            var actorName = DialogueManager.currentConversationState.subtitle.speakerInfo.nameInDatabase;
+            var clipName = DialogueManager.masterDatabase.GetActor(actorName).LookupValue("AudioClip");
+            var clipPath = "AudioClips/" + (clipName != "" ? clipName : "snd_txtlan_ch1");
+            var clip = Resources.Load<AudioClip>(clipPath);
+            _audioSource.clip = clip;
+            
             _textAnimatorPlayer.StartShowingText();
         }
 

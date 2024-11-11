@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game
 {
@@ -13,7 +14,7 @@ namespace Game
 
         [SerializeField]
         private BattleArena _battleArena;
-        
+
         private void Awake()
         {
             GameData.CoroutineRunner = this;

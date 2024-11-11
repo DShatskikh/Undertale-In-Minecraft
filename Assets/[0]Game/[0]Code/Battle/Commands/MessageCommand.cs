@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine.Events;
 using UnityEngine.Localization;
 
 namespace Game
 {
-    public class MessageCommand : CommandBase
+    public class MessageCommand : AwaitCommand
     {
         private readonly BattleMessageBox _messageBox;
         private readonly LocalizedString[] _messages;
@@ -25,6 +26,11 @@ namespace Game
         public override void Execute(UnityAction action)
         {
             _messageBox.Show(_messages, action);
+        }
+
+        protected override IEnumerator AwaitExecute(UnityAction action)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

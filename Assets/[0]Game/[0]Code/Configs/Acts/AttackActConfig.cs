@@ -16,7 +16,8 @@ namespace Game
 
         public override void Use()
         {
-            throw new System.NotImplementedException();
+            var screen = Instantiate(GameData.AssetProvider.AttackActScreenPrefab, GameData.Battle.ActScreenContainer);
+            screen.Init(this);
         }
     }
 }

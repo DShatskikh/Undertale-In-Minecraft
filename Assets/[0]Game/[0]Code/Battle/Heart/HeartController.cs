@@ -11,10 +11,7 @@ namespace Game
     {
         [SerializeField]
         private float _speed;
-
-        [SerializeField] 
-        private AudioSource _damageSource;
-
+        
         [SerializeField]
         private HeartView _view;
 
@@ -87,7 +84,7 @@ namespace Game
             EventBus.Damage?.Invoke(1);
             EventBus.HealthChange?.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
             _shield.Off();
-            _damageSource.Play();
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HurtSound);
             
 
             if (YandexGame.savesData.Health <= 0 && !YandexGame.savesData.IsCheat)

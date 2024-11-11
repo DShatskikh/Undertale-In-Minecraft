@@ -19,6 +19,11 @@ MonoBehaviour:
   JumpSound: {fileID: 8300000, guid: 71c4623fd47a65c4583e6417cdc87d3f, type: 3}
   PistonSound: {fileID: 8300000, guid: 12d1d81337f7b9e4297647013872ee06, type: 3}
   HypnosisSound: {fileID: 8300000, guid: 9a7a040e9861a384f9b79be06075742b, type: 3}
+  BombSound: {fileID: 8300000, guid: 9ce754aa7faf32547a9495553a08eb05, type: 3}
+  DamageSound: {fileID: 8300000, guid: 8c8db3302bbf982418df5a86d021f01d, type: 3}
+  SpareSound: {fileID: 8300000, guid: 81df257b3b5e58d48b6864e9a4cab5bf, type: 3}
+  HurtSound: {fileID: 8300000, guid: 822df051862efd241a6e640313dc1078, type: 3}
+  GrazeSound: {fileID: 8300000, guid: 6bb3af550183413458fb7d99525571af, type: 3}
   StepSoundPairsConfig: {fileID: 11400000, guid: 90e4c7439359ee74f917db220aa55d50, type: 2}
   TileTagConfig: {fileID: 11400000, guid: b628592479067e84e9e94aa18a244362, type: 2}
   GameplayMenuConfigs:
@@ -52,7 +57,11 @@ MonoBehaviour:
   PuzzleArrowSlotPrefab: {fileID: 3290966700332890792, guid: 828fb97e47a40194fbaee19b9fafe051, type: 3}
   SpeakActScreenPrefab: {fileID: 1875159168665320668, guid: 9b3aaf5eedf3b9a4e88c48e7f46cb05f, type: 3}
   SpeakAtcSlotPrefab: {fileID: 3186821470277044284, guid: 32eef43ee9c8251439e3532fa195ccc9, type: 3}
+  AttackActScreenPrefab: {fileID: 4518448343858871440, guid: ee7fe7fc174a9c24e8946fb5d2b16e22, type: 3}
   CharacterIcon: {fileID: -2083921280, guid: 2fa026478351bf04499509ec41acad17, type: 3}
   SpeakActIcon: {fileID: 457446701, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  DanceActIcon: {fileID: 145567474, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  AttackActIcon: {fileID: 425746623, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  SightActIcon: {fileID: -2066959514, guid: 2fa026478351bf04499509ec41acad17, type: 3}
   SelectColor: {r: 1, g: 0.9333334, b: 0.2509804, a: 1}
   DeselectColor: {r: 0, g: 0.6, b: 1, a: 1}

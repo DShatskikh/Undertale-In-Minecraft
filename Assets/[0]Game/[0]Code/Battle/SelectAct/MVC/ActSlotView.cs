@@ -35,7 +35,8 @@ namespace Game
             else
             {
                 _start = transform.position;
-                _end = _startPosition.AddX(Random.Range(-2, 2)).AddY(Random.Range(-1, 1));
+                var direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+                _end = _startPosition.AddX(direction.x * 2).AddY(direction.y);
                 _progress = 0;
             }
         }

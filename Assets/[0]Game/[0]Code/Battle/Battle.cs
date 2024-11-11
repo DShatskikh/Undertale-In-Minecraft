@@ -32,15 +32,6 @@ namespace Game
         [SerializeField]
         private Transform[] _points;
 
-        [SerializeField]
-        private PlaySound _startBattlePlaySound;
-
-        [SerializeField]
-        private PlaySound _levelUpPlaySound;
-
-        [SerializeField]
-        private PlaySound _sparePlaySound;
-        
         [Header("Variables")]
         [SerializeField]
         private float _speedPlacement;
@@ -136,7 +127,7 @@ namespace Game
 
             var commands = new List<CommandBase>()
             {
-                new IntroCommand(_startBattlePlaySound, _points, _blackPanel),
+                new IntroCommand(_points, _blackPanel),
                 //new SkipIntroCommand(_points),
                 new DelayCommand(1f),
                 new StartEnemyTurnCommand(),
@@ -187,8 +178,8 @@ namespace Game
             
             commands.Add(new DelayCommand(1f));
             commands.Add(new MessageCommand(_enemyMessageBox, GameData.EnemyData.EnemyConfig.EndReplicas));
-            commands.Add(new ExitCommand(gameObject, _sparePlaySound, _levelUpPlaySound, _previousSound,
-                _normalWorldCharacterPosition, _speedPlacement, winReplica));
+            commands.Add(new ExitCommand(gameObject, _previousSound, _normalWorldCharacterPosition, 
+                _speedPlacement, winReplica));
             
             GameData.CommandManager.StartCommands(commands);
         }

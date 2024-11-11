@@ -10,21 +10,16 @@ namespace Game
     public class ExitCommand : CommandBase
     {
         private readonly GameObject _gameObject;
-        private readonly PlaySound _sparePlaySound;
-        private readonly PlaySound _levelUpPlaySound;
         private readonly AudioClip _previousSound;
         private readonly Vector2 _normalWorldCharacterPosition;
         private readonly float _speedPlacement;
         private readonly LocalizedString _winReplica;
 
-        public ExitCommand(GameObject gameObject, PlaySound sparePlaySound, PlaySound levelUpPlaySound,
-            AudioClip previousSound, Vector2 normalWorldCharacterPosition, 
+        public ExitCommand(GameObject gameObject, AudioClip previousSound, Vector2 normalWorldCharacterPosition, 
             float speedPlacement, LocalizedString winReplica)
         {
             _gameObject = gameObject;
-            _sparePlaySound = sparePlaySound;
             _previousSound = previousSound;
-            _levelUpPlaySound = levelUpPlaySound;
             _normalWorldCharacterPosition = normalWorldCharacterPosition;
             _speedPlacement = speedPlacement;
             _winReplica = winReplica;
@@ -50,7 +45,7 @@ namespace Game
             {
                 var disapperance = enemy.gameObject.AddComponent<SmoothDisappearance>();
                 disapperance.SetDuration(0.5f);
-                _sparePlaySound.Play();
+                GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SpareSound);
                 yield return new WaitForSeconds(0.5f);
             }
             
@@ -77,8 +72,6 @@ namespace Game
             GameData.Monolog.Show(new []{ _winReplica });
             EventBus.CloseMonolog += () =>
             {
-                _levelUpPlaySound.Play();
-                
                 if (!YandexGame.savesData.IsCheat)
                     YandexGame.savesData.MaxHealth += GameData.EnemyData.EnemyConfig.WinPrize;
                 

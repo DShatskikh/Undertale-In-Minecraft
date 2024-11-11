@@ -30,9 +30,10 @@ namespace Game
         {
             GameData.CharacterController.enabled = false;
             
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.JumpSound);
             _enderCrystal.transform.SetParent(_post.transform);
             
-            var moveToDirectionCommand = new MoveToPointCommand(_enderCrystal.transform, _enderCrystal.transform.position.AddY(0.5f) + (Vector3)direction, 0.4f);
+            var moveToDirectionCommand = new MoveToPointCommand(_enderCrystal.transform, _enderCrystal.transform.position.AddY(0.5f) + (Vector3)direction, 0.4f / 2);
             yield return moveToDirectionCommand.Await();
 
             _enderCrystal.SortingGroup.sortingOrder = 1;
@@ -40,12 +41,13 @@ namespace Game
             if (direction.y > 0.5f)
                 _enderCrystal.SortingGroup.sortingOrder = -1;
             
-            var moveToDirectionCommand1 = new MoveToPointCommand(_enderCrystal.transform, _enderCrystal.transform.position.AddY(-1.5f) + (Vector3)direction, 0.3f);
+            var moveToDirectionCommand1 = new MoveToPointCommand(_enderCrystal.transform, _enderCrystal.transform.position.AddY(-1.5f) + (Vector3)direction, 0.3f / 2);
             yield return moveToDirectionCommand1.Await();
             
-            var moveToDownCommand = new MoveToPointCommand(_enderCrystal.transform, _enderCrystal.transform.position.AddY(-15f) + (Vector3)direction, 2.5f);
+            var moveToDownCommand = new MoveToPointCommand(_enderCrystal.transform, _enderCrystal.transform.position.AddY(-15f) + (Vector3)direction, 2.5f / 2);
             yield return moveToDownCommand.Await();
 
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
             _enderCrystal.gameObject.SetActive(false);
             
             yield return _shaking.PlayFeedbacksCoroutine(Vector3.zero);

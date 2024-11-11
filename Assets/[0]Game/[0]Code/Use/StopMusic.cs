@@ -22,8 +22,8 @@ namespace Game
         
         private IEnumerator AwaitStop()
         {
-            yield return null;
             Stop();
+            yield return null;
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -11,9 +12,14 @@ namespace Game
 
         [SerializeField]
         private Transform _originalFakeHero;
+
+        [SerializeField]
+        private AudioClip _musicClip;
         
         protected override IEnumerator AwaitCutscene()
         {
+            GameData.MusicPlayer.Play(_musicClip);
+            
             GameData.CharacterController.enabled = false;
             yield return AwaitDialog();
             GameData.CharacterController.enabled = false;

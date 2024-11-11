@@ -134,8 +134,8 @@ namespace Game
                 commands.Add(new AddProgressCommand(isSuccess ? _config.SuccessProgress : _config.FailedProgress, GameData.Battle.AddProgressLabel, GameData.Battle.AddProgressData));
                 commands.Add(new StartCharacterTurnCommand());
                 GameData.CommandManager.StartCommands(commands);
-                //GameData.Battle.Turn(_config);
-                
+                GameData.Battle.Turn(_config);
+
                 Destroy(gameObject);
             }
         }

@@ -6,9 +6,6 @@ namespace Game
     public class HeartView : MonoBehaviour
     {
         [SerializeField]
-        private AudioSource _source;
-        
-        [SerializeField]
         private SpriteRenderer _shield;
 
         private SpriteRenderer _spriteRenderer;
@@ -57,7 +54,7 @@ namespace Game
         private void OnShieldActivate(bool isActivate)
         {
             if (isActivate)
-                _source.Play();
+                GameData.EffectSoundPlayer.Play(GameData.AssetProvider.GrazeSound);
 
             if (_coroutine != null)
                 StopCoroutine(_coroutine);

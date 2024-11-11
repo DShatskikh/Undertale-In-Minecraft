@@ -14,7 +14,12 @@ namespace Game
         public AudioClip JumpSound;
         public AudioClip PistonSound;
         public AudioClip HypnosisSound;
-        
+        public AudioClip BombSound;
+        public AudioClip DamageSound;
+        public AudioClip SpareSound;
+        public AudioClip HurtSound;
+        public AudioClip GrazeSound;
+
         [Header("Configs")]
         public StepSoundPairsConfig StepSoundPairsConfig;
         public TileTagConfig TileTagConfig;
@@ -37,6 +42,7 @@ namespace Game
         public PuzzleArrowSlotView PuzzleArrowSlotPrefab;
         public SpeakActScreen SpeakActScreenPrefab;
         public SpeakAtcSlot SpeakAtcSlotPrefab;
+        public AttackActScreen AttackActScreenPrefab;
         
         [Header("Iocns")]
         public Sprite CharacterIcon;
@@ -44,7 +50,7 @@ namespace Game
         public Sprite DanceActIcon;
         public Sprite AttackActIcon;
         public Sprite SightActIcon;
-        
+
         [Header("Other")]
         public Color SelectColor;
         public Color DeselectColor;

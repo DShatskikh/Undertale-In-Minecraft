@@ -19,6 +19,7 @@ namespace Game
             enabled = false;
             GetComponent<Collider2D>().enabled = false;
             _enderCrystal.SetActive(true);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.JumpSound);
             OnUse?.Invoke();
         }
     }

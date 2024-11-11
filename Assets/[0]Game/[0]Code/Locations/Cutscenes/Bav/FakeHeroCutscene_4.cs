@@ -18,8 +18,13 @@ namespace Game
         [SerializeField]
         private GameObject _trigger;
 
+        [SerializeField]
+        private FakeHeroRunningCircle _fakeHeroRunningCircle;
+        
         protected override IEnumerator AwaitCutscene()
         {
+            _fakeHeroRunningCircle.gameObject.SetActive(true);
+            
             var isAllCrystalDeactivate = true;
             
             while (isAllCrystalDeactivate)

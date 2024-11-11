@@ -7,20 +7,18 @@ namespace Game
 {
     public class IntroCommand : CommandBase
     {
-        private readonly PlaySound _startBattlePlaySound;
         private readonly Transform[] _points;
         private readonly BlackPanel _blackPanel;
 
-        public IntroCommand(PlaySound startBattlePlaySound, Transform[] points, BlackPanel blackPanel)
+        public IntroCommand(Transform[] points, BlackPanel blackPanel)
         {
-            _startBattlePlaySound = startBattlePlaySound;
             _points = points;
             _blackPanel = blackPanel;
         }
         
         public override void Execute(UnityAction action)
         {
-            _startBattlePlaySound.Play();
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SpareSound);
             GameData.Startup.StartCoroutine(AwaitMove(action));
         }
 

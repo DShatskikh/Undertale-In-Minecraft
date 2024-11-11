@@ -13,7 +13,7 @@ namespace Game
         
         [SerializeField]
         private GameObject _explosion;
-
+        
         [SerializeField]
         private GameObject _hole;
         
@@ -33,6 +33,9 @@ namespace Game
         private GameObject _portal;
         
         [SerializeField]
+        private GameObject _portalExplosion;
+
+        [SerializeField]
         private Transform _moderatorEndDialogTarget;
 
         protected override IEnumerator AwaitCutscene()
@@ -49,11 +52,15 @@ namespace Game
 
             yield return AwaitDialog();
 
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
             _explosion.SetActive(true);
             
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             
             _hole.SetActive(true);
+            
+            yield return new WaitForSeconds(0.25f);
+            
             _explosion.SetActive(false);
 
             yield return new WaitForSeconds(0.5f);
@@ -68,34 +75,41 @@ namespace Game
             
             var moderatorMoveToPointCommand = new MoveToPointCommand(_moderator.transform, _moderatorTarget.position, 1);
             yield return moderatorMoveToPointCommand.Await();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
 
+            _joe.flipX = false;
+            
+            yield return new WaitForSeconds(0.5f);
+            
             yield return AwaitDialog();
             
             yield return new WaitForSeconds(1);
             
-            _joe.flipX = false;
-            yield return new WaitForSeconds(0.5f);
             
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
             _portal.SetActive(false);
-
-            yield return new WaitForSeconds(2);
-            _joe.flipX = true;
+            _portalExplosion.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            _portalExplosion.SetActive(false);
             
             yield return new WaitForSeconds(1);
+            _joe.flipX = true;
+            
+            yield return new WaitForSeconds(0.5f);
             
             yield return AwaitDialog();
             
             var moderatorEndDialogMoveToPointCommand = new MoveToPointCommand(_moderator.transform, _moderatorEndDialogTarget.position, 2);
             yield return moderatorEndDialogMoveToPointCommand.Await();
-            yield return new WaitForSeconds(1);
-            
-            _joe.flipX = false;
-            _sasha.sprite = sashaNormal;
-            
+
             yield return new WaitForSeconds(1);
             
             yield return AwaitDialog();
+            
+            yield return new WaitForSeconds(0.5f);
+            
+            _joe.flipX = false;
+            _sasha.sprite = sashaNormal;
             
             var cameraMoveToStartPointCommand = new MoveToPointCommand(_cameraTarget.transform, GameData.CharacterController.transform.position, 3);
             yield return cameraMoveToStartPointCommand.Await();

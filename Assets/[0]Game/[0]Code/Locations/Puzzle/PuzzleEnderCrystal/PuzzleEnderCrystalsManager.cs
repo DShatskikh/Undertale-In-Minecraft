@@ -24,7 +24,10 @@ namespace Game
 
         [SerializeField]
         private FakeHeroCutscene_3 _cutscene3;
-        
+
+        [SerializeField]
+        private AudioClip _dragonClip;
+
         private void Start()
         {
             foreach (var crystal in _puzzleEnderCrystals)
@@ -47,14 +50,17 @@ namespace Game
         private IEnumerator AwaitDecision()
         {
             GameData.CharacterController.enabled = false;
-            
+         
+            GameData.MusicPlayer.Stop();
             _endRay.SetActive(true);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HypnosisSound);
 
             yield return new WaitForSeconds(3);
             
             _endRay.SetActive(false);
             _enderCrystals.SetActive(false);
             _explosions.SetActive(true);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
 
             yield return new WaitForSeconds(0.7f);
             
@@ -62,8 +68,9 @@ namespace Game
             
             yield return new WaitForSeconds(1);
 
+            GameData.EffectSoundPlayer.Play(_dragonClip);
             yield return _mmfPlayer.PlayFeedbacksCoroutine(Vector3.zero);
-            
+
             GameData.CharacterController.enabled = true;
             _cutscene3.StartCutscene();
         }
