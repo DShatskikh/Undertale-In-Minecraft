@@ -59,7 +59,6 @@ namespace Game
         private Vector2 _enemyStartPosition;
         private AttackBase[] _attacks;
         private int _attackIndex;
-        private bool _isSecondRound;
 
         public BlackPanel BlackPanel => _blackPanel;
         public GameObject Arena => _arena.gameObject;
@@ -95,8 +94,7 @@ namespace Game
             GameData.Saver.IsSavingPosition = false;
             GameData.InputManager.Show();
             GameData.CompanionsManager.SetMove(false);
-
-            _isSecondRound = false;
+            
             gameObject.SetActive(true);
 
             transform.position = 
@@ -160,7 +158,7 @@ namespace Game
             //    commands.Add(new EnemyAttackCommand(_attackTutorial, _blackPanel, _arena.gameObject)); 
             
             commands.Add(new EnemyAttackCommand(_attacks[_attackIndex], _blackPanel, _arena.gameObject));
-            //commands.Add(new CheckEndBattleCommand());
+            commands.Add(new CheckEndBattleCommand());
             commands.Add(new HideArenaCommand(_arena, _blackPanel));
             commands.Add(new StartCharacterTurnCommand());
 
@@ -177,7 +175,7 @@ namespace Game
             var commands = new List<CommandBase>();
             
             commands.Add(new DelayCommand(1f));
-            commands.Add(new MessageCommand(_enemyMessageBox, GameData.EnemyData.EnemyConfig.EndReplicas));
+            //commands.Add(new MessageCommand(_enemyMessageBox, GameData.EnemyData.EnemyConfig.EndReplicas));
             commands.Add(new ExitCommand(gameObject, _previousSound, _normalWorldCharacterPosition, 
                 _speedPlacement, winReplica));
             
@@ -197,7 +195,6 @@ namespace Game
 
             if (_attackIndex >= _attacks.Length)
             {
-                _isSecondRound = true;
                 _attackIndex = Random.Range(0, _attacks.Length);
             }
         }

@@ -5,6 +5,10 @@ namespace Game
 {
     public abstract class EnemyBase : MonoBehaviour
     {
-        public abstract IEnumerator AwaitCustomEvent(string eventName);
+        [SerializeField]
+        protected EnemyConfig _config;
+
+        public EnemyConfig GetConfig => _config;
+        public abstract IEnumerator AwaitCustomEvent(string eventName, float value = 0);
     }
 }

@@ -67,16 +67,7 @@ namespace Game
             _previousPosition = transform.position;
         }
         
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.TryGetComponent(out Shell attack))
-            {
-                if (!_model.IsInvulnerability) 
-                    StartCoroutine(TakeDamage());
-
-                Destroy(attack.gameObject);
-            }
-        }
+        
 
         private IEnumerator TakeDamage()
         {
@@ -101,9 +92,17 @@ namespace Game
         private void Death()
         {
             EventBus.Death?.Invoke();
-            GameData.GameOver.SetActive(true);
+            GameData.CommandManager.StopExecute();
+            GameData.Battle.gameObject.SetActive(false);
+            GameData.GameOver.gameObject.SetActive(true);
 
             Analytics.CustomEvent("Death " + GameData.EnemyData.EnemyConfig.name);
+        }
+
+        public void Damage()
+        {
+            if (!_model.IsInvulnerability) 
+                StartCoroutine(TakeDamage());
         }
     }
 }

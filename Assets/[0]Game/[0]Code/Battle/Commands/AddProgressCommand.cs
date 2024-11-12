@@ -102,7 +102,7 @@ namespace Game
             }
             
             _label.gameObject.SetActive(false);
-            action.Invoke();
+            action?.Invoke();
         }
     }
 }

@@ -20,10 +20,18 @@ namespace Game
 
         [SerializeField]
         private FakeHeroRunningCircle _fakeHeroRunningCircle;
+
+        [Header("Genocide Root")]
+        [SerializeField]
+        private FakeHero _fakeHero;
+
+        [SerializeField]
+        private StartBattleTrigger _startBattleTrigger;
         
         protected override IEnumerator AwaitCutscene()
         {
-            _fakeHeroRunningCircle.gameObject.SetActive(true);
+            if (_fakeHero.GetHealth > 0)
+                _fakeHeroRunningCircle.gameObject.SetActive(true);
             
             var isAllCrystalDeactivate = true;
             
@@ -41,6 +49,12 @@ namespace Game
                 } 
                 
                 yield return new WaitForSeconds(1);
+            }
+
+            if (_fakeHero.GetHealth <= 0)
+            {
+                _startBattleTrigger.StartBattle();
+                yield break;
             }
             
             GameData.CharacterController.enabled = false;

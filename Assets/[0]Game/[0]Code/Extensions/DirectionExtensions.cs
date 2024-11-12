@@ -60,6 +60,29 @@ namespace Game
             throw new Exception("Добавь направление");
         }
         
+        public static Arrow GetArrow(Vector2 direction)
+        {
+            var x = direction.x;
+            var y =  direction.y;
+
+            if (Mathf.Abs(x) > Mathf.Abs(y))
+            {
+                if (x < 0)
+                    return Arrow.Left;
+                else
+                    return Arrow.Right;
+            }
+            else
+            {
+                if (y > 0f)
+                    return Arrow.Up;
+                else
+                    return Arrow.Down;
+            }
+
+            throw new Exception("Добавь направление");
+        }
+        
         public static Vector3 GetAngle(this ArrowDirection arrowDirection)
         {
             var angle = arrowDirection switch

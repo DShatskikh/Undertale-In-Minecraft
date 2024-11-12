@@ -43,6 +43,7 @@ namespace Game
         public SpeakActScreen SpeakActScreenPrefab;
         public SpeakAtcSlot SpeakAtcSlotPrefab;
         public AttackActScreen AttackActScreenPrefab;
+        public DanceActScreen DanceActScreenPrefab;
         
         [Header("Iocns")]
         public Sprite CharacterIcon;

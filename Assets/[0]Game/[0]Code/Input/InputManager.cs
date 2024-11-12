@@ -48,7 +48,7 @@ namespace Game
 
         public void Show()
         {
-            _submitButton.gameObject.SetActive(true);
+            //_submitButton.gameObject.SetActive(true);
 
             if (GameData.DeviceType == CurrentDeviceType.Mobile)
             {

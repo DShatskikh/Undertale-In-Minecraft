@@ -122,7 +122,7 @@ namespace Game
 
                 for (int i = 0; i < _hintElements.Count; i++)
                 {
-                    if (_config.ImageElements[i] != _hintElements[i])
+                    if (_config.ImageElements[i] != _hintElements[i].sprite)
                     {
                         isSuccess = false;
                         break;
@@ -132,9 +132,11 @@ namespace Game
                 var commands = new List<CommandBase>();
                 commands.Add(new MessageCommand(GameData.Battle.EnemyMessageBox, isSuccess ? _config.SuccessReaction : _config.FailedReaction));
                 commands.Add(new AddProgressCommand(isSuccess ? _config.SuccessProgress : _config.FailedProgress, GameData.Battle.AddProgressLabel, GameData.Battle.AddProgressData));
-                commands.Add(new StartCharacterTurnCommand());
+                commands.Add(new StartEnemyTurnCommand());
+                
+                print(isSuccess);
+                
                 GameData.CommandManager.StartCommands(commands);
-                GameData.Battle.Turn(_config);
 
                 Destroy(gameObject);
             }

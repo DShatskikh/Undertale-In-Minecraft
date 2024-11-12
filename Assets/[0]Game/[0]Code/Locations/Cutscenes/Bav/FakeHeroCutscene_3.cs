@@ -35,6 +35,10 @@ namespace Game
         [SerializeField]
         private AudioClip _bossTheme;
         
+        [Header("Genocide Root")]
+        [SerializeField]
+        private FakeHero _fakeHeroEnemy;
+        
         protected override IEnumerator AwaitCutscene()
         {
             GameData.CharacterController.enabled = false;
@@ -46,6 +50,13 @@ namespace Game
                 post.ActivateCrystal();
             }
 
+            if (_fakeHeroEnemy.GetHealth <= 0)
+            {
+                GameData.CharacterController.enabled = true;
+                _nextCutscene.StartCutscene();
+                yield break;
+            }
+            
             var moveCharacterToPointCommand = new MoveToPointCommand(GameData.CharacterController.transform, _chickenStartPoint.position, 1);
             yield return moveCharacterToPointCommand.Await();
 

@@ -5,9 +5,6 @@ namespace Game
 {
     public class StartBattleTrigger : MonoBehaviour
     {
-        [SerializeField]
-        private EnemyConfig _config;
-
         [SerializeField] 
         private EnemyBase _enemyObject;
 
@@ -40,7 +37,7 @@ namespace Game
         {
             GameData.EnemyData = new EnemyData()
             {
-                EnemyConfig = _config,
+                EnemyConfig = _enemyObject.GetConfig,
                 Enemy = _enemyObject,
                 StartBattleTrigger = this
             };
@@ -54,7 +51,7 @@ namespace Game
 
         private void OnPlayerWin(EnemyConfig config)
         {
-            if (_config == config) 
+            if (_enemyObject.GetConfig == config) 
                 _event.Invoke();
         }
     }

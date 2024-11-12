@@ -11,7 +11,7 @@ namespace Game
         private readonly LocalizedString[] _replicas;
         private readonly UnityEvent _endEvent;
         
-        public MonologueCommand(LocalizedString[] replicas, UnityEvent endEvent)
+        public MonologueCommand(LocalizedString[] replicas, UnityEvent endEvent = null)
         {
             _replicas = replicas;
             _endEvent = endEvent;

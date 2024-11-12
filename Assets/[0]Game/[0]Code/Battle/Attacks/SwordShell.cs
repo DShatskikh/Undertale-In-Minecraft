@@ -45,7 +45,7 @@ namespace Game
             var changeAlphaShowCommand = new ChangeAlphaCommand(_spriteRenderer, 1, _showADuration);
             StartCoroutine(changeAlphaShowCommand.Await());
 
-            yield return new WaitForSeconds(_delayShow);
+            yield return new WaitForSeconds(_delayShow + 0.5f);
             
             var moveToBackCommand = new MoveToPointCommand(transform, transform .position + (transform.right * -_distanceBack), _moveDurationBack);
             yield return moveToBackCommand.Await();

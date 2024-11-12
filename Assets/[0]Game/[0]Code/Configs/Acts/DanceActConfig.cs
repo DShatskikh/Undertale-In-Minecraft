@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Game
 {
@@ -10,7 +11,11 @@ namespace Game
         
         [Range(-7, 7)]
         public int FailedProgress;
-        
+
+        public LocalizedString SuccessReaction;
+        public LocalizedString FailedReaction;
+        public Arrow[] Arrows;
+
         public override Sprite GetIcon() => 
             GameData.AssetProvider.DanceActIcon;
 
@@ -19,7 +24,16 @@ namespace Game
 
         public override void Use()
         {
-            throw new System.NotImplementedException();
+            var screen = Instantiate(GameData.AssetProvider.DanceActScreenPrefab, GameData.Battle.ActScreenContainer);
+            screen.Init(this);
         }
+    }
+    
+    public enum Arrow
+    {
+        Up,
+        Down,
+        Right,
+        Left
     }
 }

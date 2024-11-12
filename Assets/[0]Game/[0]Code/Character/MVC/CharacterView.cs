@@ -27,7 +27,8 @@ namespace Game
             Damage = 2,
             Move = 3,
             Fly = 4,
-            Sleep = 5
+            Sleep = 5,
+            Sit = 6
         }
         
         public void SetModel(CharacterModel model)
@@ -93,6 +94,11 @@ namespace Game
             _animator.SetFloat(StateHash, (float)(CharacterState.Sleep)); 
         }
 
+        public void Sit()
+        {
+            _animator.SetFloat(StateHash, (float)(CharacterState.Sit)); 
+        }
+        
         public void Reset()
         {
             _animator.SetFloat(StateHash, (float)(CharacterState.Idle)); 

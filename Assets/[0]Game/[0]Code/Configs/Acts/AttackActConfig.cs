@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Game
 {
@@ -7,7 +8,10 @@ namespace Game
     {
         [Range(-7, 0)]
         public int Progress;
-        
+
+        public LocalizedString Reaction;
+        public LocalizedString[] DeathMessage;
+
         public override Sprite GetIcon() => 
             GameData.AssetProvider.AttackActIcon;
 

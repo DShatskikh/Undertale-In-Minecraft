@@ -1,8 +1,8 @@
 using System.Collections;
+using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Localization;
 
 namespace Game
 {
@@ -27,10 +27,15 @@ namespace Game
         private GameObject _damageLine;
         
         [SerializeField]
-        private LocalizedString _deathMessage;
+        private GameObject _explosion;
+
+        [SerializeField]
+        private MMF_Player _shake;
         
         private int _health;
 
+        public int GetHealth => _health;
+        
         private void Start()
         {
             _health = _startHealth;
@@ -40,7 +45,7 @@ namespace Game
             _progressBar.gameObject.SetActive(false);
         }
 
-        public override IEnumerator AwaitCustomEvent(string eventName)
+        public override IEnumerator AwaitCustomEvent(string eventName, float value = 0)
         {
             if (eventName == "StartBattle")
             {
@@ -49,10 +54,9 @@ namespace Game
 
             if (eventName == "Damage")
             {
-                yield return new WaitForSeconds(0.5f);
                 _damageLine.SetActive(true);
                 GameData.EffectSoundPlayer.Play(GameData.AssetProvider.DamageSound);
-                //yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.5f);
                 _fire.SetActive(true);
                 _damageLine.SetActive(false);
 
@@ -60,20 +64,20 @@ namespace Game
                 {
                     _spriteRenderer.color = new Color(1, 163 / 255f, 163 / 255f);
                     GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.25f);
                     _spriteRenderer.color = Color.white;
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.25f);
                 }
 
                 _fire.SetActive(false);
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.25f);
                 
                 _progressBar.gameObject.SetActive(true);
 
                 yield return new WaitForSeconds(0.5f);
 
-                _health -= 5;
+                _health -= (int)value + 100;
                 _label.text = $"{_health}/{_startHealth}";
                 _progressBar.UpdateBar(_health, 0, _startHealth);
                 
@@ -81,16 +85,53 @@ namespace Game
                 
                 _progressBar.gameObject.SetActive(false);
 
-                if (_health <= 0)
+                AttackActConfig config = null;
+
+                foreach (var act in _config.Acts)
                 {
-                    var messageCommand = new MessageCommand(GameData.Battle.EnemyMessageBox, _deathMessage);
+                    if (act is AttackActConfig attackActConfig)
+                    {
+                        config = attackActConfig;
+                        break;
+                    }
+                }
+
+                if (_health > 0)
+                {
+                    var messageCommand = new MessageCommand(GameData.Battle.EnemyMessageBox, config.Reaction);
                     yield return messageCommand.Await();
-                    gameObject.SetActive(false);
+                    var addProgressCommand = new AddProgressCommand(-100, GameData.Battle.AddProgressLabel, GameData.Battle.AddProgressData);
+                    addProgressCommand.Execute(null);
+                    yield return new WaitForSeconds(1f);
+                    var startTurn = new StartEnemyTurnCommand();
+                    startTurn.Execute(null);
                 }
                 else
                 {
+                    _shake.PlayFeedbacks();
                     
+                    var messageCommand = new MessageCommand(GameData.Battle.EnemyMessageBox, config.DeathMessage);
+                    yield return messageCommand.Await();
+                    
+                    _shake.StopFeedbacks();
+                    
+                    _explosion.SetActive(true);
+                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
+                    yield return new WaitForSeconds(0.3f);
+                    _spriteRenderer.enabled = false;
+                    yield return new WaitForSeconds(0.2f);
+                    _explosion.SetActive(false);
+                    gameObject.SetActive(false);
+                    _spriteRenderer.enabled = true;
+                    
+                    GameData.CommandManager.StopExecute();
+                    GameData.Battle.EndBattle();
                 }
+            }
+
+            if (eventName == "EndBattle")
+            {
+                    
             }
         }
     }

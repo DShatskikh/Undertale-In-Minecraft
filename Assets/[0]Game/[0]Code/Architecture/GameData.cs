@@ -45,7 +45,7 @@ namespace Game
         public static GameObject Introduction;
         public static GameObject Menu;
         public static TMP_Text SaveText;
-        public static GameObject GameOver;
+        public static GameOverScreen GameOver;
         
         public static Saver Saver;
         public static CommandManager CommandManager;

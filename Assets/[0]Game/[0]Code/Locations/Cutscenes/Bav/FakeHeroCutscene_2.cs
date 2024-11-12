@@ -9,32 +9,40 @@ namespace Game
     {
         [SerializeField]
         private PuzzleEnderCrystalsManager _puzzleEnderCrystalsManager;
-
-        [SerializeField]
-        private Transform _originalFakeHero;
-
+        
         [SerializeField]
         private AudioClip _musicClip;
+
+        [SerializeField]
+        private FakeHero _fake;
         
         protected override IEnumerator AwaitCutscene()
         {
-            GameData.MusicPlayer.Play(_musicClip);
-            
-            GameData.CharacterController.enabled = false;
-            yield return AwaitDialog();
-            GameData.CharacterController.enabled = false;
-
-            yield return new WaitForSeconds(1);
-            
-            _puzzleEnderCrystalsManager.gameObject.SetActive(true);
-            
             GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.transform;
-            GameData.CompanionsManager.TryActivateCompanion("FakeHero");
-            GameData.CompanionsManager.GetCompanion("FakeHero").transform.position = _originalFakeHero.position;
-            _originalFakeHero.gameObject.SetActive(false);
-            GameData.CharacterController.enabled = true;
             
-            Lua.Run("Variable[\"FakeHeroState\"] = 2");
+            if (_fake.GetHealth > 0)
+            {
+                GameData.MusicPlayer.Play(_musicClip);
+            
+                GameData.CharacterController.enabled = false;
+                yield return AwaitDialog();
+                GameData.CharacterController.enabled = false;
+
+                yield return new WaitForSeconds(1);
+            
+                _puzzleEnderCrystalsManager.gameObject.SetActive(true);
+                
+                GameData.CompanionsManager.TryActivateCompanion("FakeHero");
+                GameData.CompanionsManager.GetCompanion("FakeHero").transform.position = _fake.transform.position;
+                _fake.gameObject.SetActive(false);
+                GameData.CharacterController.enabled = true;
+            
+                Lua.Run("Variable[\"FakeHeroState\"] = 2");
+            }
+            else
+            {
+                _puzzleEnderCrystalsManager.gameObject.SetActive(true);
+            }
         }
     }
 }

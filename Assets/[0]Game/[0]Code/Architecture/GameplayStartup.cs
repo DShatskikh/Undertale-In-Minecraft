@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
+﻿using System.Collections;
 using Cinemachine;
 using MoreMountains.Feedbacks;
 using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using YG;
 
@@ -14,10 +11,10 @@ namespace Game
 {
     public class GameplayStartup : MonoBehaviour
     {
-        [FormerlySerializedAs("_character")] [SerializeField]
+        [SerializeField]
         private CharacterController characterController;
         
-        [FormerlySerializedAs("_heart")] [SerializeField]
+        [SerializeField]
         private HeartController heartController;
 
         [SerializeField]
@@ -58,17 +55,14 @@ namespace Game
         
         [SerializeField]
         private TMP_Text _saveText;
-                
+        
         [SerializeField]
-        private Button _toMenuButton;
-
-        [SerializeField]
-        private GameObject _gameOver;
+        private GameOverScreen _gameOver;
         
         [SerializeField]
         private CommandManager _commandManager;
 
-        [FormerlySerializedAs("companionsManager")] [FormerlySerializedAs("_companionManager")] [SerializeField]
+        [SerializeField]
         private CompanionsManager _companionsManager;
         
         [SerializeField]

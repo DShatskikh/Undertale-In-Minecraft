@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,11 +20,16 @@ namespace Game
         [SerializeField]
         private Transform _cross;
 
+        [SerializeField]
+        private Transform _divider;
+        
         private Strip _activeStrip;
         private Coroutine _coroutine;
-        
+        private AttackActConfig _config;
+
         public void Init(AttackActConfig attackActConfig)
         {
+            _config = attackActConfig;
             Activate(true);
             StartCoroutine(AwaitActive());
         }
@@ -46,7 +52,6 @@ namespace Game
             var changeAlphaCommand = new ChangeAlphaImageCommand(_target, 1, 1);
             yield return changeAlphaCommand.Await();
 
-            //yield return new WaitForSeconds(0.2f);
             _activeStrip = _strip1;
             _strip1.StartMove();
         }
@@ -96,8 +101,13 @@ namespace Game
             yield return changeAlphaCommand.Await();
             
             yield return new WaitForSeconds(0.5f);
+
+            var damage = Vector3.Distance(_divider.position, _target.transform.position) 
+                         / Vector3.Distance(_cross.position, _target.transform.position)
+                         * 3;
             
-            yield return GameData.EnemyData.Enemy.AwaitCustomEvent("Damage");
+            print((int) damage);
+            yield return GameData.EnemyData.Enemy.AwaitCustomEvent("Damage", damage);
         }
 
         public void EndMove()
@@ -123,7 +133,7 @@ namespace Game
 
         public override void OnCancel()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

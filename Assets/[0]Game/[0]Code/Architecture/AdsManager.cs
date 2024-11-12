@@ -2,6 +2,7 @@ using System;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using YG;
 
 namespace Game
@@ -64,6 +65,12 @@ namespace Game
                             Lua.Run("Variable[\"ConciergeState\"] = 2");
                             pair.Event.Invoke();
                             break;
+                        case AdsType.BavNePirog:
+                            Lua.Run("Variable[\"IsNePirog\"] = true");
+                            GameData.GameOver.gameObject.SetActive(false);
+                            print(GameData.GameOver);
+                            pair.Event.Invoke();
+                            break;
                         default:
                             Debug.LogError("Не то число ????");
                             break;
@@ -74,10 +81,10 @@ namespace Game
 
         private enum AdsType
         {
-            Other,
-            BuyMask,
-            ConciergeBuyKey,
-            
+            Other = 0,
+            BuyMask = 1,
+            ConciergeBuyKey = 2,
+            BavNePirog = 3,
         }
         
         [Serializable]
