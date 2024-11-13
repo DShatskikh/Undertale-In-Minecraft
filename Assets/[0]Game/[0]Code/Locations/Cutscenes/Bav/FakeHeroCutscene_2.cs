@@ -20,7 +20,7 @@ namespace Game
         {
             GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.transform;
             
-            if (_fake.GetHealth > 0)
+            if (!Lua.IsTrue("IsFakeHeroDead"))
             {
                 GameData.MusicPlayer.Play(_musicClip);
             

@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   Attacks:
-  - {fileID: -1587965574054815722, guid: bf3f73b467382374a859bcf21560ee55, type: 3}
-  - {fileID: -1190512114627096115, guid: e20242661b5a20f4ab831fe68d5ce06a, type: 3}
-  - {fileID: 3672391563526702508, guid: 2f4da0cfc54c3204a9ba1ec3cbdfec85, type: 3}
-  - {fileID: -2825506948791563495, guid: 94523ad8c05764c4abeca5c03a94b30c, type: 3}
+  - {fileID: 164594068530899598, guid: 25f25389ddbb65c4fae0883d51afd785, type: 3}
+  - {fileID: 1267361167515064596, guid: d11830dafebf7d44e93cffeb7b8fab73, type: 3}
+  - {fileID: 8733790820713767501, guid: e7629ecf51a8a9a41aba12f1376f272a, type: 3}
+  - {fileID: 3198035197698898019, guid: 701aa65b502207a4b82be17049c8d58b, type: 3}
   Attack: 3
   WinPrize: 2
   Acts:
-  - {fileID: 11400000, guid: 05dbe20a43e106a4dbaa6c664dc7a0e9, type: 2}
+  - {fileID: 11400000, guid: 89178852cbc17814fa5552ec8f70c204, type: 2}
+  - {fileID: 11400000, guid: df2432e70417b3a4eb611bb991f6432d, type: 2}
+  - {fileID: 11400000, guid: 2f855b30506001e49a4b3ffd37c6af1e, type: 2}
   OldActs:
   - Name:
       m_TableReference:
@@ -154,17 +156,24 @@ MonoBehaviour:
       Shaking: 0
     Progress: 7
     Icon: {fileID: 869357441, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  ProgressLocalized:
+  - m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 29337194771890176
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   EndReplicas:
-  - LocalizedString:
-      m_TableReference:
-        m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
-      m_TableEntryReference:
-        m_KeyId: 3009121231421440
-        m_Key: 
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    Shaking: 0
+  - m_TableReference:
+      m_TableCollectionName: GUID:6f661cae60909ba47a785d3975d03854
+    m_TableEntryReference:
+      m_KeyId: 17798638647754752
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   references:
     version: 2
     RefIds: []

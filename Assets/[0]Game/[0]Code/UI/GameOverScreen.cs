@@ -14,14 +14,26 @@ namespace Game
         [SerializeField]
         private Button _submitButton, _cancelButton;
         
+        [SerializeField]
+        private CanvasGroup _canvasGroup;
+        
         private IEnumerator Start()
         {
             _submitButton.onClick.AddListener(OnSubmitButtonClicked);
             _cancelButton.onClick.AddListener(OnCancelButtonClicked);
+ 
+            _canvasGroup.alpha = 0;
             
-            _container.SetActive(false);
-            yield return new WaitForSeconds(2f);
-            _container.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
+
+            var progress = 0f;
+
+            while (progress < 1f / 1.5f)
+            {
+                yield return null;
+                progress += Time.deltaTime;
+                _canvasGroup.alpha = progress;
+            }
         }
 
         private void OnSubmitButtonClicked()

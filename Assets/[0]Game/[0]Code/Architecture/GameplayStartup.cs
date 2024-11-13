@@ -107,28 +107,30 @@ namespace Game
         {
             RegisterLuaFunctions();
             
-            foreach (var saveLoad in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            /*foreach (var saveLoad in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             {
                 saveLoad.Load();
-            }
+            }*/
 
-            YandexGame.savesData.IsNotIntroduction = true;
+            //YandexGame.savesData.IsNotIntroduction = true;
             //Lua.Run("Value[\"FUN\"] = 1");
 
-            if (!YandexGame.savesData.IsNotIntroduction)
+            /*if (!YandexGame.savesData.IsNotIntroduction)
             {
                 _introduction.SetActive(true);
                 YandexGame.savesData.IsNotFirstPlay = true;
             }
             else
-            {
+            {*/
                 _input.SetActive(true);
                 GameData.Joystick.gameObject.SetActive(true);
                 GameData.CharacterController.enabled = true;
                 GameData.CharacterController.gameObject.SetActive(true);
-                GameData.LocationsManager.SwitchLocation(YandexGame.savesData.LocationName, YandexGame.savesData.PointIndex);
-                GameData.CharacterController.transform.position = GameData.Saver.LoadPosition();
-            }
+                var testLoad = new TestLoad();
+                testLoad.Load();
+                //GameData.LocationsManager.SwitchLocation(YandexGame.savesData.LocationName, YandexGame.savesData.PointIndex);
+                //GameData.CharacterController.transform.position = GameData.Saver.LoadPosition();
+            //}
 
             StartCoroutine(Await());
         }

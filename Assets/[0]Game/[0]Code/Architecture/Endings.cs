@@ -5,6 +5,8 @@ namespace Game
         Bad,
         Good,
         Strange,
-        
+        BavGood,
+        BavGenocide,
+        BavStrange,
     }
 }

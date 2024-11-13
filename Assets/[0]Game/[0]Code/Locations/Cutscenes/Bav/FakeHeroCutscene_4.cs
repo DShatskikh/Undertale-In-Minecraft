@@ -23,14 +23,11 @@ namespace Game
 
         [Header("Genocide Root")]
         [SerializeField]
-        private FakeHero _fakeHero;
-
-        [SerializeField]
         private StartBattleTrigger _startBattleTrigger;
         
         protected override IEnumerator AwaitCutscene()
         {
-            if (_fakeHero.GetHealth > 0)
+            if (!Lua.IsTrue("IsFakeHeroDead"))
                 _fakeHeroRunningCircle.gameObject.SetActive(true);
             
             var isAllCrystalDeactivate = true;
@@ -51,7 +48,7 @@ namespace Game
                 yield return new WaitForSeconds(1);
             }
 
-            if (_fakeHero.GetHealth <= 0)
+            if (Lua.IsTrue("IsFakeHeroDead"))
             {
                 _startBattleTrigger.StartBattle();
                 yield break;

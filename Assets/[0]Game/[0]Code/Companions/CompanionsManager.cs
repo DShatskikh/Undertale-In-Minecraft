@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using YG;
@@ -18,11 +17,7 @@ namespace Game
         private void Start()
         {
             Lua.RegisterFunction(nameof(IsHaveCompanion), this, SymbolExtensions.GetMethodInfo(() => IsHaveCompanion(string.Empty)));
-            
-            foreach (var companion in YandexGame.savesData.Companions)
-            {
-                TryActivateCompanion(companion);
-            }
+            Load();
         }
 
         private void OnDestroy()
@@ -30,8 +25,16 @@ namespace Game
             Lua.UnregisterFunction(nameof(IsHaveCompanion));
         }
 
-        private bool IsHaveCompanion(string nameCompanion) => 
-            YandexGame.savesData.Companions.Any(companion => nameCompanion == Enum.GetName(typeof(Companion), companion));
+        public bool IsHaveCompanion(string nameCompanion)
+        {
+            foreach (var companion in _activeCompanions)
+            {
+                if (nameCompanion == companion.GetName)
+                    return true;
+            }
+            
+            return false;
+        }
 
         [ContextMenu("Удалить всех компаньонов")]
         public void DeactivateAllCompanion()
@@ -39,8 +42,9 @@ namespace Game
             foreach (var companion in _activeCompanions)
             {
                 companion.gameObject.SetActive(false);
-                YandexGame.savesData.Companions = new List<string>();
             }
+            
+            YandexGame.savesData.Companions = new List<string>();
         }
 
         public void ResetAllPositions()
@@ -50,7 +54,7 @@ namespace Game
                 companion.transform.position = GameData.CharacterController.transform.position;
             }
         }
-        
+
         public void TryActivateCompanion(string companionName)
         {
             var companion = GetCompanion(companionName);
@@ -58,10 +62,16 @@ namespace Game
             if (companion)
             {
                 _activeCompanions.Add(companion);
+                
+                YandexGame.savesData.Companions = new List<string>();
+
+                foreach (var activeCompanion in _activeCompanions)
+                    YandexGame.savesData.Companions.Add(activeCompanion.GetName);
+
                 companion.gameObject.SetActive(true);
             }
         }
-        
+
         public void TryDeactivateCompanion(string companionName)
         {
             var companion = GetCompanion(companionName);
@@ -82,6 +92,7 @@ namespace Game
             if (companion)
             {
                 _activeCompanions.Remove(companion);
+                YandexGame.savesData.Companions.Remove(companion.GetName);
                 companion.gameObject.SetActive(false);
             }
         }
@@ -101,7 +112,7 @@ namespace Game
             
             return GameData.CharacterController.transform.position;
         }
-        
+
         public Companion GetCompanion(string companionName)
         {
             foreach (var companion in _companions)
@@ -117,6 +128,20 @@ namespace Game
         {
             foreach (var companion in _activeCompanions) 
                 companion.SetMove(value);
+        }
+
+        private void Load()
+        {
+            foreach (var companionName in YandexGame.savesData.Companions)
+            {
+                var companion = GetCompanion(companionName);
+
+                if (companion)
+                {
+                    _activeCompanions.Add(companion);
+                    companion.gameObject.SetActive(true);
+                }
+            }
         }
     }
 }

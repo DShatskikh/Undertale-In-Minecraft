@@ -50,7 +50,7 @@ namespace Game
                 post.ActivateCrystal();
             }
 
-            if (_fakeHeroEnemy.GetHealth <= 0)
+            if (Lua.IsTrue("IsFakeHeroDead"))
             {
                 GameData.CharacterController.enabled = true;
                 _nextCutscene.StartCutscene();

@@ -19,6 +19,11 @@ namespace Game
             Register(isActive);
         }
 
+        private void OnDestroy()
+        {
+            Register(false);
+        }
+
         protected void Register(bool value)
         {
             if (value)

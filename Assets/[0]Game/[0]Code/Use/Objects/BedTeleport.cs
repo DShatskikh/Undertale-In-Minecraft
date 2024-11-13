@@ -1,10 +1,11 @@
 using System.Collections;
 using Cinemachine;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
 namespace Game
 {
-    public class BedTeleport : UseObject
+    public class BedTeleport : MonoBehaviour
     {
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
@@ -12,15 +13,20 @@ namespace Game
         [SerializeField]
         private CinemachineVirtualCamera _cinemachineVirtual;
 
+        [SerializeField]
+        private GenocideGameEnd _end;
+        
         private Vector2 _startPosition;
         
-        public override void Use()
+        public void Use()
         {
-            StartCoroutine(AwaitUse());
+            GameData.CoroutineRunner.StartCoroutine(AwaitUse());
         }
 
         private IEnumerator AwaitUse()
         {
+            GameData.CompanionsManager.DeactivateAllCompanion();
+            
             var characterTransform = GameData.CharacterController.transform;
             _startPosition = characterTransform.position;
             GameData.CharacterController.enabled = false;
@@ -28,13 +34,13 @@ namespace Game
             GameData.CharacterController.View.Flip(true);
             _spriteRenderer.GetComponent<BoxCollider2D>().enabled = false;
             
+            _spriteRenderer.sortingOrder = -1;
+            
             var characterJumpMoveToUpCommand = new MoveToPointCommand(characterTransform, characterTransform.position.AddY(1), 0.25f);
             yield return characterJumpMoveToUpCommand.Await();
 
             var rotationCommand = new RotationCommand(characterTransform, new Vector3(0, 0, -90), 0.5f);
             yield return rotationCommand.Await();
-            
-            _spriteRenderer.sortingOrder = -1;
             
             var characterJumpToBedCommand = new MoveToPointCommand(characterTransform, transform.position.AddY(0.75f).AddX(-0.5f), 0.5f);
             yield return characterJumpToBedCommand.Await();
@@ -51,13 +57,23 @@ namespace Game
                 yield return null;
             } while (size > 0.5f);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
             
             GameData.CharacterController.View.Sleep();
 
-            yield return new WaitForSeconds(3);
-            
-            GameData.CharacterController.View.Reset();
+            yield return new WaitForSeconds(2);
+
+            if (Lua.IsTrue("Variable[\"KILLS\"] >= 5"))
+            {
+                characterTransform.eulerAngles = Vector3.zero;
+                GameData.CharacterController.View.Reset();
+                GameData.CharacterController.enabled = true;
+                GameData.LocationsManager.SwitchLocation("FakeHerobrineHome", 1);   
+            }
+            else
+                _end.Use();
+
+            /*GameData.CharacterController.View.Reset();
             
             yield return new WaitForSeconds(1);
             
@@ -79,7 +95,7 @@ namespace Game
             
             _spriteRenderer.sortingOrder = 0;
             GameData.CharacterController.enabled = true;
-            _cinemachineVirtual.gameObject.SetActive(false);
+            _cinemachineVirtual.gameObject.SetActive(false);*/
         }
     }
 }

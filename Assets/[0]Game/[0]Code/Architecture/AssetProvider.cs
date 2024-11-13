@@ -19,6 +19,7 @@ namespace Game
         public AudioClip SpareSound;
         public AudioClip HurtSound;
         public AudioClip GrazeSound;
+        public AudioClip PhoneSound;
 
         [Header("Configs")]
         public StepSoundPairsConfig StepSoundPairsConfig;
