@@ -20,7 +20,8 @@ namespace Game
         public AudioClip HurtSound;
         public AudioClip GrazeSound;
         public AudioClip PhoneSound;
-
+        public AudioClip WarningSound;
+        
         [Header("Configs")]
         public StepSoundPairsConfig StepSoundPairsConfig;
         public TileTagConfig TileTagConfig;
@@ -28,7 +29,6 @@ namespace Game
         public ExitSlotConfig[] ExitSlotConfigs;
         public MenuSlotConfig[] MenuSlotConfigs;
         public ItemsConfigContainer ItemsConfigContainer;
-        [FormerlySerializedAs("GuideConfigs")]
         public EndingConfig[] EndingsConfigs;
         
         [Header("Prefabs")]

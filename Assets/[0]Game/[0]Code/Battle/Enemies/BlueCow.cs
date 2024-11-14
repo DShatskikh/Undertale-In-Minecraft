@@ -24,7 +24,7 @@ namespace Game
 
         [SerializeField]
         private GameObject _trigger;
-        
+
         public void StartSpeck()
         {
             StartCoroutine(AwaitUse());
@@ -32,9 +32,23 @@ namespace Game
 
         public override IEnumerator AwaitCustomEvent(string eventName, float value = 0)
         {
+            if (eventName == "StartBattle")
+            {
+                
+            }
+            
             if (eventName == "Damage")
             {
                 yield return _damageEvent.AwaitEvent(_config, value);
+                
+                if (_damageEvent.GetHealth <= 0)
+                    gameObject.SetActive(false);
+            }
+
+            if (eventName == "EndBattle")
+            {
+                Lua.Run("Variable[\"BlueCowState\"] = 2");
+                yield return _damageEvent.AwaitDeathEvent(_config, value);
             }
         }
         

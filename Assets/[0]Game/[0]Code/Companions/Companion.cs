@@ -24,6 +24,7 @@ namespace Game
         private Vector2 _previousPosition;
 
         public string GetName => _name;
+        public SpriteRenderer GetSpriteRenderer => _spriteRenderer;
         
         private void Awake()
         {
@@ -38,7 +39,7 @@ namespace Game
             _previousPosition = transform.position;
         }
 
-        public void Update()
+        private void Update()
         {
             var targetPosition = GameData.CompanionsManager.GetNearestTarget(this);
             var distance = Vector2.Distance(transform.position, targetPosition);

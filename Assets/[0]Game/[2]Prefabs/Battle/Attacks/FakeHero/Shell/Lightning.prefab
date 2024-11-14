@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3363029091090273214}
   - component: {fileID: 6807189036031250380}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8919838928273035470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lightning 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 749280298251058249}
   - component: {fileID: 1800228386831781670}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3247131564715760995}
   - component: {fileID: 7942349497703381104}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5603945432052883908}
   - component: {fileID: 2464877705468155783}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Warning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1348425627245305678}
   - component: {fileID: 4275289129695072419}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2310094399901867196}
   - component: {fileID: 5427440922330335433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6250806502331482010}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lightning 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 1378734413026532430}
   - component: {fileID: 6166200738625423496}
   - component: {fileID: 6762387678752922586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4186582230355796211}
   - component: {fileID: 7260115947144193510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,6 +791,10 @@ PrefabInstance:
     - target: {fileID: 4058587458758488956, guid: 0f0ad46f4727a01418c2b7b59d34b7a5, type: 3}
       propertyPath: m_Name
       value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058587458758488956, guid: 0f0ad46f4727a01418c2b7b59d34b7a5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4058587458758488956, guid: 0f0ad46f4727a01418c2b7b59d34b7a5, type: 3}
       propertyPath: m_IsActive

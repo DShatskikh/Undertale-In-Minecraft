@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
@@ -24,13 +26,21 @@ namespace Game
             var progress = 0.0f;
             var startPosition = GameData.CharacterController.transform.position;
             var enemyStartPosition = GameData.EnemyData.Enemy.transform.position;
+            var startPositions = new List<Vector2>();
+            var companions = GameData.CompanionsManager.GetAllCompanions;
             
+            foreach (var companion in companions) 
+                startPositions.Add(companion.transform.position);
+
             while (progress < 1)
             {
                 progress += Time.deltaTime * 1.5f;
 
                 GameData.CharacterController.transform.position = Vector2.Lerp(startPosition, 
                     startPosition.AddX(-6), progress);
+
+                for (int i = 0; i < companions.Count; i++) 
+                    companions[i].transform.position = Vector2.Lerp(startPositions[i], startPositions[i].AddX(-6), progress);
                 
                 GameData.EnemyData.Enemy.transform.position = Vector2.Lerp(enemyStartPosition, 
                     enemyStartPosition.AddX(6), progress);

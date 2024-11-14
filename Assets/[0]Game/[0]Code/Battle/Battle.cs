@@ -52,7 +52,7 @@ namespace Game
         private Label _enemyHealthLabel;
         private Vector2 _normalWorldCharacterPosition;
         private Coroutine _coroutine;
-        private AudioClip _previousSound;
+        private AudioClip _previousMusic;
         private Vector2 _enemyStartPosition;
         private AttackBase[] _attacks;
         private int _attackIndex;
@@ -89,7 +89,7 @@ namespace Game
             GameData.HeartController.enabled = false;
             _arena = Instantiate(GameData.EnemyData.EnemyConfig.Arena, transform);
             GameData.HeartController.transform.position = _arena.transform.position;
-            _previousSound = GameData.MusicPlayer.Clip;
+            _previousMusic = GameData.MusicPlayer.Clip;
             GameData.Saver.IsSavingPosition = false;
             GameData.InputManager.Show();
             GameData.CompanionsManager.SetMove(false);
@@ -169,15 +169,13 @@ namespace Game
         {
             Destroy(_arena.gameObject);
             
-            GameData.CharacterController.View.SetOrderInLayer(0);
-            GameData.CompanionsManager.SetMove(true);
             var winReplica = YandexGame.savesData.IsCheat ? _winReplicaCheat : _winReplica;
             
             var commands = new List<CommandBase>();
             
             commands.Add(new DelayCommand(1f));
             //commands.Add(new MessageCommand(_enemyMessageBox, GameData.EnemyData.EnemyConfig.EndReplicas));
-            commands.Add(new ExitCommand(gameObject, _previousSound, _normalWorldCharacterPosition, 
+            commands.Add(new ExitCommand(gameObject, _previousMusic, _normalWorldCharacterPosition, 
                 _speedPlacement, winReplica));
             
             GameData.CommandManager.StartCommands(commands);

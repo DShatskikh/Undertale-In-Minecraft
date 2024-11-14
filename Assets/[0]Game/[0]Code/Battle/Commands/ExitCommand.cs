@@ -32,22 +32,12 @@ namespace Game
 
         private IEnumerator AwaitExit(UnityAction action)
         {
+            yield return GameData.Battle.BlackPanel.AwaitHide();
+            
             _gameObject.SetActive(false);
-            var enemy = GameData.EnemyData.Enemy;
-
-            if (enemy.TryGetComponent(out EnemyDisappearanceBase disappearance))
-            {
-                var isEnd = false;
-                disappearance.Disappearance(() => isEnd = true);
-                yield return new WaitUntil(() => isEnd);
-            }
-            else if (enemy.GetComponent<SpriteRenderer>())
-            {
-                var disapperance = enemy.gameObject.AddComponent<SmoothDisappearance>();
-                disapperance.SetDuration(0.5f);
-                GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SpareSound);
-                yield return new WaitForSeconds(0.5f);
-            }
+            
+            GameData.CharacterController.View.SetOrderInLayer(0);
+            GameData.CompanionsManager.SetMove(true);
             
             var characterTransform = GameData.CharacterController.transform;
 
@@ -56,6 +46,13 @@ namespace Game
                 characterTransform.position = Vector2.MoveTowards(characterTransform.position, _normalWorldCharacterPosition, Time.deltaTime * _speedPlacement);
                 yield return null;
             }
+
+            foreach (var companion in GameData.CompanionsManager.GetAllCompanions)
+            {
+                companion.GetSpriteRenderer.sortingOrder = 0;
+            }
+            
+            yield return GameData.EnemyData.Enemy.AwaitCustomEvent("EndBattle");
             
             GameData.CharacterController.enabled = true;
             GameData.CharacterController.GetComponent<Collider2D>().isTrigger = false;
@@ -68,19 +65,19 @@ namespace Game
             
             YandexMetrica.Send("Wins", eventParams);
             
-            _winReplica.Arguments = new List<object>() { GameData.EnemyData.EnemyConfig.WinPrize };
+            /*_winReplica.Arguments = new List<object>() { GameData.EnemyData.EnemyConfig.WinPrize };
             GameData.Monolog.Show(new []{ _winReplica });
             EventBus.CloseMonolog += () =>
             {
                 if (!YandexGame.savesData.IsCheat)
                     YandexGame.savesData.MaxHealth += GameData.EnemyData.EnemyConfig.WinPrize;
-                
+                */
                 EventBus.PlayerWin.Invoke(GameData.EnemyData.EnemyConfig);
                 EventBus.PlayerWin = null;
                 GameData.Saver.IsSavingPosition = true;
                 GameData.Saver.Save();
                 GameData.InputManager.Show();
-            };
+            //};
             
             action.Invoke();
         }

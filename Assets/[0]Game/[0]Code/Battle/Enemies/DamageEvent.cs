@@ -23,15 +23,15 @@ namespace Game
 
         [SerializeField] 
         private TMP_Text _label;
-
-        [SerializeField]
-        private GameObject _damageLine;
         
         [SerializeField]
         private GameObject _explosion;
 
         [SerializeField]
         private MMF_Player _shake;
+
+        [SerializeField]
+        private StartBattleTrigger _startBattleTrigger;
         
         private int _health;
 
@@ -48,13 +48,13 @@ namespace Game
         
         public IEnumerator AwaitEvent(EnemyConfig config, float value = 0)
         {
-            GameData.CharacterController.View.ShowLine(transform.position.AddY(0.5f));
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.DamageSound);
-            yield return new WaitForSeconds(0.5f);
-            _fire.SetActive(true);
+            GameData.CharacterController.View.ShowLine(transform.position.AddY(0.5f));
+            yield return new WaitForSeconds(0.25f);
             GameData.CharacterController.View.HideLine();
+            _fire.SetActive(true);
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
                 _spriteRenderer.color = new Color(1, 163 / 255f, 163 / 255f);
                 GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
@@ -115,17 +115,35 @@ namespace Game
                 yield return new WaitForSeconds(0.3f);
                 _spriteRenderer.enabled = false;
                 yield return new WaitForSeconds(0.2f);
+                _spriteRenderer.enabled = true;
                 _explosion.SetActive(false);
                 gameObject.SetActive(false);
-                _spriteRenderer.enabled = true;
-
+                _startBattleTrigger.gameObject.SetActive(false);
+                
                 GameData.CommandManager.StopExecute();
                 GameData.Battle.EndBattle();
-                EventBus.Kill?.Invoke();
-
-                var kills = Lua.Run("Variable[KILLS]").AsInt;
-                Lua.Run($"Variable[KILLS] = {kills}");
             }
+        }
+
+        public IEnumerator AwaitDeathEvent(EnemyConfig config, float value = 0)
+        {
+            AttackActConfig attackConfig = null;
+
+            foreach (var act in config.Acts)
+            {
+                if (act is AttackActConfig attackActConfig)
+                {
+                    attackConfig = attackActConfig;
+                    break;
+                }
+            }
+
+            EventBus.Kill?.Invoke();
+
+            var kills = Lua.Run("Variable[KILLS]").AsInt;
+            Lua.Run($"Variable[KILLS] = {kills}");
+
+            yield return null;
         }
     }
 }

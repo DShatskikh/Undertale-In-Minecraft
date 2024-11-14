@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -51,6 +52,12 @@ namespace Game
             var startPosition = GameData.CharacterController.transform.position;
             var enemyStartPosition = GameData.EnemyData.Enemy.transform.position;
             
+            var startPositions = new List<Vector2>();
+            var companions = GameData.CompanionsManager.GetAllCompanions;
+            
+            foreach (var companion in companions) 
+                startPositions.Add(companion.transform.position);
+            
             while (progress < 1)
             {
                 progress += Time.deltaTime * 1.5f;
@@ -58,6 +65,9 @@ namespace Game
                 GameData.CharacterController.transform.position = Vector2.Lerp(startPosition, 
                     GameData.CharacterPoint.position, progress);
 
+                for (int i = 0; i < companions.Count; i++) 
+                    companions[i].transform.position = Vector2.Lerp(startPositions[i], startPositions[i].AddX(6), progress);
+                
                 GameData.EnemyData.Enemy.transform.position = Vector2.Lerp(enemyStartPosition, 
                     GameData.EnemyPoint.position, progress);
                 yield return null;

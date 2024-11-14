@@ -51,7 +51,7 @@ namespace Game
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 2; i++)
             {
                 _view.sprite = _deactiveSprite;
                 yield return new WaitForSeconds(0.1f);

@@ -13,17 +13,12 @@ namespace Game
         private GameObject _shadow;
         
         private Vector2 _startPosition;
-        private Vector2 _startViewPosition;
-        private Vector2 _startScale;
         private bool _isInit;
         private Coroutine _coroutine;
 
         private void Start()
         {
             _startPosition = transform.position;
-            _startScale = _view.transform.localScale;
-            _startViewPosition = _view.transform.position;
-
             _isInit = true;
         }
 
@@ -42,8 +37,8 @@ namespace Game
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
 
-            _view.transform.localScale = _startScale;
-            _view.transform.position = _startViewPosition;
+            _view.transform.localScale = Vector3.one;
+            _view.transform.localPosition = Vector3.zero;
             _view.flipX = true;
             _shadow.SetActive(false);
         }
@@ -66,7 +61,7 @@ namespace Game
                 yield return new MoveToPointCommand(transform, targetPosition, Vector2.Distance(transform.position, targetPosition) / 3).Await();
                 yield return new MoveToPointCommand(viewTransform, viewTransform.position.AddY(-2), 0.5f).Await();
                 yield return new ScaleCommand(viewTransform, viewTransform.localScale.SetY(0.75f), 0.5f).Await();
-                yield return new ScaleCommand(viewTransform, _startScale, 0.5f).Await();
+                yield return new ScaleCommand(viewTransform, Vector2.one, 0.5f).Await();
 
                 yield return new WaitForSeconds(3);
             }

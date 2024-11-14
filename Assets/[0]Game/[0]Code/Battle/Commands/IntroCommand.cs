@@ -18,7 +18,7 @@ namespace Game
         
         public override void Execute(UnityAction action)
         {
-            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SpareSound);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.WarningSound);
             GameData.Startup.StartCoroutine(AwaitMove(action));
         }
 
@@ -34,10 +34,13 @@ namespace Game
             var startCharacterPosition = characterTransform.position;
             var startEnemyPosition = enemyTransform.position;
             var startPositions = new List<Vector2>();
-            
-            for (int i = 0; i < companions.Count; i++) 
-                startPositions.Add(companions[i].transform.position);
-            
+
+            foreach (var companion in companions)
+            {
+                startPositions.Add(companion.transform.position);
+                companion.GetSpriteRenderer.sortingOrder = 21;
+            }
+
             while (progress < 1)
             {
                 progress += Time.deltaTime * 0.75f;

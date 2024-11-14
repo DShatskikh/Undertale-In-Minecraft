@@ -47,7 +47,7 @@ namespace Game
             var loadTextCommand = new LoadTextCommand(localizedString);
             yield return loadTextCommand.Await().ContinueWith(() => _labelName = loadTextCommand.Result);
             
-            _progressBar.SetBar(100, 0, 100);
+            _progressBar.SetBar(0, 0, 100);
             ChangeProgress(GameData.BattleProgress);
         }
     }

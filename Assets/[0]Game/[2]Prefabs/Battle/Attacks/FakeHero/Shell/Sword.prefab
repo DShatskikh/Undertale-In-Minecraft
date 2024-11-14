@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3782259315434910987}
   - component: {fileID: 7783259078963889019}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1757568820161342199}
   - component: {fileID: 8629141638025519009}
   - component: {fileID: 8811965969209785008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250180001085272176}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -167,11 +167,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3389294, y: 0.49160516}
-      - {x: -0.24039671, y: -0.1064451}
-      - {x: -0.093057394, y: -0.25415623}
-      - {x: 0.49485326, y: 0.33350515}
-      - {x: 0.49732786, y: 0.49488202}
+    - - {x: 0.57438505, y: 0.13042071}
+      - {x: -0.2769723, y: 0.122152634}
+      - {x: -0.26679167, y: -0.12622678}
+      - {x: 0.57943445, y: -0.13054827}
+      - {x: 0.7030658, y: -0.00574705}
   m_UseDelaunayMesh: 0
 --- !u!114 &8811965969209785008
 MonoBehaviour:

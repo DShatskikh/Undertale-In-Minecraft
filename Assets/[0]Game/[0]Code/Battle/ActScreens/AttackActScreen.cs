@@ -45,11 +45,11 @@ namespace Game
             {
                 text.color = text.color.SetA(0);
                 
-                var changeAlphaTextCommand = new ChangeAlphaTextCommand(text, 1, 1);
+                var changeAlphaTextCommand = new ChangeAlphaTextCommand(text, 1, 0.5f);
                 StartCoroutine(changeAlphaTextCommand.Await());
             }
             
-            var changeAlphaCommand = new ChangeAlphaImageCommand(_target, 1, 1);
+            var changeAlphaCommand = new ChangeAlphaImageCommand(_target, 1, 0.5f);
             yield return changeAlphaCommand.Await();
 
             _activeStrip = _strip1;
