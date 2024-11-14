@@ -28,7 +28,8 @@ namespace Game
         public ExitSlotConfig[] ExitSlotConfigs;
         public MenuSlotConfig[] MenuSlotConfigs;
         public ItemsConfigContainer ItemsConfigContainer;
-        public GuideConfig[] GuideConfigs;
+        [FormerlySerializedAs("GuideConfigs")]
+        public EndingConfig[] EndingsConfigs;
         
         [Header("Prefabs")]
         public ActSlotController ActSlotPrefab;

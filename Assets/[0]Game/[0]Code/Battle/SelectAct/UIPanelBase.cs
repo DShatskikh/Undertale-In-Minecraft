@@ -35,6 +35,9 @@ namespace Game
             }
             else
             {
+                if (!GameData.PlayerInput)
+                    return;
+                
                 GameData.PlayerInput.actions["Move"].performed -= OnMovePerformed;
                 GameData.PlayerInput.actions["Submit"].performed -= OnSubmitPerformed;
                 GameData.PlayerInput.actions["Submit"].canceled -= OnSubmitCanceled;

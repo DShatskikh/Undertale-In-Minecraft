@@ -27,9 +27,6 @@ namespace Game
         private SelectActManager _selectActManager;
 
         [SerializeField]
-        private BattleArena _arena;
-
-        [SerializeField]
         private Transform[] _points;
 
         [Header("Variables")]
@@ -59,6 +56,7 @@ namespace Game
         private Vector2 _enemyStartPosition;
         private AttackBase[] _attacks;
         private int _attackIndex;
+        private BattleArena _arena;
 
         public BlackPanel BlackPanel => _blackPanel;
         public GameObject Arena => _arena.gameObject;
@@ -89,6 +87,7 @@ namespace Game
             _normalWorldCharacterPosition = GameData.CharacterController.transform.position;
             GameData.CharacterController.enabled = false;
             GameData.HeartController.enabled = false;
+            _arena = Instantiate(GameData.EnemyData.EnemyConfig.Arena, transform);
             GameData.HeartController.transform.position = _arena.transform.position;
             _previousSound = GameData.MusicPlayer.Clip;
             GameData.Saver.IsSavingPosition = false;
@@ -168,6 +167,8 @@ namespace Game
 
         public void EndBattle()
         {
+            Destroy(_arena.gameObject);
+            
             GameData.CharacterController.View.SetOrderInLayer(0);
             GameData.CompanionsManager.SetMove(true);
             var winReplica = YandexGame.savesData.IsCheat ? _winReplicaCheat : _winReplica;

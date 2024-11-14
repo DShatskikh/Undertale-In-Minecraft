@@ -14,10 +14,10 @@ namespace Game
         private List<Companion> _activeCompanions = new List<Companion>();
         public List<Companion> GetAllCompanions => _activeCompanions;
 
-        private void Start()
+        public void Register()
         {
             Lua.RegisterFunction(nameof(IsHaveCompanion), this, SymbolExtensions.GetMethodInfo(() => IsHaveCompanion(string.Empty)));
-            Load();
+            //Load();
         }
 
         private void OnDestroy()

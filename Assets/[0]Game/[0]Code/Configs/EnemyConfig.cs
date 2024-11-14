@@ -11,9 +11,10 @@ namespace Game
         public int Attack = 3;
         public int WinPrize = 2;
         public BaseActConfig[] Acts;
+        public BattleArena Arena;
         [FormerlySerializedAs("Acts")]
         public Act[] OldActs;
-        public LocalizedString[] ProgressLocalized;
+        public LocalizedString ProgressLocalized;
         public LocalizedString[] EndReplicas;
     }
 }

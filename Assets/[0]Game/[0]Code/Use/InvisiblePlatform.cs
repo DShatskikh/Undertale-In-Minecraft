@@ -37,6 +37,12 @@ namespace Game
             _coroutine = StartCoroutine(AwaitChangingTransparency(0f));
         }
 
+        private void OnDestroy()
+        {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+        }
+
         private IEnumerator AwaitChangingTransparency(float endA)
         {
             var progress = 0f;

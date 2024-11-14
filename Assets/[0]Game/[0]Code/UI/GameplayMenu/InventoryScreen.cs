@@ -24,7 +24,7 @@ namespace Game
         private Image _icon, _frame;
 
         [SerializeField]
-        private TMP_Text _nameLabel, _descriptionLabel;
+        private TMP_Text _nameLabel, _descriptionLabel, _noItemLabel;
 
         [SerializeField]
         private Button _useButton;
@@ -37,13 +37,12 @@ namespace Game
 
             if (isActive)
             {
-                Lua.Run("Variable[\"IsHackerMask\"] = true");
-                Lua.Run("Variable[\"IsPrisonKey\"] = true");
-                
                 _selectPlayer.PlayFeedbacks();
 
                 var assetProvider = GameData.AssetProvider;
                 var itemConfigs = assetProvider.ItemsConfigContainer.GetAvailableItems();
+
+                _noItemLabel.gameObject.SetActive(itemConfigs.Length == 0);
 
                 for (int i = 0; i < itemConfigs.Length; i++)
                 {
@@ -85,7 +84,10 @@ namespace Game
         {
             yield return null;
             base.Select();
-            _slots[_currentIndex].SetSelected(true);
+            
+            if (_slots.Count != 0)
+                _slots[_currentIndex].SetSelected(true);
+            
             ShowItemUI();
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
         }
@@ -93,7 +95,8 @@ namespace Game
         public override void UnSelect()
         {
             base.Select();
-            _slots[_currentIndex].SetSelected(false);
+            if (_slots.Count != 0)
+                _slots[_currentIndex].SetSelected(false);
             HideItemUI();
         }
 
@@ -175,13 +178,16 @@ namespace Game
                 _useButton.gameObject.SetActive(false);
             }
 
-            StartCoroutine(AwaitLoadDescription(config.Description));
+            StartCoroutine(AwaitLoadDescriptionAndName(config.Description, config.Name));
         }
         
-        private IEnumerator AwaitLoadDescription(LocalizedString localizedString)
+        private IEnumerator AwaitLoadDescriptionAndName(LocalizedString localizedString, LocalizedString nameLocalizedString)
         {
             var loadTextCommand = new LoadTextCommand(localizedString);
             yield return loadTextCommand.Await().ContinueWith(() => _descriptionLabel.text = loadTextCommand.Result);
+            
+            var awaitLoadNameTextCommand = new LoadTextCommand(nameLocalizedString);
+            yield return awaitLoadNameTextCommand.Await().ContinueWith(() => _nameLabel.text = awaitLoadNameTextCommand.Result);
         }
     }
 }

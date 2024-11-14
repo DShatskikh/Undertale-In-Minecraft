@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Game
@@ -7,12 +8,17 @@ namespace Game
     {
         private void OnEnable()
         {
-            StartCoroutine(AwaitStop());
+            //StartCoroutine(AwaitStop());
+        }
+
+        private void Start()
+        {
+            Stop();
         }
 
         public void Use()
         {
-            StartCoroutine(AwaitStop());
+            //StartCoroutine(AwaitStop());
         }
 
         public void Stop()

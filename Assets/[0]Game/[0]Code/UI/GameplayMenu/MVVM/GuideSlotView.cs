@@ -16,7 +16,7 @@ namespace Game
         [SerializeField]
         private TMP_Text _label;
 
-        private GuideConfig _model;
+        private EndingConfig _model;
         private GuideSlotViewModel _viewModel;
         
         public void OnPointerEnter(PointerEventData eventData)
@@ -34,7 +34,7 @@ namespace Game
             _viewModel.SubmitSlotUp(); 
         }
         
-        public void Init(GuideConfig model, GuideSlotViewModel viewModel)
+        public void Init(EndingConfig model, GuideSlotViewModel viewModel)
         {
             _viewModel = viewModel;
             _model = model;

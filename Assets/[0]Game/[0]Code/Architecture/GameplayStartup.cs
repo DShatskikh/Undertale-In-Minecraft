@@ -101,6 +101,8 @@ namespace Game
             GameData.SaverTimer = _saverTimer;
             GameData.InputManager = _inputManager;
             GameData.ImpulseMMFPlayer = _impulseMMFPlayer;
+            
+            _companionsManager.Register();
         }
 
         private void Start()

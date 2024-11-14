@@ -17,16 +17,16 @@ namespace Game
         [SerializeField]
         private Sprite _heartSprite;
         
-        private GuideConfig _data;
+        private EndingConfig _data;
         private GideManager _manager;
 
-        public GuideConfig GetData => _data;
+        public EndingConfig GetData => _data;
 
-        public void Init(GideManager manager, GuideConfig guideData)
+        public void Init(GideManager manager, EndingConfig endingData)
         {   
             GetComponent<Button>().onClick.AddListener(() => _manager.Select(this));
             _manager = manager;
-            _data = guideData;
+            _data = endingData;
             
             _icon.sprite = _data.Icon;
             _label.text = _data.Name.GetLocalizedString();

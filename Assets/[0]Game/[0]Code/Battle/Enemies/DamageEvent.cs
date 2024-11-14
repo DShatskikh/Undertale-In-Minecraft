@@ -47,12 +47,12 @@ namespace Game
         }
         
         public IEnumerator AwaitEvent(EnemyConfig config, float value = 0)
-        {            
-            _damageLine.SetActive(true);
+        {
+            GameData.CharacterController.View.ShowLine(transform.position.AddY(0.5f));
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.DamageSound);
             yield return new WaitForSeconds(0.5f);
             _fire.SetActive(true);
-            _damageLine.SetActive(false);
+            GameData.CharacterController.View.HideLine();
 
             for (int i = 0; i < 4; i++)
             {

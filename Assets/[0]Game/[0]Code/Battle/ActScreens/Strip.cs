@@ -31,14 +31,14 @@ namespace Game
         }
 
         public Vector3 GetPositionView => _view.transform.position;
-        
-        public IEnumerator AwaitMove()
+
+        private IEnumerator AwaitMove()
         {
             var progress = 0f;
 
             while (progress < 1)
             {
-                progress += Time.deltaTime / 1;
+                progress += Time.deltaTime / 1f;
                 _view.transform.position = Vector3.Lerp(_startPoint.position, _endPoint.position, progress);
                 yield return null;
             }

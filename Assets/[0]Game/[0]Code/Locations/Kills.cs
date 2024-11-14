@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -11,8 +11,12 @@ namespace Game
         [SerializeField]
         private int _count;
 
+        [FormerlySerializedAs("_event")]
         [SerializeField]
-        private UnityEvent _event;
+        private UnityEvent _trueEvent;
+        
+        [SerializeField]
+        private UnityEvent _falseEvent;
         
         private void OnEnable()
         {
@@ -24,16 +28,17 @@ namespace Game
             EventBus.Kill -= OnKill;
         }
 
-        private IEnumerator Start()
+        private void Start()
         {
-            yield return null;
             OnKill();
         }
 
         private void OnKill()
         {
             if (Lua.Run("return Variable[\"KILLS\"]").AsInt >= _count) 
-                _event.Invoke();
+                _trueEvent.Invoke();
+            else
+                _falseEvent.Invoke();
         }
     }
 }

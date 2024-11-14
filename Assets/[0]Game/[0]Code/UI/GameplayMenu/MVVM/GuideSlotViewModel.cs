@@ -2,12 +2,12 @@ namespace Game
 {
     public class GuideSlotViewModel : BaseSlotController
     {
-        public GuideConfig Model;
+        public EndingConfig Model;
         
-        private GuideScreen _screen;
+        private EndingsScreen _screen;
         private GuideSlotView _view;
 
-        public void Init(GuideScreen screen)
+        public void Init(EndingsScreen screen)
         {
             _screen = screen;
             _view = GetComponent<GuideSlotView>();

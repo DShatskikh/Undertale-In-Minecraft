@@ -63,7 +63,7 @@ namespace Game
             GameData.DeviceType = _testDeviceType;
 #endif
             
-            GameData.Saver.Load();
+            //GameData.Saver.Load();
         }
 
         private void Start()

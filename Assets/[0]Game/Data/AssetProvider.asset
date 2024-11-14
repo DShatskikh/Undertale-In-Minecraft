@@ -24,6 +24,7 @@ MonoBehaviour:
   SpareSound: {fileID: 8300000, guid: 81df257b3b5e58d48b6864e9a4cab5bf, type: 3}
   HurtSound: {fileID: 8300000, guid: 822df051862efd241a6e640313dc1078, type: 3}
   GrazeSound: {fileID: 8300000, guid: 6bb3af550183413458fb7d99525571af, type: 3}
+  PhoneSound: {fileID: 0}
   StepSoundPairsConfig: {fileID: 11400000, guid: 90e4c7439359ee74f917db220aa55d50, type: 2}
   TileTagConfig: {fileID: 11400000, guid: b628592479067e84e9e94aa18a244362, type: 2}
   GameplayMenuConfigs:
@@ -39,12 +40,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f3cd1edf8b985744b5a8e88e19e016d, type: 2}
   ItemsConfigContainer: {fileID: 11400000, guid: a1ddee2ee61909f49931f71e757a479c, type: 2}
   GuideConfigs:
-  - {fileID: 11400000, guid: f4cbfd29473024a4fa5d2ee462b218db, type: 2}
-  - {fileID: 11400000, guid: 988eaf1dbd502ae419baddece649a695, type: 2}
-  - {fileID: 11400000, guid: 249b3edd7dc5ba14196872e1ef82c009, type: 2}
-  - {fileID: 11400000, guid: 030545105b2eff64dafbf1251fbc5928, type: 2}
-  - {fileID: 11400000, guid: 24fe33c966fa21144b8cea30c9a94915, type: 2}
-  - {fileID: 11400000, guid: bdc8af23e03b95e4c9b55d4d98eb7257, type: 2}
+  - {fileID: 11400000, guid: 4393ab41b426127499d62ff27bee4994, type: 2}
+  - {fileID: 11400000, guid: 4153a64fcd16e844d9d2da8d042f7a53, type: 2}
+  - {fileID: 11400000, guid: fcb9697ae2e9fd34baab8cb7516ee0ac, type: 2}
   ActSlotPrefab: {fileID: 8027494126404655843, guid: 81c081ce26cc36d4394465f3433421cf, type: 3}
   TestButton: {fileID: 3697516056089641728, guid: 87b0b1cfc1dd1954e967b4a748e1c609, type: 3}
   GameplayMenuSlotPrefab: {fileID: 9179852214749871751, guid: 0a27421ac43a8c54a996d96579b3f698, type: 3}

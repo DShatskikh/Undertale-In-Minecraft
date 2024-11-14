@@ -6,6 +6,7 @@ using RimuruDev;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game
@@ -27,8 +28,9 @@ namespace Game
         [SerializeField]
         private InventoryScreen _inventory;
         
+        [FormerlySerializedAs("guide")]
         [SerializeField]
-        private GuideScreen guide;
+        private EndingsScreen endings;
         
         [SerializeField]
         private SettingScreen _setting;
@@ -184,7 +186,7 @@ namespace Game
                 
                 if (_currentScreen is InventoryScreen inventoryScreen)
                     inventoryScreen.SelectZero();
-                else if (_currentScreen is GuideScreen guideScreen)
+                else if (_currentScreen is EndingsScreen guideScreen)
                     guideScreen.SelectZero();
                 else if (_currentScreen is SettingScreen settingScreen)
                     settingScreen.SelectZero();
@@ -227,7 +229,7 @@ namespace Game
                 _currentScreen = model.SlotType switch
                 {
                     GameplayMenuSlotType.Inventory => _inventory,
-                    GameplayMenuSlotType.Endings => guide,
+                    GameplayMenuSlotType.Endings => endings,
                     GameplayMenuSlotType.Setting => _setting,
                     GameplayMenuSlotType.Exit => _exit,
                     _ => throw new ArgumentOutOfRangeException()

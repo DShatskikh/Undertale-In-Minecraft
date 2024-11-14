@@ -7,8 +7,8 @@ namespace Game
         public void Load()
         {
             Lua.Run("Variable[\"KILLS\"] = 5");
-            Lua.Run("Variable[\"BlueCowState\"] = 3");
-            GameData.CompanionsManager.TryActivateCompanion("FakeHero");
+            Lua.Run("Variable[\"BlueCowState\"] = 1");
+            //GameData.CompanionsManager.TryActivateCompanion("FakeHero");
         }
     }
 }

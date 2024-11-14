@@ -11,6 +11,9 @@ namespace Game
         [SerializeField] 
         private Animator _animator;
 
+        [SerializeField]
+        private LineRenderer _lineRenderer;
+        
         private SortingGroup _sortingGroup;
         private CharacterModel _model;
 
@@ -102,6 +105,18 @@ namespace Game
         public void Reset()
         {
             _animator.SetFloat(StateHash, (float)(CharacterState.Idle)); 
+        }
+
+        public void ShowLine(Vector2 target)
+        {
+            var positions = new[] { Vector3.zero, (Vector3)target - _lineRenderer.transform.position };
+            _lineRenderer.SetPositions(positions);
+            _lineRenderer.gameObject.SetActive(true);
+        }
+
+        public void HideLine()
+        {
+            _lineRenderer.gameObject.SetActive(false);
         }
     }
 }
