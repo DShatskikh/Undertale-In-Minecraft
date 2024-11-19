@@ -6,16 +6,18 @@ namespace Game
     [CreateAssetMenu(fileName = "SpeakAct", menuName = "Data/Acts/Speak", order = 71)]
     public class SpeakActConfig : BaseActConfig
     {
-        [Range(-7, 7)]
+        [Range(-30, 30)]
         public int SuccessProgress;
         
-        [Range(-7, 7)]
+        [Range(-30, 30)]
         public int FailedProgress;
 
         public Sprite[] ImageElements;
      
         public LocalizedString SuccessReaction;
+        public LocalizedString SuccessSystemMessage;
         public LocalizedString FailedReaction;
+        public LocalizedString FailedSystemMessage;
         
         public override Sprite GetIcon() =>
             GameData.AssetProvider.SpeakActIcon;

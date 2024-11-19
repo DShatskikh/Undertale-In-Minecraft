@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 using YG;
@@ -47,7 +48,7 @@ namespace Game
 
         [SerializeField]
         private Transform _actScreenContainer;
-        
+
         private Label _healthLabel;
         private Label _enemyHealthLabel;
         private Vector2 _normalWorldCharacterPosition;
@@ -56,15 +57,21 @@ namespace Game
         private Vector2 _enemyStartPosition;
         private AttackBase[] _attacks;
         private int _attackIndex;
+        private int _turnNumber;
         private BattleArena _arena;
+        private Vector2 _startEnemyPosition;
 
         public BlackPanel BlackPanel => _blackPanel;
         public GameObject Arena => _arena.gameObject;
         public SelectActManager SelectActManager => _selectActManager;
         public Transform ActScreenContainer => _actScreenContainer;
         public BattleMessageBox EnemyMessageBox => _enemyMessageBox;
+        public BattleMessageBox MessageBox => _messageBox;
         public TMP_Text AddProgressLabel => _addProgressLabel;
         public AddProgressData AddProgressData => _addProgressData;
+        public Vector2 StartEnemyPosition => _startEnemyPosition;
+        public AudioClip BattleMusic;
+        public AudioClip SelectMusic;
 
         public int? AddProgress = null;
 
@@ -72,18 +79,12 @@ namespace Game
         {
             EventBus.Death = null;
             EventBus.Damage = null;
-            
-            if (GameData.EnemyData != null)
-            {
-                if (GameData.EnemyData.Enemy != null && GameData.EnemyData.StartBattleTrigger != null)
-                    GameData.EnemyData.Enemy.transform.SetParent(GameData.EnemyData.StartBattleTrigger.transform);
-
-                GameData.EnemyData.StartBattleTrigger = null;
-            }
         }
 
         public void StartBattle()
         {
+            _startEnemyPosition = GameData.EnemyData.Enemy.transform.position;
+            
             _normalWorldCharacterPosition = GameData.CharacterController.transform.position;
             GameData.CharacterController.enabled = false;
             GameData.HeartController.enabled = false;
@@ -96,9 +97,7 @@ namespace Game
             
             gameObject.SetActive(true);
 
-            transform.position = 
-                Camera.main.transform.position.SetZ(0).AddY(-3.5f) 
-                + (Vector3) GameData.EnemyData.StartBattleTrigger.Offset;
+            transform.position = Camera.main.transform.position.SetZ(0).AddY(-3.5f);
             
             GameData.EnemyData.Enemy.transform.SetParent(GameData.EnemyPoint);
 
@@ -126,7 +125,7 @@ namespace Game
             {
                 new IntroCommand(_points, _blackPanel),
                 //new SkipIntroCommand(_points),
-                new DelayCommand(1f),
+                //new DelayCommand(1f),
                 new StartEnemyTurnCommand(),
             };
             
@@ -135,6 +134,8 @@ namespace Game
 
         public void Turn(BaseActConfig act = null)
         {
+            GameData.MusicPlayer.Play(GameData.Battle.BattleMusic);
+            
             var commands = new List<CommandBase>();
 
             /*if (act != null)
@@ -150,8 +151,8 @@ namespace Game
             //    commands.Add(new MessageCommand(_enemyMessageBox, _attacks[_attackIndex].Messages));
 
             commands.Add(new ShowArenaCommand(_arena));
-            commands.Add(new DelayCommand(0.5f));
-            commands.Add(new DelayCommand(1.5f));
+            //commands.Add(new DelayCommand(0.5f));
+            //commands.Add(new DelayCommand(1.5f));
             
             //if (!YandexGame.savesData.IsTutorialComplited)
             //    commands.Add(new EnemyAttackCommand(_attackTutorial, _blackPanel, _arena.gameObject)); 
@@ -159,6 +160,16 @@ namespace Game
             commands.Add(new EnemyAttackCommand(_attacks[_attackIndex], _blackPanel, _arena.gameObject));
             commands.Add(new CheckEndBattleCommand());
             commands.Add(new HideArenaCommand(_arena, _blackPanel));
+            
+            if (GameData.EnemyData.EnemyConfig.BattleReplicas.Length != 0)
+            {
+                var replica = _turnNumber < GameData.EnemyData.EnemyConfig.BattleReplicas.Length
+                    ? GameData.EnemyData.EnemyConfig.BattleReplicas[_turnNumber]
+                    : GameData.EnemyData.EnemyConfig.BattleReplicas[^1];
+            
+                commands.Add(new MessageCommand(GameData.Battle.EnemyMessageBox, replica));
+            }
+            
             commands.Add(new StartCharacterTurnCommand());
 
             GameData.CommandManager.StartCommands(commands);
@@ -196,11 +207,14 @@ namespace Game
             {
                 _attackIndex = Random.Range(0, _attacks.Length);
             }
+
+            _turnNumber++;
         }
 
         private void OnDeath()
         {
-            StopCoroutine(_coroutine);
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
         }
 
         private void OnDamage(int value)

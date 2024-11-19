@@ -11,6 +11,9 @@ namespace Game
         {
             if (other.TryGetComponent(out Shell attack))
             {
+                if (!attack.IsActive)
+                    return;
+                
                 _heartController.Damage();
                 Destroy(attack.gameObject);
             }

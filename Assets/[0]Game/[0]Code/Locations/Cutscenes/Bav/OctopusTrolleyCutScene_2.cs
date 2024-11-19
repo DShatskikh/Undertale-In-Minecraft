@@ -31,6 +31,9 @@ namespace Game
             yield return characterMoveToOctopus.Await();
             
             GameData.CharacterController.transform.SetParent(_octopusTransform);
+            GameData.CharacterController.GetComponent<Collider2D>().enabled = false;
+            GameData.CharacterController.View.Sit();
+            GameData.CharacterController.View.Flip(false);
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.JumpSound);
             
             GameData.MusicPlayer.Play(_audioClip);
@@ -44,16 +47,18 @@ namespace Game
             //var octopusMoveToPoint = new MoveToPointCommand(_octopusTransform, _nextPoint.position, 6f);
             //yield return octopusMoveToPoint.Await();
             
+            GameData.CharacterController.View.Reset();
             GameData.CharacterController.transform.SetParent(null);
             
-            var CharacterMoveToFinish = new MoveToPointCommand(GameData.CharacterController.transform, _octopusTransform.position.AddY(-1.2f), 0.5f);
-            yield return CharacterMoveToFinish.Await();
+            var characterMoveToFinish = new MoveToPointCommand(GameData.CharacterController.transform, _octopusTransform.position.AddY(-1.2f), 0.5f);
+            yield return characterMoveToFinish.Await();
             
             _select.gameObject.SetActive(false);
             _finishMonolog.gameObject.SetActive(true);
             
             GameData.MusicPlayer.Play(_endClip);
             
+            GameData.CharacterController.GetComponent<Collider2D>().enabled = true;
             GameData.CharacterController.enabled = true;
         }
     }

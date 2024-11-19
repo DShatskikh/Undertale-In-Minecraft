@@ -39,16 +39,19 @@ namespace Game
 
         private void MusicVolumeOnChanged(float value)
         {
+            _musicVolume = value;
             GameData.AudioMixer.SetFloat("MusicVolume", Mathf.Lerp(-80, 0, value));
         }
 
         private void SoundVolumeOnChanged(float value)
         {
+            _soundVolume = value;
             GameData.AudioMixer.SetFloat("SoundVolume", Mathf.Lerp(-80, 0, value));
         }
 
         private void LanguageOnChanged(int value)
         {
+            _language = value;
             GameData.Startup.StartCoroutine(AwaitChangeLanguage(value));
         }
         

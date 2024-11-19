@@ -8,7 +8,7 @@ namespace Game
         public void Use()
         {
             YandexGame.savesData.IsCheat = true;
-            GameData.CharacterController.HatPoint.MaskShowAndHide(true);
+            GameData.CharacterController.HatPoint.MaskShow(true);
         }
     }
 }

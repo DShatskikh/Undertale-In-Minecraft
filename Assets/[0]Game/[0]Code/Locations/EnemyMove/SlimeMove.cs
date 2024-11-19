@@ -41,8 +41,17 @@ namespace Game
             _view.transform.localPosition = Vector3.zero;
             _view.flipX = true;
             _shadow.SetActive(false);
+
+            StartCoroutine(AwaitStopMove());
         }
-        
+
+        private IEnumerator AwaitStopMove()
+        {
+            yield return new WaitForSeconds(0.75f);
+            _view.transform.localScale = Vector3.one;
+            _view.transform.localPosition = Vector3.zero;
+        }
+
         private IEnumerator AwaitMove()
         {
             yield return new WaitUntil(() => _isInit);

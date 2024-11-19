@@ -11,12 +11,12 @@ namespace Game
             if (Lua.IsTrue("Variable[\"IsUseHackerMask\"] == false"))
             {
                 Lua.Run("Variable[\"IsUseHackerMask\"] = true");
-                GameData.CharacterController.HatPoint.MaskShowAndHide(true);
+                GameData.CharacterController.HatPoint.MaskShow(true);
             }
             else
             {
                 Lua.Run("Variable[\"IsUseHackerMask\"] = false");
-                GameData.CharacterController.HatPoint.MaskShowAndHide(false);
+                GameData.CharacterController.HatPoint.MaskShow(false);
             }
         }
     }

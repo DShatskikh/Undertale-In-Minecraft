@@ -4,6 +4,7 @@ using MoreMountains.Tools;
 using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Game
 {
@@ -31,7 +32,7 @@ namespace Game
         private MMF_Player _shake;
 
         [SerializeField]
-        private StartBattleTrigger _startBattleTrigger;
+        private LocalizedString _killLocalizedString;
         
         private int _health;
 
@@ -42,11 +43,10 @@ namespace Game
             _health = _startHealth;
             
             _label.text = $"{_health}/{_startHealth}";
-            _progressBar.UpdateBar(_health, 0, _startHealth);
-            _progressBar.gameObject.SetActive(false);
+            _progressBar.SetBar(_health, 0, _startHealth);
         }
         
-        public IEnumerator AwaitEvent(EnemyConfig config, float value = 0)
+        public IEnumerator AwaitEvent(EnemyBase enemy, float value = 0)
         {
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.DamageSound);
             GameData.CharacterController.View.ShowLine(transform.position.AddY(0.5f));
@@ -81,7 +81,7 @@ namespace Game
 
             AttackActConfig attackConfig = null;
 
-            foreach (var act in config.Acts)
+            foreach (var act in enemy.GetConfig.Acts)
             {
                 if (act is AttackActConfig attackActConfig)
                 {
@@ -94,7 +94,7 @@ namespace Game
             {
                 var messageCommand = new MessageCommand(GameData.Battle.EnemyMessageBox, attackConfig.Reaction);
                 yield return messageCommand.Await();
-                var addProgressCommand = new AddProgressCommand(-100, GameData.Battle.AddProgressLabel,
+                var addProgressCommand = new AddProgressCommand(-30, GameData.Battle.AddProgressLabel,
                     GameData.Battle.AddProgressData);
                 addProgressCommand.Execute(null);
                 yield return new WaitForSeconds(1f);
@@ -103,33 +103,18 @@ namespace Game
             }
             else
             {
-                _shake.PlayFeedbacks();
-
-                var messageCommand = new MessageCommand(GameData.Battle.EnemyMessageBox, attackConfig.DeathMessage);
-                yield return messageCommand.Await();
-
-                _shake.StopFeedbacks();
-
-                _explosion.SetActive(true);
-                GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
-                yield return new WaitForSeconds(0.3f);
-                _spriteRenderer.enabled = false;
-                yield return new WaitForSeconds(0.2f);
-                _spriteRenderer.enabled = true;
-                _explosion.SetActive(false);
-                gameObject.SetActive(false);
-                _startBattleTrigger.gameObject.SetActive(false);
-                
                 GameData.CommandManager.StopExecute();
                 GameData.Battle.EndBattle();
             }
         }
 
-        public IEnumerator AwaitDeathEvent(EnemyConfig config, float value = 0)
+        public IEnumerator AwaitDeathEvent(EnemyBase enemy, float value = 0)
         {
+            yield return new WaitForSeconds(1);
+            
             AttackActConfig attackConfig = null;
 
-            foreach (var act in config.Acts)
+            foreach (var act in enemy.GetConfig.Acts)
             {
                 if (act is AttackActConfig attackActConfig)
                 {
@@ -137,11 +122,35 @@ namespace Game
                     break;
                 }
             }
+            
+            _shake.PlayFeedbacks();
 
+            var messageCommand = new DialogCommand(attackConfig.DeathMessage);
+            yield return messageCommand.Await();
+
+            _shake.StopFeedbacks();
+
+            _explosion.SetActive(true);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
+            yield return new WaitForSeconds(0.3f);
+            enemy.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.2f);
+            _explosion.SetActive(false);
+            gameObject.SetActive(false);
+
+            var killMessageCommand = new MonologueCommand(_killLocalizedString);
+            yield return killMessageCommand.Await();
+            
             EventBus.Kill?.Invoke();
 
             var kills = Lua.Run("Variable[KILLS]").AsInt;
             Lua.Run($"Variable[KILLS] = {kills}");
+
+            if (kills >= 4)
+            {
+                GameData.CharacterController.HatPoint.FreakShow(true);
+                GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HypnosisSound);
+            }
 
             yield return null;
         }

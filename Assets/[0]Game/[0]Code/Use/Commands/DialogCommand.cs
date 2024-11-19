@@ -10,7 +10,7 @@ namespace Game
         private readonly UnityEvent _endEvent;
         private readonly AudioClip _sound;
 
-        public DialogCommand(Replica[] replicas, UnityEvent endEvent, AudioClip sound)
+        public DialogCommand(Replica[] replicas, UnityEvent endEvent = null, AudioClip sound = null)
         {
             _replicas = replicas;
             _endEvent = endEvent;

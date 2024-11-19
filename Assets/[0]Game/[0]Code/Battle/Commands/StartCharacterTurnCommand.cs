@@ -6,6 +6,7 @@ namespace Game
     {
         public override void Execute(UnityAction action)
         {
+            GameData.MusicPlayer.Play(GameData.Battle.SelectMusic);
             GameData.HeartController.gameObject.SetActive(false);
             GameData.Battle.StartCharacterTurn();
             action.Invoke();

@@ -10,7 +10,7 @@ namespace Game
         public int Progress;
 
         public LocalizedString Reaction;
-        public LocalizedString[] DeathMessage;
+        public Replica[] DeathMessage;
 
         public override Sprite GetIcon() => 
             GameData.AssetProvider.AttackActIcon;

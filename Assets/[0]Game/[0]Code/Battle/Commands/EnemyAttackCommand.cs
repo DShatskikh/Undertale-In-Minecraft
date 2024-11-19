@@ -27,7 +27,7 @@ namespace Game
             GameData.HeartController.gameObject.SetActive(true);
             GameData.HeartController.enabled = true;
             _arena.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             AttackBase attack = GameData.Battle.CreateAttack(_attackPrefab);
             var isEndAttack = false;
             attack.Execute(() => isEndAttack = true);

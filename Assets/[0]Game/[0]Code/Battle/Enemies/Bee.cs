@@ -33,14 +33,14 @@ namespace Game
                 if (_damageEvent.GetHealth - value <= 0)
                     _moveToPointLoop.enabled = false;
                 
-                yield return _damageEvent.AwaitEvent(_config, value);
+                yield return _damageEvent.AwaitEvent(this, value);
             }
             
             if (eventName == "EndBattle")
             {
                 if (_damageEvent.GetHealth <= 0)
                 {
-                    yield return _damageEvent.AwaitDeathEvent(_config, value);
+                    yield return _damageEvent.AwaitDeathEvent(this, value);
                     yield break;   
                 }
 

@@ -9,10 +9,13 @@ namespace Game
     {
         [SerializeField]
         private PlayableDirector _playableDirector;
-        
+
+        [SerializeField]
+        private Transform _focusPoint;
+
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(10);
 
             while (!GameData.CharacterController.enabled)
             {
@@ -20,15 +23,26 @@ namespace Game
             }
             
             GameData.CharacterController.enabled = false;
+            GameData.CinemachineVirtualCamera.Follow = _focusPoint;
 
+            var trolleyPoint = _focusPoint.transform.position;
+            _focusPoint.transform.position = GameData.CharacterController.transform.position;
+            
+            var focusPointMoveTrolley = new MoveToPointCommand(_focusPoint.transform, trolleyPoint, 1f);
+            yield return focusPointMoveTrolley.Await();
+            
             _playableDirector.Play();
             var isEndTimeline = false;
             _playableDirector.stopped += (_) => isEndTimeline = true;
 
             yield return new WaitUntil(() => isEndTimeline);
 
+            var focusPointMoveCharacter = new MoveToPointCommand(_focusPoint.transform, GameData.CharacterController.transform.position, 1f);
+            yield return focusPointMoveCharacter.Await();
+            
             Lua.Run("Variable[\"BavStopState\"] = 1");
 
+            GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.View.transform;
             GameData.CharacterController.enabled = true;
         }
     }

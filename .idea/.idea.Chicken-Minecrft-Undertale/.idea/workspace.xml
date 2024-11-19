@@ -5,44 +5,132 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35838e97-396e-4d76-86a1-560d1be97bc0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHero.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeAttack_1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeAttack_1.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeAttack_2.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeAttack_2.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeAttack_3.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeAttack_3.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeAttack_4.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeAttack_4.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeShell.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeShell.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeShellBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeShellBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeShellBigJump.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeShellBigJump.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeSinMoveShell.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeSinMoveShell.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeToCharacterShell.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Slime/SlimeToCharacterShell.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/IntermediateCutscene.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/IntermediateCutscene.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/GameplayMenu/CylinderItemConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/GameplayMenu/CylinderItemConfig.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/MoveLocalCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/MoveLocalCommand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects/Item.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects/Item.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chicken-Minecrft-Undertale/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chicken-Minecrft-Undertale/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Battle/Battle Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Battle/Battle Shared Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Battle/Battle_ru.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Battle/Battle_ru.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Dialogues/Dialogues Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Dialogues/Dialogues Shared Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Dialogues/Dialogues_ru.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Dialogues/Dialogues_ru.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Monologues/Monologues Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Monologues/Monologues Shared Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Monologues/Monologues_ru.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Monologues/Monologues_ru.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Other/Other Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Other/Other Shared Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Other/Other_ru.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Other/Other_ru.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Selected/Selected_ru.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization/Tables/Selected/Selected_ru.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/YandexGame/WorkingData/Editor/SavesEditorYG.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/YandexGame/WorkingData/Editor/SavesEditorYG.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Animations/Bee.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Animations/Bee.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/AssetProvider.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/AssetProvider.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Bee/Bee.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Bee/Bee.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Blue Cow/BlueCow.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Blue Cow/BlueCow.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Dragon/Dragon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Dragon/Dragon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Dialogue Database.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Dialogue Database.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/FakeHero/FakeHero.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/FakeHero/FakeHero.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Slime/AttackAct.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Slime/AttackAct.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Slime/DanceAct.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Slime/DanceAct.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Slime/Slime.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Slime/Slime.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Slime/SpeakAct.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Enemies/Slime/SpeakAct.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Data/Items/_ItemsConfigContainer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Data/Items/_ItemsConfigContainer.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Materials/determinationmdetermination SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Materials/determinationmdetermination SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Scenes/AttackTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Scenes/AttackTest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Tilemaps/BattleField.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Tilemaps/BattleField.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/AssetProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/AssetProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Tilemaps/Colliders.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Tilemaps/Colliders.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/Timelines/Octopus Trolley CutScene 1Timeline.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/Timelines/Octopus Trolley CutScene 1Timeline.playable" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/SettingData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/SettingData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/TestLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Architecture/TestLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/ActScreens/AttackActScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/ActScreens/AttackActScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/ActScreens/Strip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/ActScreens/Strip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/ActScreens/DanceActScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/ActScreens/DanceActScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/ActScreens/SpeakActScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/ActScreens/SpeakActScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/AttackBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/AttackBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Components/Shell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/Components/Shell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHeroAttack_1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHero/FakeHeroAttack_1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHeroAttack_1.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHero/FakeHeroAttack_1.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHeroAttack_2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHero/FakeHeroAttack_2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHeroAttack_2.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHero/FakeHeroAttack_2.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHeroAttack_3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHero/FakeHeroAttack_3.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHeroAttack_3.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHero/FakeHeroAttack_3.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHeroAttack_4.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHero/FakeHeroAttack_4.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHeroAttack_4.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Attacks/FakeHero/FakeHeroAttack_4.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Battle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Battle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/BattleProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/BattleProgress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/EnemyAttackCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/EnemyAttackCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/ExitCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/ExitCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/HideArenaCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/HideArenaCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/IntroCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/IntroCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/ShowArenaCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/ShowArenaCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/StartCharacterTurnCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Commands/StartCharacterTurnCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/Bee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/Bee.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/BlueCow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/BlueCow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/DamageEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/DamageEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/Dragon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/Dragon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/EnemyBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/EnemyData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/EnemyData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/FakeHero.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/FakeHero.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/Slime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Enemies/Slime.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Companions/Companion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Companions/Companion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Heart/HeartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Heart/HeartController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Heart/HeartDamageCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Heart/HeartDamageCheck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Heart/Shield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/Heart/Shield.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/MessageBox/BattleMessageBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Battle/MessageBox/BattleMessageBox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Character/HatPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Character/HatPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/Acts/AttackActConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/Acts/AttackActConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/Acts/DanceActConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/Acts/DanceActConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/Acts/SpeakActConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/Acts/SpeakActConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/EnemyConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Configs/EnemyConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/OctopusTrolleyCutScene_1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/OctopusTrolleyCutScene_1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/OctopusTrolleyCutScene_2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/OctopusTrolleyCutScene_2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/TestFakeHeroCutscene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/Cutscenes/Bav/TestFakeHeroCutscene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/EnderPortal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/EnderPortal.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/EnemyMove/SlimeMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Locations/EnemyMove/SlimeMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/BattleField.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/BattleField.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/BattleField.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/BattleField.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/FakeHero/Shell/Lightning.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/FakeHero/Shell/Lightning.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/FakeHero/Shell/RotatedSword Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/FakeHero/Shell/RotatedSword Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/FakeHero/Shell/Sword.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/FakeHero/Shell/Sword.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/FakeHero/Shell/SwordShellGroup 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/FakeHero/Shell/SwordShellGroup 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/FakeHero/Shell/SwordShellGroup 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/FakeHero/Shell/SwordShellGroup 2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/BattleArena Grid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/BattleArena Grid.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/GameplayMenu/HackerMaskItemConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/UI/GameplayMenu/HackerMaskItemConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Add/AddCheat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Add/AddCheat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Add/AddHat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Add/AddHat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/DialogCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/DialogCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/MonologueCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Commands/MonologueCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects/BedTeleport.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/Objects/BedTeleport.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/StartBattleTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[0]Code/Use/StartBattleTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Attacks/Attacks.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Attacks/Attacks.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Attacks/Attacks.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Attacks/Attacks.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Decorations/Decoration 3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/AllMobs.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/AllMobs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/AllMobs.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/AllMobs.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Chicken.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Main.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Main.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Main.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Enemies/Main.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/Tileset1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/Tileset1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/Tileset1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/Tiles/Tileset1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/UI/Icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/UI/Icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/UI/Icons.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[1]Sprites/UI/Icons.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/Slime/Slime_Attack 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/Slime/Slime_Attack 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/Slime/Slime_Attack 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/Slime/Slime_Attack 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/Slime/Slime_Attack 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/Slime/Slime_Attack 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/Slime/Slime_Attack 4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/Attacks/Slime/Slime_Attack 4.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/DamageEvent.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Battle/DamageEvent.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Objects/CowCutscene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/Objects/CowCutscene.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/StartBattleTrigger.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/StartBattleTrigger.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/UI/ActsScreen/SpeakAtcScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/[0]Game/[2]Prefabs/UI/ActsScreen/SpeakAtcScreen.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +209,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CodeLensConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -167,10 +255,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12748">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="12748" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -283,6 +371,11 @@
       <workItem from="1731337131325" duration="42910000" />
       <workItem from="1731537004502" duration="12850000" />
       <workItem from="1731561810684" duration="7817000" />
+      <workItem from="1731629594581" duration="19738000" />
+      <workItem from="1731744525266" duration="2007000" />
+      <workItem from="1731838813704" duration="5007000" />
+      <workItem from="1731918060974" duration="2284000" />
+      <workItem from="1732019424592" duration="9613000" />
     </task>
     <servers />
   </component>

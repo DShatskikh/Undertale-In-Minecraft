@@ -30,8 +30,8 @@ namespace Game
             
             _coroutine = StartCoroutine(TypeText(messages[0]));
             
-            EventBus.Submit = OnSubmit;
-            EventBus.Cancel = OnCancel;
+            EventBus.SubmitUp = OnSubmit;
+            EventBus.CancelUp = OnCancel;
         }
 
         private void OnCancel()
@@ -78,8 +78,8 @@ namespace Game
 
         private void Close()
         {
-            EventBus.Submit = null;
-            EventBus.Cancel = null;
+            EventBus.SubmitUp = null;
+            EventBus.CancelUp = null;
 
             Hide();
         }

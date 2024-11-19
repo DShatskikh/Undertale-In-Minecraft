@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Cinemachine;
 using PixelCrushers.DialogueSystem;
@@ -15,9 +16,7 @@ namespace Game
 
         [SerializeField]
         private GenocideGameEnd _end;
-        
-        private Vector2 _startPosition;
-        
+
         public void Use()
         {
             GameData.CoroutineRunner.StartCoroutine(AwaitUse());
@@ -28,7 +27,6 @@ namespace Game
             GameData.CompanionsManager.DeactivateAllCompanion();
             
             var characterTransform = GameData.CharacterController.transform;
-            _startPosition = characterTransform.position;
             GameData.CharacterController.enabled = false;
 
             GameData.CharacterController.View.Flip(true);
@@ -72,30 +70,6 @@ namespace Game
             }
             else
                 _end.Use();
-
-            /*GameData.CharacterController.View.Reset();
-            
-            yield return new WaitForSeconds(1);
-            
-            do
-            {
-                size += 4 * Time.deltaTime;
-                _cinemachineVirtual.m_Lens.OrthographicSize = size;
-                yield return null;
-            } while (size < 8.0f);
-            
-            var characterJumpMoveToUpCommand1 = new MoveToPointCommand(characterTransform, characterTransform.position.AddY(1), 0.25f);
-            yield return characterJumpMoveToUpCommand1.Await();
-            
-            var rotationCommand1 = new RotationCommand(characterTransform, new Vector3(0, 0, 0), 0.5f);
-            yield return rotationCommand1.Await();
-            
-            var characterJumpToBedCommand1 = new MoveToPointCommand(characterTransform, _startPosition, 0.5f);
-            yield return characterJumpToBedCommand1.Await();
-            
-            _spriteRenderer.sortingOrder = 0;
-            GameData.CharacterController.enabled = true;
-            _cinemachineVirtual.gameObject.SetActive(false);*/
         }
     }
 }

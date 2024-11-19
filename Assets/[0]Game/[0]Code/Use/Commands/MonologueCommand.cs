@@ -17,6 +17,12 @@ namespace Game
             _endEvent = endEvent;
         }
         
+        public MonologueCommand(LocalizedString replicas, UnityEvent endEvent = null)
+        {
+            _replicas = new []{replicas};
+            _endEvent = endEvent;
+        }
+        
         public override void Execute(UnityAction action)
         {
             GameData.Monolog.Show(_replicas);

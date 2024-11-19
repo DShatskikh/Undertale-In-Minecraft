@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79578798b85e4ca5bffbf13faff03d11, type: 3}
-  m_Name: SpeakAct
+  m_Name: SpeakAct_2
   m_EditorClassIdentifier: 
   Name:
     m_TableReference:
       m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
     m_TableEntryReference:
-      m_KeyId: 103722369024
+      m_KeyId: 32183659210850304
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SuccessProgress: 3
+  SuccessProgress: -7
   FailedProgress: -3
   ImageElements:
   - {fileID: -359855920, guid: 2fa026478351bf04499509ec41acad17, type: 3}
@@ -32,7 +32,16 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
     m_TableEntryReference:
-      m_KeyId: 3008964821630976
+      m_KeyId: 32188099519168512
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SuccessSystemMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 33810732253822976
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -41,7 +50,16 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
     m_TableEntryReference:
-      m_KeyId: 3008888531435520
+      m_KeyId: 32188121849643008
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  FailedSystemMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 33810751572787200
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

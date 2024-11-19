@@ -23,7 +23,7 @@ namespace Game
 
             if (eventName == "Damage")
             {
-                yield return _damageEvent.AwaitEvent(_config, value);
+                yield return _damageEvent.AwaitEvent(this, value);
             }
 
             if (eventName == "EndBattle")

@@ -133,6 +133,7 @@ namespace Game
             yield return moveToPointCommand.Await();
             
             var commands = new List<CommandBase>();
+            commands.Add(new MessageCommand(GameData.Battle.MessageBox, _isSuccess ? _config.SuccessSystemMessage : _config.FailedSystemMessage));
             commands.Add(new MessageCommand(GameData.Battle.EnemyMessageBox, _isSuccess ? _config.SuccessReaction : _config.FailedReaction));
             commands.Add(new AddProgressCommand(_isSuccess ? _config.SuccessProgress : _config.FailedProgress, GameData.Battle.AddProgressLabel, GameData.Battle.AddProgressData));
             commands.Add(new StartEnemyTurnCommand());

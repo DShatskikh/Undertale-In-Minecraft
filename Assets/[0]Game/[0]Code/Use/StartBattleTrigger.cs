@@ -39,7 +39,7 @@ namespace Game
             {
                 EnemyConfig = _enemyObject.GetConfig,
                 Enemy = _enemyObject,
-                StartBattleTrigger = this
+                //StartBattleTrigger = this
             };
 
             if (GetComponent<Collider2D>())

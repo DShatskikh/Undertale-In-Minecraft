@@ -34,7 +34,7 @@ namespace Game
 
             while (progress < 1)
             {
-                progress += Time.deltaTime * 1.5f;
+                progress += Time.deltaTime * 2;// * 1.5f;
 
                 GameData.CharacterController.transform.position = Vector2.Lerp(startPosition, 
                     startPosition.AddX(-6), progress);

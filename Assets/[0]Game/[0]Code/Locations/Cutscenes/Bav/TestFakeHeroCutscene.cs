@@ -11,9 +11,15 @@ namespace Game
 
         [SerializeField]
         private FakeHeroCutscene_2 _cutscene2;
+
+        [SerializeField]
+        private StartBattleTrigger _dragonStartBattle;
         
         private void Start()
         {
+            _dragonStartBattle.StartBattle();
+            return;
+            
             _cutscene.gameObject.SetActive(false);
             Lua.Run("Variable[\"FakeHeroState\"] = 1");
             _cutscene2.StartCutscene();

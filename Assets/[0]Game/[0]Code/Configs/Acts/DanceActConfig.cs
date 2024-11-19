@@ -6,13 +6,15 @@ namespace Game
     [CreateAssetMenu(fileName = "DanceAct", menuName = "Data/Acts/Dance", order = 73)]
     public class DanceActConfig : BaseActConfig
     {
-        [Range(-7, 7)]
+        [Range(-30, 30)]
         public int SuccessProgress;
         
-        [Range(-7, 7)]
+        [Range(-30, 30)]
         public int FailedProgress;
 
+        public LocalizedString SuccessSystemMessage;
         public LocalizedString SuccessReaction;
+        public LocalizedString FailedSystemMessage;
         public LocalizedString FailedReaction;
         public Arrow[] Arrows;
 

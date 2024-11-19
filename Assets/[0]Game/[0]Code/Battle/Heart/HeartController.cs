@@ -67,8 +67,6 @@ namespace Game
             _previousPosition = transform.position;
         }
         
-        
-
         private IEnumerator TakeDamage()
         {
             YandexGame.savesData.Health -= GameData.EnemyData.EnemyConfig.Attack;
@@ -77,7 +75,6 @@ namespace Game
             _shield.Off();
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HurtSound);
             
-
             if (YandexGame.savesData.Health <= 0 && !YandexGame.savesData.IsCheat)
             {
                 Death();

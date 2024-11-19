@@ -977,7 +977,7 @@ MonoBehaviour:
   - id: 15
     fields:
     - title: Name
-      value: IsBavSecretKey
+      value: IsBavBugKey
       type: 0
       typeString: CustomFieldType_Text
     - title: Initial Value
@@ -1062,6 +1062,20 @@ MonoBehaviour:
     fields:
     - title: Name
       value: IsNePirog
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 22
+    fields:
+    - title: Name
+      value: IsBavSecretEnding
       type: 0
       typeString: CustomFieldType_Text
     - title: Initial Value

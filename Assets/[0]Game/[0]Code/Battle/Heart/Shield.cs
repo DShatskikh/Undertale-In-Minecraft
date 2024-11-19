@@ -19,7 +19,7 @@ namespace Game
         {
             if (_coroutine == null)
             {
-                if (IsShel(Physics2D.OverlapBoxAll(position, Vector2.one * 2f, 0)))
+                if (IsShel(Physics2D.OverlapBoxAll(position, Vector2.one * 1f, 0)))
                     _coroutine = GameData.Startup.StartCoroutine(Use());
             }
         }
@@ -48,7 +48,7 @@ namespace Game
 
         private IEnumerator Use()
         {
-            _model.AddTurnProgress(2);
+            _model.AddTurnProgress(1);
             _model.SetIsShield(true);
             yield return new WaitForSeconds(ShieldActiveTime);
             _model.SetIsShield(false);

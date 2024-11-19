@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PixelCrushers.DialogueSystem;
+using UnityEngine;
 using YG;
 
 namespace Game
@@ -14,13 +15,21 @@ namespace Game
         [SerializeField]
         private SpriteRenderer _hackerMask;
         
+        [SerializeField]
+        private SpriteRenderer _freak;
+        
+        [SerializeField]
+        private SpriteRenderer _cylinder;
+        
         [SerializeField] 
         private float _x1, _x2;
 
         private void Start()
         {
-            HatShowAndHide(YandexGame.savesData.IsCake);
-            MaskShowAndHide(YandexGame.savesData.IsCheat);
+            HatShow(YandexGame.savesData.IsCake);
+            MaskShow(YandexGame.savesData.IsCheat);
+            FreakShow(Lua.IsTrue("Variable[\"KILLS\"] >= 4"));
+            CylinderShow(Lua.IsTrue("Variable[\"IsUseCylinder\"] == true"));
         }
 
         private void Update()
@@ -29,14 +38,24 @@ namespace Game
             transform.localScale = transform.localScale.SetX(_spriteRenderer.flipX ? -1 : 1);
         }
 
-        public void HatShowAndHide(bool isShow)
+        public void HatShow(bool isShow)
         {
             _hatSpriteRenderer.gameObject.SetActive(isShow);
         }
 
-        public void MaskShowAndHide(bool isShow)
+        public void MaskShow(bool isShow)
         {
             _hackerMask.gameObject.SetActive(isShow);
+        }
+        
+        public void FreakShow(bool isShow)
+        {
+            _freak.gameObject.SetActive(isShow);
+        }
+        
+        public void CylinderShow(bool isShow)
+        {
+            _cylinder.gameObject.SetActive(isShow);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Game
         [SerializeField, Range(1f, 1000f)]
         private float _radius = 90;
         
-        [SerializeField, Range(0.5f, 5)]
+        [SerializeField]
         private float _speed = 1.28f;
         
         [Header("Hint")]
@@ -129,11 +129,14 @@ namespace Game
                     }
                 }
 
-                var commands = new List<CommandBase>();
-                commands.Add(new MessageCommand(GameData.Battle.EnemyMessageBox, isSuccess ? _config.SuccessReaction : _config.FailedReaction));
-                commands.Add(new AddProgressCommand(isSuccess ? _config.SuccessProgress : _config.FailedProgress, GameData.Battle.AddProgressLabel, GameData.Battle.AddProgressData));
-                commands.Add(new StartEnemyTurnCommand());
-                
+                var commands = new List<CommandBase>
+                {
+                    new MessageCommand(GameData.Battle.MessageBox, isSuccess ? _config.SuccessSystemMessage : _config.FailedSystemMessage),
+                    new MessageCommand(GameData.Battle.EnemyMessageBox, isSuccess ? _config.SuccessReaction : _config.FailedReaction),
+                    new AddProgressCommand(isSuccess ? _config.SuccessProgress : _config.FailedProgress, GameData.Battle.AddProgressLabel, GameData.Battle.AddProgressData),
+                    new StartEnemyTurnCommand()
+                };
+
                 print(isSuccess);
                 
                 GameData.CommandManager.StartCommands(commands);
@@ -167,7 +170,7 @@ namespace Game
         {
             while (true)
             {
-                _angle += _isOtherSide ? -_speed : _speed;
+                _angle += (_isOtherSide ? -_speed : _speed) * Time.deltaTime;
                 _angle %= 360;
 
                 foreach (var slot in _slots)

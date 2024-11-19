@@ -4,6 +4,5 @@
     {
         public EnemyConfig EnemyConfig;
         public EnemyBase Enemy;
-        public StartBattleTrigger StartBattleTrigger;
     }
 }

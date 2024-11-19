@@ -39,7 +39,7 @@ namespace Game
             
             if (eventName == "Damage")
             {
-                yield return _damageEvent.AwaitEvent(_config, value);
+                yield return _damageEvent.AwaitEvent(this, value);
                 
                 if (_damageEvent.GetHealth <= 0)
                     gameObject.SetActive(false);
@@ -48,7 +48,7 @@ namespace Game
             if (eventName == "EndBattle")
             {
                 Lua.Run("Variable[\"BlueCowState\"] = 2");
-                yield return _damageEvent.AwaitDeathEvent(_config, value);
+                yield return _damageEvent.AwaitDeathEvent(this, value);
             }
         }
         
