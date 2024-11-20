@@ -11,7 +11,10 @@ namespace Game
         
         protected override IEnumerator AwaitExecute(UnityAction action)
         {
-            yield return _bigSlime.AwaitMoveToPoint();
+            _bigSlime.StartMoveToPoint();
+            yield return new WaitForSeconds(6);
+            yield return new WaitForSeconds(4);
+            action?.Invoke();
         }
     }
 }

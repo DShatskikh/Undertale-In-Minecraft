@@ -69,7 +69,7 @@ namespace Game
         
         private IEnumerator TakeDamage()
         {
-            YandexGame.savesData.Health -= GameData.EnemyData.EnemyConfig.Attack;
+            YandexGame.savesData.Health -= 1;
             EventBus.Damage?.Invoke(1);
             EventBus.HealthChange?.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
             _shield.Off();

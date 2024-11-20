@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using Game;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -52,7 +54,7 @@ namespace YG
         public bool IsYouHealthy;
 
         public int NumberGame = 1;
-        public SettingData SettingData;
+        public string SettingDataJson;
         public int MaxHealth = 20;
         [FormerlySerializedAs("GoldLily")] public int GoldTulip = 0;
 
@@ -74,8 +76,6 @@ namespace YG
             
             NumberGame = 1;
             MaxHealth = 20;
-
-            SettingData = new SettingData();
         }
 
         public void ResetAllIntPair()

@@ -31,10 +31,10 @@ namespace Game
         {
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
 
-            if (YandexGame.savesData.SettingData.Language.Value == 0)
-                YandexGame.savesData.SettingData.Language.Value = 1;
+            if (GameData.SettingStorage.Language.Value == 0)
+                GameData.SettingStorage.Language.Value = 1;
             else
-                YandexGame.savesData.SettingData.Language.Value = 0;
+                GameData.SettingStorage.Language.Value = 0;
         }
 
         public override void Select()

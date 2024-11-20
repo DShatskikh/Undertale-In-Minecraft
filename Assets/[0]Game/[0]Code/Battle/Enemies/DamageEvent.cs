@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
@@ -46,8 +47,10 @@ namespace Game
             _progressBar.SetBar(_health, 0, _startHealth);
         }
         
-        public IEnumerator AwaitEvent(EnemyBase enemy, float value = 0)
+        public IEnumerator AwaitEvent(EnemyBase enemy, int damage = 0)
         {
+            print($"Damage: {damage}");
+            
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.DamageSound);
             GameData.CharacterController.View.ShowLine(transform.position.AddY(0.5f));
             yield return new WaitForSeconds(0.25f);
@@ -71,7 +74,7 @@ namespace Game
 
             yield return new WaitForSeconds(0.5f);
 
-            _health -= (int)value + 100;
+            _health -= damage;
             _label.text = $"{_health}/{_startHealth}";
             _progressBar.UpdateBar(_health, 0, _startHealth);
 

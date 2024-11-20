@@ -24,6 +24,12 @@ namespace Game
 
         protected override IEnumerator AwaitExecute(UnityAction action)
         {
+            if (_transform == null)
+            {
+                action.Invoke();
+                yield break;
+            }
+            
             var progress = 0f;
             var startScale= _transform.localScale;
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -102,11 +103,14 @@ namespace Game
             
             yield return new WaitForSeconds(0.5f);
 
-            var damage = Vector3.Distance(_divider.position, _target.transform.position) 
+            var damage = (int)Math.Ceiling(Vector3.Distance(_divider.position, _target.transform.position) 
                          / Vector3.Distance(_cross.position, _target.transform.position)
-                         * 3;
+                         * 3);
+
+            if (damage > 5)
+                damage = 5;
             
-            print((int) damage);
+            print(damage);
             yield return GameData.EnemyData.Enemy.AwaitCustomEvent("Damage", damage);
         }
 

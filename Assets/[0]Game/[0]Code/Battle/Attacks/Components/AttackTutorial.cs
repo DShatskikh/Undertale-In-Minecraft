@@ -13,7 +13,9 @@ namespace Game
 
         protected override IEnumerator AwaitExecute(UnityAction action)
         {
-            foreach (var message in Messages)
+            yield return null;
+            
+            /*foreach (var message in Messages)
             {
                 var localizedString = message.LocalizedString;
                 var messageOperation = localizedString.GetLocalizedStringAsync();
@@ -29,7 +31,7 @@ namespace Game
                 yield return new WaitUntil(() => isSubmit);
                 EventBus.Submit = null;
             }
-            
+            */
             YandexGame.savesData.IsTutorialComplited = true;
             action.Invoke();
         }

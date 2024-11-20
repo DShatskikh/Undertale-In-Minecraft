@@ -14,7 +14,7 @@ namespace Game
         
         private void Awake()
         {
-            SetActive(false);
+            //SetActive(false);
 
             if (Random.Range(0, 15) == 5)
             {
@@ -30,7 +30,7 @@ namespace Game
             yield return new ScaleCommand(viewTransform, viewTransform.localScale.SetY(0.5f), 0.25f).Await();
             yield return new ScaleCommand(viewTransform, viewTransform.localScale.SetY(1.1f), 0.25f).Await();
 
-            SetActive(false);
+            //SetActive(false);
 
             var y = 0.5f;
             var distance = 0.1f;
@@ -45,7 +45,7 @@ namespace Game
             StartCoroutine( new MoveLocalCommand(viewTransform, Vector2.zero, 0.25f).Await());
             yield return new WaitForSeconds(0.1f);
 
-            SetActive(true);
+            //SetActive(true);
                 
             yield return new ScaleCommand(viewTransform, viewTransform.localScale.SetY(0.75f), 0.25f).Await();
             yield return new ScaleCommand(viewTransform, Vector2.one, 0.25f).Await();

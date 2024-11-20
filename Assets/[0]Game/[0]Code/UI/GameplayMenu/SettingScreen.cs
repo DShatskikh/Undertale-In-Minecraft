@@ -68,12 +68,24 @@ namespace Game
                             break;
                         case LanguageSlotViewModel languageSlot:
                             languageSlot.Init(this);
+#if PLATFORM_WEBGL
+                  languageSlot.gameObject.SetActive(false);       
+#endif
+                            
                             break;
                         case HintSlotViewModel hintSlot:
                             hintSlot.Init(this);
+                            
+#if PLATFORM_WEBGL
+                  hintSlot.gameObject.SetActive(false);       
+#endif
                             break;
                         case ReassigningKeysSlotViewModel reassigningKeysSlot:
                             reassigningKeysSlot.Init(this);
+                            
+#if PLATFORM_WEBGL
+                  reassigningKeysSlot.gameObject.SetActive(false);       
+#endif
                             break;
                     }
                 }
@@ -130,8 +142,7 @@ namespace Game
                     languageSlot.Click();
                     break;
                 case HintSlotViewModel hintSlot:
-                    YandexGame.savesData.SettingData.IsShowHint.Value =
-                        !YandexGame.savesData.SettingData.IsShowHint.Value;
+                    GameData.SettingStorage.IsShowHint.Value = !GameData.SettingStorage.IsShowHint.Value;
                     GameData.EffectSoundPlayer.Play(GameData.AssetProvider.ClickSound);
                     break;
                 case ReassigningKeysSlotViewModel reassigningKeysSlot:

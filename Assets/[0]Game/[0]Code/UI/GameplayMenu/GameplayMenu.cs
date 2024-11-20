@@ -149,10 +149,13 @@ namespace Game
                 _exitButton.gameObject.SetActive(true);
                 _exitButton.onClick.AddListener(() => StartCoroutine(AwaitHide())); 
             }
+            
+            Time.timeScale = 0;
         }
 
         private IEnumerator AwaitHide()
         {
+            Time.timeScale = 1;
             GameData.CharacterController.enabled = true;
             _exitButton.onClick.RemoveAllListeners();
             _exitButton.gameObject.SetActive(false);

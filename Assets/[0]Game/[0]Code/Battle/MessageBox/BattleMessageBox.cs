@@ -36,8 +36,6 @@ namespace Game
 
         private void OnCancel()
         {
-            print("Cancel");
-            
             if (_result != "" && _countSymbol != _result.Length)
                 AllShowText();
         }

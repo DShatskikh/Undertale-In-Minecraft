@@ -37,12 +37,12 @@ namespace Game
         public void Init(HintSlotViewModel viewModel)
         {
             _viewModel = viewModel;
-            YandexGame.savesData.SettingData.IsShowHint.Changed += IsToggleOnChanged;
+            GameData.SettingStorage.IsShowHint.Changed += IsToggleOnChanged;
         }
 
         private void OnDestroy()
         {
-            YandexGame.savesData.SettingData.IsShowHint.Changed -= IsToggleOnChanged;
+            GameData.SettingStorage.IsShowHint.Changed -= IsToggleOnChanged;
         }
 
         public void SetSelect(bool isSelect)

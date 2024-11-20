@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,7 +11,14 @@ namespace Game
 
         [SerializeField]
         private SlimeToCharacterShell _characterShell;
-        
+
+        private Coroutine _coroutine;
+
+        public void StartMoveToPoint()
+        {
+            _coroutine = StartCoroutine(AwaitMoveToPoint());
+        }
+
         public IEnumerator AwaitMoveToPoint()
         {
             var targetPosition = GameData.HeartController.transform.position;
@@ -24,16 +32,14 @@ namespace Game
             SetActive(false);
 
             var y = 10f;
-
-            Vector3 nextPoint = (targetPosition - transform.position).normalized * 1f;
             
             StartCoroutine(new MoveLocalCommand(viewTransform, new Vector2(0, y), 1.5f).Await());
             yield return new WaitForSeconds(0.1f);
             
             yield return new MoveToPointCommand(transform, targetPosition, 1.5f).Await();
 
-            StartCoroutine( new MoveLocalCommand(viewTransform, Vector2.zero, 1.5f).Await());
-            yield return new WaitForSeconds(0.1f);
+            yield return StartCoroutine( new MoveLocalCommand(viewTransform, Vector2.zero, 1.5f).Await());
+            //yield return new WaitForSeconds(0.1f);
 
             SetActive(true);
                 

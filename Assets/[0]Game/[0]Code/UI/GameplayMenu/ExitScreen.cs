@@ -31,6 +31,11 @@ namespace Game
 
                 for (int i = 0; i < slotsData.Length; i++)
                 {
+#if PLATFORM_WEBGL
+                          if (slotsData[i].ExitSlotType == ExitSlotType.Desktop)
+                        continue;              
+#endif
+                    
                     var slot = Instantiate(assetProvider.ExitSlotPrefab, _container);
                     slot.Model = slotsData[i];
                     slot.Init(this);
@@ -39,7 +44,7 @@ namespace Game
                     _slots.Add(new Vector2(columnIndex, rowIndex), slot);
                 }
 
-                _currentIndex = new Vector2(0, slotsData.Length - 1);
+                _currentIndex = new Vector2(0, _slots.Count - 1);
             }
             else
             {
@@ -60,7 +65,9 @@ namespace Game
         public override void UnSelect()
         {
             base.UnSelect();
-            _currentSlot.SetSelected(false);
+            
+            if (_currentSlot)
+                _currentSlot.SetSelected(false);
         }
         
         public override void OnSubmitDown()

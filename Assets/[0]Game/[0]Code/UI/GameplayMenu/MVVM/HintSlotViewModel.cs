@@ -21,7 +21,7 @@ namespace Game
         private void Start()
         {
             _view.Init(this);
-            _view.IsToggleOnChanged(YandexGame.savesData.SettingData.IsShowHint.Value);
+            _view.IsToggleOnChanged(GameData.SettingStorage.IsShowHint.Value);
         }
 
         public override void SetSelected(bool isSelect)

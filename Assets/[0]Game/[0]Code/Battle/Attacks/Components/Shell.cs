@@ -6,18 +6,18 @@ namespace Game
     public class Shell : MonoBehaviour
     {
         private bool _isActive = true;
-        private Coroutine _coroutine;
+        private Coroutine _activeCoroutine;
         public bool IsActive => _isActive;
 
         public void SetActive(bool isActive)
         {
             _isActive = isActive;
             
-            if (_coroutine != null)
-                StopCoroutine(_coroutine);
+            if (_activeCoroutine != null)
+                StopCoroutine(_activeCoroutine);
 
             if (_isActive)
-                _coroutine = StartCoroutine(AwaitActive());
+                _activeCoroutine = StartCoroutine(AwaitActive());
         }
 
         private IEnumerator AwaitActive()

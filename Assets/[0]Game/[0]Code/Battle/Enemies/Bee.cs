@@ -6,6 +6,9 @@ namespace Game
     public class Bee : EnemyBase
     {
         [SerializeField]
+        private Replica[] _startReplica;
+        
+        [SerializeField]
         private DamageEvent _damageEvent;
 
         [SerializeField]
@@ -16,6 +19,28 @@ namespace Game
 
         [SerializeField]
         private MoveToPointLoop _moveToPointLoop;
+        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.TryGetComponent(out CharacterController character))
+            {
+                StartCoroutine(AwaitStartBattle());
+            }
+        }
+        
+        private IEnumerator AwaitStartBattle()
+        {
+            _moveToPointLoop.enabled = false;
+            //_move.StopMove();
+            //transform.position = _startPosition;
+
+            _view.flipX = true;
+            
+            var dialogCommand = new DialogCommand(_startReplica, null, null);
+            yield return dialogCommand.Await();
+                
+            StartBattle();
+        }
         
         public override IEnumerator AwaitCustomEvent(string eventName, float value = 0)
         {
@@ -33,7 +58,7 @@ namespace Game
                 if (_damageEvent.GetHealth - value <= 0)
                     _moveToPointLoop.enabled = false;
                 
-                yield return _damageEvent.AwaitEvent(this, value);
+                yield return _damageEvent.AwaitEvent(this, (int)value);
             }
             
             if (eventName == "EndBattle")

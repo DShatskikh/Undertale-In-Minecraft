@@ -62,7 +62,6 @@ namespace Game
 #if UNITY_EDITOR
             GameData.DeviceType = _testDeviceType;
 #endif
-            
             //GameData.Saver.Load();
         }
 
@@ -78,6 +77,8 @@ namespace Game
             YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
             Application.targetFrameRate = 60;
 
+            GameData.SettingStorage = new SettingStorage();
+            
 #if UNITY_EDITOR
             if (_isNotLoad)
                 return;

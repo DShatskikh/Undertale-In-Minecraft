@@ -7,24 +7,23 @@ namespace Game
     {
         protected override void OnInit()
         {
-            YandexGame.savesData.SettingData.SoundVolume.Changed += _view.VolumeOnChanged;
-            OnSliderChanged(YandexGame.savesData.SettingData.SoundVolume.Value);
+            GameData.SettingStorage.SoundVolume.Changed += _view.VolumeOnChanged;
+            OnSliderChanged(GameData.SettingStorage.SoundVolume.Value);
         }
 
         private void OnDestroy()
         {
-            YandexGame.savesData.SettingData.SoundVolume.Changed -= _view.VolumeOnChanged;
+            GameData.SettingStorage.SoundVolume.Changed -= _view.VolumeOnChanged;
         }
 
         public override void AddVolume(float value)
         {
-            YandexGame.savesData.SettingData.SoundVolume.Value = Mathf.Clamp(YandexGame.savesData.SettingData.SoundVolume.Value + value, 0f, 1f);
+            GameData.SettingStorage.SoundVolume.Value = Mathf.Clamp(GameData.SettingStorage.SoundVolume.Value + value, 0f, 1f);
         }
 
         public override void OnSliderChanged(float value)
         {
-            YandexGame.savesData.SettingData.SoundVolume.Value = value;
-            print("OnSliderChanged");
+            GameData.SettingStorage.SoundVolume.Value = value;
         }
     }
 }

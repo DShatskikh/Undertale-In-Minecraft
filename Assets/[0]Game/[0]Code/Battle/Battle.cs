@@ -41,8 +41,11 @@ namespace Game
         private LocalizedString _winReplicaCheat;
 
         [SerializeField]
-        private TMP_Text _addProgressLabel;
+        private PopUpLabel _addProgressLabel;
 
+        [SerializeField]
+        private PopUpLabel _healthPopUpLabel;
+        
         [SerializeField]
         private AddProgressData _addProgressData;
 
@@ -56,7 +59,6 @@ namespace Game
         private AudioClip _previousMusic;
         private Vector2 _enemyStartPosition;
         private AttackBase[] _attacks;
-        private int _attackIndex;
         private int _turnNumber;
         private BattleArena _arena;
         private Vector2 _startEnemyPosition;
@@ -67,7 +69,8 @@ namespace Game
         public Transform ActScreenContainer => _actScreenContainer;
         public BattleMessageBox EnemyMessageBox => _enemyMessageBox;
         public BattleMessageBox MessageBox => _messageBox;
-        public TMP_Text AddProgressLabel => _addProgressLabel;
+        public PopUpLabel AddProgressLabel => _addProgressLabel;
+        public PopUpLabel HealthPopUpLabel => _healthPopUpLabel;
         public AddProgressData AddProgressData => _addProgressData;
         public Vector2 StartEnemyPosition => _startEnemyPosition;
         public AudioClip BattleMusic;
@@ -114,7 +117,7 @@ namespace Game
             GameData.BattleProgress = 0;
             EventBus.BattleProgressChange?.Invoke(0);
             
-            _attackIndex = 0;
+            _turnNumber = 0;
 
             EventBus.Damage += OnDamage;
             EventBus.Death += OnDeath;
@@ -157,9 +160,10 @@ namespace Game
             //if (!YandexGame.savesData.IsTutorialComplited)
             //    commands.Add(new EnemyAttackCommand(_attackTutorial, _blackPanel, _arena.gameObject)); 
             
-            commands.Add(new EnemyAttackCommand(_attacks[_attackIndex], _blackPanel, _arena.gameObject));
+            commands.Add(new EnemyAttackCommand(_attacks[GetIndex()], _blackPanel, _arena.gameObject));
             commands.Add(new CheckEndBattleCommand());
             commands.Add(new HideArenaCommand(_arena, _blackPanel));
+            commands.Add(new HealthCharacterCommand());
             
             if (GameData.EnemyData.EnemyConfig.BattleReplicas.Length != 0)
             {
@@ -173,7 +177,7 @@ namespace Game
             commands.Add(new StartCharacterTurnCommand());
 
             GameData.CommandManager.StartCommands(commands);
-            GetIndex();
+            _turnNumber++;
         }
 
         public void EndBattle()
@@ -198,17 +202,12 @@ namespace Game
             _selectActManager.Activate(true);
         }
 
-        private void GetIndex()
+        private int GetIndex()
         {
-            if (YandexGame.savesData.IsTutorialComplited)
-                _attackIndex++;
-
-            if (_attackIndex >= _attacks.Length)
-            {
-                _attackIndex = Random.Range(0, _attacks.Length);
-            }
-
-            _turnNumber++;
+            if (_turnNumber >= _attacks.Length)
+                return Random.Range(0, _attacks.Length);
+            
+            return _turnNumber;
         }
 
         private void OnDeath()

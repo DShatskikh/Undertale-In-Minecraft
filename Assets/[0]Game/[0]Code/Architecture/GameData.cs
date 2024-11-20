@@ -34,6 +34,7 @@ namespace Game
         public static AdsManager AdsManager { get; set; }
         public static PlayerInput PlayerInput { get; set; }
         public static MonoBehaviour CoroutineRunner { get; set; }
+        public static SettingStorage SettingStorage { get; set; }
 
         public static LocationsManager LocationsManager;
         public static MonologViewModel Monolog;

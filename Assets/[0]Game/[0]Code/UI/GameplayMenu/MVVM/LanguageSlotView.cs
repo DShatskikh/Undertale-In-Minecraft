@@ -36,13 +36,13 @@ namespace Game
 
         private void OnEnable()
         {
-            YandexGame.savesData.SettingData.Language.Changed += LanguageOnChanged;
-            LanguageOnChanged(YandexGame.savesData.SettingData.Language.Value);
+            GameData.SettingStorage.Language.Changed += LanguageOnChanged;
+            LanguageOnChanged(GameData.SettingStorage.Language.Value);
         }
 
         private void OnDisable()
         {
-            YandexGame.savesData.SettingData.Language.Changed -= LanguageOnChanged;
+            GameData.SettingStorage.Language.Changed -= LanguageOnChanged;
         }
         
         private void LanguageOnChanged(int value)

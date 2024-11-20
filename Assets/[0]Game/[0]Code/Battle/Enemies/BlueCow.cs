@@ -39,7 +39,7 @@ namespace Game
             
             if (eventName == "Damage")
             {
-                yield return _damageEvent.AwaitEvent(this, value);
+                yield return _damageEvent.AwaitEvent(this, (int)value);
                 
                 if (_damageEvent.GetHealth <= 0)
                     gameObject.SetActive(false);

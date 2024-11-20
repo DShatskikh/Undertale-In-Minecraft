@@ -1,4 +1,5 @@
 using PixelCrushers.DialogueSystem;
+using UnityEngine;
 using YG;
 
 namespace Game
