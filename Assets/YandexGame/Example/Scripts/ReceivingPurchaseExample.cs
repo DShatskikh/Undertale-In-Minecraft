@@ -25,7 +25,7 @@ namespace YG.Example
         {
             successPurchased?.Invoke();
 
-            // Ваш код для обработки покупки. Например:
+            // Р’Р°С€ РєРѕРґ РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё РїРѕРєСѓРїРєРё. РќР°РїСЂРёРјРµСЂ:
             //if (id == "50")
             //    YandexGame.savesData.money += 50;
             //else if (id == "250")

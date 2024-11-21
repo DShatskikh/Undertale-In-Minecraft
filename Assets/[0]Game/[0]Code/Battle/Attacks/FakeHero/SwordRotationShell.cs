@@ -31,7 +31,7 @@ namespace Game
             
             yield return new WaitForSeconds(0.1f);
 
-            var moveToBackCommand = new MoveToPointCommand(transform, transform .position + (transform.right * -0.5f), 0.25f);
+            var moveToBackCommand = new MoveToPointCommand(transform, transform.position + (transform.right * -0.5f), 0.25f);
             yield return moveToBackCommand.Await();
 
             yield return new WaitForSeconds(0.1f);
@@ -39,7 +39,7 @@ namespace Game
             _line.gameObject.SetActive(false);
             GetComponent<Collider2D>().enabled = true;
             
-            var moveToForwardCommand = new MoveToPointCommand(transform, transform .position + (transform.right * 15), 1.44f);
+            var moveToForwardCommand = new MoveToPointCommand(transform, transform.position + (transform.right * 15), 1.44f);
             StartCoroutine(moveToForwardCommand.Await());
 
             yield return new WaitForSeconds(1.2f);

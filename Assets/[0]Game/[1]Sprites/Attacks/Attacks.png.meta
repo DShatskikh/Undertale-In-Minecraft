@@ -1301,7 +1301,7 @@ TextureImporter:
         width: 11
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1310,6 +1310,28 @@ TextureImporter:
       bones: []
       spriteID: a9832ee2eea23aa4fa92e3bf37dac2f1
       internalID: -1882193484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_53
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 55
+        width: 36
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ebf1bc55853ece4ca6363bd6f7e5a13
+      internalID: -2112201435
       vertices: []
       indices: 
       edges: []
@@ -1377,6 +1399,7 @@ TextureImporter:
       Attacks_50: 425746623
       Attacks_51: 1835352787
       Attacks_52: -1882193484
+      Attacks_53: -2112201435
       Attacks_6: -1955883627
       Attacks_7: 252884186
       Attacks_8: -687092929

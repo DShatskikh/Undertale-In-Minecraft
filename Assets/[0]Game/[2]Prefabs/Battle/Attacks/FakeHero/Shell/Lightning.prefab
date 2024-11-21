@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 1378734413026532430}
   - component: {fileID: 6166200738625423496}
   - component: {fileID: 6762387678752922586}
+  - component: {fileID: 5811042746589082436}
   m_Layer: 6
   m_Name: Lightning
   m_TagString: Untagged
@@ -616,7 +617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8560914679580510717}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -689,6 +690,18 @@ MonoBehaviour:
   _lighting1: {fileID: 6134376935730042227}
   _lighting2: {fileID: 1038136202079235821}
   _fire: {fileID: 6656151611149419324}
+--- !u!210 &5811042746589082436
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560914679580510717}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 21
+  m_SortAtRoot: 0
 --- !u!1 &8723282838873928902
 GameObject:
   m_ObjectHideFlags: 0

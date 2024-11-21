@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
@@ -7,7 +6,7 @@ using YG;
 
 namespace Game
 {
-    public class MainMenuBackground : MonoBehaviour
+    public class MenuMainBackground : MonoBehaviour
     {
         [SerializeField]
         private GameObject _cake;

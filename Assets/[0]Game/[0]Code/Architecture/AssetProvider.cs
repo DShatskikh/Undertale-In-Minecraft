@@ -30,6 +30,17 @@ namespace Game
         public MenuSlotConfig[] MenuSlotConfigs;
         public ItemsConfigContainer ItemsConfigContainer;
         public EndingConfig[] EndingsConfigs;
+
+        [Header("Iocns")]
+        public Sprite CharacterIcon;
+        public Sprite SpeakActIcon;
+        public Sprite DanceActIcon;
+        public Sprite AttackActIcon;
+        public Sprite SightActIcon;
+
+        [Header("Other")]
+        public Color SelectColor;
+        public Color DeselectColor;
         
         [Header("Prefabs")]
         public ActSlotController ActSlotPrefab;
@@ -46,16 +57,6 @@ namespace Game
         public SpeakAtcSlot SpeakAtcSlotPrefab;
         public AttackActScreen AttackActScreenPrefab;
         public DanceActScreen DanceActScreenPrefab;
-        
-        [Header("Iocns")]
-        public Sprite CharacterIcon;
-        public Sprite SpeakActIcon;
-        public Sprite DanceActIcon;
-        public Sprite AttackActIcon;
-        public Sprite SightActIcon;
-
-        [Header("Other")]
-        public Color SelectColor;
-        public Color DeselectColor;
+        public DonationSlotViewModel DonationSlotPrefab;
     }
 }

@@ -2,24 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Game
 {
     public class BlueCowAttack_1 : AttackBase
     {
+        [FormerlySerializedAs("_starShell")]
         [SerializeField]
-        private StarShell _starShell;
+        private StarToCharacterShell starToCharacterShell;
         
         protected override IEnumerator AwaitExecute(UnityAction action)
         {
-            for (int j = 0; j < 6; j++)
+            for (int j = 0; j < 8; j++)
             {
-                var shells = new List<StarShell>();
+                var shells = new List<StarToCharacterShell>();
 
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     shells.Add(Create());
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.25f);
                 }
 
                 foreach (var shell in shells)
@@ -27,14 +29,18 @@ namespace Game
                     shell.StartMove();
                 }
 
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1.5f);
             }
+            
+            action.Invoke();
         }
         
-        private StarShell Create()
+        private StarToCharacterShell Create()
         {
-            return Instantiate(_starShell, new Vector3(Random.Range(-2.7f, 2.7f), 
+            var shell =Instantiate(starToCharacterShell, new Vector3(Random.Range(-2.7f, 2.7f), 
                 Random.Range(0, 2) == 1 ? -1.5f : 1.7f), Quaternion.identity, transform);
+            shell.transform.localScale = Vector3.one * 0.75f;
+            return shell;
         }
     }
 }

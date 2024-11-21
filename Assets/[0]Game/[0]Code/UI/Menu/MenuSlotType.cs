@@ -7,6 +7,7 @@ namespace Game
         Setting,
         Exit,
         FullReset,
-        Reset
+        Reset,
+        Donation
     }
 }

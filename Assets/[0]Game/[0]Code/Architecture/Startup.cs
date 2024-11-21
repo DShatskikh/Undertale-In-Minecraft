@@ -39,7 +39,7 @@ namespace Game
         [SerializeField]
         private PlayerInput _playerInput;
         
-        private PurchaseManager _purchaseManager;
+        private PurchasedManager _purchaseManager;
         
         private void Awake()
         {
@@ -50,8 +50,8 @@ namespace Game
             }
 
             DontDestroyOnLoad(gameObject);
-
-            _purchaseManager = new PurchaseManager();
+            
+            _purchaseManager = new PurchasedManager();
             GameData.DeviceType = _deviceTypeDetector.CurrentDeviceType;
             
             YandexGame.GetDataEvent += () => GameData.IsLoad = true;

@@ -38,12 +38,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 331f51f8b02517d488a2e07d0f0f86c6, type: 2}
   MenuSlotConfigs:
   - {fileID: 11400000, guid: d0fd8f1f946dc894784de4e1ae9598fd, type: 2}
-  - {fileID: 11400000, guid: 2f3cd1edf8b985744b5a8e88e19e016d, type: 2}
   ItemsConfigContainer: {fileID: 11400000, guid: a1ddee2ee61909f49931f71e757a479c, type: 2}
   EndingsConfigs:
   - {fileID: 11400000, guid: 4393ab41b426127499d62ff27bee4994, type: 2}
   - {fileID: 11400000, guid: 4153a64fcd16e844d9d2da8d042f7a53, type: 2}
   - {fileID: 11400000, guid: fcb9697ae2e9fd34baab8cb7516ee0ac, type: 2}
+  CharacterIcon: {fileID: -2083921280, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  SpeakActIcon: {fileID: 457446701, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  DanceActIcon: {fileID: 145567474, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  AttackActIcon: {fileID: 1240383954, guid: 33d6c4330dd91a64eb6b899f99d15ef4, type: 3}
+  SightActIcon: {fileID: -2066959514, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  SelectColor: {r: 1, g: 0.9333334, b: 0.2509804, a: 1}
+  DeselectColor: {r: 0, g: 0.6, b: 1, a: 1}
   ActSlotPrefab: {fileID: 8027494126404655843, guid: 81c081ce26cc36d4394465f3433421cf, type: 3}
   TestButton: {fileID: 3697516056089641728, guid: 87b0b1cfc1dd1954e967b4a748e1c609, type: 3}
   GameplayMenuSlotPrefab: {fileID: 9179852214749871751, guid: 0a27421ac43a8c54a996d96579b3f698, type: 3}
@@ -58,10 +64,4 @@ MonoBehaviour:
   SpeakAtcSlotPrefab: {fileID: 3186821470277044284, guid: 32eef43ee9c8251439e3532fa195ccc9, type: 3}
   AttackActScreenPrefab: {fileID: 4518448343858871440, guid: ee7fe7fc174a9c24e8946fb5d2b16e22, type: 3}
   DanceActScreenPrefab: {fileID: 1716360610655853064, guid: e50d2f67351b5dc40bffcdb8f2ba38e9, type: 3}
-  CharacterIcon: {fileID: -2083921280, guid: 2fa026478351bf04499509ec41acad17, type: 3}
-  SpeakActIcon: {fileID: 457446701, guid: 2fa026478351bf04499509ec41acad17, type: 3}
-  DanceActIcon: {fileID: 145567474, guid: 2fa026478351bf04499509ec41acad17, type: 3}
-  AttackActIcon: {fileID: 1240383954, guid: 33d6c4330dd91a64eb6b899f99d15ef4, type: 3}
-  SightActIcon: {fileID: -2066959514, guid: 2fa026478351bf04499509ec41acad17, type: 3}
-  SelectColor: {r: 1, g: 0.9333334, b: 0.2509804, a: 1}
-  DeselectColor: {r: 0, g: 0.6, b: 1, a: 1}
+  DonationSlotPrefab: {fileID: 8404248069569394817, guid: ab50978065447c74a974e00f6ed1ab3e, type: 3}

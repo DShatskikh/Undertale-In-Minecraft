@@ -17,6 +17,8 @@ namespace Game
                 Create();
                 yield return new WaitForSeconds(1);
             }
+            
+            action?.Invoke();
         }
 
         private void Create()
