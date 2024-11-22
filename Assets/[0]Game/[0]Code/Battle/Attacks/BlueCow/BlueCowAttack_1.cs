@@ -37,7 +37,7 @@ namespace Game
         
         private StarToCharacterShell Create()
         {
-            var shell =Instantiate(starToCharacterShell, new Vector3(Random.Range(-2.7f, 2.7f), 
+            var shell =Instantiate(starToCharacterShell,  transform.position + new Vector3(Random.Range(-2.7f, 2.7f), 
                 Random.Range(0, 2) == 1 ? -1.5f : 1.7f), Quaternion.identity, transform);
             shell.transform.localScale = Vector3.one * 0.75f;
             return shell;

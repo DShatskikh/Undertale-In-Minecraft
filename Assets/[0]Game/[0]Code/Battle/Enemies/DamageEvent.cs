@@ -74,6 +74,8 @@ namespace Game
 
             yield return new WaitForSeconds(0.5f);
 
+            //_health -= _health;
+            
             _health -= damage;
             _label.text = $"{_health}/{_startHealth}";
             _progressBar.UpdateBar(_health, 0, _startHealth);

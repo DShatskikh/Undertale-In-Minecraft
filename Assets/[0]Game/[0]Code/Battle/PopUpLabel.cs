@@ -14,7 +14,6 @@ namespace Game
             _label.text = startMessage;
             _label.color = color;
             _label.transform.position = startPosition;
-            
             var duration = 0.25f;
             
             _label.gameObject.SetActive(true);

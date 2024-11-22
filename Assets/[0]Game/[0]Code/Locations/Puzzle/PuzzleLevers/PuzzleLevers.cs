@@ -8,6 +8,9 @@ namespace Game
     public class PuzzleLevers : UseObject
     {
         [SerializeField]
+        private string _id;
+        
+        [SerializeField]
         private PuzzleLeversView _view;
 
         [SerializeField]

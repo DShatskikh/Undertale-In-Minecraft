@@ -21,14 +21,38 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e74d36bbf53e67941a21c5c2f685a5a0, type: 2}
   - {fileID: 11400000, guid: 24ee5b4d1add7fa4985929a275bcb183, type: 2}
   - {fileID: 11400000, guid: 4dd461761fcba394b8c9bf7690d8bdec, type: 2}
-  BattleReplicas: []
+  BattleReplicas:
+  - m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 34879820459786240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 34879885744128000
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 34880143232450560
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   EndReplicas:
-  - Icon: {fileID: 0}
+  - Icon: {fileID: 1220948537, guid: ea7e12b0264525b479af962a4b7cf971, type: 3}
     LocalizationString:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 34879404682625024
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -37,7 +61,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
     m_TableEntryReference:
-      m_KeyId: 29337194771890176
+      m_KeyId: 34870221157548032
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

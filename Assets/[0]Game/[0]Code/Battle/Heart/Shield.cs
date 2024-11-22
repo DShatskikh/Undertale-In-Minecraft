@@ -48,7 +48,7 @@ namespace Game
 
         private IEnumerator Use()
         {
-            _model.AddTurnProgress(1);
+            _model.AddTurnProgress(2);
             _model.SetIsShield(true);
             yield return new WaitForSeconds(ShieldActiveTime);
             _model.SetIsShield(false);

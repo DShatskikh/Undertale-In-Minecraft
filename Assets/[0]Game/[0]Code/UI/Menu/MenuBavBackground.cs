@@ -7,9 +7,6 @@ namespace Game
     public class MenuBavBackground : MonoBehaviour
     {
         [SerializeField]
-        private CharacterView _characterView;
-
-        [SerializeField]
         private GameObject _passed;
         
         [SerializeField]
@@ -23,7 +20,6 @@ namespace Game
         
         private void Start()
         {
-            _characterView.Dance();
             _passed.SetActive(Lua.IsTrue("IsPassedEnding() == true"));
             _good.SetActive(Lua.IsTrue("Variable[\"IsBavGoodEnding\"] == true"));
             _bad.SetActive(Lua.IsTrue("Variable[\"IsBavBadEnding\"] == true"));

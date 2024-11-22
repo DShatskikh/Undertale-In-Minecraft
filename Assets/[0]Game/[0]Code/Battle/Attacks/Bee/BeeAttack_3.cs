@@ -23,7 +23,7 @@ namespace Game
 
         private void Create()
         {
-            Instantiate(_beePuddleSell, new Vector3(Random.Range(-1.7f, 1.7f), Random.Range(-2f, -0.582f)), Quaternion.identity, transform);
+            Instantiate(_beePuddleSell, transform.position + new Vector3(Random.Range(-1.7f, 1.7f), Random.Range(-2f, -0.582f)), Quaternion.identity, transform);
         }
     }
 }

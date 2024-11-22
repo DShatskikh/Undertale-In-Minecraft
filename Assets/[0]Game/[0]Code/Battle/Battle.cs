@@ -77,6 +77,7 @@ namespace Game
         public AudioClip SelectMusic;
 
         public int? AddProgress = null;
+        public float MusicStopTime;
 
         private void OnDisable()
         {
@@ -137,7 +138,8 @@ namespace Game
 
         public void Turn(BaseActConfig act = null)
         {
-            GameData.MusicPlayer.Play(GameData.Battle.BattleMusic);
+            GameData.MusicPlayer.Play(GameData.EnemyData.EnemyConfig.Theme 
+                ? GameData.EnemyData.EnemyConfig.Theme : GameData.Battle.BattleMusic, MusicStopTime);
             
             var commands = new List<CommandBase>();
 

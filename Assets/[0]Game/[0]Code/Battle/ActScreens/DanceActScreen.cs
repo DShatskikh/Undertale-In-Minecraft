@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -28,11 +29,18 @@ namespace Game
         private DanceActConfig _config;
         private int _currentArrowIndex;
         private bool _isSuccess;
+        private Arrow[] _arrows;
 
         public void Init(DanceActConfig config)
         {
             _config = config;
             Activate(true);
+            
+            _arrows = new Arrow[4];
+
+            for (int i = 0; i < _arrows.Length; i++) 
+                _arrows[i] = (Arrow)Random.Range(0, 4);
+
             StartCoroutine(AwaitIntro());
         }
 
@@ -56,7 +64,7 @@ namespace Game
             _currentArrow.color = _currentArrow.color.SetA(0);
 
             _currentArrow.transform.eulerAngles = _currentArrow.transform.rotation.eulerAngles.SetZ(
-                _config.Arrows[_currentArrowIndex] switch
+                _arrows[_currentArrowIndex] switch
                 {
                     Arrow.Up => 0,
                     Arrow.Down => 180,
@@ -97,7 +105,7 @@ namespace Game
             GameData.CharacterController.View.Dance();
             
             if (Vector3.Distance(_target.transform.position, _currentArrow.transform.position)
-                < Vector3.Distance(_target.transform.position, _targetPoint.position) && currentArrow == _config.Arrows[_currentArrowIndex])
+                < Vector3.Distance(_target.transform.position, _targetPoint.position) && currentArrow == _arrows[_currentArrowIndex])
             {
                 _currentArrow.transform.position = _target.transform.position;
                 GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SelectSound);
@@ -120,7 +128,7 @@ namespace Game
 
             _currentArrowIndex += 1;
             
-            if (_currentArrowIndex < _config.Arrows.Length)
+            if (_currentArrowIndex < _arrows.Length)
                 _coroutine = StartCoroutine(AwaitActive());
             else
                 StartCoroutine(AwaitEnding());

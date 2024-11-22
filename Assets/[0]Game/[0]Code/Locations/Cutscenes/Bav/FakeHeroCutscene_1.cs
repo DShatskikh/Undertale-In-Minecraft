@@ -15,9 +15,6 @@ namespace Game
         [SerializeField]
         private StartBattleTrigger _startBattleTrigger;
 
-        [SerializeField]
-        private AudioClip _music;
-        
         protected override IEnumerator AwaitCutscene()
         {
             GameData.CharacterController.enabled = false;
@@ -29,8 +26,6 @@ namespace Game
                 _cameraTarget.transform.position.SetY(_cameraFinishTarget.position.y), 1);
             yield return cameraMoveToPointCommand.Await();
 
-            GameData.MusicPlayer.Play(_music);
-            
             yield return new WaitForSeconds(2);
 
             yield return AwaitDialog();

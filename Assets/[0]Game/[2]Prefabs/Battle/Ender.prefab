@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7538115984454599988}
   - component: {fileID: 704393930672879010}
   - component: {fileID: 5585767544616806557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BattleField_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,11 +673,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7880539150828014656, guid: 8f431532b8a73c14e87392fb79fe92dd, type: 3}
       propertyPath: m_Name
-      value: BattleArena Grid Variant
+      value: Ender
       objectReference: {fileID: 0}
     - target: {fileID: 7880539150828014656, guid: 8f431532b8a73c14e87392fb79fe92dd, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916362275533296279, guid: 8f431532b8a73c14e87392fb79fe92dd, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7916362275533296279, guid: 8f431532b8a73c14e87392fb79fe92dd, type: 3}
       propertyPath: m_IsActive

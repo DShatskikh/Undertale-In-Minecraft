@@ -1,4 +1,5 @@
-﻿using RimuruDev;
+﻿using PixelCrushers.DialogueSystem;
+using RimuruDev;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
@@ -79,6 +80,8 @@ namespace Game
 
             GameData.SettingStorage = new SettingStorage();
             
+            RegisterLuaFunctions();
+            
 #if UNITY_EDITOR
             if (_isNotLoad)
                 return;
@@ -88,6 +91,30 @@ namespace Game
         private void OnDestroy()
         {
             YandexGame.GetDataEvent -= () => GameData.IsLoad = true;
+        }
+        
+        private void RegisterLuaFunctions()
+        {
+            Lua.RegisterFunction(nameof(IsWin), this, SymbolExtensions.GetMethodInfo(() => IsWin(string.Empty)));
+            Lua.RegisterFunction(nameof(IsUseCylinder), this, SymbolExtensions.GetMethodInfo(() => IsUseCylinder()));
+            Lua.RegisterFunction(nameof(IsPassedEnding), this, SymbolExtensions.GetMethodInfo(() => IsPassedEnding()));
+        }
+        
+        private bool IsWin(string nameEnemy) => 
+            (YandexGame.savesData.GetInt("IsWin" + nameEnemy) == 1);
+
+        private bool IsUseCylinder()
+        {
+            return Lua.IsTrue("Variable[\"IsUseCylinder\"] == true") 
+                   || Lua.IsTrue("Variable[\"IsUseMysticalCylinder\"] == true") 
+                   || Lua.IsTrue("Variable[\"IsUseEliteCylinder\"] == true");
+        }
+        
+        private bool IsPassedEnding()
+        {
+            return Lua.IsTrue("Variable[\"IsBavGoodEnding\"] == true") 
+                   || Lua.IsTrue("Variable[\"IsBavBadEnding\"] == true") 
+                   || Lua.IsTrue("Variable[\"IsBavSecretEnding\"] == true");
         }
     }
 }

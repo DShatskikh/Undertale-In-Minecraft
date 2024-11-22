@@ -1,13 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Game
 {
     public class Bee : EnemyBase
     {
-        [SerializeField]
-        private Replica[] _startReplica;
-        
         [SerializeField]
         private DamageEvent _damageEvent;
 
@@ -19,6 +17,9 @@ namespace Game
 
         [SerializeField]
         private MoveToPointLoop _moveToPointLoop;
+
+        [SerializeField]
+        private LocalizedString _winString;
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -36,9 +37,11 @@ namespace Game
 
             _view.flipX = true;
             
-            var dialogCommand = new DialogCommand(_startReplica, null, null);
-            yield return dialogCommand.Await();
-                
+            //var dialogCommand = new DialogCommand(_startReplica, null, null);
+            //yield return dialogCommand.Await();
+
+            yield return null;
+            
             StartBattle();
         }
         
@@ -66,12 +69,21 @@ namespace Game
                 if (_damageEvent.GetHealth <= 0)
                 {
                     yield return _damageEvent.AwaitDeathEvent(this, value);
-                    yield break;   
                 }
+                else
+                {
+                    var dialogCommand = new DialogCommand(_config.EndReplicas, null, null);
+                    yield return dialogCommand.Await();
+                    
+                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SpareSound);
+                    var changeAlphaCommand = new ChangeAlphaCommand(_view, 0, 1);
+                    yield return changeAlphaCommand.Await();
 
-                GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SpareSound);
-                var changeAlphaCommand = new ChangeAlphaCommand(_view, 0, 1);
-                yield return changeAlphaCommand.Await();
+                    var monologueCommand = new MonologueCommand(_winString);
+                    yield return monologueCommand.Await();
+                    
+                    gameObject.SetActive(false);
+                }
             }
         }
     }

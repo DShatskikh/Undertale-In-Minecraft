@@ -6,18 +6,20 @@ namespace Game
     [CreateAssetMenu(fileName = "DanceAct", menuName = "Data/Acts/Dance", order = 73)]
     public class DanceActConfig : BaseActConfig
     {
-        [Range(-30, 30)]
-        public int SuccessProgress;
-        
-        [Range(-30, 30)]
-        public int FailedProgress;
-
+        [Header("Success")]
         public LocalizedString SuccessSystemMessage;
         public LocalizedString SuccessReaction;
+        
+        [Range(-100, 100)]
+        public int SuccessProgress;
+        
+        [Header("Failed")]
         public LocalizedString FailedSystemMessage;
         public LocalizedString FailedReaction;
-        public Arrow[] Arrows;
-
+        
+        [Range(-100, 100)]
+        public int FailedProgress;
+        
         public override Sprite GetIcon() => 
             GameData.AssetProvider.DanceActIcon;
 

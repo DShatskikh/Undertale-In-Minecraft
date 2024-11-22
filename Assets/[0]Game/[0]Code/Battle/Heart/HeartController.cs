@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.InputSystem;
@@ -44,8 +43,9 @@ namespace Game
 
         private void OnDisable()
         {
-            _model.SetSpeed(0);
             GameData.PlayerInput.actions["Move"].performed -= OnMovePerformed;
+            _model.SetSpeed(0);
+            _model.Direction = Vector2.zero;
         }
 
         private void Update()

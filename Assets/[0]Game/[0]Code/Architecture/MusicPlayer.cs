@@ -12,12 +12,16 @@ namespace Game
             _audioSource = GetComponent<AudioSource>();
         }
 
-        public void Play(AudioClip clip)
+        public void Play(AudioClip clip, float time = 0)
         {
             if (_audioSource.clip == clip && _audioSource.isPlaying)
                 return;
 
             _audioSource.clip = clip;
+
+            if (time != 0)
+                _audioSource.time = time;
+            
             _audioSource.Play();
         }
 
@@ -25,5 +29,8 @@ namespace Game
         {
             _audioSource.Stop();
         }
+
+        public float GetTime() => 
+            _audioSource.time;
     }
 }

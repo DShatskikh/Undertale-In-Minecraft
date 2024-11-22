@@ -56,8 +56,7 @@ namespace Game
             yield return _popUpLabel.AwaitAnimation(GameData.EnemyData.Enemy.transform.position.AddY(1), startMessage, color, result, sound);
   
             EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
-
-            _popUpLabel.gameObject.SetActive(false);
+            
             action?.Invoke();
         }
     }
