@@ -24,8 +24,8 @@ namespace Game
 
         private IEnumerator AwaitUse()
         {
-            GameData.CompanionsManager.DeactivateAllCompanion();
-            
+            GameData.MusicPlayer.Stop();
+
             var characterTransform = GameData.CharacterController.transform;
             GameData.CharacterController.enabled = false;
 
@@ -55,13 +55,16 @@ namespace Game
                 yield return null;
             } while (size > 0.5f);
 
+            GameData.CompanionsManager.DeactivateAllCompanion();
+            
             yield return new WaitForSeconds(2);
             
+            GameData.CharacterController.HatPoint.FreakShow(false);
             GameData.CharacterController.View.Sleep();
 
             yield return new WaitForSeconds(2);
 
-            if (Lua.IsTrue("Variable[\"KILLS\"] >= 5"))
+            if (Lua.IsTrue("IsGenocide() == true"))
             {
                 characterTransform.eulerAngles = Vector3.zero;
                 GameData.CharacterController.View.Reset();

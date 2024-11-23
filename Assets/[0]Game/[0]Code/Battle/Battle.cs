@@ -87,6 +87,11 @@ namespace Game
 
         public void StartBattle()
         {
+            MusicStopTime = 0;
+            _previousMusic = GameData.MusicPlayer.Clip;
+            
+            PlayBattleTheme();
+            
             _startEnemyPosition = GameData.EnemyData.Enemy.transform.position;
             
             _normalWorldCharacterPosition = GameData.CharacterController.transform.position;
@@ -94,7 +99,6 @@ namespace Game
             GameData.HeartController.enabled = false;
             _arena = Instantiate(GameData.EnemyData.EnemyConfig.Arena, transform);
             GameData.HeartController.transform.position = _arena.transform.position;
-            _previousMusic = GameData.MusicPlayer.Clip;
             GameData.Saver.IsSavingPosition = false;
             GameData.InputManager.Show();
             GameData.CompanionsManager.SetMove(false);
@@ -138,8 +142,7 @@ namespace Game
 
         public void Turn(BaseActConfig act = null)
         {
-            GameData.MusicPlayer.Play(GameData.EnemyData.EnemyConfig.Theme 
-                ? GameData.EnemyData.EnemyConfig.Theme : GameData.Battle.BattleMusic, MusicStopTime);
+            PlayBattleTheme();
             
             var commands = new List<CommandBase>();
 
@@ -185,6 +188,7 @@ namespace Game
         public void EndBattle()
         {
             Destroy(_arena.gameObject);
+            PlayBattleTheme();
             
             var winReplica = YandexGame.savesData.IsCheat ? _winReplicaCheat : _winReplica;
             
@@ -232,6 +236,12 @@ namespace Game
         public AttackBase CreateAttack(AttackBase attackPrefab)
         {
             return Instantiate(attackPrefab.gameObject, transform).GetComponent<AttackBase>();
+        }
+
+        public void PlayBattleTheme()
+        {
+            GameData.MusicPlayer.Play(GameData.EnemyData.EnemyConfig.Theme 
+                ? GameData.EnemyData.EnemyConfig.Theme : GameData.Battle.BattleMusic, MusicStopTime);
         }
     }
 }

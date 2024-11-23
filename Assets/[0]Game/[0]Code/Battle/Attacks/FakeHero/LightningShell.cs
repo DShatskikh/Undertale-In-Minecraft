@@ -35,7 +35,7 @@ namespace Game
             
             _warning.gameObject.SetActive(false);
 
-            yield return new WaitForSeconds(0.5f);
+            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
             
             GetComponent<Collider2D>().enabled = true;
             

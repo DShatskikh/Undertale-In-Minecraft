@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game
 {
@@ -7,17 +8,23 @@ namespace Game
     {
         private void Awake()
         {
-            GameData.PlayerInput.actions["Cancel"].performed += context => EventBus.Cancel?.Invoke();
-            GameData.PlayerInput.actions["Cancel"].canceled +=  context => EventBus.CancelUp?.Invoke();
+            GameData.PlayerInput.actions["Cancel"].performed += CancelInvoke;
+            GameData.PlayerInput.actions["Cancel"].canceled +=  CancelUpInvoke;
         }
         
         private void OnDestroy()
         {
             if (GameData.PlayerInput)
             {
-                GameData.PlayerInput.actions["Cancel"].performed -= context => EventBus.Cancel?.Invoke();
-                GameData.PlayerInput.actions["Submit"].canceled -=  context => EventBus.CancelUp?.Invoke();
+                GameData.PlayerInput.actions["Cancel"].performed -= CancelInvoke;
+                GameData.PlayerInput.actions["Cancel"].canceled -=  CancelUpInvoke;
             }
         }
+
+        private void CancelInvoke(InputAction.CallbackContext context) => 
+            EventBus.Cancel?.Invoke();
+        
+        private void CancelUpInvoke(InputAction.CallbackContext context) => 
+            EventBus.CancelUp?.Invoke();
     }
 }

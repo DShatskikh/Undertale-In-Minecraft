@@ -6,7 +6,7 @@ namespace Game
     {
         private void Update()
         {
-            transform.position += transform.right * -1 * Time.deltaTime * transform.localScale.x * 2.5f;
+            transform.position += transform.right * 1 * Time.deltaTime * transform.localScale.x * 2.5f;
         }
     }
 }

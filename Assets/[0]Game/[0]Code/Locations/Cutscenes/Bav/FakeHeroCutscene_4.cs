@@ -1,6 +1,7 @@
 using System.Collections;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -23,11 +24,14 @@ namespace Game
 
         [Header("Genocide Root")]
         [SerializeField]
-        private StartBattleTrigger _startBattleTrigger;
+        private DamageEvent _fakeHeroDamage;
+
+        [SerializeField]
+        private Dragon _dragon;
         
         protected override IEnumerator AwaitCutscene()
         {
-            if (!Lua.IsTrue("IsFakeHeroDead"))
+            if (_fakeHeroDamage.GetHealth > 0)
                 _fakeHeroRunningCircle.gameObject.SetActive(true);
             
             var isAllCrystalDeactivate = true;
@@ -48,9 +52,9 @@ namespace Game
                 yield return new WaitForSeconds(1);
             }
 
-            if (Lua.IsTrue("IsFakeHeroDead"))
+            if (_fakeHeroDamage.GetHealth <= 0)
             {
-                _startBattleTrigger.StartBattle();
+                //_dragon.StartBattle();
                 yield break;
             }
             

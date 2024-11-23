@@ -1,12 +1,16 @@
 using System.Collections;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.Localization;
 using DialogueSystemTrigger = PixelCrushers.DialogueSystem.Wrappers.DialogueSystemTrigger;
 
 namespace Game
 {
     public class BlueCow : EnemyBase
     {
+        [SerializeField]
+        private GameObject _cutscene;
+        
         [SerializeField]
         private DamageEvent _damageEvent;
 
@@ -17,14 +21,20 @@ namespace Game
         private Transform _follow;
 
         [SerializeField]
-        private StartBattleTrigger _startBattleTrigger;
-
-        [SerializeField]
-        private AudioClip _ost;
+        private AudioClip _ost, _genocideOst;
 
         [SerializeField]
         private GameObject _trigger;
 
+        [SerializeField]
+        private SpriteRenderer _view;
+
+        [SerializeField]
+        private GameObject _bad;
+
+        [SerializeField]
+        private LocalizedString _winString;
+        
         public void StartSpeck()
         {
             StartCoroutine(AwaitUse());
@@ -40,15 +50,39 @@ namespace Game
             if (eventName == "Damage")
             {
                 yield return _damageEvent.AwaitEvent(this, (int)value);
-                
-                if (_damageEvent.GetHealth <= 0)
-                    gameObject.SetActive(false);
             }
 
             if (eventName == "EndBattle")
             {
-                Lua.Run("Variable[\"BlueCowState\"] = 2");
-                yield return _damageEvent.AwaitDeathEvent(this, value);
+                Lua.Run("Variable[\"BlueCowState\"] = 3");
+                
+                if (_damageEvent.GetHealth <= 0)
+                {
+                    yield return _damageEvent.AwaitDeathEvent(this, value);
+                    _bad.SetActive(true);
+                    GameData.MusicPlayer.Play(_genocideOst);
+                    gameObject.SetActive(false);
+                }
+                else
+                {
+                    //var dialogCommand = new DialogCommand(_config.EndReplicas, null, null);
+                    //yield return dialogCommand.Await();
+                    
+                    _dialogueSystemTrigger.OnUse();
+                    
+                    bool isEnd = false;
+                    EventBus.CloseDialog += () => isEnd = true;
+                    yield return new WaitUntil(() => isEnd);
+                    
+                    GameData.EffectSoundPlayer.Play(GameData.AssetProvider.SpareSound);
+                    var changeAlphaCommand = new ChangeAlphaCommand(_view, 0, 1);
+                    yield return changeAlphaCommand.Await();
+
+                    var monologueCommand = new MonologueCommand(_winString);
+                    yield return monologueCommand.Await();
+                    
+                    gameObject.SetActive(false);
+                }
             }
         }
         
@@ -56,20 +90,47 @@ namespace Game
         {
             if (Lua.IsTrue("Variable[\"BlueCowState\"] == 0"))
             {
-                _dialogueSystemTrigger.OnUse();
+                print("11111");
+                
+                GameData.CharacterController.enabled = false;
                 GameData.CinemachineVirtualCamera.Follow = _follow;
                 GameData.MusicPlayer.Play(_ost);
-                
+                yield return new WaitForSeconds(0.25f);
+                _dialogueSystemTrigger.OnUse();
+
                 bool isEnd = false;
                 EventBus.CloseDialog += () => isEnd = true;
                 yield return new WaitUntil(() => isEnd);
                 
                 GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.View.transform;
             }
-            else if (Lua.IsTrue("Variable[\"BlueCowState\"] == 1 and (IsHaveCompanion(\"FakeHero\") == true)"))
+            else if (Lua.IsTrue("Variable[\"BlueCowState\"] == 2 and (IsGenocide() == false)"))
             {
+                print("4444444");
+                
+                GameData.CharacterController.enabled = false;
                 GameData.CinemachineVirtualCamera.Follow = _follow;
                 GameData.MusicPlayer.Play(_ost);
+                yield return new WaitForSeconds(0.25f);
+                _dialogueSystemTrigger.OnUse();
+
+                bool isEnd = false;
+                EventBus.CloseDialog += () => isEnd = true;
+                yield return new WaitUntil(() => isEnd);
+                
+                GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.View.transform;
+                
+                _bad.SetActive(true);
+                _cutscene.SetActive(false);
+            }
+            else if (Lua.IsTrue("Variable[\"BlueCowState\"] == 2 and (IsGenocide() == true)"))
+            {
+                print("wewewewewe");
+
+                GameData.CharacterController.enabled = false;
+                GameData.CinemachineVirtualCamera.Follow = _follow;
+                GameData.MusicPlayer.Play(_ost);
+                yield return new WaitForSeconds(0.25f);
                 _dialogueSystemTrigger.OnUse();
 
                 bool isEnd = false;
@@ -79,11 +140,11 @@ namespace Game
                 GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.View.transform;
                 
                 _trigger.SetActive(false);
-                _startBattleTrigger.StartBattle();
+                StartBattle();
             }
             else
             {
-                
+                print("12312312");
             }
         }
     }

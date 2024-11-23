@@ -1,6 +1,4 @@
 using System.Collections;
-using TMPro;
-using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization;
 
@@ -53,7 +51,7 @@ namespace Game
             var result = messageOperation.Result;
             var sound = _progress > 0 ? _data.MoreSound : _data.LessSound;
             
-            yield return _popUpLabel.AwaitAnimation(GameData.EnemyData.Enemy.transform.position.AddY(1), startMessage, color, result, sound);
+            yield return _popUpLabel.AwaitAnimation(GameData.Battle.transform.position.AddY(1), startMessage, color, result, sound);
   
             EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
             

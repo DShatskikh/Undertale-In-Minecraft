@@ -68,21 +68,15 @@ namespace Game
 
             _fire.SetActive(false);
 
-            yield return new WaitForSeconds(0.25f);
-
-            _progressBar.gameObject.SetActive(true);
-
-            yield return new WaitForSeconds(0.5f);
-
-            //_health -= _health;
+            //_health -= _health; //
             
             _health -= damage;
-            _label.text = $"{_health}/{_startHealth}";
-            _progressBar.UpdateBar(_health, 0, _startHealth);
 
-            yield return new WaitForSeconds(1);
-
-            _progressBar.gameObject.SetActive(false);
+            if (_health < 0)
+                _health = 0;
+            
+            var damageCommand = new DamageEnemyCommand(_progressBar, _startHealth, _health, damage, _label);
+            yield return damageCommand.Await();
 
             AttackActConfig attackConfig = null;
 
@@ -97,9 +91,11 @@ namespace Game
 
             if (_health > 0)
             {
+                //yield return new WaitForSeconds(1f);
+                
                 var messageCommand = new MessageCommand(GameData.Battle.EnemyMessageBox, attackConfig.Reaction);
                 yield return messageCommand.Await();
-                var addProgressCommand = new AddProgressCommand(-30, GameData.Battle.AddProgressLabel,
+                var addProgressCommand = new AddProgressCommand(-GameData.BattleProgress, GameData.Battle.AddProgressLabel,
                     GameData.Battle.AddProgressData);
                 addProgressCommand.Execute(null);
                 yield return new WaitForSeconds(1f);
@@ -115,7 +111,7 @@ namespace Game
 
         public IEnumerator AwaitDeathEvent(EnemyBase enemy, float value = 0)
         {
-            yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
             
             AttackActConfig attackConfig = null;
 
@@ -135,6 +131,8 @@ namespace Game
 
             _shake.StopFeedbacks();
 
+            yield return new WaitForSeconds(0.5f);
+            
             _explosion.SetActive(true);
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
             yield return new WaitForSeconds(0.3f);

@@ -8,14 +8,23 @@ namespace Game
     {
         [SerializeField]
         private GameObject _darkPortal;
+
+        [SerializeField]
+        private DamageEvent _fakeHero;
         
         protected override IEnumerator AwaitCutscene()
         {
-            yield return AwaitDialog();
+            if (_fakeHero.GetHealth > 0)
+                yield return AwaitDialog();
+            
             _darkPortal.SetActive(true);
 
             Lua.Run("Variable[\"FakeHeroState\"] = 6");
-            GameData.CompanionsManager.TryActivateCompanion("FakeHero");
+            Lua.Run("Variable[\"BlueCowState\"] = 2");
+
+            if (_fakeHero.GetHealth > 0)
+                GameData.CompanionsManager.TryActivateCompanion("FakeHero");
+
             GameData.CharacterController.enabled = true;
         }
     }

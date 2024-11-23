@@ -18,9 +18,8 @@ MonoBehaviour:
   - {fileID: 7975433497430378580, guid: cf83bf23b4221ef4a9351142280a0dc6, type: 3}
   - {fileID: 8733790820713767501, guid: e7629ecf51a8a9a41aba12f1376f272a, type: 3}
   Acts:
-  - {fileID: 11400000, guid: e74d36bbf53e67941a21c5c2f685a5a0, type: 2}
-  - {fileID: 11400000, guid: 24ee5b4d1add7fa4985929a275bcb183, type: 2}
   - {fileID: 11400000, guid: 4dd461761fcba394b8c9bf7690d8bdec, type: 2}
+  - {fileID: 11400000, guid: 24ee5b4d1add7fa4985929a275bcb183, type: 2}
   BattleReplicas:
   - m_TableReference:
       m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
@@ -66,6 +65,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Theme: {fileID: 0}
+  Damage: 3
   references:
     version: 2
     RefIds: []

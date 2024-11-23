@@ -13,7 +13,7 @@ namespace Game
         private Transform _cameraFinishTarget;
         
         [SerializeField]
-        private StartBattleTrigger _startBattleTrigger;
+        private EnemyBase _startBattleTrigger;
 
         protected override IEnumerator AwaitCutscene()
         {

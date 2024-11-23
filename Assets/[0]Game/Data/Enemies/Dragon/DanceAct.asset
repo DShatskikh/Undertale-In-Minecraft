@@ -16,32 +16,49 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
     m_TableEntryReference:
-      m_KeyId: 29352268559400960
+      m_KeyId: 35233342137155584
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SuccessProgress: -5
-  FailedProgress: 5
+  SuccessSystemMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 35233100822069248
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   SuccessReaction:
     m_TableReference:
-      m_TableCollectionName: GUID:6f661cae60909ba47a785d3975d03854
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
     m_TableEntryReference:
-      m_KeyId: 17370140204449792
+      m_KeyId: 35232982257483776
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SuccessProgress: 20
+  FailedSystemMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 35233157889769472
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   FailedReaction:
     m_TableReference:
-      m_TableCollectionName: GUID:6f661cae60909ba47a785d3975d03854
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
     m_TableEntryReference:
-      m_KeyId: 275118002913311
+      m_KeyId: 35233135869673472
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Arrows: 00000000020000000100000003000000
+  FailedProgress: -5
   references:
     version: 2
     RefIds: []

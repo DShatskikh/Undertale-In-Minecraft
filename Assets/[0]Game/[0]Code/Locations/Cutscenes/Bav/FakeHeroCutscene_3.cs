@@ -37,7 +37,10 @@ namespace Game
         
         [Header("Genocide Root")]
         [SerializeField]
-        private FakeHero _fakeHeroEnemy;
+        private DamageEvent _fakeHeroEnemy;
+        
+        [SerializeField]
+        private Dragon _dragonEnemy;
         
         protected override IEnumerator AwaitCutscene()
         {
@@ -50,10 +53,12 @@ namespace Game
                 post.ActivateCrystal();
             }
 
-            if (Lua.IsTrue("IsFakeHeroDead"))
+            if (_fakeHeroEnemy.GetHealth <= 0)
             {
-                GameData.CharacterController.enabled = true;
-                _nextCutscene.StartCutscene();
+                //GameData.CharacterController.enabled = true;
+                yield return new WaitForSeconds(0.5f);
+                _dragonEnemy.StartBattle();
+                //_nextCutscene.StartCutscene();
                 yield break;
             }
             

@@ -13,7 +13,7 @@ namespace Game
         private FakeHeroCutscene_2 _cutscene2;
 
         [SerializeField]
-        private StartBattleTrigger _dragonStartBattle;
+        private EnemyBase _dragonStartBattle;
         
         private void Start()
         {

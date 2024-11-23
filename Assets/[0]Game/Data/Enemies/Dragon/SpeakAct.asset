@@ -16,36 +16,54 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
     m_TableEntryReference:
-      m_KeyId: 103722369024
+      m_KeyId: 35235323371175936
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SuccessProgress: 3
-  FailedProgress: -3
-  ImageElements:
-  - {fileID: -359855920, guid: 2fa026478351bf04499509ec41acad17, type: 3}
-  - {fileID: 1352078067, guid: 2fa026478351bf04499509ec41acad17, type: 3}
-  - {fileID: 906316401, guid: 2fa026478351bf04499509ec41acad17, type: 3}
-  - {fileID: 1761341849, guid: 2fa026478351bf04499509ec41acad17, type: 3}
   SuccessReaction:
     m_TableReference:
       m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
     m_TableEntryReference:
-      m_KeyId: 3008964821630976
+      m_KeyId: 35234658100035584
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  SuccessSystemMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 35234698575069184
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SuccessProgress: 1
   FailedReaction:
     m_TableReference:
       m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
     m_TableEntryReference:
-      m_KeyId: 3008888531435520
+      m_KeyId: 35234973356507136
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  FailedSystemMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 35235116893978624
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  FailedProgress: 7
+  ImageElements:
+  - {fileID: 906316401, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  - {fileID: 1222032202, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  - {fileID: 1102461061, guid: 2fa026478351bf04499509ec41acad17, type: 3}
+  - {fileID: -1955883627, guid: 2fa026478351bf04499509ec41acad17, type: 3}
   references:
     version: 2
     RefIds: []

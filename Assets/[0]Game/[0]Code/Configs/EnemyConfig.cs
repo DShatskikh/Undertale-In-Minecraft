@@ -13,5 +13,6 @@ namespace Game
         public Replica[] EndReplicas;
         public LocalizedString ProgressLocalized;
         public AudioClip Theme;
+        public int Damage = 1;
     }
 }

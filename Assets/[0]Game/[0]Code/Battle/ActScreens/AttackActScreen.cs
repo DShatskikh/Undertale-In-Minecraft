@@ -103,13 +103,11 @@ namespace Game
             
             yield return new WaitForSeconds(0.5f);
 
-            var damage = (int)Math.Ceiling(Vector3.Distance(_divider.position, _target.transform.position) 
-                         / Vector3.Distance(_cross.position, _target.transform.position)
-                         * 3);
-
-            if (damage > 5)
-                damage = 5;
+            var maxDistance = Vector3.Distance(_divider.position, _target.transform.position);
+            var distance = Vector3.Distance(_cross.position, _target.transform.position);
             
+            var damage = Mathf.Lerp(3, 8, 1 - distance / maxDistance);
+
             print(damage);
             yield return GameData.EnemyData.Enemy.AwaitCustomEvent("Damage", damage);
         }

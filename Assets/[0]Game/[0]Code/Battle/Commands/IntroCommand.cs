@@ -54,6 +54,7 @@ namespace Game
                 yield return null;
             }
 
+            //_blackPanel.Reset();
             yield return _blackPanel.AwaitShow(1);
 
             GameData.HeartController.enabled = true;

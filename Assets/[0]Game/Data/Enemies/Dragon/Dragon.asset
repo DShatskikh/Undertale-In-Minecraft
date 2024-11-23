@@ -21,9 +21,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d36f0986d30a4f04ea0684462a5fa07d, type: 2}
   - {fileID: 11400000, guid: 5300f15d6f8b71543b6602f15a5b0497, type: 2}
   - {fileID: 11400000, guid: 3c13a2fc61cc0bb41af3996090ae449e, type: 2}
-  BattleReplicas: []
+  BattleReplicas:
+  - m_TableReference:
+      m_TableCollectionName: GUID:dae8b23417285374b90474e123a3a4cd
+    m_TableEntryReference:
+      m_KeyId: 35232485148573696
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   EndReplicas:
-  - Icon: {fileID: 0}
+  - Icon: {fileID: 390434322, guid: ea7e12b0264525b479af962a4b7cf971, type: 3}
     LocalizationString:
       m_TableReference:
         m_TableCollectionName: 
@@ -42,6 +50,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Theme: {fileID: 8300000, guid: 89a6713e1d3c90b45888fe999cbbb046, type: 3}
+  Damage: 1
   references:
     version: 2
     RefIds: []

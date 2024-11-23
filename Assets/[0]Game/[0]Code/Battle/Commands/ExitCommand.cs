@@ -58,15 +58,14 @@ namespace Game
             }
 
             foreach (var companion in GameData.CompanionsManager.GetAllCompanions)
-            {
                 companion.GetSpriteRenderer.sortingOrder = 0;
-            }
 
+            GameData.MusicPlayer.Play(_previousSound);
+            
             yield return GameData.EnemyData.Enemy.AwaitCustomEvent("EndBattle");
             
             GameData.CharacterController.enabled = true;
             GameData.CharacterController.GetComponent<Collider2D>().isTrigger = false;
-            GameData.MusicPlayer.Play(_previousSound);
 
             var eventParams = new Dictionary<string, string>
             {

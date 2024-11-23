@@ -15,12 +15,15 @@ namespace Game
 
         [SerializeField]
         private FakeHero _fake;
+
+        [SerializeField]
+        private DamageEvent _fakeHeroDamage;
         
         protected override IEnumerator AwaitCutscene()
         {
             GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.transform;
             
-            if (!Lua.IsTrue("IsFakeHeroDead"))
+            if (_fakeHeroDamage.GetHealth > 0)
             {
                 GameData.MusicPlayer.Play(_musicClip);
             
@@ -35,14 +38,15 @@ namespace Game
                 GameData.CompanionsManager.TryActivateCompanion("FakeHero");
                 GameData.CompanionsManager.GetCompanion("FakeHero").transform.position = _fake.transform.position;
                 _fake.gameObject.SetActive(false);
-                GameData.CharacterController.enabled = true;
-            
+
                 Lua.Run("Variable[\"FakeHeroState\"] = 2");
             }
             else
             {
                 _puzzleEnderCrystalsManager.gameObject.SetActive(true);
             }
+            
+            GameData.CharacterController.enabled = true;
         }
     }
 }

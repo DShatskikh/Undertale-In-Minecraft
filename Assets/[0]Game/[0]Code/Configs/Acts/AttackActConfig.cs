@@ -6,17 +6,14 @@ namespace Game
     [CreateAssetMenu(fileName = "AttackAct", menuName = "Data/Acts/Attack", order = 72)]
     public class AttackActConfig : BaseActConfig
     {
-        [Range(-7, 0)]
-        public int Progress;
-
         public LocalizedString Reaction;
         public Replica[] DeathMessage;
 
         public override Sprite GetIcon() => 
             GameData.AssetProvider.AttackActIcon;
 
-        public override int GetProgress() => 
-            Progress;
+        public override int GetProgress() =>
+            -100;
 
         public override void Use()
         {

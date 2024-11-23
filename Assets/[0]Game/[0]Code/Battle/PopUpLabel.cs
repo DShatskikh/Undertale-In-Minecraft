@@ -9,7 +9,7 @@ namespace Game
         [SerializeField]
         private TMP_Text _label;
         
-        public IEnumerator AwaitAnimation(Vector2 startPosition, string startMessage, Color color, string message, AudioClip sound = null)
+        public IEnumerator AwaitAnimation(Vector2 startPosition, string startMessage, Color color, string message = null, AudioClip sound = null)
         {
             _label.text = startMessage;
             _label.color = color;
@@ -34,25 +34,30 @@ namespace Game
             
             yield return new WaitForSeconds(0.25f);
 
-            _label.text = message;
-            GameData.EffectSoundPlayer.Play(sound);
-
-            duration = 1f;
-            rectTransform.pivot = new Vector2(0.5f, 0);
-            progress = 0;
-            startPosition = _label.transform.position;
-
-            EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
-            
-            while (progress < 1)
+            if (message != null)
             {
-                progress += Time.deltaTime / duration;
-                _label.color = _label.color.SetA(1 - progress);
-                _label.transform.localScale = Vector2.Lerp(Vector2.one, new Vector2(1, 2), progress);
-                _label.transform.position = Vector2.Lerp(startPosition, startPosition.AddY(1), progress);
-                yield return null;
-            }
+                _label.text = message;
             
+                if (sound != null)
+                    GameData.EffectSoundPlayer.Play(sound);
+
+                duration = 1f;
+                rectTransform.pivot = new Vector2(0.5f, 0);
+                progress = 0;
+                startPosition = _label.transform.position;
+
+                EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
+            
+                while (progress < 1)
+                {
+                    progress += Time.deltaTime / duration;
+                    _label.color = _label.color.SetA(1 - progress);
+                    _label.transform.localScale = Vector2.Lerp(Vector2.one, new Vector2(1, 2), progress);
+                    _label.transform.position = Vector2.Lerp(startPosition, startPosition.AddY(1), progress);
+                    yield return null;
+                }
+            }
+
             _label.gameObject.SetActive(false);
         } 
     }

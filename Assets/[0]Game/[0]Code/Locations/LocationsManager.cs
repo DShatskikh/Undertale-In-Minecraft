@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Analytics;
 
 namespace Game
@@ -16,6 +17,18 @@ namespace Game
             {
                 location.gameObject.SetActive(false);
             }*/
+        }
+
+        private void Start()
+        {
+            foreach (var location in _locations)
+            {
+                if (!location.gameObject.activeSelf)
+                    continue;
+                
+                _currentLocation = location;
+                break;
+            }
         }
 
         public void SwitchLocation(string nextLocationName, int pointIndex)

@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Game
 {
@@ -12,6 +11,12 @@ namespace Game
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        public void Reset()
+        {
+            gameObject.SetActive(true);
+            _spriteRenderer.color = _spriteRenderer.color.SetA(0);
         }
 
         public void Show(float targetA = 1f)
@@ -58,8 +63,6 @@ namespace Game
                 yield return null;
                 duration += Time.deltaTime;
             }
-            
-            gameObject.SetActive(false);
         }
     }
 }
