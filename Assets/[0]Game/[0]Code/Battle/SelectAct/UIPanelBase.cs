@@ -24,6 +24,11 @@ namespace Game
             Register(false);
         }
 
+        private void OnDisable()
+        {
+            Register(false);
+        }
+
         protected void Register(bool value)
         {
             if (value)

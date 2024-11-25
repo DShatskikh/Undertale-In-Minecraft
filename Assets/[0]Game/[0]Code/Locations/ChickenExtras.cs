@@ -14,10 +14,14 @@ namespace Game
         private bool _isFlipX;
         private float _startY;
         
-        private void Start()
+        private void Awake()
         {
             _isFlipX = _spriteRenderer.flipX;
             _startY = transform.position.y;
+        }
+
+        private void OnEnable()
+        {
             StartMove();
         }
 

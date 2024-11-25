@@ -38,7 +38,6 @@ namespace YG
         public bool IsPalesosEnd;
         public bool IsNotIntroduction;
         public int Palesos;
-        public string LocationName;
         public bool IsPrisonKey;
         public bool IsDeveloperKey;
         public bool IsGoldKey;

@@ -1,8 +1,11 @@
-﻿using PixelCrushers;
+﻿using System;
+using System.Collections.Generic;
+using PixelCrushers;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -11,6 +14,30 @@ namespace Game
         public bool IsSave = true;
         private readonly SaveSystem _saveSystem;
 
+        private Dictionary<string, bool> _boolPair = new Dictionary<string, bool>();
+
+        private string[] _boolHash = new[]
+        {
+            "IsBavGoodEnding",
+            "IsBavBadEnding",
+            "IsBavStrangeEnding",
+            "IsCylinder",
+            "IsUseCylinder",
+            "IsMysticalCylinder",
+            "IsUseMysticalCylinder",
+            "IsEliteCylinder",
+            "IsUseEliteCylinder",
+            "IsDeveloperLetter",
+        };
+        
+        private Dictionary<string, int> _intPair = new Dictionary<string, int>();
+
+        private string[] _intHash = Array.Empty<string>();
+
+        private Dictionary<string, string> _stringsPair = new Dictionary<string, string>();
+
+        private string[] _stringsHash = Array.Empty<string>();
+        
         public Saver(SaveSystem saveSystem)
         {
             _saveSystem = saveSystem;
@@ -21,7 +48,9 @@ namespace Game
             if (!IsSave)
                 return;
 
-            SavePlayerPosition();
+            if (GameData.CharacterController)
+                SavePlayerPosition();
+            
             _saveSystem.SaveGameToSlot(1);
             Debug.Log("Игра сохранена");
         }
@@ -34,15 +63,15 @@ namespace Game
 
         public void LoadLevel()
         {
-            if (Lua.IsTrue("return Variable[\"IsNewGame\"] == true"))
+            if (Lua.IsTrue("Variable[\"IsNewGame\"] == true"))
             {
-                Lua.Run($"Variable[\"IsNewGame\"] = true");
+                Lua.Run("Variable[\"IsNewGame\"] = false");
                 GameData.LocationsManager.SwitchLocation("BavWorld", 0);
             }
             else
             {
-                GameData.CharacterController.transform.position = LoadPosition();
                 GameData.LocationsManager.SwitchLocation(Lua.Run("return Variable[\"LocationName\"]").AsString, Lua.Run("return Variable[\"LocationPointIndex\"]").AsInt);
+                GameData.CharacterController.transform.position = LoadPosition();
             }
         }
         
@@ -61,30 +90,55 @@ namespace Game
 
         public void Reset()
         {
-            YandexGame.savesData.ResetAllIntPair();
+            _boolPair = new Dictionary<string, bool>();
             
-            //YandexGame.savesData.MaxHealth = 20;
-            //YandexGame.savesData.LocationName = "HerobrineHome";
-            YandexGame.savesData.NumberGame += 1;
+            foreach (var boolHash in _boolHash)
+            {
+                var value = Lua.IsTrue($"Variable[{boolHash}] == true");
+                _boolPair.Add(boolHash, value);
+            }
+            
+            foreach (var intHash in _intHash)
+            {
+                var value = Lua.Run($"return Variable[{intHash}]").AsInt;
+                _intPair.Add(intHash, value);
+            }
+            
+            foreach (var stringHash in _stringsHash)
+            {
+                var value = Lua.Run($"return Variable[{stringHash}]").AsString;
+                _stringsPair.Add(stringHash, value);
+            }
 
-            YandexGame.savesData.IsCake = false;
-            YandexGame.savesData.IsNotIntroduction = false;
-            YandexGame.savesData.IsCheat = false;
-            YandexGame.savesData.IsPrisonKey = false;
-            YandexGame.savesData.IsDeveloperKey = false;
-            YandexGame.savesData.IsSpeakHerobrine = false;
-            YandexGame.savesData.IsCapturedWorld = false;
-            YandexGame.savesData.IsNotCapturedWorld = false;
-            YandexGame.savesData.IsAlternativeWorld = YandexGame.savesData.IsBadEnd && YandexGame.savesData.IsGoodEnd && YandexGame.savesData.IsStrangeEnd 
-                                                      && YandexGame.savesData.IsPalesosEnd && Random.Range(1, 6) == 2;
+            var settingData = YandexGame.savesData.SettingDataJson;
             
+            SaveSystem.DeleteSavedGameInSlot(1);
+            SaveSystem.ResetGameState();
+            YandexGame.savesData.SettingDataJson = SaveSystem.Serialize(new SavedGameData());
             YandexGame.SaveProgress();
-            SceneManager.LoadScene(0);
+            Load();
+            
+            foreach (var pair in _boolPair) 
+                Lua.Run($"Variable[{pair.Key}] = {pair.Value}");
+
+            foreach (var pair in _intPair) 
+                Lua.Run($"Variable[{pair.Key}] = {pair.Value}");
+
+            foreach (var pair in _stringsPair) 
+                Lua.Run($"Variable[{pair.Key}] = {pair.Value}");
+
+            Lua.Run($"Variable[\"FUN\"] = {Random.Range(1, 11)}");
+
+            YandexGame.savesData.SettingDataJson = settingData;
+            Save();
+            GameData.Saver.IsSave = true;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex == 0 ? 1 : 0);
         }
 
         public void SavePlayerPosition()
         {            
-            if (!IsSave)
+            if (!IsSave || !GameData.CharacterController)
                 return;
             
             SavePosition(GameData.CharacterController.transform.position);

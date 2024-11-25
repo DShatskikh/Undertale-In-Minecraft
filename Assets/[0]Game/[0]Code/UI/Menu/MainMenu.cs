@@ -35,7 +35,7 @@ namespace Game
             var assetProvider = GameData.AssetProvider;
             var slotsData = new List<MenuSlotConfig>();
 
-            if (!YandexGame.savesData.IsNotFirstPlay)
+            if (Lua.IsTrue("Variable[\"IsNewGame\"] == true"))
                 slotsData.Add(_startGameConfig);
             else
             {
@@ -65,7 +65,7 @@ namespace Game
                 _fullResetSlot.gameObject.SetActive(true);
             }
 
-            if (Lua.IsTrue("IsPassedEnding() == true"))
+            if (Lua.IsTrue("IsCompletedAllEnding() == true"))
             {
                 _slots.Add(new Vector2(0, _slots.Count), _donationSlot);
                 _donationSlot.gameObject.SetActive(true);
@@ -120,7 +120,6 @@ namespace Game
             switch (((MenuSlotViewModel)_currentSlot).Model.MenuSlotType)
             {
                 case MenuSlotType.StartGame:
-                    GameData.Saver.Reset();
                     SceneManager.LoadScene(1);
                     break;
                 case MenuSlotType.Continue:

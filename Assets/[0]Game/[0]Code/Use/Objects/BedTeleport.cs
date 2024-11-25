@@ -15,7 +15,7 @@ namespace Game
         private CinemachineVirtualCamera _cinemachineVirtual;
 
         [SerializeField]
-        private GoodGameEnd _end;
+        private BadGameEnd _end;
 
         public void Use()
         {
@@ -34,6 +34,9 @@ namespace Game
             
             _spriteRenderer.sortingOrder = -1;
             
+            var isFakeHero = Lua.IsTrue("IsHaveCompanion(\"FakeHero\") == true");
+            GameData.CompanionsManager.DeactivateAllCompanion();
+            
             var characterJumpMoveToUpCommand = new MoveToPointCommand(characterTransform, characterTransform.position.AddY(1), 0.25f);
             yield return characterJumpMoveToUpCommand.Await();
 
@@ -42,10 +45,7 @@ namespace Game
             
             var characterJumpToBedCommand = new MoveToPointCommand(characterTransform, transform.position.AddY(0.75f).AddX(-0.5f), 0.5f);
             yield return characterJumpToBedCommand.Await();
-            
-            var isFakeHero = Lua.IsTrue("IsHaveCompanion(\"FakeHero\") == true");
-            GameData.CompanionsManager.DeactivateAllCompanion();
-            
+
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.JumpSound);
 
             _cinemachineVirtual.gameObject.SetActive(true);

@@ -23,7 +23,13 @@ namespace Game
         {
             GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.transform;
             
-            if (_fakeHeroDamage.GetHealth > 0)
+            print("FakeHero жив: " + !Lua.IsTrue("Variable[IsDead_FakeHero] == true"));
+            
+            if (Lua.IsTrue("Variable[IsDead_FakeHero] == true"))
+            {
+                _puzzleEnderCrystalsManager.gameObject.SetActive(true);
+            }
+            else
             {
                 GameData.MusicPlayer.Play(_musicClip);
             
@@ -40,10 +46,6 @@ namespace Game
                 _fake.gameObject.SetActive(false);
 
                 Lua.Run("Variable[\"FakeHeroState\"] = 2");
-            }
-            else
-            {
-                _puzzleEnderCrystalsManager.gameObject.SetActive(true);
             }
             
             GameData.CharacterController.enabled = true;

@@ -31,5 +31,11 @@ namespace Game
             _view.Up();
             _button.onClick.Invoke();
         }
+        
+        public override void OnClick()
+        {
+            Disable();
+            EventBus.CancelUp?.Invoke();
+        }
     }
 }

@@ -17,16 +17,16 @@ namespace Game
         
         protected override IEnumerator AwaitCutscene()
         {
-            if (_damageEvent.GetHealth > 0)
+            if (Lua.IsTrue("Variable[IsDead_FakeHero] == true"))
+            {
+                _heroCutscene6.StartCutscene();
+            }
+            else
             {
                 yield return AwaitDialog();
                 GameData.CharacterController.enabled = false;
                 yield return new WaitForSeconds(1);
                 _dragon.StartBattle();
-            }
-            else
-            {
-                _heroCutscene6.StartCutscene();
             }
 
             Lua.Run("Variable[\"FakeHeroState\"] = 5");

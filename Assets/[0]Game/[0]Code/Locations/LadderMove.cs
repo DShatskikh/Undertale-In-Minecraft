@@ -9,19 +9,35 @@ namespace Game
         [SerializeField]
         private Transform _point;
 
+        private Coroutine _coroutine;
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent(out CharacterController characterController))
             {
-                if (GameData.CharacterController.enabled)
-                    StartCoroutine(AwaitMove());   
+                if (GameData.CharacterController.enabled && enabled && gameObject.activeSelf)
+                    _coroutine = StartCoroutine(AwaitMove());   
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (_coroutine != null && GameData.CharacterController != null)
+            {
+                StopCoroutine(_coroutine);
+                
+                GameData.CharacterController.enabled = true;
+                GameData.Saver.IsSave = true;
             }
         }
 
         private IEnumerator AwaitMove()
         {
+            GameData.Saver.IsSave = false;
+            
             var character = GameData.CharacterController;
 
+            character.GetComponent<Collider2D>().enabled = false;
             character.enabled = false;
             character.Model.SetSpeed(3);
 
@@ -30,6 +46,8 @@ namespace Game
             yield return moveToPointCommand.Await();
             
             character.enabled = true;
+            character.GetComponent<Collider2D>().enabled = true;
+            GameData.Saver.IsSave = true;
         }
     }
 }

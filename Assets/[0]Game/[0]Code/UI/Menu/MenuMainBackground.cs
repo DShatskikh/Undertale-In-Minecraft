@@ -44,16 +44,7 @@ namespace Game
 
             yield return new WaitUntil(() => GameData.IsLoad);
             
-            if (!YandexGame.savesData.IsNotFirstPlay)
-            {
-                print("IsNotFirstPlay False");
-                YandexGame.savesData.IsNotFirstPlay = true;
-                YandexGame.SaveProgress();
-                //yield return new WaitUntil(() => Input.GetButtonDown("Submit"));
-                SceneManager.LoadScene(1);
-            }
-            else
-            {
+            
                 //if (YandexGame.savesData.IsGoodEnd && YandexGame.savesData.IsBadEnd) 
                     //_guide.SetActive(true);
 
@@ -80,7 +71,6 @@ namespace Game
                 
                 //if (YandexGame.savesData.IsGoodEnd) 
                 //    _winDesiccant.SetActive(true);
-            }
         }
     }
 }

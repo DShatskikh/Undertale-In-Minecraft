@@ -42,8 +42,9 @@ namespace Game
             {
                 _selectPlayer.PlayFeedbacks();
 
-                var health = Lua.Run("return Variables[\"MaxHealth\"]").AsInt;
-                _specificationsLabel.text = $"ОЗ {health}\n АТАКА 5";
+                var health = Lua.Run("return Variable[\"MaxHealth\"]").AsInt;
+                var attack = Lua.IsTrue("Variable[\"BlueCowState\"] > 0") ? 5 : 0;
+                _specificationsLabel.text = $"ОЗ {health}\n АТАКА {attack}";
                 
                 var assetProvider = GameData.AssetProvider;
                 var itemConfigs = assetProvider.ItemsConfigContainer.GetAvailableItems();

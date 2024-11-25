@@ -20,8 +20,6 @@ namespace Game
 
         private void OnEnable()
         {
-            YandexGame.savesData.LocationName = _name;
-            
             if (GameData.IsCanStartBattle)
             {
                 //GameData.LocationsManager.SwitchLocation(_name);
@@ -31,13 +29,9 @@ namespace Game
         private void Start()
         {
             var funNumber = Lua.Run("return Variable[\"FUN\"]").AsInt;
-            print(funNumber);
-            
+
             foreach (var funComponent in GetComponentsInChildren<FUN>(true))
-            {
-                if (funComponent.IsNumber(funNumber))
-                    funComponent.gameObject.SetActive(true);
-            }
+                funComponent.gameObject.SetActive(funComponent.IsNumber(funNumber));
         }
     }
 }

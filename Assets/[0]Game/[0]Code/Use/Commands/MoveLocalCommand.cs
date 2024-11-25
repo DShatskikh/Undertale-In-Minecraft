@@ -24,6 +24,9 @@ namespace Game
 
         protected override IEnumerator AwaitExecute(UnityAction action)
         {
+            if (_transform == null)
+                yield break;
+            
             var progress = 0f;
             var startPosition = _transform.localPosition;
 

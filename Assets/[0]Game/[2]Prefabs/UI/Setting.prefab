@@ -4181,7 +4181,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1817905081441189616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4214,6 +4214,7 @@ MonoBehaviour:
   _selectPlayer: {fileID: 7666881801147333472}
   _menu: {fileID: 0}
   _isExitUp: 0
+  _hintKeyLabel: {fileID: 5041572729243599502}
 --- !u!1 &4685256912418537932
 GameObject:
   m_ObjectHideFlags: 0
@@ -8192,6 +8193,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2127558124481247233, guid: 8e2ab36bcf2a7f747905b63aef1248ea, type: 3}
   m_PrefabInstance: {fileID: 4253998401844604100}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5041572729243599502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9150890776821657162, guid: 8e2ab36bcf2a7f747905b63aef1248ea, type: 3}
+  m_PrefabInstance: {fileID: 4253998401844604100}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3db75ebb644acf8c3cf0a133283625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5192421678280802102
 PrefabInstance:
   m_ObjectHideFlags: 0

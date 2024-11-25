@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Game
 {
@@ -17,8 +16,13 @@ namespace Game
 
         [SerializeField]
         private float _stopDuration;
-        
-        private IEnumerator Start()
+
+        private void OnEnable()
+        {
+            StartCoroutine(AwaitMove());
+        }
+
+        private IEnumerator AwaitMove()
         {
             if (_transform == null)
                 _transform = transform;

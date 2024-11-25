@@ -78,6 +78,7 @@ namespace Game
 
         private void OnContinueClicked()
         {
+            _label.gameObject.SetActive(false);
             _continueButton.onClick.RemoveListener(OnContinueClicked);
             _continueButton.gameObject.SetActive(false);
             _viewModel.Next();

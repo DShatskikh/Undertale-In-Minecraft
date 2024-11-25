@@ -102,6 +102,7 @@ namespace Game
             Lua.RegisterFunction(nameof(IsWin), this, SymbolExtensions.GetMethodInfo(() => IsWin(string.Empty)));
             Lua.RegisterFunction(nameof(IsUseCylinder), this, SymbolExtensions.GetMethodInfo(() => IsUseCylinder()));
             Lua.RegisterFunction(nameof(IsPassedEnding), this, SymbolExtensions.GetMethodInfo(() => IsPassedEnding()));
+            Lua.RegisterFunction(nameof(IsCompletedAllEnding), this, SymbolExtensions.GetMethodInfo(() => IsCompletedAllEnding()));
             Lua.RegisterFunction(nameof(IsGenocide), this, SymbolExtensions.GetMethodInfo(() => IsGenocide()));
         }
         
@@ -117,9 +118,16 @@ namespace Game
         
         private bool IsPassedEnding()
         {
+            return Lua.IsTrue("Variable[\"IsBavGoodEnding\"] ~= false") 
+                   || Lua.IsTrue("Variable[\"IsBavBadEnding\"] ~= false") 
+                   || Lua.IsTrue("Variable[\"IsBavSecretEnding\"] ~= false");
+        }
+        
+        private bool IsCompletedAllEnding()
+        {
             return Lua.IsTrue("Variable[\"IsBavGoodEnding\"] == true") 
-                   || Lua.IsTrue("Variable[\"IsBavBadEnding\"] == true") 
-                   || Lua.IsTrue("Variable[\"IsBavSecretEnding\"] == true");
+                   && Lua.IsTrue("Variable[\"IsBavBadEnding\"] == true") 
+                   && Lua.IsTrue("Variable[\"IsBavSecretEnding\"] == true");
         }
         
         private bool IsGenocide() => 

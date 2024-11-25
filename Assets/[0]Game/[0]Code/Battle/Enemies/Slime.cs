@@ -95,5 +95,14 @@ namespace Game
                 _dialog.SetActive(true);
             }
         }
+
+        protected override void OnLoad()
+        {
+            _move.StopMove(true);
+            _hat.SetActive(true);
+            transform.position = _endBattlePoint.position;
+            GetComponent<Collider2D>().enabled = false;
+            _dialog.SetActive(true);
+        }
     }
 }

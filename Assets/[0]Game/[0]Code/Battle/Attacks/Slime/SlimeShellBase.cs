@@ -33,7 +33,6 @@ namespace Game
             //SetActive(false);
 
             var y = 0.5f;
-            var distance = 0.1f;
 
             Vector3 nextPoint = (targetPosition - transform.position).normalized * 1f;
             

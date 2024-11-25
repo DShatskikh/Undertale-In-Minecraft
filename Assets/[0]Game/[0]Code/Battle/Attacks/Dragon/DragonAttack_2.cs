@@ -14,14 +14,16 @@ namespace Game
         
         protected override IEnumerator AwaitExecute(UnityAction action)
         {
-            Create(_points[Random.Range(0, _points.Length)]);
+            var index = Random.Range(0, _points.Length);
+            Create(_points[index], index);
             yield return new WaitForSeconds(7f);
             action.Invoke();
         }
         
-        private DragonShell Create(Transform point)
+        private DragonShell Create(Transform point, int index)
         {
             var sell = Instantiate(_dragonShell, point.position, Quaternion.identity, transform);
+            sell.SetDirection(index == 0 ? 1 : -1);
             sell.transform.localScale = point.localScale;
             return sell;
         }

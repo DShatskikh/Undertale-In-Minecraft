@@ -28,7 +28,6 @@ namespace Game
         private void OnSubmitClick()
         {
             GameData.Saver.Reset();
-            SceneManager.LoadScene(1);
         }
         
         private void OnCancelClick()

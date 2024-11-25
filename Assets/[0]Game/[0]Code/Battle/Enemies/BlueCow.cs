@@ -147,5 +147,11 @@ namespace Game
                 print("12312312");
             }
         }
+
+        protected override void OnLoad()
+        {
+            base.OnLoad();
+            _bad.SetActive(true);
+        }
     }
 }

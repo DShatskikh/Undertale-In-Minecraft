@@ -14,7 +14,7 @@ namespace Game
         
         protected override IEnumerator AwaitCutscene()
         {
-            if (_fakeHero.GetHealth > 0)
+            if (Lua.IsTrue("Variable[IsDead_FakeHero] ~= true"))
                 yield return AwaitDialog();
             
             _darkPortal.SetActive(true);
@@ -22,7 +22,7 @@ namespace Game
             Lua.Run("Variable[\"FakeHeroState\"] = 6");
             Lua.Run("Variable[\"BlueCowState\"] = 2");
 
-            if (_fakeHero.GetHealth > 0)
+            if (Lua.IsTrue("Variable[IsDead_FakeHero] ~= true"))
                 GameData.CompanionsManager.TryActivateCompanion("FakeHero");
 
             GameData.CharacterController.enabled = true;

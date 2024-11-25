@@ -31,7 +31,7 @@ namespace Game
 
         public void SubmitSlotUp()
         {
-            
+            _screen.OnSubmitUp();
         }
     }
 }

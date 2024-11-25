@@ -53,7 +53,7 @@ namespace Game
                 post.ActivateCrystal();
             }
 
-            if (_fakeHeroEnemy.GetHealth <= 0)
+            if (Lua.IsTrue("Variable[IsDead_FakeHero] == true"))
             {
                 //GameData.CharacterController.enabled = true;
                 yield return new WaitForSeconds(0.5f);

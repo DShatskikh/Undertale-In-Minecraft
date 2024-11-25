@@ -63,11 +63,13 @@ namespace Game
                             break;
                         case AdsType.ConciergeBuyKey:
                             Lua.Run("Variable[\"ConciergeState\"] = 2");
+                            YandexMetrica.Send("AdsConciergeKey");
                             pair.Event.Invoke();
                             break;
                         case AdsType.BavNePirog:
                             Lua.Run("Variable[\"IsNePirog\"] = true");
                             GameData.GameOver.gameObject.SetActive(false);
+                            YandexMetrica.Send("AdsNePirog");
                             print(GameData.GameOver);
                             pair.Event.Invoke();
                             break;

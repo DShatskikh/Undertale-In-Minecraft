@@ -63,6 +63,7 @@ namespace Game
             GameData.MusicPlayer.Play(_previousSound);
             
             yield return GameData.EnemyData.Enemy.AwaitCustomEvent("EndBattle");
+            GameData.EnemyData.Enemy.Save();
             
             GameData.CharacterController.enabled = true;
             GameData.CharacterController.GetComponent<Collider2D>().isTrigger = false;
@@ -81,15 +82,13 @@ namespace Game
                 if (!YandexGame.savesData.IsCheat)
                     YandexGame.savesData.MaxHealth += GameData.EnemyData.EnemyConfig.WinPrize;
                 */
-                
             //};
             
             EventBus.PlayerWin?.Invoke(GameData.EnemyData.EnemyConfig);
             EventBus.PlayerWin = null;
-            GameData.Saver.IsSave = true;
-            GameData.Saver.Save();
             GameData.InputManager.Show();
 
+            GameData.Saver.IsSave = true;
             action.Invoke();
         }
     }

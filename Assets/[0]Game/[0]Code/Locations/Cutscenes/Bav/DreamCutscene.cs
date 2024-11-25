@@ -17,6 +17,7 @@ namespace Game
         protected override IEnumerator AwaitCutscene()
         {
             GameData.CinemachineVirtualCamera.Follow = _follow;
+            GameData.CinemachineVirtualCamera.transform.position = _follow.position;
             yield return new WaitForSeconds(5);
             //gameObject.SetActive(false);
             

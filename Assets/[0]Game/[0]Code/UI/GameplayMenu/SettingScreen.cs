@@ -18,12 +18,18 @@ namespace Game
         [SerializeField]
         private bool _isExitUp = true;
 
+        [SerializeField]
+        private HintKeyLabel _hintKeyLabel;
+        
         public override void Activate(bool isActive)
         {
             base.Activate(isActive);
 
             if (isActive)
             {
+                if (_isExitUp)
+                    _hintKeyLabel.gameObject.SetActive(false);
+                
                 _selectPlayer.PlayFeedbacks();
 
                 _slots = new Dictionary<Vector2, BaseSlotController>();

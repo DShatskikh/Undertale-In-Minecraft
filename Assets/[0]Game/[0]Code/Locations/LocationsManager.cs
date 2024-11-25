@@ -1,4 +1,5 @@
 ﻿using System;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Analytics;
 
@@ -45,14 +46,17 @@ namespace Game
                     
                     if (_currentLocation.Points.Length <= pointIndex)
                     {
-                        Debug.LogWarning($"Такого индекса нет Всего точек: ({_currentLocation.Points.Length}) Текущий индекс: ({pointIndex}) Локация: ({_currentLocation})");
+                        Debug.LogWarning($"Такого индекса нет Всего точек: ({_currentLocation.Points.Length}) Текущий индекс: ({pointIndex}) Локация: ({nextLocationName})");
                         pointIndex = 0;
                     }
                     
                     GameData.CharacterController.transform.position = _currentLocation.Points[pointIndex].position;
+                    GameData.CinemachineVirtualCamera.ForceCameraPosition(GameData.CharacterController.transform.position, Quaternion.identity);
+
                     GameData.CompanionsManager.ResetAllPositions();
                     
                     Analytics.CustomEvent("Location " + _currentLocation.gameObject.name);
+                    Lua.Run($"Variable[\"LocationName\"] = {nextLocationName}");
                     return;
                 }
                 else

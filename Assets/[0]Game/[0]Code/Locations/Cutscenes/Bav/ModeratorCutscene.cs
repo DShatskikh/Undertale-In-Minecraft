@@ -42,6 +42,8 @@ namespace Game
 
         protected override IEnumerator AwaitCutscene()
         {
+            GameData.Saver.IsSave = false;
+            
             GameData.CharacterController.enabled = false;
             _cameraTarget.transform.position = GameData.CinemachineVirtualCamera.transform.position;
 

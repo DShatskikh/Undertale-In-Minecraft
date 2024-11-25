@@ -1,4 +1,5 @@
 using System.Collections;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -23,6 +24,7 @@ namespace Game
         
         private IEnumerator Start()
         {
+            GameData.Saver.IsSave = false;
             GameData.CharacterController.enabled = false;
 
             //GameData.CinemachineVirtualCamera
@@ -60,6 +62,9 @@ namespace Game
             
             GameData.CharacterController.GetComponent<Collider2D>().enabled = true;
             GameData.CharacterController.enabled = true;
+            
+            Lua.Run("Variable[\"BavWorldStopState\"] = 2");
+            GameData.Saver.IsSave = true;
         }
     }
 }

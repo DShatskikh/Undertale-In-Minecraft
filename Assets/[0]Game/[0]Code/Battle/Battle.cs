@@ -88,6 +88,8 @@ namespace Game
 
         public void StartBattle()
         {
+            GameData.Saver.IsSave = false;
+            
             MusicStopTime = 0;
             _previousMusic = GameData.MusicPlayer.Clip;
             

@@ -80,6 +80,9 @@ namespace Game
 
         private SettingData GetData()
         {
+            if (string.IsNullOrEmpty(YandexGame.savesData.SettingDataJson))
+                return new SettingData(1, 1, true, 0);
+            
             return JsonUtility.FromJson<SettingData>(YandexGame.savesData.SettingDataJson);
         }
     }

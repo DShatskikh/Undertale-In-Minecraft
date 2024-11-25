@@ -36,6 +36,12 @@ namespace Game
             _button.onClick.Invoke();
         }
 
+        public override void OnClick()
+        {
+            Disable();
+            EventBus.SubmitUp?.Invoke();
+        }
+        
         private IEnumerator AwaitCheck()
         {
             while (true)

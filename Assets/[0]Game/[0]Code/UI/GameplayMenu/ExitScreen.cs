@@ -39,7 +39,7 @@ namespace Game
                     var slot = Instantiate(assetProvider.ExitSlotPrefab, _container);
                     slot.Model = slotsData[i];
                     slot.Init(this);
-                    int rowIndex = slotsData.Length - i - 1;
+                    int rowIndex = _slots.Count;
                     int columnIndex = 0;
                     _slots.Add(new Vector2(columnIndex, rowIndex), slot);
                 }
@@ -72,13 +72,18 @@ namespace Game
         
         public override void OnSubmitDown()
         {
+            
+        }
+
+        public override void OnSubmitUp()
+        {
             if (!_isSelect)
                 return;
             
             switch (((ExitSlotViewModel)_currentSlot).Model.ExitSlotType)
             {
                 case ExitSlotType.Menu:
-                    SceneManager.LoadScene(0);
+                    StartCoroutine(AwaitToMenu());
                     break;
                 case ExitSlotType.Desktop:
                     Application.Quit();
@@ -92,7 +97,7 @@ namespace Game
         {
             
         }
-        
+
         public override void OnSlotIndexChanged(Vector2 direction)
         {
             if (!_isSelect)
@@ -122,19 +127,26 @@ namespace Game
                 }
             }
         }
-        
+
         public override void SelectSlot(BaseSlotController slotViewModel)
         {
             base.SelectSlot(slotViewModel);
             _gameplayMenu.UnSelect();
             Select();
         }
-        
+
         public void SelectZero()
         {
             UnSelect();
             _currentIndex = new Vector2(0, _slots.Count - 1);
             Select();
+        }
+
+        private IEnumerator AwaitToMenu()
+        {
+            Time.timeScale = 1;
+            yield return null;
+            SceneManager.LoadScene(0);
         }
     }
 }

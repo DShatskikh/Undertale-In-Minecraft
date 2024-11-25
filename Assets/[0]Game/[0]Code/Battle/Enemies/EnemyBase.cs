@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +13,11 @@ namespace Game
 
         public EnemyConfig GetConfig => _config;
 
+        private void Start()
+        {
+            Load();
+        }
+        
         public virtual void StartBattle()
         {
             GameData.EnemyData = new EnemyData()
@@ -26,5 +33,21 @@ namespace Game
         }
         
         public abstract IEnumerator AwaitCustomEvent(string eventName, float value = 0);
+
+        public virtual void Save()
+        {
+            Lua.Run($"Variable[IsWin_{_config.name}] = true");
+        }
+
+        private void Load()
+        {
+            if (Lua.IsTrue($"Variable[IsWin_{_config.name}] == true"))
+                OnLoad();
+        }
+
+        protected virtual void OnLoad()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

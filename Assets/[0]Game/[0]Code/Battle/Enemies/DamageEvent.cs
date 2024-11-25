@@ -12,6 +12,9 @@ namespace Game
     public class DamageEvent : MonoBehaviour
     {
         [SerializeField]
+        private EnemyBase _enemy;
+        
+        [SerializeField]
         private SpriteRenderer _spriteRenderer;
 
         [SerializeField]
@@ -42,6 +45,9 @@ namespace Game
         private void Start()
         {
             _health = _startHealth;
+
+            if (Lua.IsTrue($"Variable[IsDead_{_enemy.GetConfig.name}] == true"))
+                _health = 0;
             
             _label.text = $"{_health}/{_startHealth}";
             _progressBar.SetBar(_health, 0, _startHealth);
@@ -144,10 +150,8 @@ namespace Game
             var killMessageCommand = new MonologueCommand(_killLocalizedString);
             yield return killMessageCommand.Await();
             
-            EventBus.Kill?.Invoke();
-
-            var kills = Lua.Run("Variable[KILLS]").AsInt;
-            Lua.Run($"Variable[KILLS] = {kills}");
+            var kills = Lua.Run("return Variable[KILLS]").AsInt;
+            Lua.Run($"Variable[KILLS] = {kills + 1}");
 
             if (kills >= 4)
             {
@@ -155,6 +159,13 @@ namespace Game
                 GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HypnosisSound);
             }
 
+            EventBus.Kill?.Invoke();
+            
+            Lua.Run($"Variable[IsDead_{_enemy.GetConfig.name}] = true");
+            print(_enemy.GetConfig.name);
+            print($"Variable[IsDead_{_enemy.GetConfig.name}] = true");
+            print(Lua.IsTrue("Variable[IsDead_FakeHero] == true"));
+            print(Lua.IsTrue($"Variable[IsDead_{_enemy.GetConfig.name}] == true"));
             yield return null;
         }
     }
