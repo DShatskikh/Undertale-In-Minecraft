@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -99,7 +100,7 @@ namespace Game
             GameData.HeartController.enabled = false;
             _arena = Instantiate(GameData.EnemyData.EnemyConfig.Arena, transform);
             GameData.HeartController.transform.position = _arena.transform.position;
-            GameData.Saver.IsSavingPosition = false;
+            GameData.Saver.IsSave = false;
             GameData.InputManager.Show();
             GameData.CompanionsManager.SetMove(false);
             
@@ -116,8 +117,9 @@ namespace Game
             
             GameData.HeartController.gameObject.SetActive(false);
 
-            YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
-            EventBus.HealthChange.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
+            var maxHealth = Lua.Run("return Variable[\"MaxHealth\"]").AsInt;
+            GameData.HeartController.Health = maxHealth;
+            EventBus.HealthChange.Invoke(maxHealth, maxHealth);
             
             GameData.BattleProgress = 0;
             EventBus.BattleProgressChange?.Invoke(0);

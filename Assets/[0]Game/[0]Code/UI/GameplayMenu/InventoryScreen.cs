@@ -27,6 +27,9 @@ namespace Game
         private TMP_Text _nameLabel, _descriptionLabel, _noItemLabel;
 
         [SerializeField]
+        private TMP_Text _specificationsLabel;
+        
+        [SerializeField]
         private Button _useButton;
 
         public override void Activate(bool isActive)
@@ -39,6 +42,9 @@ namespace Game
             {
                 _selectPlayer.PlayFeedbacks();
 
+                var health = Lua.Run("return Variables[\"MaxHealth\"]").AsInt;
+                _specificationsLabel.text = $"ОЗ {health}\n АТАКА 5";
+                
                 var assetProvider = GameData.AssetProvider;
                 var itemConfigs = assetProvider.ItemsConfigContainer.GetAvailableItems();
 

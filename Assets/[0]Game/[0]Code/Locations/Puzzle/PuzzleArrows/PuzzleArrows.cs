@@ -1,13 +1,18 @@
 using System;
+using System.Collections.Generic;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization;
+using YG;
 
 namespace Game
 {
     public class PuzzleArrows : UseObject
     {
+        [SerializeField]
+        private string _id;
+        
         [SerializeField]
         private PuzzleArrowView _view;
 
@@ -25,7 +30,7 @@ namespace Game
 
         private void Start()
         {
-            _isDecision = Lua.IsTrue("Variable[\"IsArrowPuzzle\"] == true");
+            _isDecision = Lua.IsTrue($"Variable[\"IsArrowPuzzle_{_id}\"] == true");
 
             if (_isDecision)
                 _event.Invoke();
@@ -80,7 +85,9 @@ namespace Game
             {
                 _isDecision = true;
                 GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HypnosisSound);
-                Lua.Run("Variable[\"IsArrowPuzzle\"] = true");
+                Lua.Run($"Variable[\"IsArrowPuzzle_{_id}\"] = true");
+                var dictionary = new Dictionary<string, string>() { {"Puzzle", $"ArrowPuzzle_{_id}"} };
+                YandexMetrica.Send("Puzzle", dictionary);
                 _event.Invoke();
             }
             

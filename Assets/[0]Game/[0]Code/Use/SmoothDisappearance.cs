@@ -28,6 +28,9 @@ namespace Game
                 alpha -= Time.deltaTime / _duration;
                 _spriteRenderer.color = _spriteRenderer.color.SetA(alpha);
                 yield return null;
+
+                if (alpha < 0)
+                    alpha = 0;
             }
             
             _event.Invoke();

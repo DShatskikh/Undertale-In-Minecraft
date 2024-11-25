@@ -44,7 +44,7 @@ namespace Game
 
         private IEnumerator AwaitStartBattle()
         {
-            _move.StopMove();
+            _move.StopMove(true);
             //transform.position = _startPosition;
                 
             var dialogCommand = new DialogCommand(_startReplica, null, null);

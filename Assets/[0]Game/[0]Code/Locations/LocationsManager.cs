@@ -53,7 +53,7 @@ namespace Game
                     GameData.CompanionsManager.ResetAllPositions();
                     
                     Analytics.CustomEvent("Location " + _currentLocation.gameObject.name);
-                    break;
+                    return;
                 }
                 else
                 {
@@ -61,7 +61,7 @@ namespace Game
                 }
             }
             
-            Debug.LogWarning($"Нет такой локации: ({_currentLocation})");
+            Debug.LogWarning($"Нет такой локации: ({nextLocationName})");
         }
 
         public void CloseCurrentLocation()

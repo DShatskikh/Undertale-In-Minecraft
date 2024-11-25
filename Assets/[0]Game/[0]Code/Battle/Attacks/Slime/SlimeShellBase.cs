@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 namespace Game
 {
-    public class SlimeShellBase : Shell
+    public class SlimeShellBase : MonoBehaviour
     {
         [SerializeField]
         private SpriteRenderer _view;

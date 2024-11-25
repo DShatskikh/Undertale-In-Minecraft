@@ -16,17 +16,13 @@ namespace Game
         
         private void OnEnable()
         {
+            OnKill();
             EventBus.Kill += OnKill;
         }
 
         private void OnDisable()
         {
             EventBus.Kill -= OnKill;
-        }
-
-        private void Start()
-        {
-            OnKill();
         }
 
         private void OnKill()

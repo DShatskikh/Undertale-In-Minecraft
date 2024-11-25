@@ -15,7 +15,7 @@ namespace Game
         private CinemachineVirtualCamera _cinemachineVirtual;
 
         [SerializeField]
-        private GenocideGameEnd _end;
+        private GoodGameEnd _end;
 
         public void Use()
         {
@@ -43,6 +43,9 @@ namespace Game
             var characterJumpToBedCommand = new MoveToPointCommand(characterTransform, transform.position.AddY(0.75f).AddX(-0.5f), 0.5f);
             yield return characterJumpToBedCommand.Await();
             
+            var isFakeHero = Lua.IsTrue("IsHaveCompanion(\"FakeHero\") == true");
+            GameData.CompanionsManager.DeactivateAllCompanion();
+            
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.JumpSound);
 
             _cinemachineVirtual.gameObject.SetActive(true);
@@ -55,10 +58,8 @@ namespace Game
                 yield return null;
             } while (size > 0.5f);
 
-            GameData.CompanionsManager.DeactivateAllCompanion();
-            
             yield return new WaitForSeconds(2);
-            
+
             GameData.CharacterController.HatPoint.FreakShow(false);
             GameData.CharacterController.View.Sleep();
 
@@ -72,7 +73,7 @@ namespace Game
                 GameData.LocationsManager.SwitchLocation("FakeHerobrineHome", 1);   
             }
             else
-                _end.Use();
+                _end.Use(isFakeHero);
         }
     }
 }

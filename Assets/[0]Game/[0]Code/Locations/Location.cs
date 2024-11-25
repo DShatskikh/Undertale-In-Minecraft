@@ -31,8 +31,9 @@ namespace Game
         private void Start()
         {
             var funNumber = Lua.Run("return Variable[\"FUN\"]").AsInt;
+            print(funNumber);
             
-            foreach (var funComponent in GetComponentsInChildren<FUN>())
+            foreach (var funComponent in GetComponentsInChildren<FUN>(true))
             {
                 if (funComponent.IsNumber(funNumber))
                     funComponent.gameObject.SetActive(true);

@@ -1,4 +1,5 @@
 ﻿using MoreMountains.Tools;
+using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
 using YG;
@@ -15,9 +16,10 @@ namespace Game
 
         private void OnEnable()
         {
+            var maxHealth = Lua.Run("Variable[\"MaxHealth\"]").AsInt;
             EventBus.HealthChange += UpdateHealthView;
-            _progressBar.SetBar(YandexGame.savesData.MaxHealth, 0, YandexGame.savesData.MaxHealth);
-            UpdateHealthView(YandexGame.savesData.MaxHealth,YandexGame.savesData.Health);
+            _progressBar.SetBar(maxHealth, 0, maxHealth);
+            UpdateHealthView(maxHealth,GameData.HeartController.Health);
         }
 
         private void OnDisable()

@@ -1,4 +1,5 @@
-﻿using PixelCrushers.DialogueSystem;
+﻿using PixelCrushers;
+using PixelCrushers.DialogueSystem;
 using RimuruDev;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -39,6 +40,9 @@ namespace Game
 
         [SerializeField]
         private PlayerInput _playerInput;
+
+        [SerializeField]
+        private SaveSystem _saveSystem;
         
         private PurchasedManager _purchaseManager;
         
@@ -56,14 +60,16 @@ namespace Game
             GameData.DeviceType = _deviceTypeDetector.CurrentDeviceType;
             
             YandexGame.GetDataEvent += () => GameData.IsLoad = true;
-            GameData.Saver = new Saver();
+            GameData.Saver = new Saver(_saveSystem);
             GameData.PlayerInput = _playerInput;
             GameData.CoroutineRunner = this;
             
 #if UNITY_EDITOR
             GameData.DeviceType = _testDeviceType;
 #endif
-            //GameData.Saver.Load();
+
+            RegisterLuaFunctions();
+            GameData.Saver.Load();
         }
 
         private void Start()
@@ -75,13 +81,11 @@ namespace Game
             GameData.AudioMixer = _audioMixer;
             GameData.AdsManager = _adsManager;
             
-            YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
+            //YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
             Application.targetFrameRate = 60;
 
             GameData.SettingStorage = new SettingStorage();
-            
-            RegisterLuaFunctions();
-            
+
 #if UNITY_EDITOR
             if (_isNotLoad)
                 return;

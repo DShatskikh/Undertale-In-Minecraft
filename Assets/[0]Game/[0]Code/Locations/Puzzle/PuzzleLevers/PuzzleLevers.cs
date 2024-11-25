@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization;
+using YG;
 
 namespace Game
 {
@@ -26,7 +29,15 @@ namespace Game
         private bool _isDecision;
 
         public List<ReactiveProperty<bool>> CurrentProgress => _currentProgress;
-        
+
+        private void Start()
+        {
+            _isDecision = Lua.IsTrue($"Variable[\"IsArrowPuzzle_{_id}\"] == true");
+            
+            if (_isDecision)
+                _event.Invoke();
+        }
+
         public override void Use()
         {
             GameData.CharacterController.enabled = false;
@@ -68,6 +79,9 @@ namespace Game
             {
                 _isDecision = true;
                 GameData.EffectSoundPlayer.Play(GameData.AssetProvider.PistonSound);
+                Lua.Run($"Variable[\"IsPuzzleLevers_{_id}\"] = true");
+                var dictionary = new Dictionary<string, string>() { {"Puzzle", $"IsPuzzleLevers_{_id}"} };
+                YandexMetrica.Send("Puzzle", dictionary);
                 _event.Invoke();
             }
             

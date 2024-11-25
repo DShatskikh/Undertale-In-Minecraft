@@ -86,7 +86,7 @@ namespace Game
             
             EventBus.PlayerWin?.Invoke(GameData.EnemyData.EnemyConfig);
             EventBus.PlayerWin = null;
-            GameData.Saver.IsSavingPosition = true;
+            GameData.Saver.IsSave = true;
             GameData.Saver.Save();
             GameData.InputManager.Show();
 

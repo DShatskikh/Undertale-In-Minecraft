@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -27,12 +28,17 @@ namespace Game
             StartMove();
         }
 
+        private void OnDisable()
+        {
+            StopMove(false);
+        }
+
         public void StartMove()
         {
             _coroutine = StartCoroutine(AwaitMove());
         }
         
-        public void StopMove()
+        public void StopMove(bool isAwaitStop)
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
@@ -42,7 +48,8 @@ namespace Game
             _view.flipX = true;
             _shadow.SetActive(false);
 
-            StartCoroutine(AwaitStopMove());
+            if (isAwaitStop)
+                StartCoroutine(AwaitStopMove());
         }
 
         private IEnumerator AwaitStopMove()

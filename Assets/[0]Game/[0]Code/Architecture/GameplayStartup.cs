@@ -129,7 +129,10 @@ namespace Game
                 GameData.CharacterController.enabled = true;
                 GameData.CharacterController.gameObject.SetActive(true);
                 var testLoad = new TestLoad();
-                testLoad.Load();
+                //testLoad.Load();
+                
+                GameData.Saver.LoadLevel();
+                
                 //GameData.LocationsManager.SwitchLocation(YandexGame.savesData.LocationName, YandexGame.savesData.PointIndex);
                 //GameData.CharacterController.transform.position = GameData.Saver.LoadPosition();
             //}

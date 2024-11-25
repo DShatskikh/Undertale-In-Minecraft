@@ -38,15 +38,9 @@ namespace Game
             
             yield return new WaitForSeconds(0.5f);
 
-            yield return GameData.Battle.AddProgressLabel.AwaitAnimation(
-                GameData.EnemyData.Enemy.transform.position.AddY(1),
-                $"-{_damage}", 
-                Color.red, $"-{_damage}");
+            var popUpLabel = GameData.Battle.AddProgressLabel;
+            yield return popUpLabel.AwaitAnimation(GameData.EnemyData.Enemy.transform.position.AddY(1), $"-{_damage}", Color.red, $"-{_damage}", GameData.AssetProvider.HurtSound);
             
-            GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HurtSound);
-            
-            yield return new WaitForSeconds(1);
-
             _progressBar.gameObject.SetActive(false);
 
             action?.Invoke();

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.InputSystem;
@@ -22,6 +23,7 @@ namespace Game
         private Vector3 _previousPosition;
         
         public HeartView View => _view;
+        public int Health;
 
         private void Awake()
         {
@@ -69,13 +71,16 @@ namespace Game
         
         private IEnumerator TakeDamage()
         {
-            YandexGame.savesData.Health -= GameData.EnemyData.EnemyConfig.Damage;
+            GameData.HeartController.Health -= GameData.EnemyData.EnemyConfig.Damage;
             EventBus.Damage?.Invoke(1);
-            EventBus.HealthChange?.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
+            
+            var maxHealth = Lua.Run("return Variable[\"MaxHealth\"]").AsInt;
+            
+            EventBus.HealthChange?.Invoke(maxHealth, GameData.HeartController.Health);
             _shield.Off();
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HurtSound);
             
-            if (YandexGame.savesData.Health <= 0 && !YandexGame.savesData.IsCheat)
+            if (GameData.HeartController.Health <= 0 && !YandexGame.savesData.IsCheat)
             {
                 Death();
                 yield break;

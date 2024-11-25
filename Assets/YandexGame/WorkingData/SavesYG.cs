@@ -37,11 +37,8 @@ namespace YG
         public bool IsStrangeEnd;
         public bool IsPalesosEnd;
         public bool IsNotIntroduction;
-        public float PositionX;
-        public float PositionY;
         public int Palesos;
         public string LocationName;
-        public int Health;
         public bool IsPrisonKey;
         public bool IsDeveloperKey;
         public bool IsGoldKey;
@@ -55,13 +52,15 @@ namespace YG
 
         public int NumberGame = 1;
         public string SettingDataJson;
-        public int MaxHealth = 20;
+        //public int MaxHealth = 20;
         [FormerlySerializedAs("GoldLily")] public int GoldTulip = 0;
 
         public List<IntStringPair> _intPairs = new List<IntStringPair>();
 
         public bool IsOneOrMoreEnd => IsGoodEnd || IsBadEnd || IsStrangeEnd || IsPalesosEnd;
         public bool IsAllEnd => IsGoodEnd && IsBadEnd && IsStrangeEnd && IsPalesosEnd;
+        public string SavedGameData;
+
         public bool IsAlternativeWorld;
 
         public int PointIndex;
@@ -75,7 +74,7 @@ namespace YG
             openLevels[1] = true;
             
             NumberGame = 1;
-            MaxHealth = 20;
+            //MaxHealth = 20;
         }
 
         public void ResetAllIntPair()

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PixelCrushers.DialogueSystem;
+using UnityEngine;
 using YG;
 
 namespace Game
@@ -10,8 +11,8 @@ namespace Game
         
         public void Increase()
         {
-            YandexGame.savesData.MaxHealth += _value;
-            YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
+            Lua.Run($"Variable[\"MaxHealth\"] += {_value}");
+            GameData.HeartController.Health = Lua.Run("return Variable[\"MaxHealth\"]").AsInt;
         }
     }
 }

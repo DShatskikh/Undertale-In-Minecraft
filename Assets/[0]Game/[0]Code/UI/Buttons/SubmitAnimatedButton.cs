@@ -4,20 +4,36 @@ namespace Game
 {
     public class SubmitAnimatedButton : AnimatedButton
     {
+        private bool _isDown;
+        
         protected override void Enable()
         {
-            EventBus.Submit += _view.Down;
-            EventBus.SubmitUp += _view.Up;
-            EventBus.SubmitUp += _button.onClick.Invoke;
+            EventBus.Submit += OnSubmitDown;
+            EventBus.SubmitUp += OnSubmitUp;
 
             //StartCoroutine(AwaitCheck());
         }
 
         protected override void Disable()
         {
-            EventBus.Submit -= _view.Down;
-            EventBus.SubmitUp -= _view.Up;
-            EventBus.SubmitUp -= _button.onClick.Invoke;
+            EventBus.Submit -= OnSubmitDown;
+            EventBus.SubmitUp -= OnSubmitUp;
+        }
+
+        private void OnSubmitDown()
+        {
+            _isDown = true;
+            _view.Down();
+        }
+
+        private void OnSubmitUp()
+        {
+            if (!_isDown)
+                return;
+
+            _isDown = false;
+            _view.Up();
+            _button.onClick.Invoke();
         }
 
         private IEnumerator AwaitCheck()

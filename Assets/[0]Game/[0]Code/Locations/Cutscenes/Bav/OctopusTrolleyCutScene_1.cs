@@ -2,6 +2,7 @@ using System.Collections;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Playables;
+using YG;
 
 namespace Game
 {
@@ -40,10 +41,12 @@ namespace Game
             var focusPointMoveCharacter = new MoveToPointCommand(_focusPoint.transform, GameData.CharacterController.transform.position, 1f);
             yield return focusPointMoveCharacter.Await();
             
-            Lua.Run("Variable[\"BavStopState\"] = 1");
+            Lua.Run("Variable[\"BavWorldStopState\"] = 1");
 
             GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.View.transform;
             GameData.CharacterController.enabled = true;
+            
+            YandexMetrica.Send("TripOctopus");
         }
     }
 }

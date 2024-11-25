@@ -9,7 +9,7 @@ namespace Game
         
         public void Use()
         {
-            GameData.Saver.IsSavingPosition = _isSave;
+            GameData.Saver.IsSave = _isSave;
         }
     }
 }

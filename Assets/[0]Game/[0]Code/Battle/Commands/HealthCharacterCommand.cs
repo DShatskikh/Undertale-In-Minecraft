@@ -1,4 +1,5 @@
 using System.Collections;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
 using YG;
@@ -19,15 +20,17 @@ namespace Game
 
         protected override IEnumerator AwaitExecute(UnityAction action)
         {
-            if (YandexGame.savesData.Health != YandexGame.savesData.MaxHealth)
+            var maxHealth = Lua.Run("return Variable[\"MaxHealth\"]").AsInt;
+            
+            if (GameData.HeartController.Health != maxHealth)
             {
                 yield return GameData.Battle.HealthPopUpLabel.AwaitAnimation(
                     GameData.CharacterController.transform.position.AddY(1),
-                    $"+{YandexGame.savesData.MaxHealth - YandexGame.savesData.Health}", 
+                    $"+{maxHealth - GameData.HeartController.Health}", 
                     Color.green, "Макс", GameData.AssetProvider.HypnosisSound);
             
-                YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
-                EventBus.HealthChange.Invoke(YandexGame.savesData.MaxHealth, YandexGame.savesData.Health);
+                GameData.HeartController.Health = maxHealth;
+                EventBus.HealthChange.Invoke(maxHealth, GameData.HeartController.Health);
             }
 
             action.Invoke();

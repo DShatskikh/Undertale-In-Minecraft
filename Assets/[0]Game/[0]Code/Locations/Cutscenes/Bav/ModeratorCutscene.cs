@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -118,6 +120,11 @@ namespace Game
             yield return new WaitForSeconds(2);
             
             yield return AwaitDialog();
+            
+            var dictionary = new Dictionary<string, string>() { {"Ends","Strange"} };
+            YandexMetrica.Send("Ends", dictionary);
+            
+            GameData.Saver.Reset();
         }
     }
 }
