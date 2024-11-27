@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    public abstract class UseObject : MonoBehaviour
+    public abstract class UseObject : MonoBehaviour, IUseObject
     {
         public abstract void Use();
     }

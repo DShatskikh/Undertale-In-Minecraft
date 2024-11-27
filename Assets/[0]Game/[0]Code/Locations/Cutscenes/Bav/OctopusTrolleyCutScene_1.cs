@@ -16,7 +16,7 @@ namespace Game
 
         private IEnumerator Start()
         {
-            GameData.Saver.IsSave = false;
+            GameData.SaveLoadManager.IsSave = false;
             yield return new WaitForSeconds(10);
 
             while (!GameData.CharacterController.enabled)
@@ -48,7 +48,7 @@ namespace Game
             GameData.CharacterController.enabled = true;
             
             YandexMetrica.Send("TripOctopus");
-            GameData.Saver.IsSave = true;
+            GameData.SaveLoadManager.IsSave = true;
         }
     }
 }

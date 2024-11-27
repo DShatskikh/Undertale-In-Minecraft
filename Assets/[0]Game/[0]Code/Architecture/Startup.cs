@@ -60,7 +60,7 @@ namespace Game
             GameData.DeviceType = _deviceTypeDetector.CurrentDeviceType;
             
             YandexGame.GetDataEvent += () => GameData.IsLoad = true;
-            GameData.Saver = new Saver(_saveSystem);
+            GameData.SaveLoadManager = new SaveLoadManager(_saveSystem);
             GameData.PlayerInput = _playerInput;
             GameData.CoroutineRunner = this;
             
@@ -69,7 +69,7 @@ namespace Game
 #endif
 
             RegisterLuaFunctions();
-            GameData.Saver.Load();
+            GameData.SaveLoadManager.Load();
         }
 
         private void Start()

@@ -24,7 +24,7 @@ namespace Game
         
         private IEnumerator Start()
         {
-            GameData.Saver.IsSave = false;
+            GameData.SaveLoadManager.IsSave = false;
             GameData.CharacterController.enabled = false;
 
             //GameData.CinemachineVirtualCamera
@@ -64,7 +64,7 @@ namespace Game
             GameData.CharacterController.enabled = true;
             
             Lua.Run("Variable[\"BavWorldStopState\"] = 2");
-            GameData.Saver.IsSave = true;
+            GameData.SaveLoadManager.IsSave = true;
         }
     }
 }

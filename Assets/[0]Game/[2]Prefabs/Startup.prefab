@@ -1703,10 +1703,10 @@ PrefabInstance:
       addedObject: {fileID: 7818239079541089500}
     - targetCorrespondingSourceObject: {fileID: 125852, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7287288731030545017}
+      addedObject: {fileID: 4642488095318198337}
     - targetCorrespondingSourceObject: {fileID: 125852, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4642488095318198337}
+      addedObject: {fileID: 1883687353157257569}
   m_SourcePrefab: {fileID: 100100000, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
 --- !u!1 &8305514265381034388 stripped
 GameObject:
@@ -1742,24 +1742,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903c7c4a880650046bac093729e9799a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_key: 
+  m_key: Dialogue
   m_appendSaverTypeToKey: 0
   m_saveAcrossSceneChanges: 1
   m_restoreStateOnStart: 0
   skipApplyDataAfterFramesIfApplyImmediate: 1
-  saveRawData: 0
---- !u!114 &7287288731030545017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8305514265381034388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c5ea4dcd6bc38d4784cd019d1d6f444, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  saveRawData: 1
 --- !u!114 &4642488095318198337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1772,6 +1760,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5a2be077784e02a007d6b9b671d294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1883687353157257569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305514265381034388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af012c0ddd89bab439c810d126388d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_prettyPrint: 0
 --- !u!4 &8305514265381326004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425660, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}

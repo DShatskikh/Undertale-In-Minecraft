@@ -88,7 +88,7 @@ namespace Game
 
         public void StartBattle()
         {
-            GameData.Saver.IsSave = false;
+            GameData.SaveLoadManager.IsSave = false;
             
             MusicStopTime = 0;
             _previousMusic = GameData.MusicPlayer.Clip;
@@ -102,7 +102,7 @@ namespace Game
             GameData.HeartController.enabled = false;
             _arena = Instantiate(GameData.EnemyData.EnemyConfig.Arena, transform);
             GameData.HeartController.transform.position = _arena.transform.position;
-            GameData.Saver.IsSave = false;
+            GameData.SaveLoadManager.IsSave = false;
             GameData.InputManager.Show();
             GameData.CompanionsManager.SetMove(false);
             

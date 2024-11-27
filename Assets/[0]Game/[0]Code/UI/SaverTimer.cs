@@ -23,7 +23,7 @@ namespace Game
             while (true)
             {
                 yield return new WaitForSeconds(_saveTime);
-                GameData.Saver.Save();
+                GameData.SaveLoadManager.Save();
             }
         }
     }

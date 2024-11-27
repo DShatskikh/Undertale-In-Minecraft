@@ -1,4 +1,5 @@
 using System.Collections;
+using PixelCrushers;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -90,8 +91,6 @@ namespace Game
         {
             if (Lua.IsTrue("Variable[\"BlueCowState\"] == 0"))
             {
-                print("11111");
-                
                 GameData.CharacterController.enabled = false;
                 GameData.CinemachineVirtualCamera.Follow = _follow;
                 GameData.MusicPlayer.Play(_ost);
@@ -106,8 +105,6 @@ namespace Game
             }
             else if (Lua.IsTrue("Variable[\"BlueCowState\"] == 2 and (IsGenocide() == false)"))
             {
-                print("4444444");
-                
                 GameData.CharacterController.enabled = false;
                 GameData.CinemachineVirtualCamera.Follow = _follow;
                 GameData.MusicPlayer.Play(_ost);
@@ -125,8 +122,6 @@ namespace Game
             }
             else if (Lua.IsTrue("Variable[\"BlueCowState\"] == 2 and (IsGenocide() == true)"))
             {
-                print("wewewewewe");
-
                 GameData.CharacterController.enabled = false;
                 GameData.CinemachineVirtualCamera.Follow = _follow;
                 GameData.MusicPlayer.Play(_ost);
@@ -142,16 +137,18 @@ namespace Game
                 _trigger.SetActive(false);
                 StartBattle();
             }
-            else
-            {
-                print("12312312");
-            }
         }
 
-        protected override void OnLoad()
+        public override void ApplyData(string s)
         {
-            base.OnLoad();
-            _bad.SetActive(true);
+            var data = SaveSystem.Deserialize(s, _saveData);
+            _saveData = data;
+
+            if (data.IsDefeated)
+            {
+                gameObject.SetActive(false);   
+                _bad.SetActive(true);
+            }
         }
     }
 }

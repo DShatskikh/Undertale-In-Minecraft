@@ -1,5 +1,4 @@
 using PixelCrushers;
-using UnityEngine;
 using YG;
 
 namespace Game
@@ -18,6 +17,7 @@ namespace Game
 
         public override SavedGameData RetrieveSavedGameData(int slotNumber)
         {
+            //return YandexGame.savesData.SavedGameData;
             var s = YandexGame.savesData.SavedGameData;
             return HasDataInSlot(slotNumber) ? SaveSystem.Deserialize<SavedGameData>(s) : new SavedGameData();
         }

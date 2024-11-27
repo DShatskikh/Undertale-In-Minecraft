@@ -84,7 +84,7 @@ namespace Game
                 saver.Reset();
             }
             
-            GameData.Saver.Reset();
+            GameData.SaveLoadManager.Reset();
             SceneManager.LoadScene(0);
         }
 #endif

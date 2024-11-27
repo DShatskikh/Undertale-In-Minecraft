@@ -1632,7 +1632,8 @@ namespace Febucci.UI
                 if (!textInfo.characterInfo[i].isVisible) continue;
 
                 //Updates TMP char info
-                textInfo.characterInfo[i] = characters[i].data.tmp_CharInfo;
+                if (characters.Length > i)
+                    textInfo.characterInfo[i] = characters[i].data.tmp_CharInfo;
 
                 //Updates vertices
                 for (byte k = 0; k < TextUtilities.verticesPerChar; k++)

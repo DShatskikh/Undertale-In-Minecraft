@@ -1,21 +1,37 @@
 using System;
 using System.Collections;
-using PixelCrushers.DialogueSystem;
+using PixelCrushers;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Game
 {
-    public abstract class EnemyBase : MonoBehaviour
+    public abstract class EnemyBase : Saver
     {
         [SerializeField]
         protected EnemyConfig _config;
 
+        protected Data _saveData = new();
+
         public EnemyConfig GetConfig => _config;
 
-        private void Start()
+        [Serializable]
+        public class Data
         {
-            Load();
+            public bool IsDefeated;
+        }
+
+        public override void OnEnable() { }
+        public override void OnDisable() { }
+
+        public override void Start()
+        {
+            base.Start();
+            SaveSystem.RegisterSaver(this);
+        }
+
+        public override void OnDestroy()
+        {
+            SaveSystem.UnregisterSaver(this);
         }
         
         public virtual void StartBattle()
@@ -31,23 +47,25 @@ namespace Game
             
             GameData.Battle.StartBattle();
         }
-        
+
         public abstract IEnumerator AwaitCustomEvent(string eventName, float value = 0);
 
-        public virtual void Save()
+        public void Defeat() => 
+            _saveData.IsDefeated = true;
+
+        public override string RecordData()
         {
-            Lua.Run($"Variable[IsWin_{_config.name}] = true");
+            print($"RecordData {gameObject.name}: {_saveData.IsDefeated}");
+            return SaveSystem.Serialize(_saveData);
         }
 
-        private void Load()
+        public override void ApplyData(string s)
         {
-            if (Lua.IsTrue($"Variable[IsWin_{_config.name}] == true"))
-                OnLoad();
-        }
-
-        protected virtual void OnLoad()
-        {
-            gameObject.SetActive(false);
+            var data = SaveSystem.Deserialize(s, _saveData);
+            _saveData = data;
+            
+            if (data.IsDefeated)
+                gameObject.SetActive(false);
         }
     }
 }

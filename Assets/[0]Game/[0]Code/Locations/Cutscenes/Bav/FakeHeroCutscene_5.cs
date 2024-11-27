@@ -17,7 +17,7 @@ namespace Game
         
         protected override IEnumerator AwaitCutscene()
         {
-            if (Lua.IsTrue("Variable[IsDead_FakeHero] == true"))
+            if (SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead)
             {
                 _heroCutscene6.StartCutscene();
             }

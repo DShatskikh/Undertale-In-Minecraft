@@ -31,7 +31,7 @@ namespace Game
         
         protected override IEnumerator AwaitCutscene()
         {
-            if (Lua.IsTrue("Variable[IsDead_FakeHero] ~= true"))
+            if (!SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead)
                 _fakeHeroRunningCircle.gameObject.SetActive(true);
             
             var isAllCrystalDeactivate = true;
@@ -52,7 +52,7 @@ namespace Game
                 yield return new WaitForSeconds(1);
             }
 
-            if (Lua.IsTrue("Variable[IsDead_FakeHero] == true"))
+            if (SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead)
             {
                 //_dragon.StartBattle();
                 yield break;

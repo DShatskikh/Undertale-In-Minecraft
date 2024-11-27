@@ -1,4 +1,5 @@
 using System.Collections;
+using PixelCrushers;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -18,14 +19,12 @@ namespace Game
 
         [SerializeField]
         private DamageEvent _fakeHeroDamage;
-        
+
         protected override IEnumerator AwaitCutscene()
         {
             GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.transform;
-            
-            print("FakeHero жив: " + !Lua.IsTrue("Variable[IsDead_FakeHero] == true"));
-            
-            if (Lua.IsTrue("Variable[IsDead_FakeHero] == true"))
+
+            if (SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead || _fakeHeroDamage.GetHealth <= 0)
             {
                 _puzzleEnderCrystalsManager.gameObject.SetActive(true);
             }

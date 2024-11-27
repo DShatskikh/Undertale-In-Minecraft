@@ -38,6 +38,9 @@ namespace Game
 
         public override void OnClick()
         {
+            if (!_isDown)
+                return;
+            
             Disable();
             EventBus.SubmitUp?.Invoke();
         }

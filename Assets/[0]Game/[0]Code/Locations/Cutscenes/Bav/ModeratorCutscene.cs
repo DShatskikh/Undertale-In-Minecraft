@@ -42,7 +42,7 @@ namespace Game
 
         protected override IEnumerator AwaitCutscene()
         {
-            GameData.Saver.IsSave = false;
+            GameData.SaveLoadManager.IsSave = false;
             
             GameData.CharacterController.enabled = false;
             _cameraTarget.transform.position = GameData.CinemachineVirtualCamera.transform.position;
@@ -126,7 +126,7 @@ namespace Game
             var dictionary = new Dictionary<string, string>() { {"Ends","Strange"} };
             YandexMetrica.Send("Ends", dictionary);
             
-            GameData.Saver.Reset();
+            GameData.SaveLoadManager.Reset();
         }
     }
 }

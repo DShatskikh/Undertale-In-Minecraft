@@ -22,7 +22,7 @@ namespace Game
 
         private void OnClick()
         {
-            GameData.Saver.Reset();
+            GameData.SaveLoadManager.Reset();
             SceneManager.LoadScene(1);
 
             GameData.Startup.StartCoroutine(AwaitReset());

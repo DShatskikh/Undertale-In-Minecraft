@@ -53,7 +53,7 @@ namespace Game
                 post.ActivateCrystal();
             }
 
-            if (Lua.IsTrue("Variable[IsDead_FakeHero] == true"))
+            if (SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead)
             {
                 //GameData.CharacterController.enabled = true;
                 yield return new WaitForSeconds(0.5f);

@@ -680,6 +680,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3732d9e980d4587bccb676f8cdf650c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_key: BlueCow
+  m_appendSaverTypeToKey: 0
+  m_saveAcrossSceneChanges: 1
+  m_restoreStateOnStart: 1
   _config: {fileID: 11400000, guid: f142206651982714da1aba00e3db5801, type: 2}
   _cutscene: {fileID: 971292813454015542}
   _damageEvent: {fileID: 8920857077837919714}
@@ -938,6 +942,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4406924460675715865}
     m_Modifications:
+    - target: {fileID: 894018878912403770, guid: 207ea7bd3a7dc0e4c80f1833b4923015, type: 3}
+      propertyPath: m_key
+      value: Cow_Dead
+      objectReference: {fileID: 0}
     - target: {fileID: 894018878912403770, guid: 207ea7bd3a7dc0e4c80f1833b4923015, type: 3}
       propertyPath: _enemy
       value: 

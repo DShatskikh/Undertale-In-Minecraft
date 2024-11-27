@@ -13,7 +13,6 @@ namespace PixelCrushers
     [AddComponentMenu("")]
     public class EnabledSaver : Saver
     {
-
         [Serializable]
         public class Data
         {

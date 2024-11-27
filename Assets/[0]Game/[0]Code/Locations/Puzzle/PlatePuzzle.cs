@@ -80,7 +80,7 @@ namespace Game
 
             enabled = false;
             _finishPuzzleEvent?.Invoke();
-            GameData.Saver.Save();
+            GameData.SaveLoadManager.Save();
             yield return new WaitForSeconds(0.2f);
             _playSound.Play();
         }

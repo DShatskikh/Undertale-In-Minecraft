@@ -8,6 +8,7 @@ namespace Game
 
         public void SetDirection(float directionX)
         {
+            GetComponent<SpriteRenderer>().flipX = directionX < 0f;
             _directionX = directionX;
         }
         

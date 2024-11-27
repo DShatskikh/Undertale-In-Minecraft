@@ -7,12 +7,12 @@ namespace Game
     {
         public void Use()
         {
-            GameData.Saver.Save();
+            GameData.SaveLoadManager.Save();
             
             foreach (var saver in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
                 saver.Reset();
 
-            GameData.Saver.Reset();
+            GameData.SaveLoadManager.Reset();
             SceneManager.LoadScene(0);
         }
     }

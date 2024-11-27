@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
+using PixelCrushers;
 using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
@@ -9,7 +10,7 @@ using UnityEngine.Localization;
 
 namespace Game
 {
-    public class DamageEvent : MonoBehaviour
+    public class DamageEvent : Saver
     {
         [SerializeField]
         private EnemyBase _enemy;
@@ -39,20 +40,53 @@ namespace Game
         private LocalizedString _killLocalizedString;
         
         private int _health;
-
+        private Data _saveData = new();
+        
         public int GetHealth => _health;
         
-        private void Start()
+        [Serializable]
+        public class Data
         {
-            _health = _startHealth;
+            public bool IsDead;
+        }
 
-            if (Lua.IsTrue($"Variable[IsDead_{_enemy.GetConfig.name}] == true"))
-                _health = 0;
-            
-            _label.text = $"{_health}/{_startHealth}";
-            _progressBar.SetBar(_health, 0, _startHealth);
+        public override void OnEnable() { }
+        public override void OnDisable() { }
+
+        public override void Start()
+        {
+            base.Start();
+            SaveSystem.RegisterSaver(this);
+        }
+
+        public override void OnDestroy()
+        {
+            SaveSystem.UnregisterSaver(this);
         }
         
+        public override string RecordData()
+        {
+            return SaveSystem.Serialize(_saveData);
+        }
+
+        public override void ApplyData(string s)
+        {
+            var data = SaveSystem.Deserialize(s, _saveData);
+            _saveData = data;
+
+            if (_saveData.IsDead)
+            {
+                _health = 0; 
+                _enemy.gameObject.SetActive(false);
+            }
+            else
+            {
+                _health = _startHealth;
+                _label.text = $"{_health}/{_startHealth}";
+                _progressBar.SetBar(_health, 0, _startHealth);
+            }
+        }
+
         public IEnumerator AwaitEvent(EnemyBase enemy, int damage = 0)
         {
             print($"Damage: {damage}");
@@ -150,8 +184,9 @@ namespace Game
             var killMessageCommand = new MonologueCommand(_killLocalizedString);
             yield return killMessageCommand.Await();
             
-            var kills = Lua.Run("return Variable[KILLS]").AsInt;
-            Lua.Run($"Variable[KILLS] = {kills + 1}");
+            var kills = Lua.Run("return Variable[\"KILLS\"]").AsInt;
+            kills += 1;
+            Lua.Run($"Variable[\"KILLS\"] = {kills}");
 
             if (kills >= 4)
             {
@@ -159,13 +194,9 @@ namespace Game
                 GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HypnosisSound);
             }
 
+            _saveData.IsDead = true;
+            GameData.SaveLoadManager.Save();
             EventBus.Kill?.Invoke();
-            
-            Lua.Run($"Variable[IsDead_{_enemy.GetConfig.name}] = true");
-            print(_enemy.GetConfig.name);
-            print($"Variable[IsDead_{_enemy.GetConfig.name}] = true");
-            print(Lua.IsTrue("Variable[IsDead_FakeHero] == true"));
-            print(Lua.IsTrue($"Variable[IsDead_{_enemy.GetConfig.name}] == true"));
             yield return null;
         }
     }

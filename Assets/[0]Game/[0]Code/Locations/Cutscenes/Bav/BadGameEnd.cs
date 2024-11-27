@@ -22,7 +22,7 @@ namespace Game
 
         private IEnumerator AwaitUse(bool isFakeHero)
         {
-            GameData.Saver.IsSave = false;
+            GameData.SaveLoadManager.IsSave = false;
             
             GameData.LocationsManager.gameObject.SetActive(false);
             GameData.CharacterController.gameObject.SetActive(false);
@@ -62,7 +62,7 @@ namespace Game
             var dictionary = new Dictionary<string, string>() { {"Ends", isGenocide ? "Bad" : "Good"} };
             YandexMetrica.Send("Ends", dictionary);
 
-            GameData.Saver.Reset();
+            GameData.SaveLoadManager.Reset();
         }
     }
 }

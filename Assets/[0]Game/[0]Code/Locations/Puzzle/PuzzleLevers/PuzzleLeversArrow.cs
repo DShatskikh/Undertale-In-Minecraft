@@ -33,8 +33,6 @@ namespace Game
                     _progress += 4 * Time.deltaTime;
                     transform.position = transform.position.SetX(Mathf.Lerp(_startPosition.x, _slot.position.x, _progress));
                 }
-                
-                print("PuzzleLeversArrow");
             }
         }
     }

@@ -57,7 +57,7 @@ namespace Game
                 yield return new WaitUntil(() => !GameData.Dialog.gameObject.activeSelf);
             }
             
-            GameData.Saver.Reset();
+            GameData.SaveLoadManager.Reset();
             SceneManager.LoadScene(0);
         }
 

@@ -16,8 +16,6 @@ namespace Game
         {
             YandexGame.savesData.SetInt(_key, isValue ? 1 : 0);
             _isValue = isValue;
-            
-            GameData.Saver.SavePlayerPosition();
         }
 
         public override void Load()

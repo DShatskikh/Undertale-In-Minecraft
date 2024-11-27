@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using PixelCrushers.DialogueSystem;
+using PixelCrushers;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization;
@@ -8,11 +8,8 @@ using YG;
 
 namespace Game
 {
-    public class PuzzleArrows : UseObject
+    public class PuzzleArrows : Saver, IUseObject
     {
-        [SerializeField]
-        private string _id;
-        
         [SerializeField]
         private PuzzleArrowView _view;
 
@@ -25,39 +22,47 @@ namespace Game
         [SerializeField]
         private UnityEvent _event;
         
-        private bool _isDecision;
         public PuzzleArrowSlotData[] SlotsData => _slotsData;
 
-        private void Start()
+        private Data _saveData = new();
+        
+        [Serializable]
+        public class Data
         {
-            _isDecision = Lua.IsTrue($"Variable[\"IsArrowPuzzle_{_id}\"] == true");
+            public bool IsDecision;
+        }
+        
+        public override string RecordData()
+        {
+            return SaveSystem.Serialize(_saveData);
+        }
 
-            if (_isDecision)
-                _event.Invoke();
+        public override void ApplyData(string s)
+        {
+            var data = SaveSystem.Deserialize(s, _saveData);
+            _saveData = data;
 
             foreach (var slotData in _slotsData)
             {
                 slotData.ArrowDirection.Changed += (direction) => OnArrowChanged(direction, slotData);
-                
-                if (_isDecision)
-                    slotData.ArrowDirection.Value = slotData.Decision;
-                else
-                    slotData.ArrowDirection.Value = slotData.StartArrowDirection;
-                
+                slotData.ArrowDirection.Value = _saveData.IsDecision ? slotData.Decision : slotData.StartArrowDirection;
                 slotData.ArrowSpriteRenderer.sprite = slotData.View;
             }
+            
+            if (_saveData.IsDecision)
+                _event.Invoke();
         }
-
+        
         private void OnArrowChanged(ArrowDirection direction, PuzzleArrowSlotData data)
         {
             data.ArrowCenter.eulerAngles = direction.GetAngle() - data.StartArrowDirection.GetAngle();
         }
         
-        public override void Use()
+        public void Use()
         {
             GameData.CharacterController.enabled = false;
 
-            if (!_isDecision)
+            if (!_saveData.IsDecision)
             {
                 _view.SetModel(this);
                 _view.Activate(true);
@@ -83,10 +88,9 @@ namespace Game
 
             if (!isFail)
             {
-                _isDecision = true;
+                _saveData.IsDecision = true;
                 GameData.EffectSoundPlayer.Play(GameData.AssetProvider.HypnosisSound);
-                Lua.Run($"Variable[\"IsArrowPuzzle_{_id}\"] = true");
-                var dictionary = new Dictionary<string, string>() { {"Puzzle", $"ArrowPuzzle_{_id}"} };
+                var dictionary = new Dictionary<string, string>() { {"Puzzle", _internalKeyValue} };
                 YandexMetrica.Send("Puzzle", dictionary);
                 _event.Invoke();
             }

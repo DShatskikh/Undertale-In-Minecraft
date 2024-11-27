@@ -24,6 +24,9 @@ namespace Game
 
         protected IEnumerator AwaitMoveToPoint(Vector3 targetPosition)
         {
+            if (!_view)
+                yield break;
+            
             var viewTransform = _view.transform;
             _view.flipX = targetPosition.x - viewTransform.position.x > 0;
                 
@@ -45,6 +48,9 @@ namespace Game
             yield return new WaitForSeconds(0.1f);
 
             //SetActive(true);
+
+            if (!viewTransform)
+                yield break;
                 
             yield return new ScaleCommand(viewTransform, viewTransform.localScale.SetY(0.75f), 0.25f).Await();
             yield return new ScaleCommand(viewTransform, Vector2.one, 0.25f).Await();

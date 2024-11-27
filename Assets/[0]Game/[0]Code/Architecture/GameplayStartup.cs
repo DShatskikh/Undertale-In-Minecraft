@@ -107,8 +107,6 @@ namespace Game
 
         private void Start()
         {
-            
-            
             /*foreach (var saveLoad in FindObjectsByType<SaveLoadBase>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             {
                 saveLoad.Load();
@@ -128,10 +126,11 @@ namespace Game
                 GameData.Joystick.gameObject.SetActive(true);
                 GameData.CharacterController.enabled = true;
                 GameData.CharacterController.gameObject.SetActive(true);
+
+                GameData.SaveLoadManager.LoadLevel();
+                
                 var testLoad = new TestLoad();
                 //testLoad.Load();
-                
-                GameData.Saver.LoadLevel();
                 
                 //GameData.LocationsManager.SwitchLocation(YandexGame.savesData.LocationName, YandexGame.savesData.PointIndex);
                 //GameData.CharacterController.transform.position = GameData.Saver.LoadPosition();

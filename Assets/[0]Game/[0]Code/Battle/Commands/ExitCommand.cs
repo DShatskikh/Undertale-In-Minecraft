@@ -63,7 +63,8 @@ namespace Game
             GameData.MusicPlayer.Play(_previousSound);
             
             yield return GameData.EnemyData.Enemy.AwaitCustomEvent("EndBattle");
-            GameData.EnemyData.Enemy.Save();
+            GameData.EnemyData.Enemy.Defeat();
+            //GameData.EnemyData.Enemy.Save();
             
             GameData.CharacterController.enabled = true;
             GameData.CharacterController.GetComponent<Collider2D>().isTrigger = false;
@@ -88,7 +89,7 @@ namespace Game
             EventBus.PlayerWin = null;
             GameData.InputManager.Show();
 
-            GameData.Saver.IsSave = true;
+            GameData.SaveLoadManager.IsSave = true;
             action.Invoke();
         }
     }

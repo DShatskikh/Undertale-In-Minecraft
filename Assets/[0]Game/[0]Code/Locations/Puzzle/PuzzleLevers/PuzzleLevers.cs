@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using PixelCrushers.DialogueSystem;
+using PixelCrushers;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization;
@@ -8,11 +8,8 @@ using YG;
 
 namespace Game
 {
-    public class PuzzleLevers : UseObject
+    public class PuzzleLevers : Saver, IUseObject
     {
-        [SerializeField]
-        private string _id;
-        
         [SerializeField]
         private PuzzleLeversView _view;
 
@@ -26,23 +23,40 @@ namespace Game
         private UnityEvent _event;
         
         private List<ReactiveProperty<bool>> _currentProgress;
-        private bool _isDecision;
-
+        private Data _saveData = new();
+        
+        [Serializable]
+        public class Data
+        {
+            public bool IsDecision;
+        }
+        
         public List<ReactiveProperty<bool>> CurrentProgress => _currentProgress;
 
-        private void Start()
+        public override void Start()
         {
-            _isDecision = Lua.IsTrue($"Variable[\"IsArrowPuzzle_{_id}\"] == true");
-            
-            if (_isDecision)
+            base.Start();
+        }
+
+        public override string RecordData()
+        {
+            return SaveSystem.Serialize(_saveData);
+        }
+
+        public override void ApplyData(string s)
+        {
+            var data = SaveSystem.Deserialize(s, _saveData);
+            _saveData = data;
+
+            if (_saveData.IsDecision)
                 _event.Invoke();
         }
 
-        public override void Use()
+        public void Use()
         {
             GameData.CharacterController.enabled = false;
 
-            if (!_isDecision)
+            if (!_saveData.IsDecision)
             {
                 if (_currentProgress == null)
                 {
@@ -77,10 +91,9 @@ namespace Game
 
             if (!isFail)
             {
-                _isDecision = true;
+                _saveData.IsDecision = true;
                 GameData.EffectSoundPlayer.Play(GameData.AssetProvider.PistonSound);
-                Lua.Run($"Variable[\"IsPuzzleLevers_{_id}\"] = true");
-                var dictionary = new Dictionary<string, string>() { {"Puzzle", $"IsPuzzleLevers_{_id}"} };
+                var dictionary = new Dictionary<string, string>() { {"Puzzle", _internalKeyValue} };
                 YandexMetrica.Send("Puzzle", dictionary);
                 _event.Invoke();
             }
@@ -90,7 +103,7 @@ namespace Game
 
         public void SetIsDecision(bool isDecision)
         {
-            _isDecision = isDecision;
+            _saveData.IsDecision = isDecision;
         }
     }
 }

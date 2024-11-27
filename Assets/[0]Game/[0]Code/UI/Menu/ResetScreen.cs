@@ -27,7 +27,7 @@ namespace Game
 
         private void OnSubmitClick()
         {
-            GameData.Saver.Reset();
+            GameData.SaveLoadManager.Reset();
         }
         
         private void OnCancelClick()

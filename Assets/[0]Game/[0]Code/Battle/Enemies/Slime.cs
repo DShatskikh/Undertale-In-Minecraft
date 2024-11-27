@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using PixelCrushers;
 using UnityEngine;
 
 namespace Game
@@ -26,13 +26,6 @@ namespace Game
 
         [SerializeField]
         private GameObject _dialog;
-
-        //private Vector3 _startPosition;
-
-        private void Start()
-        {
-           // _startPosition = transform.position;
-        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -96,13 +89,21 @@ namespace Game
             }
         }
 
-        protected override void OnLoad()
+        public override void ApplyData(string s)
         {
-            _move.StopMove(true);
-            _hat.SetActive(true);
-            transform.position = _endBattlePoint.position;
-            GetComponent<Collider2D>().enabled = false;
-            _dialog.SetActive(true);
+            var data = SaveSystem.Deserialize(s, _saveData);
+            _saveData = data;
+
+            if (data.IsDefeated)
+            {
+                _move.StopMove(true);
+                _hat.SetActive(true);
+                transform.position = _endBattlePoint.position;
+                GetComponent<Collider2D>().enabled = false;
+                _dialog.SetActive(true);
+            }
+            
+            print($"Slime Defeated: {data.IsDefeated}");
         }
     }
 }

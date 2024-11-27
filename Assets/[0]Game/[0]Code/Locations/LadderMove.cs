@@ -27,13 +27,13 @@ namespace Game
                 StopCoroutine(_coroutine);
                 
                 GameData.CharacterController.enabled = true;
-                GameData.Saver.IsSave = true;
+                GameData.SaveLoadManager.IsSave = true;
             }
         }
 
         private IEnumerator AwaitMove()
         {
-            GameData.Saver.IsSave = false;
+            GameData.SaveLoadManager.IsSave = false;
             
             var character = GameData.CharacterController;
 
@@ -47,7 +47,7 @@ namespace Game
             
             character.enabled = true;
             character.GetComponent<Collider2D>().enabled = true;
-            GameData.Saver.IsSave = true;
+            GameData.SaveLoadManager.IsSave = true;
         }
     }
 }

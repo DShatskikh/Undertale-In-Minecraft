@@ -23,7 +23,7 @@ namespace Game
         private DragonShell Create(Transform point, int index)
         {
             var sell = Instantiate(_dragonShell, point.position, Quaternion.identity, transform);
-            sell.SetDirection(index == 0 ? 1 : -1);
+            sell.SetDirection(index == 0 ? -1 : 1);
             sell.transform.localScale = point.localScale;
             return sell;
         }

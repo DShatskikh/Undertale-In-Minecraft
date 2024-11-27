@@ -48,7 +48,7 @@ namespace Game
         public static TMP_Text SaveText;
         public static GameOverScreen GameOver;
         
-        public static Saver Saver;
+        public static SaveLoadManager SaveLoadManager;
         public static CommandManager CommandManager;
         public static CompanionsManager CompanionsManager;
         public static EndingsManager EndingsManager;

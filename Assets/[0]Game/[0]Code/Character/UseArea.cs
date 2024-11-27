@@ -30,14 +30,14 @@ namespace Game
 
             foreach (Collider2D collider in colliders)
             {
-                if (collider.TryGetComponent(out UseObject useObject))
+                if (collider.TryGetComponent(out IUseObject useObject))
                 {
-                    var currentDistance = Vector2.Distance(transform.position, useObject.transform.position);
+                    var currentDistance = Vector2.Distance(transform.position, ((MonoBehaviour)useObject).transform.position);
                     
                     if (minDistance > currentDistance)
                     {
                         minDistance = currentDistance;
-                        nearestUseObject = useObject;
+                        nearestUseObject = (MonoBehaviour)useObject;
                     }
                 }
                 else if (collider.TryGetComponent(out Usable usable))
@@ -82,7 +82,7 @@ namespace Game
             GameData.UseButton.gameObject.SetActive(false);
             EventBus.SubmitUp = null;
 
-            if (nearestUseObject is UseObject useObject) 
+            if (nearestUseObject is IUseObject useObject) 
                 useObject.Use();
             else if (nearestUseObject is Usable currentUsable)
             {

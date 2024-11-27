@@ -38,7 +38,7 @@ namespace Game
             var character = GameData.CharacterController;
             var characterTransform = character.transform;
 
-            GameData.Saver.IsSave = false;
+            GameData.SaveLoadManager.IsSave = false;
             character.enabled = false;
             character.GetComponent<Collider2D>().enabled = false;
             character.transform.SetParent(_parent);
