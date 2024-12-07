@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization;
 
@@ -19,14 +20,15 @@ namespace Game
         
         public override void Execute(UnityAction action)
         {
-            GameData.BattleProgress += _progress;
+            var progress = GameData.Battle.SessionData.Progress + _progress;
             
-            if (GameData.BattleProgress > 100)
-                GameData.BattleProgress = 100;
+            if (progress > 100)
+                progress = 100;
             
-            if (GameData.BattleProgress < 0)
-                GameData.BattleProgress = 0;
-            
+            if (progress < 0)
+                progress = 0;
+
+            GameData.Battle.SessionData.Progress = progress;
             GameData.Startup.StartCoroutine(AwaitAnimation(action));
         }
 
@@ -51,10 +53,9 @@ namespace Game
             var result = messageOperation.Result;
             var sound = _progress > 0 ? _data.MoreSound : _data.LessSound;
             
-            yield return _popUpLabel.AwaitAnimation(GameData.EnemyData.Enemy.transform.position.AddY(1), startMessage, color, result, sound);
+            yield return _popUpLabel.AwaitAnimation(((MonoBehaviour)GameData.Battle.SelectEnemy).transform.position.AddY(1), startMessage, color, result, sound);
   
-            EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
-            
+            EventBus.BattleProgressChange?.Invoke(GameData.Battle.SessionData.Progress);
             action?.Invoke();
         }
     }

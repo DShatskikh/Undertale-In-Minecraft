@@ -37,7 +37,7 @@ namespace Game
         
         [Header("Genocide Root")]
         [SerializeField]
-        private DamageEvent _fakeHeroEnemy;
+        private DamageAndDeathEffect _fakeHeroEnemy;
         
         [SerializeField]
         private Dragon _dragonEnemy;
@@ -53,14 +53,14 @@ namespace Game
                 post.ActivateCrystal();
             }
 
-            if (SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead)
+            /*if (SaveLoadManager.GetData<DamageAndDeathEffect.Data>("FakeHero_Dead").IsDead)
             {
                 //GameData.CharacterController.enabled = true;
                 yield return new WaitForSeconds(0.5f);
                 _dragonEnemy.StartBattle();
                 //_nextCutscene.StartCutscene();
                 yield break;
-            }
+            }*/
             
             var moveCharacterToPointCommand = new MoveToPointCommand(GameData.CharacterController.transform, _chickenStartPoint.position, 1);
             yield return moveCharacterToPointCommand.Await();

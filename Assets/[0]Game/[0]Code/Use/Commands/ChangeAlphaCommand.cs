@@ -42,7 +42,7 @@ namespace Game
                 yield return null;
             }
             
-            action.Invoke();
+            action?.Invoke();
         }
     }
 }

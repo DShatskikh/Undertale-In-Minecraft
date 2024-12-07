@@ -10,11 +10,11 @@ namespace Game
         private GameObject _darkPortal;
 
         [SerializeField]
-        private DamageEvent _fakeHero;
+        private DamageAndDeathEffect _fakeHero;
         
         protected override IEnumerator AwaitCutscene()
         {
-            if (!SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead)
+            //if (!SaveLoadManager.GetData<DamageAndDeathEffect.Data>("FakeHero_Dead").IsDead)
                 yield return AwaitDialog();
             
             _darkPortal.SetActive(true);
@@ -22,7 +22,7 @@ namespace Game
             Lua.Run("Variable[\"FakeHeroState\"] = 6");
             Lua.Run("Variable[\"BlueCowState\"] = 2");
 
-            if (!SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead)
+            //if (!SaveLoadManager.GetData<DamageAndDeathEffect.Data>("FakeHero_Dead").IsDead)
                 GameData.CompanionsManager.TryActivateCompanion("FakeHero");
 
             GameData.CharacterController.enabled = true;

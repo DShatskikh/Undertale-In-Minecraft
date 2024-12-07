@@ -15,7 +15,7 @@ namespace Game
             {
                 var attack = Instantiate(_slimeShell, transform);
                 attack.transform.position =
-                    GameData.Battle.Arena.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * 2f;
+                    GameData.Battle.SessionData.Arena.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * 2f;
 
                 //attack.SetTarget(GameData.HeartController.transform);
                 yield return new WaitForSeconds(1);

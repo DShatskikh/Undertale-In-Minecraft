@@ -16,6 +16,8 @@ namespace Game
         {
             public string LocationName = "BavWorld";
             public int PointIndex;
+            public float CharacterPositionX;
+            public float CharacterPositionY;
         }
         
         public override void Awake()
@@ -29,15 +31,27 @@ namespace Game
 
         public override string RecordData()
         {
+            var position = GameData.CharacterController.transform.position;
+            _saveData.CharacterPositionX = position.x;
+            _saveData.CharacterPositionY = position.y;
             return SaveSystem.Serialize(_saveData);
         }
 
         public override void ApplyData(string s)
         {
-            var data = SaveSystem.Deserialize(s, _saveData);
-            _saveData = data;
+            var data = SaveSystem.Deserialize<Data>(s, _saveData);
 
-            SwitchLocation(data.LocationName, data.PointIndex);
+            if (data == null)
+            {
+                var position = GameData.CharacterController.transform.position;
+                SwitchLocation(_saveData.LocationName, _saveData.PointIndex);
+                GameData.CharacterController.transform.position = position;
+                return;
+            }
+
+            _saveData ??= data;
+            SwitchLocation(_saveData.LocationName, _saveData.PointIndex);
+            GameData.CharacterController.transform.position = new Vector3(_saveData.CharacterPositionX, _saveData.CharacterPositionY);
         }
 
         public void SwitchLocation(string nextLocationName, int pointIndex)

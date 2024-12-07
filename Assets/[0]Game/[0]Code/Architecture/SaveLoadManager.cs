@@ -12,8 +12,9 @@ namespace Game
     public class SaveLoadManager
     {
         public bool IsSave = true;
-        private readonly SaveSystem _saveSystem;
 
+        private readonly SaveSystem _saveSystem;
+        
         private Dictionary<string, bool> _boolPair = new Dictionary<string, bool>();
 
         private string[] _boolHash = new[]
@@ -37,7 +38,7 @@ namespace Game
         private Dictionary<string, string> _stringsPair = new Dictionary<string, string>();
 
         private string[] _stringsHash = Array.Empty<string>();
-        
+
         public SaveLoadManager(SaveSystem saveSystem)
         {
             _saveSystem = saveSystem;
@@ -94,11 +95,10 @@ namespace Game
             }
 
             var fun = Lua.Run("return Variable[FUN]").AsInt;
-            var settingData = YandexGame.savesData.SettingDataJson;
+            var settingData = GameData.SettingStorage.GetData();
             
             SaveSystem.DeleteSavedGameInSlot(1);
             SaveSystem.ResetGameState();
-            YandexGame.savesData.SettingDataJson = SaveSystem.Serialize(new SavedGameData());
             YandexGame.SaveProgress();
             Load();
             
@@ -113,7 +113,7 @@ namespace Game
 
             GenerateFun(fun);
 
-            YandexGame.savesData.SettingDataJson = settingData;
+            GameData.SettingStorage.SetData(settingData);
             Save();
             GameData.SaveLoadManager.IsSave = true;
 

@@ -19,14 +19,7 @@ namespace YG
         public string language = "ru";
         public bool promptDone;
 
-        // Тестовые сохранения для демо сцены
-        // Можно удалить этот код, но тогда удалите и демо (папка Example)
-        public int money = 1;                       // Можно задать полям значения по умолчанию
-        public string newPlayerName = "Hello!";
-        public bool[] openLevels = new bool[3];
-
         // Ваши сохранения
-
         public bool IsTutorialComplited;
         public int AdsViews;
         public bool IsSpeakHerobrine;
@@ -51,7 +44,6 @@ namespace YG
         public bool IsYouHealthy;
 
         public int NumberGame = 1;
-        public string SettingDataJson;
         //public int MaxHealth = 20;
         [FormerlySerializedAs("GoldLily")] public int GoldTulip = 0;
 
@@ -71,8 +63,6 @@ namespace YG
         public SavesYG()
         {
             // Допустим, задать значения по умолчанию для отдельных элементов массива
-            openLevels[1] = true;
-            
             NumberGame = 1;
             //MaxHealth = 20;
         }

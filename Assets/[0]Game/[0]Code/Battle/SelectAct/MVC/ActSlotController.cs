@@ -24,13 +24,13 @@ namespace Game
             {
                 if (Model.IsSelectedOnce)
                 {
-                    GameData.Battle.AddProgress = Model.Act.GetProgress();
-                    EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
+                    GameData.Battle.SessionData.AddProgress = Model.Act.GetProgress();
+                    EventBus.BattleProgressChange?.Invoke(GameData.Battle.SessionData.Progress);
                 }
                 else
                 {
-                    GameData.Battle.AddProgress = 0;
-                    EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
+                    GameData.Battle.SessionData.AddProgress = 0;
+                    EventBus.BattleProgressChange?.Invoke(GameData.Battle.SessionData.Progress);
                 }
             }
         }

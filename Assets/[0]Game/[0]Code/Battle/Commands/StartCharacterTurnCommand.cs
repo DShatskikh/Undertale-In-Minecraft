@@ -6,10 +6,10 @@ namespace Game
     {
         public override void Execute(UnityAction action)
         {
-            GameData.Battle.MusicStopTime = GameData.MusicPlayer.GetTime();
-            GameData.MusicPlayer.Play(GameData.Battle.SelectMusic);
+            GameData.Battle.SessionData.ThemeTime = GameData.MusicPlayer.GetTime();
+            GameData.MusicPlayer.Play(GameData.Battle.SessionData.SelectTheme);
             GameData.HeartController.gameObject.SetActive(false);
-            GameData.Battle.StartCharacterTurn();
+            GameData.Battle.PlayerTurn();
             action.Invoke();
         }
     }

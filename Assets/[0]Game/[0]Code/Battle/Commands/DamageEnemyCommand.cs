@@ -39,7 +39,7 @@ namespace Game
             yield return new WaitForSeconds(0.5f);
 
             var popUpLabel = GameData.Battle.AddProgressLabel;
-            yield return popUpLabel.AwaitAnimation(GameData.EnemyData.Enemy.transform.position.AddY(1), $"-{_damage}", Color.red, $"-{_damage}", GameData.AssetProvider.HurtSound);
+            yield return popUpLabel.AwaitAnimation(((MonoBehaviour)GameData.Battle.SelectEnemy).transform.position.AddY(1), $"-{_damage}", Color.red, $"-{_damage}", GameData.AssetProvider.HurtSound);
             
             _progressBar.gameObject.SetActive(false);
 

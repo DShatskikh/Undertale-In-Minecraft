@@ -33,7 +33,7 @@ namespace Game
                     alpha = 0;
             }
             
-            _event.Invoke();
+            _event?.Invoke();
         }
 
         public void SetDuration(float value)

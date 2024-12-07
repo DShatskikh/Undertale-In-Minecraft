@@ -129,18 +129,19 @@ namespace Game
                     }
                 }
 
+                StartCoroutine(GameData.Battle.SessionData.BattleController.AwaitActReaction(_config.name, 
+                    isSuccess ? 1 : 0));
+                
+                /*
                 var commands = new List<CommandBase>
                 {
                     new MessageCommand(GameData.Battle.MessageBox, isSuccess ? _config.SuccessSystemMessage : _config.FailedSystemMessage),
                     new MessageCommand(GameData.Battle.EnemyMessageBox, isSuccess ? _config.SuccessReaction : _config.FailedReaction),
                     new AddProgressCommand(isSuccess ? _config.SuccessProgress : _config.FailedProgress, GameData.Battle.AddProgressLabel, GameData.Battle.AddProgressData),
-                    new StartEnemyTurnCommand()
                 };
 
-                print(isSuccess);
-                
                 GameData.CommandManager.StartCommands(commands);
-
+*/
                 Destroy(gameObject);
             }
         }

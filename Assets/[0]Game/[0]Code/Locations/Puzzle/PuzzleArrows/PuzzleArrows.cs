@@ -40,7 +40,7 @@ namespace Game
         public override void ApplyData(string s)
         {
             var data = SaveSystem.Deserialize(s, _saveData);
-            _saveData = data;
+            _saveData ??= data;
 
             foreach (var slotData in _slotsData)
             {

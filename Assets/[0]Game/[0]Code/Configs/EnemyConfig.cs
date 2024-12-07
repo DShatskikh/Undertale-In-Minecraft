@@ -12,6 +12,7 @@ namespace Game
         public LocalizedString[] BattleReplicas;
         public Replica[] EndReplicas;
         public LocalizedString ProgressLocalized;
+        public LocalizedString NameLocalized;
         public AudioClip Theme;
         public int Damage = 1;
     }

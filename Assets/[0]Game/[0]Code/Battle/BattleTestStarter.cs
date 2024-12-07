@@ -6,7 +6,7 @@ namespace Game
     public class BattleTestStarter : MonoBehaviour
     {
         [SerializeField]
-        private StartBattleTrigger _startBattleTrigger;
+        private EnemyBase _startBattleTrigger;
         
         private void Start()
         {

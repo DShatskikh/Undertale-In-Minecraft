@@ -43,6 +43,9 @@ namespace Game
 
         [SerializeField]
         private SaveSystem _saveSystem;
+
+        [SerializeField]
+        private SettingStorage _settingStorage;
         
         private PurchasedManager _purchaseManager;
         
@@ -69,7 +72,7 @@ namespace Game
 #endif
 
             RegisterLuaFunctions();
-            GameData.SaveLoadManager.Load();
+            //GameData.SaveLoadManager.Load();
         }
 
         private void Start()
@@ -80,11 +83,10 @@ namespace Game
             GameData.MusicPlayer = _musicPlayer;
             GameData.AudioMixer = _audioMixer;
             GameData.AdsManager = _adsManager;
+            GameData.SettingStorage = _settingStorage;
             
             //YandexGame.savesData.Health = YandexGame.savesData.MaxHealth;
             Application.targetFrameRate = 60;
-
-            GameData.SettingStorage = new SettingStorage();
 
 #if UNITY_EDITOR
             if (_isNotLoad)

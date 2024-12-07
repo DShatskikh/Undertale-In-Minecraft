@@ -2,7 +2,6 @@ using System;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using YG;
 
 namespace Game
@@ -26,10 +25,10 @@ namespace Game
 
         private void ShowRewardVideo(double value)
         {
-            EventBus.CloseDialog = () => CloseDialog((int)value);
+            EventBus.CloseDialog = () => OnCloseDialog((int)value);
         }
 
-        private void CloseDialog(int index)
+        private void OnCloseDialog(int index)
         {
             EventBus.CloseDialog = null;
             

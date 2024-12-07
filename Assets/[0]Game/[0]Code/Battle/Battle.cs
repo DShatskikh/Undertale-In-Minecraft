@@ -1,18 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using PixelCrushers.DialogueSystem;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Localization;
 using UnityEngine.Serialization;
-using UnityEngine.Tilemaps;
-using UnityEngine.UIElements;
 using YG;
-using Random = UnityEngine.Random;
 
 namespace Game
 {
-    public class Battle : MonoBehaviour
+    public class Battle : MonoBehaviour, IBattle
     {
+        [Header("Variables")]
         [SerializeField]
         private AttackBase _attackTutorial;
 
@@ -28,18 +25,13 @@ namespace Game
         [SerializeField]
         private SelectActManager _selectActManager;
 
+        [FormerlySerializedAs("_companionsPoints")]
+        [FormerlySerializedAs("_points")]
         [SerializeField]
-        private Transform[] _points;
-
-        [Header("Variables")]
-        [SerializeField]
-        private float _speedPlacement;
+        private Transform[] _squadPoints;
 
         [SerializeField]
-        private LocalizedString _winReplica;
-
-        [SerializeField]
-        private LocalizedString _winReplicaCheat;
+        private Transform _container;
 
         [SerializeField]
         private PopUpLabel _addProgressLabel;
@@ -53,19 +45,30 @@ namespace Game
         [SerializeField]
         private Transform _actScreenContainer;
 
-        private Label _healthLabel;
-        private Label _enemyHealthLabel;
-        private Vector2 _normalWorldCharacterPosition;
+        [FormerlySerializedAs("progressBarBar")]
+        [FormerlySerializedAs("_progressBar")]
+        [FormerlySerializedAs("_battleProgress")]
+        [SerializeField]
+        private BattleProgressBar _progressBarBar;
+        
+        [SerializeField]
+        private HealthBar _healthBar;
+        
+        [SerializeField]
+        private Transform[] _enemiesPoints;
+        
+        [Header("Default Data")]
+        [FormerlySerializedAs("_battleMusic")]
+        [SerializeField]
+        private AudioClip _battleTheme;
+        
+        [SerializeField]
+        private AudioClip _selectTheme;
+        
         private Coroutine _coroutine;
-        private AudioClip _previousMusic;
-        private Vector2 _enemyStartPosition;
-        private AttackBase[] _attacks;
-        private int _turnNumber;
-        private BattleArena _arena;
-        private Vector2 _startEnemyPosition;
+        private BattleSessionData _sessionData;
 
         public BlackPanel BlackPanel => _blackPanel;
-        public GameObject Arena => _arena.gameObject;
         public SelectActManager SelectActManager => _selectActManager;
         public Transform ActScreenContainer => _actScreenContainer;
         public BattleMessageBox EnemyMessageBox => _enemyMessageBox;
@@ -73,12 +76,47 @@ namespace Game
         public PopUpLabel AddProgressLabel => _addProgressLabel;
         public PopUpLabel HealthPopUpLabel => _healthPopUpLabel;
         public AddProgressData AddProgressData => _addProgressData;
-        public Vector2 StartEnemyPosition => _startEnemyPosition;
-        public AudioClip BattleMusic;
-        public AudioClip SelectMusic;
+        public Transform[] SquadPoints => _squadPoints;
+        public BattleSessionData SessionData => _sessionData;
+        public BattleProgressBar ProgressBar => _progressBarBar;
+        public HealthBar HealthBar => _healthBar;
+        public Transform Container => _container;
 
-        public int? AddProgress = null;
-        public float MusicStopTime;
+        public IEnemy SelectEnemy { get; set; }
+        
+        public class BattleSessionData
+        {
+            public IBattleController BattleController;
+            public IBattleIntro Intro;
+            public AudioClip PreviousTheme;
+            public AudioClip BattleTheme;
+            public AudioClip SelectTheme;
+            public int Progress;
+            public float ThemeTime;
+            public List<OverWorldPositionsData> EnemiesOverWorldPositions;
+            public List<OverWorldPositionsData> SquadOverWorldPositionsData;
+            public BattleArena Arena;
+            public IBattleOutro Outro;
+            public int? AddProgress;
+        }
+
+        public struct OverWorldPositionsData
+        {
+            public Transform Transform;
+            public Transform Point;
+            public Vector2 StartPosition;
+            public Transform StartParent;
+            public Sprite Sprite;
+
+            public OverWorldPositionsData(Transform transform, Transform point, Sprite sprite)
+            {
+                Transform = transform;
+                Point = point;
+                StartPosition = transform.position;
+                StartParent = transform.parent;
+                Sprite = sprite;
+            }
+        }
 
         private void OnDisable()
         {
@@ -86,140 +124,123 @@ namespace Game
             EventBus.Damage = null;
         }
 
-        public void StartBattle()
+        public IBattle Init()
         {
-            GameData.SaveLoadManager.IsSave = false;
-            
-            MusicStopTime = 0;
-            _previousMusic = GameData.MusicPlayer.Clip;
-            
-            PlayBattleTheme();
-            
-            _startEnemyPosition = GameData.EnemyData.Enemy.transform.position;
-            
-            _normalWorldCharacterPosition = GameData.CharacterController.transform.position;
-            GameData.CharacterController.enabled = false;
-            GameData.HeartController.enabled = false;
-            _arena = Instantiate(GameData.EnemyData.EnemyConfig.Arena, transform);
-            GameData.HeartController.transform.position = _arena.transform.position;
-            GameData.SaveLoadManager.IsSave = false;
-            GameData.InputManager.Show();
-            GameData.CompanionsManager.SetMove(false);
-            
+            _sessionData = new BattleSessionData()
+            {
+                Intro = new DefaultBattleIntro(),
+                Outro = new OutroBattleDefault(),
+                PreviousTheme = GameData.MusicPlayer.Clip,
+                BattleTheme = _battleTheme,
+                SelectTheme = _selectTheme,
+                Progress = 0,
+                ThemeTime = 0,
+                SquadOverWorldPositionsData = GetSquadOverWorldPositionsData()
+            };
+
+            return this;
+        }
+
+        public IBattle SetIntro(IBattleIntro intro)
+        {
+            _sessionData.Intro = intro;
+            return this;
+        }
+
+        public IBattle SetOutro(IBattleOutro outro)
+        {
+            _sessionData.Outro = outro;
+            return this;
+        }
+
+        public IBattle SetBattleTheme(AudioClip theme)
+        {
+            _sessionData.BattleTheme = theme;
+            return this;
+        }
+
+        public void StartBattle(IBattleController battleController)
+        {
+            _sessionData.BattleController = battleController;
+            _sessionData.EnemiesOverWorldPositions = GetEnemiesOverWorldPositionsData();
+
             gameObject.SetActive(true);
-
-            transform.position = Camera.main.transform.position.SetZ(0).AddY(-3.5f);
             
-            GameData.EnemyData.Enemy.transform.SetParent(GameData.EnemyPoint);
+            GameData.SaveLoadManager.IsSave = false;
+            PlayBattleTheme();
 
+            var enemies = battleController.GetEnemies();
             var character = GameData.CharacterController;
+            character.enabled = false;
             character.GetComponent<Collider2D>().isTrigger = true;
             character.View.Flip(false);
             character.View.SetOrderInLayer(11);
             
-            GameData.HeartController.gameObject.SetActive(false);
-
+            GameData.CompanionsManager.SetMove(false);
+            
+            _sessionData.Arena = Instantiate(battleController.GetArena(), transform);
+            
             var maxHealth = Lua.Run("return Variable[\"MaxHealth\"]").AsInt;
             GameData.HeartController.Health = maxHealth;
             EventBus.HealthChange.Invoke(maxHealth, maxHealth);
-            
-            GameData.BattleProgress = 0;
-            EventBus.BattleProgressChange?.Invoke(0);
-            
-            _turnNumber = 0;
+            GameData.HeartController.gameObject.SetActive(false);
+            GameData.HeartController.enabled = false;
+            GameData.HeartController.transform.position = _sessionData.Arena.transform.position;
 
-            EventBus.Damage += OnDamage;
-            EventBus.Death += OnDeath;
-            
-            _attacks = GameData.EnemyData.EnemyConfig.Attacks;
+            GameData.InputManager.Show();
+            transform.position = Camera.main.transform.position.SetZ(0).AddY(-3.5f);
 
-            var commands = new List<CommandBase>()
+            for (var index = 0; index < enemies.Length; index++)
             {
-                new IntroCommand(_points, _blackPanel),
-                //new SkipIntroCommand(_points),
-                //new DelayCommand(1f),
-                new StartEnemyTurnCommand(),
-            };
-            
-            GameData.CommandManager.StartCommands(commands);
-        }
-
-        public void Turn(BaseActConfig act = null)
-        {
-            PlayBattleTheme();
-            
-            var commands = new List<CommandBase>();
-
-            /*if (act != null)
-            {
-                commands.Add(new MessageCommand(_messageBox, act.Description));
-                commands.Add(new MessageCommand(_enemyMessageBox, act.Reaction));
-                commands.Add(new AddProgressCommand(act.Progress, _addProgressLabel, _addProgressData));
-            }*/
-            
-            commands.Add(new CheckEndBattleCommand());
-            
-            //if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null && _attacks[_attackIndex].Messages.Length != 0) 
-            //    commands.Add(new MessageCommand(_enemyMessageBox, _attacks[_attackIndex].Messages));
-
-            commands.Add(new ShowArenaCommand(_arena));
-            //commands.Add(new DelayCommand(0.5f));
-            //commands.Add(new DelayCommand(1.5f));
-            
-            //if (!YandexGame.savesData.IsTutorialComplited)
-            //    commands.Add(new EnemyAttackCommand(_attackTutorial, _blackPanel, _arena.gameObject)); 
-            
-            commands.Add(new EnemyAttackCommand(_attacks[GetIndex()], _blackPanel, _arena.gameObject));
-            commands.Add(new CheckEndBattleCommand());
-            commands.Add(new HideArenaCommand(_arena, _blackPanel));
-            commands.Add(new HealthCharacterCommand());
-            
-            if (GameData.EnemyData.EnemyConfig.BattleReplicas.Length != 0)
-            {
-                var replica = _turnNumber < GameData.EnemyData.EnemyConfig.BattleReplicas.Length
-                    ? GameData.EnemyData.EnemyConfig.BattleReplicas[_turnNumber]
-                    : GameData.EnemyData.EnemyConfig.BattleReplicas[^1];
-            
-                commands.Add(new MessageCommand(GameData.Battle.EnemyMessageBox, replica));
+                var enemy = enemies[index];
+                ((MonoBehaviour)enemy).transform.SetParent(_enemiesPoints[index]);
             }
             
-            commands.Add(new StartCharacterTurnCommand());
+            EventBus.BattleProgressChange?.Invoke(0);
+            
+            EventBus.Damage += OnDamage;
+            EventBus.Death += OnDeath;
 
-            GameData.CommandManager.StartCommands(commands);
-            _turnNumber++;
+            StartCoroutine(AwaitStartBattle());
         }
 
-        public void EndBattle()
+        public void PlayerTurn()
         {
-            Destroy(_arena.gameObject);
             PlayBattleTheme();
-            
-            var winReplica = YandexGame.savesData.IsCheat ? _winReplicaCheat : _winReplica;
-            
-            var commands = new List<CommandBase>();
-            
-            commands.Add(new DelayCommand(1f));
-            //commands.Add(new MessageCommand(_enemyMessageBox, GameData.EnemyData.EnemyConfig.EndReplicas));
-            commands.Add(new ExitCommand(gameObject, _previousMusic, _normalWorldCharacterPosition, 
-                _speedPlacement, winReplica));
-            
-            GameData.CommandManager.StartCommands(commands);
-        }
-
-        public void StartCharacterTurn()
-        {
-            //GameData.CharacterController.View.Dance();
             _selectActManager.Activate(true);
         }
 
-        private int GetIndex()
+
+        public void EndBattle()
         {
-            if (_turnNumber >= _attacks.Length)
-                return Random.Range(0, _attacks.Length);
-            
-            return _turnNumber;
+            StartCoroutine(AwaitOutro());
         }
 
+        private IEnumerator AwaitOutro()
+        {
+            yield return _sessionData.Outro;
+            
+            GameData.CharacterController.enabled = true;
+            GameData.CharacterController.GetComponent<Collider2D>().isTrigger = false;
+
+            var eventParams = new Dictionary<string, string>
+            {
+                { "Wins", _sessionData.BattleController.GetIndex }
+            };
+            
+            YandexMetrica.Send("Wins", eventParams);
+            
+            GameData.InputManager.Show();
+            GameData.SaveLoadManager.IsSave = true;
+        }
+        
+        private IEnumerator AwaitStartBattle()
+        {
+            yield return _sessionData.Intro.AwaitIntro();
+            yield return _sessionData.BattleController.AwaitEndIntro();
+            _sessionData.BattleController.Turn();
+        }
+        
         private void OnDeath()
         {
             if (_coroutine != null)
@@ -231,21 +252,46 @@ namespace Game
             GameData.CharacterController.View.Damage();
         }
 
-        [ContextMenu("Progress_100")]
-        private void Progress_100()
+        public AttackBase CreateAttack(AttackBase attackPrefab) => 
+            Instantiate(attackPrefab.gameObject, transform).GetComponent<AttackBase>();
+
+        private void PlayBattleTheme() => 
+            GameData.MusicPlayer.Play(_sessionData.BattleTheme, _sessionData.ThemeTime);
+
+        private List<OverWorldPositionsData> GetSquadOverWorldPositionsData()
         {
-            GameData.BattleProgress = 100;
+            var squadOverWorldPositionsData = new List<OverWorldPositionsData>
+            {
+                new(GameData.CharacterController.transform, SquadPoints[0], 
+                    GameData.CharacterController.View.GetSprite())
+            };
+
+            var index = 1;
+            
+            foreach (var companion in GameData.CompanionsManager.GetAllCompanions)
+            {
+                squadOverWorldPositionsData.Add(new OverWorldPositionsData(companion.transform, 
+                    SquadPoints[index], companion.GetSpriteRenderer.sprite));
+                
+                index++;
+            }
+
+            return squadOverWorldPositionsData;
         }
 
-        public AttackBase CreateAttack(AttackBase attackPrefab)
+        private List<OverWorldPositionsData> GetEnemiesOverWorldPositionsData()
         {
-            return Instantiate(attackPrefab.gameObject, transform).GetComponent<AttackBase>();
-        }
+            var enemiesOverWorldPositions = new List<OverWorldPositionsData>();
+            var enemies = _sessionData.BattleController.GetEnemies();
+            
+            for (var index = 0; index < enemies.Length; index++)
+            {
+                var enemy = enemies[index];
+                enemiesOverWorldPositions.Add(new OverWorldPositionsData(((MonoBehaviour)enemy).transform,
+                    _enemiesPoints[index], enemy.GetSprite()));
+            }
 
-        public void PlayBattleTheme()
-        {
-            GameData.MusicPlayer.Play(GameData.EnemyData.EnemyConfig.Theme 
-                ? GameData.EnemyData.EnemyConfig.Theme : GameData.Battle.BattleMusic, MusicStopTime);
+            return enemiesOverWorldPositions;
         }
     }
 }

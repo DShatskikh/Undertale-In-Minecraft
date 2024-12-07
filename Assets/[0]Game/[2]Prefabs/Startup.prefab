@@ -41,6 +41,7 @@ Transform:
   - {fileID: 8050002380000768855}
   - {fileID: 8305514265381326004}
   - {fileID: 5766906474752882673}
+  - {fileID: 5105981988727842804}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3784758574349484428
@@ -65,6 +66,7 @@ MonoBehaviour:
   _adsManager: {fileID: 3784849455500856344}
   _playerInput: {fileID: 5430314863746804757}
   _saveSystem: {fileID: 2393977805266529903}
+  _settingStorage: {fileID: 7569103290919985755}
 --- !u!114 &3114450107808566579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +253,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78e6afc7b9a4e61bbed95749f145cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1406537145103019309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5105981988727842804}
+  - component: {fileID: 7569103290919985755}
+  m_Layer: 0
+  m_Name: SettingStorage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5105981988727842804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406537145103019309}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 291866108466213962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7569103290919985755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406537145103019309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056374d552f3477eb650efbcfc32c0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_key: Setting
+  m_appendSaverTypeToKey: 0
+  m_saveAcrossSceneChanges: 1
+  m_restoreStateOnStart: 1
 --- !u!1 &2851953503609083191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,7 +1756,7 @@ PrefabInstance:
       addedObject: {fileID: 4642488095318198337}
     - targetCorrespondingSourceObject: {fileID: 125852, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1883687353157257569}
+      addedObject: {fileID: 3260397475831318357}
   m_SourcePrefab: {fileID: 100100000, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
 --- !u!1 &8305514265381034388 stripped
 GameObject:
@@ -1726,10 +1776,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_version: 1
-  m_saveCurrentScene: 0
+  m_saveCurrentScene: 1
   m_maxSaveSlot: 1
   m_framesToWaitBeforeApplyData: 0
-  m_debug: 0
+  m_debug: 1
 --- !u!114 &7818239079541089500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,11 +1793,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_key: Dialogue
-  m_appendSaverTypeToKey: 0
+  m_appendSaverTypeToKey: 1
   m_saveAcrossSceneChanges: 1
-  m_restoreStateOnStart: 0
-  skipApplyDataAfterFramesIfApplyImmediate: 1
-  saveRawData: 1
+  m_restoreStateOnStart: 1
+  skipApplyDataAfterFramesIfApplyImmediate: 0
+  saveRawData: 0
 --- !u!114 &4642488095318198337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1760,7 +1810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5a2be077784e02a007d6b9b671d294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1883687353157257569
+--- !u!114 &3260397475831318357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1769,10 +1819,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8305514265381034388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af012c0ddd89bab439c810d126388d3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c5ea4dcd6bc38d4784cd019d1d6f444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_prettyPrint: 0
 --- !u!4 &8305514265381326004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425660, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}

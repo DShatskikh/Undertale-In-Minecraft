@@ -46,7 +46,7 @@ namespace Game
                 progress = 0;
                 startPosition = _label.transform.position;
 
-                EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
+                EventBus.BattleProgressChange?.Invoke(GameData.Battle.SessionData.Progress);
             
                 while (progress < 1)
                 {

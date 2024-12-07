@@ -6,7 +6,7 @@ namespace Game
     {
         public override void Execute(UnityAction action)
         {
-            if (GameData.BattleProgress >= 100 && GameData.CommandManager.CurrentCommand is not StartEnemyTurnCommand)
+            if (GameData.Battle.SessionData.Progress >= 100)
             {
                 GameData.CommandManager.StopExecute();
                 GameData.Battle.EndBattle();

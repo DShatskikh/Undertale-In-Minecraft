@@ -17,14 +17,15 @@ namespace Game
         [SerializeField]
         private FakeHero _fake;
 
+        [FormerlySerializedAs("_fakeHeroDamage")]
         [SerializeField]
-        private DamageEvent _fakeHeroDamage;
+        private DamageAndDeathEffect fakeHeroDamageAndDeath;
 
         protected override IEnumerator AwaitCutscene()
         {
             GameData.CinemachineVirtualCamera.Follow = GameData.CharacterController.transform;
 
-            if (SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead || _fakeHeroDamage.GetHealth <= 0)
+            /*f (SaveLoadManager.GetData<DamageAndDeathEffect.Data>("FakeHero_Dead").IsDead || fakeHeroDamageAndDeath.GetHealth <= 0)
             {
                 _puzzleEnderCrystalsManager.gameObject.SetActive(true);
             }
@@ -45,7 +46,9 @@ namespace Game
                 _fake.gameObject.SetActive(false);
 
                 Lua.Run("Variable[\"FakeHeroState\"] = 2");
-            }
+            }*/
+            
+            yield break;
             
             GameData.CharacterController.enabled = true;
         }

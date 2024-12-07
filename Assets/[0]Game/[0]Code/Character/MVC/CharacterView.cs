@@ -118,5 +118,8 @@ namespace Game
         {
             _lineRenderer.gameObject.SetActive(false);
         }
+
+        public Sprite GetSprite() => 
+            _spriteRenderer.sprite;
     }
 }

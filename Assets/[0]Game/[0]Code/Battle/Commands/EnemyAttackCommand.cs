@@ -7,14 +7,12 @@ namespace Game
     public class EnemyAttackCommand : CommandBase
     {
         private readonly AttackBase _attackPrefab;
-        private readonly BlackPanel _blackPanel;
-        private readonly GameObject _arena;
+        private readonly BattleArena _arena;
 
-        public EnemyAttackCommand(AttackBase attackPrefab, BlackPanel blackPanel, GameObject arena)
+        public EnemyAttackCommand(AttackBase attackPrefab)
         {
             _attackPrefab = attackPrefab;
-            _blackPanel = blackPanel;
-            _arena = arena;
+            _arena = GameData.Battle.SessionData.Arena;
         }
         
         public override void Execute(UnityAction action)
@@ -26,17 +24,15 @@ namespace Game
         {
             GameData.HeartController.gameObject.SetActive(true);
             GameData.HeartController.enabled = true;
-            _arena.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            _arena.gameObject.SetActive(true);
             AttackBase attack = GameData.Battle.CreateAttack(_attackPrefab);
             var isEndAttack = false;
             attack.Execute(() => isEndAttack = true);
             yield return new WaitUntil(() => isEndAttack);
             Object.Destroy(attack.gameObject);
-
-            //_blackPanel.Hide();
+            
             GameData.HeartController.enabled = false;
-            action.Invoke();
+            action?.Invoke();
         }
     }
 }

@@ -16,12 +16,12 @@ namespace Game
 
         public void AddTurnProgress(int value)
         {
-            GameData.BattleProgress += value;
+            GameData.Battle.SessionData.Progress += value;
             
-            if (GameData.BattleProgress > 100)
-                GameData.BattleProgress = 100;
+            if (GameData.Battle.SessionData.Progress > 100)
+                GameData.Battle.SessionData.Progress = 100;
             
-            EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
+            EventBus.BattleProgressChange?.Invoke(GameData.Battle.SessionData.Progress);
         }
 
         public void SetIsShield(bool isActive)

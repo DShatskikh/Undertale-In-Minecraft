@@ -45,7 +45,9 @@ namespace Game
 
         private void OnDisable()
         {
-            GameData.PlayerInput.actions["Move"].performed -= OnMovePerformed;
+            if (GameData.PlayerInput)
+                GameData.PlayerInput.actions["Move"].performed -= OnMovePerformed;
+            
             _model.SetSpeed(0);
             _model.Direction = Vector2.zero;
         }
@@ -71,7 +73,7 @@ namespace Game
         
         private IEnumerator TakeDamage()
         {
-            GameData.HeartController.Health -= GameData.EnemyData.EnemyConfig.Damage;
+            GameData.HeartController.Health -= GameData.Battle.SessionData.BattleController.GetDamage();
             EventBus.Damage?.Invoke(1);
             
             var maxHealth = Lua.Run("return Variable[\"MaxHealth\"]").AsInt;
@@ -98,7 +100,7 @@ namespace Game
             GameData.Battle.gameObject.SetActive(false);
             GameData.GameOver.gameObject.SetActive(true);
 
-            Analytics.CustomEvent("Death " + GameData.EnemyData.EnemyConfig.name);
+            Analytics.CustomEvent("Death " + GameData.Battle.SessionData.BattleController.GetIndex);
         }
 
         public void Damage()

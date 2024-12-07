@@ -107,9 +107,8 @@ namespace Game
             var distance = Vector3.Distance(_cross.position, _target.transform.position);
             
             var damage = Mathf.Lerp(3, 8, 1 - distance / maxDistance);
-
-            print(damage);
-            yield return GameData.EnemyData.Enemy.AwaitCustomEvent("Damage", damage);
+            
+            yield return GameData.Battle.SessionData.BattleController.AwaitActReaction("Damage", damage);
         }
 
         public void EndMove()

@@ -11,6 +11,7 @@ namespace Game
         public override void StoreSavedGameData(int slotNumber, SavedGameData savedGameData)
         {
             var s = SaveSystem.Serialize(savedGameData);
+            print(s);
             YandexGame.savesData.SavedGameData = s;
             YandexGame.SaveProgress();
         }

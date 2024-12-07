@@ -6,7 +6,7 @@ namespace Game
     {
         public void Use()
         {
-            GameData.Battle.Arena.SetActive(false);
+            GameData.Battle.SessionData.Arena.gameObject.SetActive(false);
         }
     }
 }

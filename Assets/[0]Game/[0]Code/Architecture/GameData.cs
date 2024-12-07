@@ -14,9 +14,6 @@ namespace Game
     {
         public static CharacterController CharacterController;
         public static HeartController HeartController { get; set; }
-        public static EnemyData EnemyData { get; set; }
-        public static Transform CharacterPoint { get; set; }
-        public static Transform EnemyPoint { get; set; }
         public static Battle Battle { get; set; }
         public static DialogViewModel Dialog { get; set; }
         public static Button UseButton { get; set; }
@@ -41,7 +38,6 @@ namespace Game
         public static SelectViewModel Select;
         public static EffectSoundPlayer EffectSoundPlayer;
         public static MusicPlayer MusicPlayer;
-        public static int BattleProgress;
         public static CinemachineConfiner2D CinemachineConfiner;
         public static GameObject Introduction;
         public static GameObject Menu;

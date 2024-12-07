@@ -22,17 +22,18 @@ namespace Game
         [SerializeField]
         private FakeHeroRunningCircle _fakeHeroRunningCircle;
 
+        [FormerlySerializedAs("_fakeHeroDamage")]
         [Header("Genocide Root")]
         [SerializeField]
-        private DamageEvent _fakeHeroDamage;
+        private DamageAndDeathEffect fakeHeroDamageAndDeath;
 
         [SerializeField]
         private Dragon _dragon;
         
         protected override IEnumerator AwaitCutscene()
         {
-            if (!SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead)
-                _fakeHeroRunningCircle.gameObject.SetActive(true);
+            //if (!SaveLoadManager.GetData<DamageAndDeathEffect.Data>("FakeHero_Dead").IsDead)
+            //    _fakeHeroRunningCircle.gameObject.SetActive(true);
             
             var isAllCrystalDeactivate = true;
             
@@ -52,11 +53,11 @@ namespace Game
                 yield return new WaitForSeconds(1);
             }
 
-            if (SaveLoadManager.GetData<DamageEvent.Data>("FakeHero_Dead").IsDead)
+            /*if (SaveLoadManager.GetData<DamageAndDeathEffect.Data>("FakeHero_Dead").IsDead)
             {
                 //_dragon.StartBattle();
                 yield break;
-            }
+            }*/
             
             GameData.CharacterController.enabled = false;
 

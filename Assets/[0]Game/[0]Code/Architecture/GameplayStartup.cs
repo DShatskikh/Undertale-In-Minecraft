@@ -39,9 +39,6 @@ namespace Game
         private SelectViewModel _select;
 
         [SerializeField]
-        private Transform _characterPoint, _enemyPoint;
-        
-        [SerializeField]
         private CinemachineConfiner2D _cinemachineConfiner;
 
         [SerializeField]
@@ -87,8 +84,6 @@ namespace Game
             GameData.Select = _select;
             GameData.UseButton = _useButton;
             GameData.Joystick = _joystick;
-            GameData.CharacterPoint = _characterPoint;
-            GameData.EnemyPoint = _enemyPoint;
             GameData.CinemachineConfiner = _cinemachineConfiner;
             GameData.LocationsManager = _locationsManager;
             GameData.Introduction = _introduction;

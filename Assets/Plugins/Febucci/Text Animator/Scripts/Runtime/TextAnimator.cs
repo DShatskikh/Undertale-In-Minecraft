@@ -1624,31 +1624,37 @@ namespace Febucci.UI
         /// </summary>
         void UpdateMesh()
         {
-            //Updates the mesh
-            for (int i = 0; i < textInfo.characterCount; i++)
+            try
             {
-                //Avoids updating if we're on an invisible character, like a spacebar
-                //Do not switch this with "i<visibleCharacters", since the plugin has to update not yet visible characters
-                if (!textInfo.characterInfo[i].isVisible) continue;
+                //Updates the mesh
+                for (int i = 0; i < textInfo.characterCount; i++)
+                {
+                    //Avoids updating if we're on an invisible character, like a spacebar
+                    //Do not switch this with "i<visibleCharacters", since the plugin has to update not yet visible characters
+                    if (!textInfo.characterInfo[i].isVisible) continue;
 
-                //Updates TMP char info
-                if (characters.Length > i)
+                    //Updates TMP char info
                     textInfo.characterInfo[i] = characters[i].data.tmp_CharInfo;
 
-                //Updates vertices
-                for (byte k = 0; k < TextUtilities.verticesPerChar; k++)
-                {
-                    textInfo.meshInfo[textInfo.characterInfo[i].materialReferenceIndex].vertices[textInfo.characterInfo[i].vertexIndex + k] = characters[i].data.vertices[k];
+                    //Updates vertices
+                    for (byte k = 0; k < TextUtilities.verticesPerChar; k++)
+                    {
+                        textInfo.meshInfo[textInfo.characterInfo[i].materialReferenceIndex].vertices[textInfo.characterInfo[i].vertexIndex + k] = characters[i].data.vertices[k];
+                    }
+
+                    //Updates colors
+                    for (byte k = 0; k < TextUtilities.verticesPerChar; k++)
+                    {
+                        textInfo.meshInfo[textInfo.characterInfo[i].materialReferenceIndex].colors32[textInfo.characterInfo[i].vertexIndex + k] = characters[i].data.colors[k];
+                    }
                 }
 
-                //Updates colors
-                for (byte k = 0; k < TextUtilities.verticesPerChar; k++)
-                {
-                    textInfo.meshInfo[textInfo.characterInfo[i].materialReferenceIndex].colors32[textInfo.characterInfo[i].vertexIndex + k] = characters[i].data.colors[k];
-                }
+                tmproText.UpdateVertexData();
             }
-
-            tmproText.UpdateVertexData();
+            catch (Exception e)
+            {
+                Debug.LogWarning("TextAnimator: " + e);
+            }
         }
 
         #endregion

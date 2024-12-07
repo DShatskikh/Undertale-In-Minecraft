@@ -5,15 +5,18 @@ namespace Game
 {
     public class SlimeAttack : MonoBehaviour
     {
+        private Transform _enemyPoint;
+        
         private void Start()
         {
-            transform.position = GameData.EnemyPoint.position;
-            GameData.EnemyPoint.gameObject.SetActive(false);
+            _enemyPoint = GameData.Battle.SessionData.EnemiesOverWorldPositions[0].Point;
+            transform.position = _enemyPoint.position;
+            _enemyPoint.gameObject.SetActive(false);
         }
 
         private void OnDestroy()
         {
-            GameData.EnemyPoint.gameObject.SetActive(true);
+            _enemyPoint.gameObject.SetActive(true);
         }
     }
 }

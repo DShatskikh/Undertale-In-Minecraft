@@ -10,7 +10,7 @@ namespace Game
         private void OnEnable()
         {
             var assetProvider = GameData.AssetProvider;
-            var acts = GameData.EnemyData.EnemyConfig.Acts;
+            var acts = GameData.Battle.SelectEnemy.GetConfig.Acts;
             var distance = new Vector2(2, 1.5f);
 
             for (int i = 0; i < acts.Length; i++)
@@ -43,8 +43,8 @@ namespace Game
             }
 
             _slots = new Dictionary<Vector2, BaseSlotController>();
-            GameData.Battle.AddProgress = null;
-            EventBus.BattleProgressChange?.Invoke(GameData.BattleProgress);
+            GameData.Battle.SessionData.AddProgress = null;
+            EventBus.BattleProgressChange?.Invoke(GameData.Battle.SessionData.Progress);
         }
         
         public override void OnSubmitDown()

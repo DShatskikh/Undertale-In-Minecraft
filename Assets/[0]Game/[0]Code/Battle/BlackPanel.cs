@@ -19,16 +19,16 @@ namespace Game
             _spriteRenderer.color = _spriteRenderer.color.SetA(0);
         }
 
-        public void Show(float targetA = 1f)
+        public void Show(float targetA = 1f, float duration = 0.5f)
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             
             gameObject.SetActive(true);
-            _coroutine = StartCoroutine(AwaitShow(targetA));
+            _coroutine = StartCoroutine(AwaitShow(targetA, duration));
         }
 
-        public void Hide()
+        public void Hide(float duration = 0.5f)
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
@@ -36,32 +36,34 @@ namespace Game
             if (!gameObject.activeSelf)
                 return;
             
-            _coroutine = StartCoroutine(AwaitHide());
+            _coroutine = StartCoroutine(AwaitHide(duration));
         }
 
-        public IEnumerator AwaitShow(float targetA)
+        public IEnumerator AwaitShow(float targetA, float duration = 0.5f)
         {
-            var duration = 0f;
+            var progress = 0f;
             var startA = _spriteRenderer.color.a;
             
-            while (duration < 0.5f)
+            while (progress < 1f)
             {
-                _spriteRenderer.color = _spriteRenderer.color.SetA(Mathf.Lerp(startA, targetA, duration / 0.5f));
                 yield return null;
-                duration += Time.deltaTime;
+                progress += Time.deltaTime / duration;
+                _spriteRenderer.color = _spriteRenderer.color.SetA(Mathf.Lerp(startA, targetA, progress));
             }
+            
+            _spriteRenderer.color = _spriteRenderer.color.SetA(targetA);
         }
         
-        public IEnumerator AwaitHide()
+        public IEnumerator AwaitHide(float duration = 0.5f)
         {
-            var duration = 0f;
+            var progress = 0f;
             var startA = _spriteRenderer.color.a;
             
-            while (duration < 0.5f)
+            while (progress < 0.5f)
             {
-                _spriteRenderer.color = _spriteRenderer.color.SetA(Mathf.Lerp(startA, 0f, duration / 0.5f));
+                _spriteRenderer.color = _spriteRenderer.color.SetA(Mathf.Lerp(startA, 0f, progress / duration));
                 yield return null;
-                duration += Time.deltaTime;
+                progress += Time.deltaTime;
             }
         }
     }

@@ -137,19 +137,18 @@ namespace Game
         private IEnumerator AwaitEnding()
         {
             var moveToPointCommand = new MoveToPointCommand(GameData.CharacterController.transform, 
-                GameData.CharacterPoint.position, 1);
+                GameData.Battle.SessionData.SquadOverWorldPositionsData[0].Point.position, 1);
             yield return moveToPointCommand.Await();
+
+            yield return GameData.Battle.SessionData.BattleController.AwaitActReaction(_config.name, _isSuccess ? 1 : 0);
             
-            var commands = new List<CommandBase>();
+            /*var commands = new List<CommandBase>();
             commands.Add(new MessageCommand(GameData.Battle.MessageBox, _isSuccess ? _config.SuccessSystemMessage : _config.FailedSystemMessage));
             commands.Add(new MessageCommand(GameData.Battle.EnemyMessageBox, _isSuccess ? _config.SuccessReaction : _config.FailedReaction));
             commands.Add(new AddProgressCommand(_isSuccess ? _config.SuccessProgress : _config.FailedProgress, GameData.Battle.AddProgressLabel, GameData.Battle.AddProgressData));
-            commands.Add(new StartEnemyTurnCommand());
-            
-            print(_isSuccess);
-            
             GameData.CommandManager.StartCommands(commands);
-
+            */
+            
             Destroy(gameObject);
         }
 

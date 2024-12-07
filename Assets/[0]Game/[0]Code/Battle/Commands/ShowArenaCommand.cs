@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Tilemaps;
 
 namespace Game
 {
@@ -11,9 +10,9 @@ namespace Game
     {
         private readonly BattleArena _arena;
 
-        public ShowArenaCommand(BattleArena arena)
+        public ShowArenaCommand()
         {
-            _arena = arena;
+            _arena = GameData.Battle.SessionData.Arena;
         }
 
         public override void Execute(UnityAction action)
@@ -24,30 +23,25 @@ namespace Game
         private IEnumerator AwaitShow(UnityAction action)
         {
             var progress = 0.0f;
-            var startPosition = GameData.CharacterController.transform.position;
-            var enemyStartPosition = GameData.EnemyData.Enemy.transform.position;
-            var startPositions = new List<Vector2>();
-            var companions = GameData.CompanionsManager.GetAllCompanions;
-            
-            foreach (var companion in companions) 
-                startPositions.Add(companion.transform.position);
 
             while (progress < 1)
             {
-                progress += Time.deltaTime * 2;// * 1.5f;
+                progress += Time.deltaTime / 0.5f;// * 1.5f;
 
-                GameData.CharacterController.transform.position = Vector2.Lerp(startPosition, 
-                    startPosition.AddX(-6), progress);
-
-                for (int i = 0; i < companions.Count; i++) 
-                    companions[i].transform.position = Vector2.Lerp(startPositions[i], startPositions[i].AddX(-6), progress);
+                foreach (var overWorldPositionData in GameData.Battle.SessionData.SquadOverWorldPositionsData)
+                    overWorldPositionData.Transform.position = Vector2.Lerp(overWorldPositionData.Point.position.AddX(-6),
+                        overWorldPositionData.Point.position, progress);
                 
-                GameData.EnemyData.Enemy.transform.position = Vector2.Lerp(enemyStartPosition, 
-                    enemyStartPosition.AddX(6), progress);
+                foreach (var overWorldPositionData in GameData.Battle.SessionData.EnemiesOverWorldPositions)
+                    overWorldPositionData.Transform.position = Vector2.Lerp(overWorldPositionData.Point.position.AddX(6),
+                        overWorldPositionData.Point.position, progress);
+                
                 yield return null;
             }
+
+            foreach (var enemiesOverWorldPosition in GameData.Battle.SessionData.EnemiesOverWorldPositions)
+                enemiesOverWorldPosition.Transform.SetParent(null);
             
-            GameData.EnemyData.Enemy.transform.SetParent(null);
             GameData.CharacterController.View.SetOrderInLayer(0);
             
             progress = 0.0f;
@@ -62,7 +56,7 @@ namespace Game
 
             while (progress < 1)
             {
-                progress += Time.deltaTime / 1;
+                progress += Time.deltaTime / 0.5f;
                 heart.transform.position = Vector2.Lerp( _arena.StartPoint.position.AddY(4),  _arena.StartPoint.position, progress);
                 heart.View.GetComponent<SpriteRenderer>().color = heart.View.GetComponent<SpriteRenderer>().color.SetA(Mathf.Lerp(0, 1, progress));
                 yield return null;
