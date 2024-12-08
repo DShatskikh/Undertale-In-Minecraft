@@ -24,5 +24,6 @@ namespace Game
         public static Action OpenInventoryUp;
         public static Action OpenMenu;
         public static Action OpenMenuUp;
+        public static Action<string> DialogueEvent;
     }
 }

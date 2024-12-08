@@ -47,10 +47,8 @@ namespace Game
 
                 Lua.Run("Variable[\"FakeHeroState\"] = 2");
             }*/
-            
-            yield break;
-            
             GameData.CharacterController.enabled = true;
+            yield break;
         }
     }
 }

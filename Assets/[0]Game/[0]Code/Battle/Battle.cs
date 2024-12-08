@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 using YG;
 
 namespace Game
@@ -10,9 +10,6 @@ namespace Game
     public class Battle : MonoBehaviour, IBattle
     {
         [Header("Variables")]
-        [SerializeField]
-        private AttackBase _attackTutorial;
-
         [SerializeField]
         private BlackPanel _blackPanel;
 
@@ -24,9 +21,7 @@ namespace Game
         
         [SerializeField]
         private SelectActManager _selectActManager;
-
-        [FormerlySerializedAs("_companionsPoints")]
-        [FormerlySerializedAs("_points")]
+        
         [SerializeField]
         private Transform[] _squadPoints;
 
@@ -45,25 +40,27 @@ namespace Game
         [SerializeField]
         private Transform _actScreenContainer;
 
-        [FormerlySerializedAs("progressBarBar")]
-        [FormerlySerializedAs("_progressBar")]
-        [FormerlySerializedAs("_battleProgress")]
         [SerializeField]
         private BattleProgressBar _progressBarBar;
-        
+
         [SerializeField]
         private HealthBar _healthBar;
-        
+
+        [SerializeField]
+        private CinemachineVirtualCamera _cinemachineVirtual;
+
         [SerializeField]
         private Transform[] _enemiesPoints;
         
         [Header("Default Data")]
-        [FormerlySerializedAs("_battleMusic")]
         [SerializeField]
         private AudioClip _battleTheme;
         
         [SerializeField]
         private AudioClip _selectTheme;
+        
+        [SerializeField]
+        private AttackBase _attackTutorial;
         
         private Coroutine _coroutine;
         private BattleSessionData _sessionData;
@@ -81,6 +78,7 @@ namespace Game
         public BattleProgressBar ProgressBar => _progressBarBar;
         public HealthBar HealthBar => _healthBar;
         public Transform Container => _container;
+        public CinemachineVirtualCamera CinemachineVirtual => _cinemachineVirtual;
 
         public IEnemy SelectEnemy { get; set; }
         
@@ -93,7 +91,7 @@ namespace Game
             public AudioClip SelectTheme;
             public int Progress;
             public float ThemeTime;
-            public List<OverWorldPositionsData> EnemiesOverWorldPositions;
+            public List<OverWorldPositionsData> EnemiesOverWorldPositionsData;
             public List<OverWorldPositionsData> SquadOverWorldPositionsData;
             public BattleArena Arena;
             public IBattleOutro Outro;
@@ -128,7 +126,7 @@ namespace Game
         {
             _sessionData = new BattleSessionData()
             {
-                Intro = new DefaultBattleIntro(),
+                Intro = new IntroBattleDefault(),
                 Outro = new OutroBattleDefault(),
                 PreviousTheme = GameData.MusicPlayer.Clip,
                 BattleTheme = _battleTheme,
@@ -162,9 +160,12 @@ namespace Game
         public void StartBattle(IBattleController battleController)
         {
             _sessionData.BattleController = battleController;
-            _sessionData.EnemiesOverWorldPositions = GetEnemiesOverWorldPositionsData();
+            _sessionData.EnemiesOverWorldPositionsData = GetEnemiesOverWorldPositionsData();
 
+            SelectEnemy = battleController.GetEnemies()[0];
+            
             gameObject.SetActive(true);
+            _cinemachineVirtual.gameObject.SetActive(true);
             
             GameData.SaveLoadManager.IsSave = false;
             PlayBattleTheme();
@@ -211,15 +212,10 @@ namespace Game
         }
 
 
-        public void EndBattle()
+        public IEnumerator AwaitEndBattle()
         {
-            StartCoroutine(AwaitOutro());
-        }
+            yield return _sessionData.Outro.AwaitOutro();
 
-        private IEnumerator AwaitOutro()
-        {
-            yield return _sessionData.Outro;
-            
             GameData.CharacterController.enabled = true;
             GameData.CharacterController.GetComponent<Collider2D>().isTrigger = false;
 
@@ -232,8 +228,9 @@ namespace Game
             
             GameData.InputManager.Show();
             GameData.SaveLoadManager.IsSave = true;
+            gameObject.SetActive(false);
         }
-        
+
         private IEnumerator AwaitStartBattle()
         {
             yield return _sessionData.Intro.AwaitIntro();

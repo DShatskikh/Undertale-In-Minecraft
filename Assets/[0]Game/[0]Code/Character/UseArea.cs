@@ -1,4 +1,5 @@
 ﻿using PixelCrushers.DialogueSystem;
+using RimuruDev;
 using UnityEngine;
 
 namespace Game
@@ -65,15 +66,30 @@ namespace Game
 
         private void ButtonOn(MonoBehaviour nearestUseObject)
         {
-            GameData.UseButton.gameObject.SetActive(true);
             EventBus.SubmitUp = () => Use(nearestUseObject);
+
+            if (GameData.DeviceType == CurrentDeviceType.Mobile)
+            {
+                GameData.UseButton.gameObject.SetActive(true);
+            
+                if (nearestUseObject.TryGetComponent(out IUseName useName))
+                    GameData.UseButton.SetText(useName.Name);
+                else
+                    GameData.UseButton.ResetText();
+            }
+
             _previousUseObject = nearestUseObject;
         }
         
         private void ButtonOff()
         {
             EventBus.SubmitUp = null;
-            GameData.UseButton.gameObject.SetActive(false);
+
+            if (GameData.DeviceType == CurrentDeviceType.Mobile)
+            {
+                GameData.UseButton.gameObject.SetActive(false);
+            }
+
             _previousUseObject = null;
         }
 

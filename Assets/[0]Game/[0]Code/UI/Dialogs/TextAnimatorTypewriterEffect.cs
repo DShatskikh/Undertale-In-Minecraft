@@ -1,6 +1,7 @@
 using Febucci.UI;
 using MoreMountains.Feedbacks;
 using PixelCrushers.DialogueSystem;
+using TMPro;
 using UnityEngine;
 
 namespace Game
@@ -22,6 +23,12 @@ namespace Game
 
         [SerializeField]
         private GameObject _hint;
+
+        [SerializeField]
+        private GameObject _namePanel;
+        
+        [SerializeField]
+        private TMP_Text _nameLabel;
         
         private bool _isPlaying;
 
@@ -49,7 +56,7 @@ namespace Game
             _textAnimatorPlayer.onTextShowed.RemoveListener(Stop);
             _textAnimatorPlayer.onTypewriterStart.RemoveListener(OnTypewriterStart);
             gameObject.SetActive(false);
-            
+
             EventBus.SubmitUp -= ShowAllText;
             EventBus.CancelUp -= ShowAllText;
             
@@ -74,11 +81,17 @@ namespace Game
             var clipPath = "AudioClips/" + (clipName != "" ? clipName : "snd_txtlan_ch1");
             var clip = Resources.Load<AudioClip>(clipPath);
             _audioSource.clip = clip;
-            
+
+            var useDisplayName = DialogueManager.masterDatabase.GetActor(actorName).LookupValue("Display Name");
+            _namePanel.SetActive(useDisplayName != string.Empty);
+                
             _textAnimatorPlayer.StartShowingText();
         }
 
-        public override void StopTyping() { }
+        public override void StopTyping()
+        {
+            _button.SetActive(true);
+        }
 
         private void OnWrite()
         {

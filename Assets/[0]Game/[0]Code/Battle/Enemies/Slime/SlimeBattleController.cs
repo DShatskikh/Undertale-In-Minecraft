@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,9 @@ namespace Game
         [SerializeField]
         private LocalizedString _progressName;
 
+        [SerializeField]
+        private Item _item;
+        
         private int _numberTurn;
         private int _indexAttack;
         
@@ -40,6 +44,12 @@ namespace Game
 
         public void Turn()
         {
+            if (GameData.Battle.SessionData.Progress >= 100)
+            {
+                //GameData.Battle.EndBattle();
+                return;
+            }
+            
             if (_numberTurn == 0)
             {
                 GameData.Battle.PlayerTurn();
@@ -50,10 +60,15 @@ namespace Game
                 {
                     new ShowArenaCommand(),
                     new EnemyAttackCommand(_slimeEnemy.GetConfig.Attacks[_indexAttack]),
-                    new HideArenaCommand()
+                    new HideArenaCommand(),
+                    new StartCharacterTurnCommand()
                 };
-            
+
                 GameData.CommandManager.StartCommands(commands);
+                _indexAttack++;
+
+                if (_indexAttack > _slimeEnemy.GetConfig.Attacks.Length)
+                    _indexAttack = 0;
             }
 
             _numberTurn++;
@@ -70,12 +85,31 @@ namespace Game
 
         public IEnumerator AwaitActReaction(string actName, float value)
         {
-            throw new System.NotImplementedException();
+            switch (actName)
+            {
+                case "Attack":
+                    yield return _slimeEnemy.AwaitDamage((int)value * 100);
+
+                    if (_slimeEnemy.Health <= 0)
+                    {
+                        yield return AwaitDeadReaction(_slimeEnemy.GetConfig.name);
+                        yield break;
+                    }
+                    
+                    break;
+                default:
+                    throw new Exception();
+            }
+            
+            Turn();
         }
 
         public IEnumerator AwaitDeadReaction(string enemyName)
         {
-            throw new System.NotImplementedException();
+            yield return _slimeEnemy.AwaitDeath();
+            yield return GameData.Battle.AwaitEndBattle();
+            //_slimeEnemy.gameObject.SetActive(false);
+            _item.gameObject.SetActive(true);
         }
 
         public BattleArena GetArena() => 

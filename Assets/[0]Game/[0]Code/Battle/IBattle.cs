@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Game
@@ -9,7 +10,7 @@ namespace Game
         IBattle SetOutro(IBattleOutro outro);
         IBattle SetBattleTheme(AudioClip theme);
         void StartBattle(IBattleController battleController);
-        void EndBattle();
+        IEnumerator AwaitEndBattle();
         void PlayerTurn();
         IEnemy SelectEnemy { get; set; }
     }

@@ -1,11 +1,8 @@
 ﻿using System.Collections;
 using Cinemachine;
 using MoreMountains.Feedbacks;
-using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using YG;
 
 namespace Game
 {
@@ -30,7 +27,7 @@ namespace Game
         private GameObject _input;
 
         [SerializeField]
-        private Button _useButton;
+        private UseButton _useButton;
 
         [SerializeField]
         private Joystick _joystick;
@@ -74,6 +71,9 @@ namespace Game
         [SerializeField]
         private InputManager _inputManager;
 
+        [SerializeField]
+        private TransitionScreen _transitionScreen;
+        
         private void Awake()
         {
             GameData.CharacterController = characterController;
@@ -96,6 +96,7 @@ namespace Game
             GameData.SaverTimer = _saverTimer;
             GameData.InputManager = _inputManager;
             GameData.ImpulseMMFPlayer = _impulseMMFPlayer;
+            GameData.TransitionScreen = _transitionScreen;
             
             _companionsManager.Register();
         }
@@ -139,10 +140,6 @@ namespace Game
             //Lua.UnregisterFunction(nameof(IsWin));
             //Lua.UnregisterFunction(nameof(IsUseCylinder));
         }
-
-
-
-
         
         private IEnumerator Await()
         {

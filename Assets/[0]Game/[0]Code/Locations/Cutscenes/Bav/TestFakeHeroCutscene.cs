@@ -18,11 +18,10 @@ namespace Game
         private void Start()
         {
             _dragonStartBattle.StartBattle();
-            return;
-            
-            _cutscene.gameObject.SetActive(false);
+ 
+            /*_cutscene.gameObject.SetActive(false);
             Lua.Run("Variable[\"FakeHeroState\"] = 1");
-            _cutscene2.StartCutscene();
+            _cutscene2.StartCutscene();*/
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Game
         
         private void Start()
         {
-            _enemyPoint = GameData.Battle.SessionData.EnemiesOverWorldPositions[0].Point;
+            _enemyPoint = GameData.Battle.SessionData.EnemiesOverWorldPositionsData[0].Point;
             transform.position = _enemyPoint.position;
             _enemyPoint.gameObject.SetActive(false);
         }

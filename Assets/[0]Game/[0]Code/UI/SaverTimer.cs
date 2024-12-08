@@ -6,7 +6,7 @@ namespace Game
     public class SaverTimer : MonoBehaviour
     {
         [SerializeField]
-        private float _saveTime = 5f;
+        private float _saveTime = 20f;
 
         private Coroutine _coroutine;
         

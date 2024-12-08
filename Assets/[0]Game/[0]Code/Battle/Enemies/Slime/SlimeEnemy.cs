@@ -41,7 +41,7 @@ namespace Game
             if (other.TryGetComponent(out CharacterController characterController))
             {
                 GetComponent<Collider2D>().enabled = false;
-                _mover.StopMove(true);
+                _mover.StopMove();
                 _battleController.StartBattle();
             }
         }
@@ -71,19 +71,12 @@ namespace Game
         
         public IEnumerator AwaitDamage(int damage)
         {
-            yield return _damageAndDeathEffect.AwaitPlayDamage();
+            _health -= damage;
             
-            if (_health > 0)
-            {
-                //var messageCommand = new MessageCommand(GameData.Battle.EnemyMessageBox, attackConfig.Reaction);
-                //yield return messageCommand.Await();
-                yield return new WaitForSeconds(1f);
-            }
-            else
-            {
-                GameData.CommandManager.StopExecute();
-                GameData.Battle.EndBattle();
-            }
+            if (_health < (_maxHealth * 30) / 100)
+                _health = 0;
+            
+            yield return _damageAndDeathEffect.AwaitPlayDamage(damage);
         }
 
         public IEnumerator AwaitDeath()
@@ -95,7 +88,7 @@ namespace Game
             
             //var killMessageCommand = new MonologueCommand(_killLocalizedString);
             //yield return killMessageCommand.Await();
-            
+
             var kills = Lua.Run("return Variable[\"KILLS\"]").AsInt;
             kills += 1;
             Lua.Run($"Variable[\"KILLS\"] = {kills}");

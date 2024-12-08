@@ -40,7 +40,7 @@ namespace Game
 
         private IEnumerator AwaitStartBattle()
         {
-            mover.StopMove(true);
+            mover.StopMove();
             //transform.position = _startPosition;
                 
             var dialogCommand = new DialogCommand(_startReplica, null, null);
@@ -58,7 +58,7 @@ namespace Game
 
             if (eventName == "Damage")
             {
-                yield return damageAndDeathEvent.AwaitPlayDamage();
+                yield return damageAndDeathEvent.AwaitPlayDamage(0);
             }
             
             if (eventName == "EndBattle")
@@ -99,7 +99,7 @@ namespace Game
 
             if (_saveData.IsDefeated)
             {
-                mover.StopMove(true);
+                mover.StopMove();
                 _hat.SetActive(true);
                 transform.position = _endBattlePoint.position;
                 GetComponent<Collider2D>().enabled = false;

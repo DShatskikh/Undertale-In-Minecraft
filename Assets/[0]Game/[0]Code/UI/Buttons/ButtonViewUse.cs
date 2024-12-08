@@ -36,9 +36,9 @@ namespace Game
         {
             _pressedMmfPlayer.StopFeedbacks();
             _notPressedMmfPlayer.StopFeedbacks();
-            
-            _label.color = GameData.AssetProvider.DeselectColor;
+
             _viewImage.color = GameData.AssetProvider.DeselectColor;
+            _label.color = GameData.AssetProvider.DeselectColor;
             _view.transform.localScale = Vector3.one;
         }
 

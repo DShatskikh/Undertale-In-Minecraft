@@ -106,6 +106,7 @@ namespace Game
             Lua.RegisterFunction(nameof(IsPassedEnding), this, SymbolExtensions.GetMethodInfo(() => IsPassedEnding()));
             Lua.RegisterFunction(nameof(IsCompletedAllEnding), this, SymbolExtensions.GetMethodInfo(() => IsCompletedAllEnding()));
             Lua.RegisterFunction(nameof(IsGenocide), this, SymbolExtensions.GetMethodInfo(() => IsGenocide()));
+            Lua.RegisterFunction(nameof(DialogueEvent), this, SymbolExtensions.GetMethodInfo(() => DialogueEvent(string.Empty)));
         }
         
         private bool IsWin(string nameEnemy) => 
@@ -134,5 +135,8 @@ namespace Game
         
         private bool IsGenocide() => 
             Lua.IsTrue("Variable[\"KILLS\"] >= 4");
+
+        private void DialogueEvent(string index) => 
+            EventBus.DialogueEvent?.Invoke(index);
     }
 }

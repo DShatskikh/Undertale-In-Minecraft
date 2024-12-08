@@ -1,16 +1,12 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using Game;
-using PixelCrushers;
-using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace YG
 {
-    [System.Serializable]
+    [Serializable]
     public class SavesYG
     {
         // "Технические сохранения" для работы плагина (Не удалять)

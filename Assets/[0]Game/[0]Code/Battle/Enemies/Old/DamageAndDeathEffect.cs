@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using TMPro;
@@ -23,9 +24,6 @@ namespace Game
         [SerializeField]
         private GameObject _explosion;
 
-        [SerializeField]
-        private MMF_Player _shake;
-
         private IDamageAndDeath _enemy;
 
         public void Init(IDamageAndDeath enemy)
@@ -35,7 +33,7 @@ namespace Game
             _progressBar.SetBar(enemy.Health, 0, enemy.MaxHealth);
         }
 
-        public IEnumerator AwaitPlayDamage(int damage = 0)
+        public IEnumerator AwaitPlayDamage(int damage)
         {
             print($"Damage: {damage}");
             
@@ -62,17 +60,16 @@ namespace Game
 
         public IEnumerator AwaitPlayDeath()
         {
-            _shake.PlayFeedbacks();
-            yield return new WaitForSeconds(0.5f);
-            _shake.StopFeedbacks();
+            var shake = DOTween.Sequence();
+            shake.Append(transform.DOShakePosition(1, 0.5f, 10));
+            yield return shake.WaitForCompletion();
             
             _explosion.SetActive(true);
             GameData.EffectSoundPlayer.Play(GameData.AssetProvider.BombSound);
             yield return new WaitForSeconds(0.3f);
-            ((MonoBehaviour)_enemy).gameObject.SetActive(false);
+            _spriteRenderer.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.2f);
             _explosion.SetActive(false);
-            gameObject.SetActive(false);
         }
     }
 }

@@ -6,11 +6,11 @@ namespace Game
     public class BattleTestStarter : MonoBehaviour
     {
         [SerializeField]
-        private EnemyBase _startBattleTrigger;
+        private MonoBehaviour _battleController;
         
         private void Start()
         {
-            _startBattleTrigger.StartBattle();
+            ((IBattleController)_battleController).StartBattle();
         }
     }
 }

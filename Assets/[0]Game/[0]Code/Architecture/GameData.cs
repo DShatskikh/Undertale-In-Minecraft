@@ -2,7 +2,6 @@
 using MoreMountains.Feedbacks;
 using RimuruDev;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
@@ -16,7 +15,7 @@ namespace Game
         public static HeartController HeartController { get; set; }
         public static Battle Battle { get; set; }
         public static DialogViewModel Dialog { get; set; }
-        public static Button UseButton { get; set; }
+        public static UseButton UseButton { get; set; }
         public static Joystick Joystick { get; set; }
         public static AudioMixer AudioMixer;
         public static Startup Startup { get; set; }
@@ -32,6 +31,7 @@ namespace Game
         public static PlayerInput PlayerInput { get; set; }
         public static MonoBehaviour CoroutineRunner { get; set; }
         public static SettingStorage SettingStorage { get; set; }
+        public static TransitionScreen TransitionScreen { get; set; }
 
         public static LocationsManager LocationsManager;
         public static MonologViewModel Monolog;

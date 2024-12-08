@@ -61,10 +61,6 @@ MonoBehaviour:
       value: 11f1a496-4c3a-44e8-bc1e-0aa2f5990f02
       type: 0
       typeString: CustomFieldType_Text
-    - title: Display Name
-      value: Player
-      type: 4
-      typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
@@ -96,9 +92,9 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Display Name
-      value: NPC
-      type: 4
-      typeString: CustomFieldType_Localization
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
     portrait: {fileID: 0}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
@@ -130,9 +126,9 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: Villager
-      type: 4
-      typeString: CustomFieldType_Localization
+      value: "\u0416\u0438\u0442\u0435\u043B\u044C"
+      type: 0
+      typeString: CustomFieldType_Text
     portrait: {fileID: 0}
     spritePortrait: {fileID: -1640750875, guid: ea7e12b0264525b479af962a4b7cf971, type: 3}
     alternatePortraits: []
@@ -164,7 +160,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u0410\u0434\u043C\u0438\u043D"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -198,7 +194,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u0427\u0438\u0442\u0435\u0440"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -232,7 +228,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u041F\u044B\u043B\u0435\u0441\u043E\u0441"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -266,7 +262,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Display Name
-      value: 
+      value: "\u0421\u0438\u043D\u044F\u044F \u043A\u043E\u0440\u043E\u0432\u0430"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -300,7 +296,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u0421\u043D\u0435\u0433\u043E\u0432\u0438\u043A"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -334,7 +330,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u041F\u043E\u043B\u0438\u0446\u0435\u0439\u0441\u043A\u0438\u0439"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -368,7 +364,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: ???
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -402,7 +398,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u041A\u043E\u043D\u0441\u044C\u0435\u0440\u0436"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -436,7 +432,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u0414\u0436\u043E"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -470,7 +466,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u0421\u0430\u0448\u0430"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -504,7 +500,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u041C\u043E\u0434\u0435\u0440\u0430\u0442\u043E\u0440"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -538,9 +534,9 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
-      type: 4
-      typeString: CustomFieldType_Localization
+      value: "\u0413\u0435\u0440\u043E\u0439"
+      type: 0
+      typeString: 
     portrait: {fileID: 0}
     spritePortrait: {fileID: 1784226484, guid: b06dde90e9aa0cb47a9fc1d800f3fe63, type: 3}
     alternatePortraits: []
@@ -572,9 +568,9 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
-      type: 4
-      typeString: CustomFieldType_Localization
+      value: "\u0423\u0441\u0430\u0442\u044B\u0439 \u0410\u043D\u0430\u043D\u0430\u0441"
+      type: 0
+      typeString: 
     portrait: {fileID: 0}
     spritePortrait: {fileID: 1415409707, guid: ea7e12b0264525b479af962a4b7cf971, type: 3}
     alternatePortraits: []
@@ -606,7 +602,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u041F\u0443\u043A\u0438\u043A\u043E\u0434"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -640,7 +636,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Display Name
-      value: 
+      value: "\u0423\u0447\u0435\u043D\u044B\u0439"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -674,7 +670,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Display Name
-      value: 
+      value: "\u041F\u0430\u0441\u0435\u0447\u043D\u0438\u043A"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -708,7 +704,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Display Name
-      value: 
+      value: "\u041A\u0443\u0440\u0438\u0446\u0430 \u0432 \u0448\u043B\u044F\u043F\u0435"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -742,7 +738,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Display Name
-      value: 
+      value: "\u0428\u0430\u0445\u0442\u0435\u0440"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -776,7 +772,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Display Name
-      value: 
+      value: "\u041F\u043E\u043B\u0438\u0446\u0435\u0439\u0441\u043A\u0438\u0439"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -810,7 +806,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Display Name
-      value: 
+      value: ???
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -844,7 +840,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Display Name
-      value: 
+      value: "\u041F\u0447\u0435\u043B\u043E\u0432\u0435\u043A"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -878,7 +874,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Display Name
-      value: 
+      value: "\u041F\u044F\u0442\u0435\u0440\u043A\u0430"
       type: 4
       typeString: CustomFieldType_Localization
     portrait: {fileID: 0}
@@ -909,7 +905,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Initial Value
-      value: 4
+      value: 20
       type: 1
       typeString: CustomFieldType_Number
     - title: Description
@@ -1210,6 +1206,62 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: CustomFieldType_Text
+  - id: 30
+    fields:
+    - title: Name
+      value: IsChestOpen
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 31
+    fields:
+    - title: Name
+      value: ChestItemName
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 32
+    fields:
+    - title: Name
+      value: ChestItemCount
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 33
+    fields:
+    - title: Name
+      value: DryBush
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
   conversations:
   - id: 1
     fields:
@@ -1287,10 +1339,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -1359,7 +1407,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041C\u043D\u0435 \u0431\u043E\u043B\u044C\u0448\u0435 \u043D\u0435\u0447\u0435\u043C\u0443
+        value: "\u041C\u043D\u0435 \u0431\u043E\u043B\u044C\u0448\u0435 \u043D\u0435\u0447\u0435\u043C\u0443
           \u0442\u0435\u0431\u044F \u0443\u0447\u0438\u0442\u044C"
         type: 4
         typeString: CustomFieldType_Localization
@@ -1367,10 +1415,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -1421,7 +1465,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0417\u0430\u0436\u043C\u0438 <color=yellow>X</color> \u0447\u0442\u043E\u0431\u044B
+        value: "\u0417\u0430\u0436\u043C\u0438 <color=yellow>X</color> \u0447\u0442\u043E\u0431\u044B
           \u0431\u0435\u0436\u0430\u0442\u044C"
         type: 4
         typeString: CustomFieldType_Localization
@@ -1429,10 +1473,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -1457,7 +1497,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 288
+        x: 286.86365
         y: 134
         width: 160
         height: 30
@@ -1484,7 +1524,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0417\u0430\u0436\u043C\u0438 <color=\"yellow\">\u0441\u0442\u0438\u043A</color>
+        value: "\u0417\u0430\u0436\u043C\u0438 <color=\"yellow\">\u0441\u0442\u0438\u043A</color>
           \u0434\u043E \u043F\u0440\u0435\u0434\u0435\u043B\u0430 \u0447\u0442\u043E\u0431\u044B
           \u0431\u0435\u0436\u0430\u0442\u044C"
         type: 4
@@ -1493,10 +1533,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -1521,8 +1557,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 496
-        y: 134
+        x: 494.86365
+        y: 132.86363
         width: 160
         height: 30
     entryGroups: []
@@ -1604,10 +1640,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -1701,10 +1733,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -1769,10 +1797,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -1836,10 +1860,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -1903,10 +1923,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -1970,10 +1986,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2038,10 +2050,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2100,10 +2108,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2167,10 +2171,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2229,10 +2229,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2294,10 +2290,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2363,10 +2355,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2430,10 +2418,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2498,10 +2482,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2567,10 +2547,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2636,10 +2612,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2705,10 +2677,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2767,10 +2735,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2835,10 +2799,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2898,10 +2858,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -2971,10 +2927,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3032,10 +2984,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3101,10 +3049,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3211,10 +3155,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3271,17 +3211,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0421\u043F\u0430\u0441\u0438\u0431\u043E!"
+        value: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3312,7 +3248,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 80
+        y: 79.02913
         width: 160
         height: 30
     - id: 2
@@ -3338,7 +3274,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u0435\u043F\u0435\u0440\u044C \u0442\u044B \u043D\u0435 \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u0435\u0448\u044C
+        value: "\u0422\u0435\u043F\u0435\u0440\u044C \u0442\u044B \u043D\u0435 \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u0435\u0448\u044C
           \u0434\u0430\u0436\u0435 \u0435\u0441\u043B\u0438 \u0442\u0432\u043E\u0435
           \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435 \u0431\u0443\u0434\u0435\u0442
           \u043C\u0435\u043D\u044C\u0448\u0435 0"
@@ -3348,10 +3284,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3408,7 +3340,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u0435\u0440\u0435\u0443\u0431\u0435\u0434\u0438 \u0435\u0433\u043E\n*\u042F
+        value: "\u041F\u0435\u0440\u0435\u0443\u0431\u0435\u0434\u0438 \u0435\u0433\u043E\n\u042F
           \u0432\u0435\u0440\u044E \u0432 \u0442\u0435\u0431\u044F"
         type: 4
         typeString: CustomFieldType_Localization
@@ -3416,10 +3348,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3446,7 +3374,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 159.91663
+        x: 158.94576
         y: 247.96288
         width: 160
         height: 30
@@ -3473,7 +3401,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0415\u0449\u0435 {AdsViews} \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u043E\u0432
+        value: "\u0415\u0449\u0435 {AdsViews} \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u043E\u0432
           \u0438 \u044F \u0441\u0442\u0430\u043D\u0443 \u041C\u0418\u041B\u041B\u0418\u041E\u041D\u0415\u0420\u041E\u041C!!!"
         type: 4
         typeString: CustomFieldType_Localization
@@ -3481,10 +3409,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3597,10 +3521,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3675,17 +3595,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0425\u0435\u0439 \u0431\u0440\u043E \u043A\u0443\u043F\u0438 \u043F\u044B\u043B\u0435\u0441\u043E\u0441"
+        value: "\u0425\u0435\u0439 \u0431\u0440\u043E \u043A\u0443\u043F\u0438 \u043F\u044B\u043B\u0435\u0441\u043E\u0441"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3742,7 +3658,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u0443\u043F\u0438\u0442\u044C \u043F\u044B\u043B\u0435\u0441\u043E\u0441?\n(\u0417\u0430
+        value: "\u041A\u0443\u043F\u0438\u0442\u044C \u043F\u044B\u043B\u0435\u0441\u043E\u0441?\n(\u0417\u0430
           1 \u0440\u0435\u043A\u043B\u0430\u043C\u0443)"
         type: 4
         typeString: CustomFieldType_Localization
@@ -3750,10 +3666,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3823,10 +3735,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3884,10 +3792,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -3944,7 +3848,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u043E\u0442\u043A\u0430\u0437\u0430\u043B\u0438\u0441\u044C
+        value: "\u0412\u044B \u043E\u0442\u043A\u0430\u0437\u0430\u043B\u0438\u0441\u044C
           \u043E\u0442 \u044D\u0442\u043E\u0439 \u0441\u043E\u043C\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439
           \u0441\u0434\u0435\u043B\u043A\u0438"
         type: 4
@@ -3953,10 +3857,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4007,7 +3907,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0411\u0440\u043E \u0441\u043F\u0430\u0441\u0438\u0431\u043E \u0447\u0442\u043E
+        value: "\u0411\u0440\u043E \u0441\u043F\u0430\u0441\u0438\u0431\u043E \u0447\u0442\u043E
           \u043A\u0443\u043F\u0438\u043B \u0443 \u043C\u0435\u043D\u044F \u043F\u044B\u043B\u0435\u0441\u043E\u0441"
         type: 4
         typeString: CustomFieldType_Localization
@@ -4015,10 +3915,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4075,8 +3971,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0427\u0442\u043E \u0442\u0435\u0431\u0435 \u043D\u0443\u0436\u0435\u043D
-          \u0435\u0449\u0435 1?\n*\u0414\u0435\u0440\u0436\u0438, \u044D\u0442\u043E
+        value: "\u0427\u0442\u043E \u0442\u0435\u0431\u0435 \u043D\u0443\u0436\u0435\u043D
+          \u0435\u0449\u0435 1?\n\u0414\u0435\u0440\u0436\u0438, \u044D\u0442\u043E
           \u043F\u043E\u0434\u0430\u0440\u043E\u043A"
         type: 4
         typeString: CustomFieldType_Localization
@@ -4084,10 +3980,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4144,8 +4036,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u0435\u043F\u0435\u0440\u044C \u0443 \u0432\u0430\u0441 2
-          \u043F\u044B\u043B\u0435\u0441\u043E\u0441\u0430\n*\u041A\u0430\u0436\u0435\u0442\u0441\u044F
+        value: "\u0422\u0435\u043F\u0435\u0440\u044C \u0443 \u0432\u0430\u0441 2
+          \u043F\u044B\u043B\u0435\u0441\u043E\u0441\u0430\n\u041A\u0430\u0436\u0435\u0442\u0441\u044F
           \u0432\u0430\u043C \u043D\u0443\u0436\u0435\u043D \u0435\u0449\u0435 1"
         type: 4
         typeString: CustomFieldType_Localization
@@ -4153,10 +4045,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4187,7 +4075,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 496
-        y: 302
+        y: 305.29672
         width: 160
         height: 30
     - id: 9
@@ -4213,7 +4101,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0411\u0440\u043E \u043F\u043E\u0432\u0435\u0440\u044C \u043C\u043D\u0435
+        value: "\u0411\u0440\u043E \u043F\u043E\u0432\u0435\u0440\u044C \u043C\u043D\u0435
           \u043F\u044B\u043B\u0435\u0441\u043E\u0441\u044B \u044D\u0442\u043E \u0445\u043E\u0440\u043E\u0448\u0430\u044F
           \u0438\u043D\u0432\u0435\u0441\u0442\u0438\u0446\u0438\u044F"
         type: 4
@@ -4222,10 +4110,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4249,7 +4133,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 496
+        x: 494.90106
         y: 386
         width: 160
         height: 30
@@ -4276,8 +4160,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0411\u0440\u043E \u0443 \u043C\u0435\u043D\u044F \u043E\u0441\u0442\u0430\u043B\u0441\u044F
-          \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439 \u043F\u044B\u043B\u0435\u0441\u043E\u0441\n*\u042F
+        value: "\u0411\u0440\u043E \u0443 \u043C\u0435\u043D\u044F \u043E\u0441\u0442\u0430\u043B\u0441\u044F
+          \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439 \u043F\u044B\u043B\u0435\u0441\u043E\u0441\n\u042F
           \u0434\u0443\u043C\u0430\u044E \u0447\u0442\u043E \u043C\u043E\u0433\u0443
           \u043F\u043E\u0434\u0430\u0440\u0438\u0442\u044C \u0435\u0433\u043E"
         type: 4
@@ -4286,10 +4170,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4346,8 +4226,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u0435\u043F\u0435\u0440\u044C \u0443 \u0442\u0435\u0431\u044F
-          \u0432\u0441\u0435 100% \u043F\u044B\u043B\u0435\u0441\u043E\u0441\u043E\u0432\n*\u041C\u043E\u0439
+        value: "\u0422\u0435\u043F\u0435\u0440\u044C \u0443 \u0442\u0435\u0431\u044F
+          \u0432\u0441\u0435 100% \u043F\u044B\u043B\u0435\u0441\u043E\u0441\u043E\u0432\n\u041C\u043E\u0439
           \u0435\u0434\u0438\u043D\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0439
           \u043F\u043E\u043A\u0443\u043F\u0430\u0442\u0435\u043B\u044C"
         type: 4
@@ -4356,10 +4236,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4416,7 +4292,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439
+        value: "\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439
           3 \u043F\u044B\u043B\u0435\u0441\u043E\u0441"
         type: 4
         typeString: CustomFieldType_Localization
@@ -4424,10 +4300,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4484,7 +4356,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u0435\u043F\u0435\u0440\u044C \u0432\u044B \u0431\u043E\u043B\u044C\u0448\u0430\u044F
+        value: "\u0422\u0435\u043F\u0435\u0440\u044C \u0432\u044B \u0431\u043E\u043B\u044C\u0448\u0430\u044F
           \u0448\u0438\u0448\u043A\u0430"
         type: 4
         typeString: CustomFieldType_Localization
@@ -4492,10 +4364,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4552,7 +4420,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u0430\u0436\u0435\u0442\u0441\u044F \u0443 \u043C\u0435\u043D\u044F
+        value: "\u041A\u0430\u0436\u0435\u0442\u0441\u044F \u0443 \u043C\u0435\u043D\u044F
           \u043D\u0435 \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C \u043F\u044B\u043B\u0435\u0441\u043E\u0441\u043E\u0432"
         type: 4
         typeString: CustomFieldType_Localization
@@ -4560,10 +4428,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4620,7 +4484,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u043F\u043E\u0437\u0432\u043E\u043D\u044E \u0442\u0435\u0431\u0435
+        value: "\u042F \u043F\u043E\u0437\u0432\u043E\u043D\u044E \u0442\u0435\u0431\u0435
           \u0432 \u043A\u043E\u043D\u0446\u0435"
         type: 4
         typeString: CustomFieldType_Localization
@@ -4628,10 +4492,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4688,18 +4548,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0418 \u0434\u0430...\n*\u041C\u044B \u0432 \u043F\u044B\u043B\u0435\u0441\u043E\u0441\u0435!!!
-          \n*\u0410\u0445\u0430\u0445\u0430\u0445\u0430!"
+        value: "\u0418 \u0434\u0430...\n\u041C\u044B \u0432 \u043F\u044B\u043B\u0435\u0441\u043E\u0441\u0435!!!
+          \n\u0410\u0445\u0430\u0445\u0430\u0445\u0430!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4750,17 +4606,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041C\u044B \u0432 \u043F\u044B\u043B\u0435\u0441\u043E\u0441\u0435!"
+        value: "\u041C\u044B \u0432 \u043F\u044B\u043B\u0435\u0441\u043E\u0441\u0435!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4785,12 +4637,12 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 134
+        y: 132.90111
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.85
+    canvasScrollPosition: {x: 137.99889, y: 29.968407}
+    canvasZoom: 1.0299999
   - id: 5
     fields:
     - title: Title
@@ -4867,10 +4719,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -4957,7 +4805,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041C\u0435\u0441\u0442\u043E \u0438 \u0432\u0440\u0435\u043C\u044F
+        value: "\u041C\u0435\u0441\u0442\u043E \u0438 \u0432\u0440\u0435\u043C\u044F
           \u043A\u0430\u0436\u0434\u043E\u0433\u043E \u043F\u043E\u0434\u0432\u0438\u0433\u0430
           \u043E\u043F\u0440\u0435\u0434\u0435\u043B\u044F\u0435\u0442\u0441\u044F
           \u0441\u0443\u0434\u044C\u0431\u043E\u0439"
@@ -4967,10 +4815,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5027,7 +4871,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u043E \u0435\u0441\u043B\u0438 \u043D\u0435 \u043F\u0440\u0438\u0434\u0435\u0442
+        value: "\u041D\u043E \u0435\u0441\u043B\u0438 \u043D\u0435 \u043F\u0440\u0438\u0434\u0435\u0442
           \u0433\u0435\u0440\u043E\u0439 \u043D\u0435 \u0431\u0443\u0434\u0435\u0442
           \u0438 \u043F\u043E\u0434\u0432\u0438\u0433\u0430"
         type: 4
@@ -5036,10 +4880,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5096,17 +4936,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u044B \u0433\u0435\u0440\u043E\u0439"
+        value: "\u0422\u044B \u0433\u0435\u0440\u043E\u0439"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5163,7 +4999,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u0442\u0435\u0431\u0435
+        value: "\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u0442\u0435\u0431\u0435
           \u043F\u043E\u0440\u0430 \u0438\u0434\u0442\u0438 \u0441\u043E\u0432\u0435\u0440\u0448\u0430\u0442\u044C
           \u043F\u043E\u0434\u0432\u0438\u0433"
         type: 4
@@ -5172,10 +5008,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5206,7 +5038,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 722
+        y: 723.13635
         width: 160
         height: 30
     - id: 5
@@ -5232,7 +5064,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u0440\u043E\u0445\u043E\u0434 \u043E\u0442\u043A\u0440\u044B\u0442
+        value: "\u041F\u0440\u043E\u0445\u043E\u0434 \u043E\u0442\u043A\u0440\u044B\u0442
           \u0438 \u0442\u044B \u043C\u043E\u0436\u0435\u0448\u044C \u043F\u0440\u043E\u0439\u0442\u0438
           \u0434\u0430\u043B\u044C\u0448\u0435"
         type: 4
@@ -5241,10 +5073,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5295,17 +5123,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0427\u0435\u0433\u043E \u0436\u0435 \u0442\u044B \u0436\u0434\u0435\u0448\u044C?!"
+        value: "\u0427\u0435\u0433\u043E \u0436\u0435 \u0442\u044B \u0436\u0434\u0435\u0448\u044C?!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5357,7 +5181,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0418 \u0442\u0435\u0431\u0435 \u0441\u0443\u0436\u0434\u0435\u043D\u043E
+        value: "\u0418 \u0442\u0435\u0431\u0435 \u0441\u0443\u0436\u0434\u0435\u043D\u043E
           \u043F\u043E\u0431\u0435\u0434\u0438\u0442\u044C \u0434\u0440\u0430\u043A\u043E\u043D\u0430
           \u0438 \u043E\u0441\u0432\u043E\u0431\u043E\u0434\u0438\u0442\u044C \u042D\u043D\u0434"
         type: 4
@@ -5366,10 +5190,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5399,7 +5219,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
+        x: 78.86363
         y: 386
         width: 160
         height: 30
@@ -5426,18 +5246,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 4
-          \u044D\u043D\u0434\u0435\u0440 \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u0430"
+        value: "\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 4 \u044D\u043D\u0434\u0435\u0440
+          \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u0430"
         type: 0
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5494,7 +5310,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u0435\u0440\u0436\u0438\n*\u041E\u043D\u0438 \u043F\u043E\u043C\u043E\u0433\u0443\u0442
+        value: "\u0414\u0435\u0440\u0436\u0438\n\u041E\u043D\u0438 \u043F\u043E\u043C\u043E\u0433\u0443\u0442
           \u0442\u0435\u0431\u0435"
         type: 0
         typeString: CustomFieldType_Localization
@@ -5502,10 +5318,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5562,7 +5374,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u044B \u043E\u0434\u043E\u043B\u0435\u043B \u0435\u0433\u043E
+        value: "\u0422\u044B \u043E\u0434\u043E\u043B\u0435\u043B \u0435\u0433\u043E
           \u0438 \u0432\u0435\u0440\u043D\u0443\u043B\u0441\u044F \u0437\u0430 \u043D\u0430\u0433\u0440\u0430\u0434\u043E\u0439?"
         type: 4
         typeString: CustomFieldType_Localization
@@ -5570,10 +5382,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5609,7 +5417,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 704
+        x: 702.86365
         y: 134
         width: 160
         height: 30
@@ -5636,7 +5444,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u0430\u043A \u0442\u044B \u043F\u043E\u0441\u043C\u0435\u043B
+        value: "\u041A\u0430\u043A \u0442\u044B \u043F\u043E\u0441\u043C\u0435\u043B
           \u043F\u0440\u0438\u0434\u0442\u0438 \u0441\u044E\u0434\u0430 \u043F\u043E\u0441\u043B\u0435
           \u0432\u0441\u0435\u0433\u043E \u0442\u043E\u0433\u043E \u0447\u0442\u043E
           \u0442\u044B \u0441\u0434\u0435\u043B\u0430\u043B?"
@@ -5646,10 +5454,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5706,7 +5510,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041C\u044B \u0432\u043C\u0435\u0441\u0442\u0435 \u0435\u0433\u043E
+        value: "\u041C\u044B \u0432\u043C\u0435\u0441\u0442\u0435 \u0435\u0433\u043E
           \u043E\u0434\u043E\u043B\u0435\u043B\u0438"
         type: 4
         typeString: CustomFieldType_Localization
@@ -5714,10 +5518,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5774,7 +5574,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E\u0441\u0442\u043E\u0439 \u044F \u0442\u0435\u0431\u044F
+        value: "\u041F\u043E\u0441\u0442\u043E\u0439 \u044F \u0442\u0435\u0431\u044F
           \u043F\u043E\u043C\u043D\u044E"
         type: 0
         typeString: CustomFieldType_Localization
@@ -5782,10 +5582,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5815,7 +5611,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 600
+        x: 598.86365
         y: 302
         width: 160
         height: 30
@@ -5842,7 +5638,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u043D\u043E\u0432\u043E\u0435
+        value: "\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u043D\u043E\u0432\u043E\u0435
           \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \"\u0412\u0437\u0440\u044B\u0432\""
         type: 4
         typeString: CustomFieldType_Localization
@@ -5850,10 +5646,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5910,8 +5702,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412 \u0442\u043E\u0442 \u0440\u0430\u0437 \u043E\u0448\u0438\u0431\u0441\u044F
-          \u0432 \u0442\u0435\u0431\u0435\n*\u0422\u044B \u043D\u0430\u0441\u0442\u043E\u044F\u0449\u0438\u0439
+        value: "\u0412 \u0442\u043E\u0442 \u0440\u0430\u0437 \u043E\u0448\u0438\u0431\u0441\u044F
+          \u0432 \u0442\u0435\u0431\u0435\n\u0422\u044B \u043D\u0430\u0441\u0442\u043E\u044F\u0449\u0438\u0439
           \u0433\u0435\u0440\u043E\u0439"
         type: 0
         typeString: CustomFieldType_Localization
@@ -5919,10 +5711,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -5979,7 +5767,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E\u0445\u043E\u0436\u0435 \u0443 \u0432\u0430\u0441 \u0431\u044B\u043B\u043E
+        value: "\u041F\u043E\u0445\u043E\u0436\u0435 \u0443 \u0432\u0430\u0441 \u0431\u044B\u043B\u043E
           \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u043D\u043E\u0435 \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435"
         type: 4
         typeString: CustomFieldType_Localization
@@ -5987,10 +5775,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6047,7 +5831,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u0443\u0440\u0438\u0446\u0430 \u0442\u0435\u043F\u0435\u0440\u044C
+        value: "\u041A\u0443\u0440\u0438\u0446\u0430 \u0442\u0435\u043F\u0435\u0440\u044C
           \u0442\u044B \u043C\u043E\u0436\u0435\u0448\u044C \u0437\u0430\u0441\u043D\u0443\u0442\u044C
           \u043D\u0430 \u043B\u044E\u0431\u043E\u0439 \u043A\u0440\u043E\u0432\u0430\u0442\u0438
           \u0438 \u043E\u043D\u0430 \u043D\u0435 \u0438\u0441\u0447\u0435\u0437\u043D\u0435\u0442"
@@ -6057,10 +5841,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6123,17 +5903,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0410 \u0434\u043B\u044F \u0442\u0435\u0431\u044F \u0413\u0435\u0440\u043E\u0439"
+        value: "\u0410 \u0434\u043B\u044F \u0442\u0435\u0431\u044F \u0413\u0435\u0440\u043E\u0439"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6190,7 +5966,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438 \u043D\u0430 \u0441\u0435\u0431\u044F
+        value: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438 \u043D\u0430 \u0441\u0435\u0431\u044F
           \u0442\u044B \u043F\u0440\u0435\u0432\u0440\u0430\u0442\u043B\u0441\u044F
           \u0432 \u043D\u0430\u0441\u0442\u043E\u044F\u0449\u0435\u0433\u043E \u043C\u043E\u043D\u0441\u0442\u0440\u0430"
         type: 4
@@ -6199,10 +5975,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6259,7 +6031,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u044B \u0436\u0430\u043B\u043A\u0438\u0439 \u0442\u0440\u0443\u0441
+        value: "\u0422\u044B \u0436\u0430\u043B\u043A\u0438\u0439 \u0442\u0440\u0443\u0441
           \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u0442\u0430\u043A \u0431\u043E\u044F\u043B\u0441\u044F
           \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u0442\u044C \u0447\u0442\u043E
           \u043F\u043E\u0448\u0435\u043B \u0441\u0430\u043C\u044B\u043C \u043B\u0435\u0433\u043A\u0438\u043C
@@ -6270,10 +6042,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6330,7 +6098,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u043D\u0435 \u043F\u043E\u0437\u0432\u043E\u043B\u044E \u0442\u0435\u0431\u0435
+        value: "\u042F \u043D\u0435 \u043F\u043E\u0437\u0432\u043E\u043B\u044E \u0442\u0435\u0431\u0435
           \u0438\u0437\u0431\u0435\u0436\u0430\u0442\u044C \u043F\u0440\u0430\u0432\u043E\u0441\u0443\u0434\u0438\u044F"
         type: 4
         typeString: CustomFieldType_Localization
@@ -6338,10 +6106,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6398,7 +6162,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u044C\u0441\u044F
+        value: "\u041F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u044C\u0441\u044F
           \u043A \u0441\u043C\u0435\u0440\u0442\u0438"
         type: 4
         typeString: CustomFieldType_Localization
@@ -6406,10 +6170,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6434,7 +6194,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1328
-        y: 470
+        y: 471.03088
         width: 160
         height: 30
     - id: 27
@@ -6460,7 +6220,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u0443\u043C\u0430\u044E \u0442\u0435\u0431\u0435 \u043F\u043E\u0440\u0430
+        value: "\u0414\u0443\u043C\u0430\u044E \u0442\u0435\u0431\u0435 \u043F\u043E\u0440\u0430
           \u0441\u043F\u0430\u0442\u044C"
         type: 4
         typeString: CustomFieldType_Localization
@@ -6468,10 +6228,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6496,7 +6252,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1120
+        x: 1118.9691
         y: 134
         width: 160
         height: 30
@@ -6523,7 +6279,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u044B \u0437\u0430\u0441\u043B\u0443\u0436\u0438\u043B \u0441\u0432\u043E\u044E
+        value: "\u0422\u044B \u0437\u0430\u0441\u043B\u0443\u0436\u0438\u043B \u0441\u0432\u043E\u044E
           \u043D\u0430\u0433\u0440\u0430\u0434\u0443"
         type: 4
         typeString: CustomFieldType_Localization
@@ -6531,10 +6287,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6591,17 +6343,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u0430\u0439-\u043A\u0430 \u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C..."
+        value: "\u0414\u0430\u0439-\u043A\u0430 \u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C..."
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6658,7 +6406,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u0432\u043E\u044F \u043D\u0430\u0433\u0440\u0430\u0434\u0430
+        value: "\u0422\u0432\u043E\u044F \u043D\u0430\u0433\u0440\u0430\u0434\u0430
           \u0436\u0434\u0435\u0442 \u0442\u0435\u0431\u044F \u0441\u043D\u0430\u0440\u0443\u0436\u0438"
         type: 4
         typeString: CustomFieldType_Localization
@@ -6666,10 +6414,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6726,17 +6470,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042D\u0442\u043E \u043A\u043E\u043D\u0435\u0446 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"
+        value: "\u042D\u0442\u043E \u043A\u043E\u043D\u0435\u0446 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6793,17 +6533,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u043C\u043D\u0435 \u043F\u043E\u0440\u0430"
+        value: "\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u043C\u043D\u0435 \u043F\u043E\u0440\u0430"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6860,7 +6596,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u043D\u0435 \u043E\u0436\u0438\u0434\u0430\u043B \u0442\u0430\u043A\u043E\u0433\u043E
+        value: "\u042F \u043D\u0435 \u043E\u0436\u0438\u0434\u0430\u043B \u0442\u0430\u043A\u043E\u0433\u043E
           \u0440\u0430\u0437\u0432\u0438\u0442\u0438\u044F \u0441\u043E\u0431\u044B\u0442\u0438\u0439"
         type: 4
         typeString: CustomFieldType_Localization
@@ -6868,10 +6604,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6928,7 +6660,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u043E \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C
+        value: "\u041D\u043E \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C
           \u0442\u0435\u0431\u0435 \u0441\u0442\u043E\u0438\u0442 \u0434\u0430\u0442\u044C
           \u0448\u0430\u043D\u0441?"
         type: 4
@@ -6937,10 +6669,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -6997,7 +6725,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0435 \u043F\u043E\u0442\u0440\u0430\u0442\u044C \u0435\u0433\u043E
+        value: "\u041D\u0435 \u043F\u043E\u0442\u0440\u0430\u0442\u044C \u0435\u0433\u043E
           \u0432\u043F\u0443\u0441\u0442\u0443\u044E"
         type: 4
         typeString: CustomFieldType_Localization
@@ -7005,10 +6733,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7059,7 +6783,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E \u043F\u0440\u0430\u0432\u0434\u0435 \u0441\u043A\u0430\u0437\u0430\u0442\u044C
+        value: "\u041F\u043E \u043F\u0440\u0430\u0432\u0434\u0435 \u0441\u043A\u0430\u0437\u0430\u0442\u044C
           \u0432 \u043A\u0430\u043A\u043E\u0439-\u0442\u043E \u043C\u043E\u043C\u0435\u043D\u0442
           \u044F \u0438 \u0441\u0430\u043C \u043F\u0435\u0440\u0435\u0441\u0442\u0430\u043B
           \u0432\u0435\u0440\u0438\u0442\u044C \u0432 \u0441\u0435\u0431\u044F"
@@ -7069,10 +6793,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7129,7 +6849,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u043E \u041A\u0443\u0440\u0438\u0446\u0430 \u043F\u043E\u043C\u043E\u0433
+        value: "\u041D\u043E \u041A\u0443\u0440\u0438\u0446\u0430 \u043F\u043E\u043C\u043E\u0433
           \u043C\u043D\u0435 \u0443\u0432\u0438\u0434\u0438\u0442\u044C \u0438\u0441\u0442\u0438\u043D\u0443"
         type: 0
         typeString: CustomFieldType_Localization
@@ -7137,10 +6857,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7197,7 +6913,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u043F\u044B\u0442\u0430\u043B\u0441\u044F \u0443\u0431\u0438\u0442\u044C
+        value: "\u042F \u043F\u044B\u0442\u0430\u043B\u0441\u044F \u0443\u0431\u0438\u0442\u044C
           \u041A\u0443\u0440\u0438\u0446\u0443 \u0447\u0442\u043E\u0431\u044B \u0441\u0442\u0430\u0442\u044C
           \u0433\u0435\u0440\u043E\u0435\u043C"
         type: 0
@@ -7206,10 +6922,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7266,7 +6978,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0420\u0438\u0441\u043A\u0443\u044F \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0439
+        value: "\u0420\u0438\u0441\u043A\u0443\u044F \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0439
           \u0436\u0438\u0437\u043D\u044C\u044E \u043E\u043D \u0441\u043F\u0430\u0441
           \u043C\u0435\u043D\u044F"
         type: 0
@@ -7275,10 +6987,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7335,7 +7043,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0413\u0435\u0440\u043E\u0439 \u043D\u0435 \u0442\u043E\u0442 \u043A\u0442\u043E
+        value: "\u0413\u0435\u0440\u043E\u0439 \u043D\u0435 \u0442\u043E\u0442 \u043A\u0442\u043E
           \u0433\u043E\u0442\u043E\u0432 \u0443\u0431\u0438\u0442\u044C \u0434\u0440\u0430\u043A\u043E\u043D\u0430"
         type: 4
         typeString: CustomFieldType_Localization
@@ -7343,10 +7051,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7376,7 +7080,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 600
+        x: 598.86365
         y: 722
         width: 160
         height: 30
@@ -7403,7 +7107,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0413\u0435\u0440\u043E\u0439 \u0442\u043E\u0442 \u043A\u0442\u043E
+        value: "\u0413\u0435\u0440\u043E\u0439 \u0442\u043E\u0442 \u043A\u0442\u043E
           \u0433\u043E\u0442\u043E\u0432 \u043F\u0440\u043E\u044F\u0432\u0438\u0442\u044C
           \u0441\u043C\u0435\u043B\u043E\u0441\u0442\u044C \u0447\u0442\u043E\u0431\u044B
           \u0441\u043F\u0430\u0441\u0442\u0438 \u0434\u0440\u0443\u0433\u0438\u0445"
@@ -7413,10 +7117,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7446,7 +7146,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 600
+        x: 598.86365
         y: 806
         width: 160
         height: 30
@@ -7473,7 +7173,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u043F\u0440\u0438\u0448\u043B\u043E
+        value: "\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u043F\u0440\u0438\u0448\u043B\u043E
           \u0432\u0440\u0435\u043C\u044F \u0434\u043B\u044F \u043D\u0430\u0433\u0440\u0430\u0434\u044B"
         type: 4
         typeString: CustomFieldType_Localization
@@ -7481,10 +7181,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7541,17 +7237,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E\u0441\u0442\u043E\u0439"
+        value: "\u041F\u043E\u0441\u0442\u043E\u0439"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7580,8 +7272,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 145.27368, y: 593.3722}
-    canvasZoom: 0.72999734
+    canvasScrollPosition: {x: 560.48126, y: 0}
+    canvasZoom: 0.5799973
   - id: 6
     fields:
     - title: Title
@@ -7658,10 +7350,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7724,19 +7412,15 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041E\u0445... \u043F\u0440\u043E\u0441\u0442\u0438\n*\u042F \u0441\u043B\u0443\u0447\u0430\u0439\u043D\u043E
+        value: "\u041E\u0445... \u043F\u0440\u043E\u0441\u0442\u0438\n\u042F \u0441\u043B\u0443\u0447\u0430\u0439\u043D\u043E
           \u0432\u0437\u044F\u043B \u0442\u0443 \u0437\u0430\u043F\u0438\u0441\u043A\u0443
-          \u0441\u043E \u0441\u0442\u0435\u043D\u044B\n*\u0422\u0443\u0442 \u043D\u0430\u043F\u0438\u0441\u0430\u043D\u043D\u043E..."
+          \u0441\u043E \u0441\u0442\u0435\u043D\u044B\n\u0422\u0443\u0442 \u043D\u0430\u043F\u0438\u0441\u0430\u043D\u043D\u043E..."
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7793,17 +7477,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u044B \u0440\u0435\u0448\u0438\u043B \u0435\u0451!"
+        value: "\u0422\u044B \u0440\u0435\u0448\u0438\u043B \u0435\u0451!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7860,7 +7540,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u0440\u043E\u0439\u0434\u044F \u0432 \u043F\u043E\u043A\u043E\u0438
+        value: "\u041F\u0440\u043E\u0439\u0434\u044F \u0432 \u043F\u043E\u043A\u043E\u0438
           \u043F\u0440\u0438\u043D\u0446\u0435\u0441\u0441\u044B \u043E\u043D \u0432\u0437\u044F\u043B
           <color=\"blue\">\u043F\u0435\u0440\u043E</color> \u043A\u043E\u0442\u043E\u0440\u043E\u0435
           \u043B\u0435\u0436\u0430\u043B\u043E <color=\"yellow\">\u0441\u043F\u0440\u0430\u0432\u0430
@@ -7875,10 +7555,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7909,7 +7585,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 133
-        y: 176
+        y: 175.05661
         width: 160
         height: 30
     - id: 4
@@ -7935,7 +7611,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041E\u0447\u0435\u043D\u044C \u0441\u0442\u0440\u0430\u043D\u043D\u0430\u044F
+        value: "\u041E\u0447\u0435\u043D\u044C \u0441\u0442\u0440\u0430\u043D\u043D\u0430\u044F
           \u0438\u0441\u0442\u043E\u0440\u0438\u044F"
         type: 4
         typeString: CustomFieldType_Localization
@@ -7943,10 +7619,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -7970,8 +7642,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 133
-        y: 226
+        x: 131.11322
+        y: 226.94339
         width: 160
         height: 30
     - id: 5
@@ -7997,7 +7669,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0410 \u0432\u043E\u0442 \u0443 \u043C\u0435\u043D\u044F \u043C\u043E\u0437\u0433\u043E\u0432
+        value: "\u0410 \u0432\u043E\u0442 \u0443 \u043C\u0435\u043D\u044F \u043C\u043E\u0437\u0433\u043E\u0432
           \u043D\u0435 \u0445\u0432\u0430\u0442\u0438\u043B\u043E"
         type: 4
         typeString: CustomFieldType_Localization
@@ -8005,10 +7677,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8115,10 +7783,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8187,7 +7851,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0427\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0439\u0442\u0438
+        value: "\u0427\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0439\u0442\u0438
           \u0442\u0435\u0431\u0435 \u043D\u0443\u0436\u043D\u043E \u043F\u043E\u0433\u043E\u0432\u043E\u0440\u0438\u0442\u044C
           \u0441 \u043A\u043E\u0440\u043E\u0432\u043E\u0439"
         type: 4
@@ -8196,10 +7860,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8250,7 +7910,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430 \u043D\u0435
+        value: "\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430 \u043D\u0435
           \u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u0435\u0431\u044F \u043F\u043B\u043E\u0445\u043E"
         type: 4
         typeString: CustomFieldType_Localization
@@ -8258,10 +7918,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8312,7 +7968,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0421\u043F\u0430\u0441\u0438\u0431\u043E \u0447\u0442\u043E \u043D\u0435
+        value: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E \u0447\u0442\u043E \u043D\u0435
           \u0432\u0435\u043B \u0441\u0435\u0431\u044F \u043F\u043B\u043E\u0445\u043E"
         type: 4
         typeString: CustomFieldType_Localization
@@ -8320,10 +7976,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8430,10 +8082,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8502,17 +8150,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u0440\u0438\u0432\u0435\u0438\u0441\u0438\u0432\u0443\u044E"
+        value: "\u041F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8569,7 +8213,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0435\u0442 \u044F \u043D\u0435 \u043A\u0430\u0440\u0442\u0438\u043D\u0430\n*\u042F
+        value: "\u041D\u0435\u0442 \u044F \u043D\u0435 \u043A\u0430\u0440\u0442\u0438\u043D\u0430\n\u042F
           \u0437\u0430 \u043A\u0430\u0440\u0442\u0438\u043D\u043E\u0439"
         type: 4
         typeString: CustomFieldType_Localization
@@ -8577,10 +8221,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8605,7 +8245,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 292.12372
-        y: 132.96906
+        y: 133.91246
         width: 160
         height: 30
     - id: 3
@@ -8631,7 +8271,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0413\u0435\u0440\u043E\u0439 \u044D\u0442\u0430 \u043A\u043E\u043C\u043D\u0430\u0442\u0430
+        value: "\u0413\u0435\u0440\u043E\u0439 \u044D\u0442\u0430 \u043A\u043E\u043C\u043D\u0430\u0442\u0430
           \u043D\u0435 \u043D\u0435\u0441\u0435\u0442 \u043D\u0438\u043A\u0430\u043A\u043E\u0439
           \u043F\u043E\u0432\u0435\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0439
           \u043D\u0430\u0433\u0440\u0443\u0437\u043A\u0438"
@@ -8641,10 +8281,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8701,7 +8337,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0435\u043C\u0435\u0434\u043B\u0435\u043D\u043D\u043E \u043F\u043E\u043A\u0438\u043D\u044C\u0442\u0435
+        value: "\u041D\u0435\u043C\u0435\u0434\u043B\u0435\u043D\u043D\u043E \u043F\u043E\u043A\u0438\u043D\u044C\u0442\u0435
           \u043A\u043E\u043C\u043D\u0430\u0442\u0443 \u0438 \u0431\u043E\u043B\u044C\u0448\u0435
           \u043D\u0435 \u0437\u0430\u0445\u043E\u0434\u0438\u0442\u0435 \u0441\u044E\u0434\u0430"
         type: 4
@@ -8710,10 +8346,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8771,10 +8403,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8825,17 +8453,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E\u0441\u0442\u043E\u0439!"
+        value: "\u041F\u043E\u0441\u0442\u043E\u0439!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -8870,8 +8494,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 11.328005, y: 19.179123}
-    canvasZoom: 0.93999994
+    canvasScrollPosition: {x: 41.8852, y: 33.52189}
+    canvasZoom: 1.0599998
   - id: 9
     fields:
     - title: Title
@@ -8948,10 +8572,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9032,17 +8652,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u043E\u0431\u0440\u044B\u0439 \u0434\u0435\u043D\u044C"
+        value: "\u0414\u043E\u0431\u0440\u044B\u0439 \u0434\u0435\u043D\u044C"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9099,7 +8715,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u0440\u043E\u0441\u0442\u0438\u0442\u0435 \u0442\u0443\u0442
+        value: "\u041F\u0440\u043E\u0441\u0442\u0438\u0442\u0435 \u0442\u0443\u0442
           \u043D\u0435\u043C\u043D\u043E\u0433\u043E \u043D\u0435 \u043F\u0440\u0438\u0431\u0440\u0430\u043D\u043D\u043E"
         type: 4
         typeString: CustomFieldType_Localization
@@ -9107,10 +8723,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9167,7 +8779,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0441\u043D\u044F\u0442\u044C
+        value: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0441\u043D\u044F\u0442\u044C
           \u043D\u043E\u043C\u0435\u0440?\n(\u0420\u0435\u043A\u043B\u0430\u043C\u0430)"
         type: 4
         typeString: CustomFieldType_Localization
@@ -9175,10 +8787,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9215,7 +8823,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 392
-        y: 302
+        y: 300.82352
         width: 160
         height: 30
     - id: 4
@@ -9248,10 +8856,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9315,10 +8919,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9375,7 +8975,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u043A\u043B\u044E\u0447
+        value: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u043A\u043B\u044E\u0447
           \u043E\u0442 \u043D\u043E\u043C\u0435\u0440\u0430?\n(\u0420\u0435\u043A\u043B\u0430\u043C\u0430)"
         type: 4
         typeString: CustomFieldType_Localization
@@ -9383,10 +8983,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9456,10 +9052,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9523,10 +9115,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9583,7 +9171,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u043E\u0442\u043A\u0440\u044B\u0442\u044C
+        value: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u043E\u0442\u043A\u0440\u044B\u0442\u044C
           \u0434\u0432\u0435\u0440\u044C?\n(\u0420\u0435\u043A\u043B\u0430\u043C\u0430)"
         type: 4
         typeString: CustomFieldType_Localization
@@ -9591,10 +9179,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9664,10 +9248,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9731,10 +9311,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9791,7 +9367,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u043E\u0433\u0434\u0430 \u043C\u043D\u0435 \u043D\u0435\u0447\u0435\u0433\u043E
+        value: "\u0422\u043E\u0433\u0434\u0430 \u043C\u043D\u0435 \u043D\u0435\u0447\u0435\u0433\u043E
           \u0432\u0430\u043C \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0438\u0442\u044C"
         type: 4
         typeString: CustomFieldType_Localization
@@ -9799,10 +9375,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9853,17 +9425,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0421\u0435\u043A\u0443\u043D\u0434\u043E\u0447\u043A\u0443"
+        value: "\u0421\u0435\u043A\u0443\u043D\u0434\u043E\u0447\u043A\u0443"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9889,7 +9457,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 78.82353
+        x: 77.647064
         y: 470
         width: 160
         height: 30
@@ -9916,7 +9484,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u0432\u0441\u0435-\u0442\u0430\u043A\u0438 \u0440\u0435\u0448\u0438
+        value: "\u0412\u044B \u0432\u0441\u0435-\u0442\u0430\u043A\u0438 \u0440\u0435\u0448\u0438
           \u0441\u043D\u044F\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443?\n(\u0420\u0435\u043B\u0430\u043C\u0430)"
         type: 4
         typeString: CustomFieldType_Localization
@@ -9924,10 +9492,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -9990,7 +9554,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u043A\u043B\u044E\u0447
+        value: "\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u043A\u043B\u044E\u0447
           \u043E\u0442 \u043A\u043E\u043C\u043D\u0430\u0442\u044B"
         type: 4
         typeString: CustomFieldType_Localization
@@ -9998,10 +9562,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10058,17 +9618,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0425\u043E\u0440\u043E\u0448\u0435\u0433\u043E \u0432\u0440\u0435\u043C\u044F\u043F\u0440\u0435\u043F\u0440\u043E\u0432\u043E\u0436\u0434\u0435\u043D\u0438\u044F"
+        value: "\u0425\u043E\u0440\u043E\u0448\u0435\u0433\u043E \u0432\u0440\u0435\u043C\u044F\u043F\u0440\u0435\u043F\u0440\u043E\u0432\u043E\u0436\u0434\u0435\u043D\u0438\u044F"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10119,17 +9675,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u0430\u0448 \u043D\u043E\u043C\u0435\u0440 2"
+        value: "\u0412\u0430\u0448 \u043D\u043E\u043C\u0435\u0440 2"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10159,7 +9711,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1344.4384
+        x: 1343.2618
         y: 227.58905
         width: 160
         height: 30
@@ -10193,10 +9745,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10260,10 +9808,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10321,10 +9865,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10353,8 +9893,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1029.1185, y: 110.85768}
-    canvasZoom: 0.8499998
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.4300001
   - id: 10
     fields:
     - title: Title
@@ -10431,10 +9971,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10515,7 +10051,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u0436\u043E \u0447\u0442\u043E \u043C\u044B \u0442\u0443\u0442
+        value: "\u0414\u0436\u043E, \u0447\u0442\u043E \u043C\u044B \u0442\u0443\u0442
           \u0434\u0435\u043B\u0430\u0435\u043C?"
         type: 4
         typeString: CustomFieldType_Localization
@@ -10523,10 +10059,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10583,7 +10115,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041C\u044B \u043F\u0440\u0438\u0448\u043B\u0438 \u0434\u043E\u0431\u044B\u0442\u044C
+        value: "\u041C\u044B \u043F\u0440\u0438\u0448\u043B\u0438 \u0434\u043E\u0431\u044B\u0442\u044C
           \u0430\u0434\u0441\u043A\u043E\u0433\u043E \u043A\u0430\u043C\u043D\u044F
           \u0434\u043B\u044F \u0434\u043E\u043C\u0430"
         type: 4
@@ -10592,10 +10124,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10652,7 +10180,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u0436\u043E \u044D\u0442\u043E \u043D\u0435 \u0432\u0435\u0441\u0435\u043B\u043E
+        value: "\u0414\u0436\u043E \u044D\u0442\u043E \u043D\u0435 \u0432\u0435\u0441\u0435\u043B\u043E
           \u0437\u0432\u0443\u0447\u0438\u0442"
         type: 4
         typeString: CustomFieldType_Localization
@@ -10660,10 +10188,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10714,18 +10238,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u0442\u043E-\u0442\u043E \u0441\u043A\u0430\u0437\u0430\u043B
-          \u043C\u043E\u0434\u0435\u0440\u0430\u0442\u043E\u0440?"
+        value: "\u041A\u0442\u043E-\u0442\u043E \u0441\u043A\u0430\u0437\u0430\u043B
+          \u043C\u043E\u0434\u0435\u0440\u0430\u0442\u043E\u0440?!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10782,17 +10302,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '*...'
+        value: ...
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10849,17 +10365,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '*...'
+        value: ...
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10916,17 +10428,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0435\u0442"
+        value: "\u041D\u0435\u0442"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -10983,7 +10491,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u0432\u043A\u0443\u0440\u0441\u0435 \u0447\u0442\u043E
+        value: "\u0412\u044B \u0432\u043A\u0443\u0440\u0441\u0435 \u0447\u0442\u043E
           \u044D\u0442\u043E\u0442 \u043F\u0440\u043E\u0442\u0430\u043B \u0431\u044B\u043B
           \u043F\u043E\u0441\u0442\u0440\u043E\u0435\u043D \u043D\u0430 \u043C\u043E\u0435\u0439
           \u0442\u0435\u0440\u0440\u0438\u0442\u043E\u0440\u0438\u0438 \u0438 \u043F\u043E\u044D\u0442\u043E\u043C\u0443
@@ -10994,10 +10502,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11054,7 +10558,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042D\u0439 \u043F\u043E\u0441\u0442\u043E\u0439 \u0430 \u043A\u0430\u043A
+        value: "\u042D\u0439 \u043F\u043E\u0441\u0442\u043E\u0439 \u0430 \u043A\u0430\u043A
           \u043C\u044B \u0432\u044B\u0431\u0438\u0440\u0435\u043C\u0441\u044F?"
         type: 4
         typeString: CustomFieldType_Localization
@@ -11062,10 +10566,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11116,7 +10616,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042D\u0439 \u0445\u043E\u0442\u044C \u0432 \u043E\u0431\u044B\u0447\u043D\u044B\u0439
+        value: "\u042D\u0439 \u0445\u043E\u0442\u044C \u0432 \u043E\u0431\u044B\u0447\u043D\u044B\u0439
           \u043C\u0438\u0440 \u043D\u0430\u0441 \u0442\u0435\u043F\u043D\u0438"
         type: 4
         typeString: CustomFieldType_Localization
@@ -11124,10 +10624,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11184,17 +10680,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u0430 \u0447\u0442\u043E\u0431 \u0442\u0435\u0431\u044F"
+        value: "\u0414\u0430 \u0447\u0442\u043E\u0431 \u0442\u0435\u0431\u044F"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11251,7 +10743,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u0436\u043E \u0447\u0442\u043E \u043C\u044B \u0442\u0435\u043F\u0435\u0440\u044C
+        value: "\u0414\u0436\u043E \u0447\u0442\u043E \u043C\u044B \u0442\u0435\u043F\u0435\u0440\u044C
           \u0431\u0443\u0434\u0435\u043C \u0434\u0435\u043B\u0430\u0442\u044C?"
         type: 4
         typeString: CustomFieldType_Localization
@@ -11259,10 +10751,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11292,7 +10780,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 704
+        x: 702.96906
         y: 218
         width: 160
         height: 30
@@ -11319,17 +10807,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042D\u0439 \u0414\u0436\u043E \u0441\u043C\u043E\u0442\u0440\u0438"
+        value: "\u042D\u0439 \u0414\u0436\u043E \u0441\u043C\u043E\u0442\u0440\u0438"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11386,17 +10870,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0427\u0442\u043E \u0442\u0430\u043A\u043E\u0435?"
+        value: "\u0427\u0442\u043E \u0442\u0430\u043A\u043E\u0435?"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11453,17 +10933,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u0430\u043C \u043A\u0443\u0440\u0438\u0446\u0430"
+        value: "\u0422\u0430\u043C \u043A\u0443\u0440\u0438\u0446\u0430"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11520,17 +10996,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0417\u0432\u043E\u043D\u043E\u043A"
+        value: "\u0417\u0432\u043E\u043D\u043E\u043A"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11587,7 +11059,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u0430\u0436\u0435\u0442\u0441\u044F \u043E\u043D\u0430 \u0441
+        value: "\u041A\u0430\u0436\u0435\u0442\u0441\u044F \u043E\u043D\u0430 \u0441
           \u043A\u0435\u043C-\u0442\u043E \u0440\u0430\u0437\u0433\u043E\u0432\u0430\u0440\u0438\u0432\u0430\u0435\u0442
           \u043F\u043E \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443"
         type: 4
@@ -11596,10 +11068,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11629,8 +11097,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 912
-        y: 722
+        x: 910.96906
+        y: 720.9691
         width: 160
         height: 30
     - id: 18
@@ -11656,17 +11124,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u043D\u0430 \u044D\u0442\u043E \u043D\u0435 \u043F\u043E\u0432\u0435\u0434\u0443\u0441\u044C"
+        value: "\u042F \u043D\u0430 \u044D\u0442\u043E \u043D\u0435 \u043F\u043E\u0432\u0435\u0434\u0443\u0441\u044C"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11723,17 +11187,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u0440\u0438\u0432\u0435\u0442 \u044D\u0442\u043E \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+        value: "\u041F\u0440\u0438\u0432\u0435\u0442 \u044D\u0442\u043E \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11790,17 +11250,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0427\u0442\u043E \u0442\u044B \u0442\u0443\u0442 \u0434\u0435\u043B\u0430\u0435\u0448\u044C?"
+        value: "\u0427\u0442\u043E \u0442\u044B \u0442\u0443\u0442 \u0434\u0435\u043B\u0430\u0435\u0448\u044C?"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11857,19 +11313,15 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u0435\u0431\u044F \u0442\u0443\u0442 \u043D\u0435 \u0434\u043E\u043B\u0436\u043D\u043E
-          \u0431\u044B\u043B\u043E \u0431\u044B\u0442\u044C\n*\u042D\u0442\u043E
-          \u0432\u0441\u0435 \u0441\u043F\u043E\u0439\u043B\u0435\u0440!"
+        value: "\u0422\u0435\u0431\u044F \u0442\u0443\u0442 \u043D\u0435 \u0434\u043E\u043B\u0436\u043D\u043E
+          \u0431\u044B\u043B\u043E \u0431\u044B\u0442\u044C\n\u042D\u0442\u043E \u0432\u0441\u0435
+          \u0441\u043F\u043E\u0439\u043B\u0435\u0440!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11900,7 +11352,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 890
+        y: 888.96906
         width: 160
         height: 30
     - id: 22
@@ -11926,9 +11378,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u0432\u0435\u0434\u044C \u0434\u0430\u0436\u0435 \u043D\u0435
+        value: "\u042F \u0432\u0435\u0434\u044C \u0434\u0430\u0436\u0435 \u043D\u0435
           \u0434\u043E\u0434\u0435\u043B\u0430\u043B \u044D\u0442\u0443 \u0447\u0430\u0441\u0442\u044C
-          \u0438\u0433\u0440\u044B\n*\u0414\u0430 \u043D\u0435\u0442 \u044D\u0442\u043E
+          \u0438\u0433\u0440\u044B\n\u0414\u0430 \u043D\u0435\u0442 \u044D\u0442\u043E
           \u0432\u043E\u043E\u0431\u0449\u0435 \u0434\u0440\u0443\u0433\u0430\u044F
           \u0438\u0433\u0440\u0430"
         type: 4
@@ -11937,10 +11389,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -11997,17 +11445,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0410\u0433\u0430 \u043A\u043E\u043D\u0435\u0447\u043D\u043E"
+        value: "\u0410\u0433\u0430 \u043A\u043E\u043D\u0435\u0447\u043D\u043E"
         type: 0
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12064,17 +11508,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u0430\u0439-\u043A\u0430 \u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C"
+        value: "\u0414\u0430\u0439-\u043A\u0430 \u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12098,7 +11538,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 704
+        x: 702.9691
         y: 302
         width: 160
         height: 30
@@ -12125,7 +11565,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u0434\u0430\u0436\u0435 \u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C
+        value: "\u042F \u0434\u0430\u0436\u0435 \u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C
           \u043D\u0435 \u043C\u043E\u0433 \u0447\u0442\u043E \u0441\u044E\u0434\u0430
           \u043C\u043E\u0436\u043D\u043E \u043A\u0430\u043A-\u0442\u043E \u043F\u043E\u043F\u0430\u0441\u0442\u044C"
         type: 4
@@ -12134,10 +11574,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12194,7 +11630,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u0441\u0435 \u0445\u0432\u0430\u0442\u0438\u0442 \u0441 \u043C\u0435\u043D\u044F
+        value: "\u0412\u0441\u0435 \u0445\u0432\u0430\u0442\u0438\u0442 \u0441 \u043C\u0435\u043D\u044F
           \u044D\u0442\u043E\u0433\u043E \u0430\u0431\u0441\u0443\u0440\u0434\u0430"
         type: 4
         typeString: CustomFieldType_Localization
@@ -12202,10 +11638,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12262,17 +11694,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0421 \u041B \u0415 \u0414 \u0423 \u042E \u0429 \u0410 \u042F"
+        value: "\u0421 \u041B \u0415 \u0414 \u0423 \u042E \u0429 \u0410 \u042F"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12329,7 +11757,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u043F\u0435\u0440\u0435\u0437\u0430\u043F\u0443\u0441\u043A\u0430\u044E
+        value: "\u042F \u043F\u0435\u0440\u0435\u0437\u0430\u043F\u0443\u0441\u043A\u0430\u044E
           \u0438\u0433\u0440\u0443"
         type: 4
         typeString: CustomFieldType_Localization
@@ -12337,10 +11765,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12391,17 +11815,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0435 \u043C\u043E\u044F \u0437\u0430\u0431\u043E\u0442\u0430"
+        value: "\u041D\u0435 \u043C\u043E\u044F \u0437\u0430\u0431\u043E\u0442\u0430"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12430,8 +11850,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 688.68524, y: 1181.6193}
-    canvasZoom: 1.1199987
+    canvasScrollPosition: {x: 35.383804, y: 0}
+    canvasZoom: 0.75999904
   - id: 11
     fields:
     - title: Title
@@ -12508,10 +11928,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12604,17 +12020,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u0436\u0434\u0430\u043B \u0442\u0435\u0431\u044F"
+        value: "\u042F \u0436\u0434\u0430\u043B \u0442\u0435\u0431\u044F"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12644,7 +12056,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
+        x: 78.93617
         y: 134
         width: 160
         height: 30
@@ -12671,7 +12083,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u0442\u0443\u0442 \u043F\u043E\u0434\u0443\u043C\u0430\u043B
+        value: "\u042F \u0442\u0443\u0442 \u043F\u043E\u0434\u0443\u043C\u0430\u043B
           \u043D\u0430\u0432\u0435\u0440\u043D\u043E\u0435 \u043D\u0430\u0448\u0430
           \u0431\u0438\u0442\u0432\u0430 \u0431\u0435\u0441\u0441\u043C\u044B\u0441\u043B\u0435\u043D\u043D\u0430"
         type: 4
@@ -12680,10 +12092,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12740,7 +12148,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u043E\u0442\u0432\u043B\u0435\u043A\u0443 \u0435\u0433\u043E\n*\u0410
+        value: "\u042F \u043E\u0442\u0432\u043B\u0435\u043A\u0443 \u0435\u0433\u043E\n\u0410
           \u0442\u044B \u0441\u043B\u043E\u043C\u0430\u0439 \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u044B"
         type: 4
         typeString: CustomFieldType_Localization
@@ -12748,10 +12156,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12776,7 +12180,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 496
-        y: 134
+        y: 132.93617
         width: 160
         height: 30
     - id: 4
@@ -12802,17 +12206,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u0443\u0440\u0438\u0446\u0430 \u043E\u043D \u0441\u043F\u0443\u0441\u043A\u0430\u0435\u0442\u0441\u044F"
+        value: "\u041A\u0443\u0440\u0438\u0446\u0430 \u043E\u043D \u0441\u043F\u0443\u0441\u043A\u0430\u0435\u0442\u0441\u044F"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12869,17 +12269,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0421\u0435\u0439\u0447\u0430\u0441 \u043D\u0430\u043F\u0430\u0434\u0435\u0442"
+        value: "\u0421\u0435\u0439\u0447\u0430\u0441 \u043D\u0430\u043F\u0430\u0434\u0435\u0442"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12903,7 +12299,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 910.5714
+        x: 909.50745
         y: 134
         width: 160
         height: 30
@@ -12930,17 +12326,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0430\u043C \u043F\u043E\u0440\u0430 \u043A \u043A\u043E\u0440\u043E\u0432\u0435"
+        value: "\u041D\u0430\u043C \u043F\u043E\u0440\u0430 \u043A \u043A\u043E\u0440\u043E\u0432\u0435"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -12991,7 +12383,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E\u0441\u0442\u043E\u0439 \u043A\u0430\u0436\u0435\u0442\u0441\u044F
+        value: "\u041F\u043E\u0441\u0442\u043E\u0439 \u043A\u0430\u0436\u0435\u0442\u0441\u044F
           \u043C\u044B \u043D\u0435 \u043E\u0442\u0432\u0435\u0442\u0438\u043B\u0438
           \u0435\u0449\u0435 \u043D\u0430 1 \u0432\u043E\u043F\u0440\u043E\u0441"
         type: 4
@@ -13000,10 +12392,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13033,7 +12421,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1328
+        x: 1326.9363
         y: 134
         width: 160
         height: 30
@@ -13060,7 +12448,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u0437\u043D\u0430\u043B \u0447\u0442\u043E \u043A\u0442\u043E-\u043D\u0438\u0431\u0443\u0434\u044C
+        value: "\u042F \u0437\u043D\u0430\u043B \u0447\u0442\u043E \u043A\u0442\u043E-\u043D\u0438\u0431\u0443\u0434\u044C
           \u043F\u0440\u0438\u0434\u0435\u0442 \u0441\u044E\u0434\u0430 \u0447\u0442\u043E\u0431\u044B
           \u0441\u043F\u0430\u0441\u0442\u0438 \u043C\u0435\u043D\u044F"
         type: 4
@@ -13069,10 +12457,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13129,7 +12513,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0427\u0442\u043E \u0442\u0435\u0431\u044F \u043F\u043E\u0441\u043B\u0430\u043B\u0430
+        value: "\u0427\u0442\u043E \u0442\u0435\u0431\u044F \u043F\u043E\u0441\u043B\u0430\u043B\u0430
           \u041A\u043E\u0440\u043E\u0432\u0430 \u0447\u0442\u043E\u0431\u044B \u043E\u0441\u0432\u043E\u0431\u043E\u0434\u0438\u0442\u044C
           \u042D\u043D\u0434?"
         type: 4
@@ -13138,10 +12522,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13171,7 +12551,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
+        x: 81.063835
         y: 302
         width: 160
         height: 30
@@ -13198,7 +12578,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0435\u0442 \u044D\u0442\u043E \u044F \u0433\u0435\u0440\u043E\u0439!\n*\u042D\u0442\u043E
+        value: "\u041D\u0435\u0442 \u044D\u0442\u043E \u044F \u0433\u0435\u0440\u043E\u0439!\n\u042D\u0442\u043E
           \u043C\u043D\u0435 \u0441\u0443\u0436\u0434\u0435\u043D\u043D\u043E \u0441\u0434\u0435\u043B\u0430\u0442\u044C
           \u044D\u0442\u043E!"
         type: 4
@@ -13207,10 +12587,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13267,7 +12643,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u0440\u043E\u0441\u0442\u0438 \u043D\u043E \u0433\u0435\u0440\u043E\u0439
+        value: "\u041F\u0440\u043E\u0441\u0442\u0438 \u043D\u043E \u0433\u0435\u0440\u043E\u0439
           \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u043B\u0438\u0448\u044C
           1"
         type: 4
@@ -13276,10 +12652,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13330,8 +12702,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u043E \u0432\u0435\u0434\u044C \u0435\u0433\u043E \u0443\u0436\u0435
-          \u043E\u0441\u0432\u043E\u0431\u043E\u0434\u0438\u043B\u0438\n*\u0412\u0438\u0434\u0438\u0448\u044C
+        value: "\u041D\u043E \u0432\u0435\u0434\u044C \u0435\u0433\u043E \u0443\u0436\u0435
+          \u043E\u0441\u0432\u043E\u0431\u043E\u0434\u0438\u043B\u0438\n\u0412\u0438\u0434\u0438\u0448\u044C
           \u0442\u0443\u0442 \u043D\u0435\u0442 \u0434\u0440\u0430\u043A\u043E\u043D\u0430"
         type: 4
         typeString: CustomFieldType_Localization
@@ -13339,10 +12711,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13399,7 +12767,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u044B \u0441\u043E\u0431\u0438\u0440\u0430\u0435\u0448\u044C\u0441\u044F
+        value: "\u0422\u044B \u0441\u043E\u0431\u0438\u0440\u0430\u0435\u0448\u044C\u0441\u044F
           \u043F\u0440\u0438\u0437\u0432\u0430\u0442\u044C \u0435\u0433\u043E \u0438
           \u0441\u0442\u0430\u0442\u044C \u0433\u0435\u0440\u043E\u0435\u043C?"
         type: 4
@@ -13408,10 +12776,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13442,7 +12806,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 470
+        y: 471.06384
         width: 160
         height: 30
     - id: 14
@@ -13468,7 +12832,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041C\u044B \u043C\u043E\u0436\u0435\u043C \u0432\u043C\u0435\u0441\u0442\u0435
+        value: "\u041C\u044B \u043C\u043E\u0436\u0435\u043C \u0432\u043C\u0435\u0441\u0442\u0435
           \u0441\u0442\u0430\u0442\u044C \u0433\u0435\u0440\u043E\u044F\u043C\u0438"
         type: 4
         typeString: CustomFieldType_Localization
@@ -13476,10 +12840,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13536,7 +12896,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0420\u0430\u0441\u0441\u0442\u0430\u0432\u0438\u043C \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u044B
+        value: "\u0420\u0430\u0441\u0441\u0442\u0430\u0432\u0438\u043C \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u044B
           \u0438 \u043F\u043E\u0431\u0435\u0434\u0438\u043C \u0435\u0433\u043E!"
         type: 4
         typeString: CustomFieldType_Localization
@@ -13544,10 +12904,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13604,17 +12960,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u043C\u0435\u0441\u0442\u0435"
+        value: "\u0412\u043C\u0435\u0441\u0442\u0435"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13638,7 +12990,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 288
+        x: 286.9362
         y: 554
         width: 160
         height: 30
@@ -13665,7 +13017,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041C\u044B \u0434\u043E\u043B\u0436\u043D\u044B \u043E\u0434\u043E\u043B\u0435\u0442\u044C
+        value: "\u041C\u044B \u0434\u043E\u043B\u0436\u043D\u044B \u043E\u0434\u043E\u043B\u0435\u0442\u044C
           \u0435\u0433\u043E"
         type: 4
         typeString: CustomFieldType_Localization
@@ -13673,10 +13025,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13733,17 +13081,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0418\u0434\u0438 \u043A\u043E \u043C\u043D\u0435"
+        value: "\u0418\u0434\u0438 \u043A\u043E \u043C\u043D\u0435"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13794,7 +13138,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0413\u0435\u0440\u043E\u0439 \u0442\u0435\u043F\u0435\u0440\u044C
+        value: "\u0413\u0435\u0440\u043E\u0439 \u0442\u0435\u043F\u0435\u0440\u044C
           \u0432 \u0432\u0430\u0448\u0435\u0439 \u043A\u043E\u043C\u0430\u043D\u0434\u0435"
         type: 4
         typeString: CustomFieldType_Localization
@@ -13802,10 +13146,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13862,7 +13202,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u043F\u043E\u0440\u0430
+        value: "\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u043F\u043E\u0440\u0430
           \u0441\u043E\u0432\u0435\u0440\u0448\u0430\u0442\u044C \u043F\u043E\u0434\u0432\u0438\u0433"
         type: 4
         typeString: CustomFieldType_Localization
@@ -13870,10 +13210,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13930,7 +13266,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u0442\u043E \u0431\u044B\u043B \u0442\u0435\u043C \u0433\u0435\u0440\u043E\u0435\u043C
+        value: "\u041A\u0442\u043E \u0431\u044B\u043B \u0442\u0435\u043C \u0433\u0435\u0440\u043E\u0435\u043C
           \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u043E\u0441\u0432\u043E\u0431\u043E\u0434\u0438\u043B
           \u042D\u043D\u0434?"
         type: 4
@@ -13939,10 +13275,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -13966,13 +13298,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1328
+        x: 1326.9363
         y: 184
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 228.9891}
-    canvasZoom: 0.66999954
+    canvasScrollPosition: {x: 0, y: 2.7397156}
+    canvasZoom: 0.72999954
   - id: 12
     fields:
     - title: Title
@@ -14049,10 +13381,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14115,7 +13443,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041C\u044B \u043F\u0440\u043E\u0441\u0442\u043E \u043E\u0431\u044F\u0437\u0430\u043D\u044B
+        value: "\u041C\u044B \u043F\u0440\u043E\u0441\u0442\u043E \u043E\u0431\u044F\u0437\u0430\u043D\u044B
           \u0441\u0434\u0435\u043B\u0430\u0442\u044C \u043D\u043E\u0432\u043E\u0435
           \u0448\u043E\u0443"
         type: 4
@@ -14124,10 +13452,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14184,7 +13508,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0422\u043E\u043B\u044C\u043A\u043E \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u044C\n*\u0422\u044B
+        value: "\u0422\u043E\u043B\u044C\u043A\u043E \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u044C\n\u0422\u044B
           \u041F\u0443\u043A\u0438\u043A\u043E\u0434 \u0438 \u044F \u0423\u0441\u0430\u0442\u044B\u0439
           \u0410\u043D\u0430\u043D\u0430\u0441"
         type: 4
@@ -14193,10 +13517,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14253,17 +13573,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0443 \u0434\u0430\u0436\u0435 \u043D\u0435 \u0437\u043D\u0430\u044E"
+        value: "\u041D\u0443 \u0434\u0430\u0436\u0435 \u043D\u0435 \u0437\u043D\u0430\u044E"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14320,7 +13636,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0418 \u043D\u0430\u0437\u044B\u0432\u0430\u0442\u044C\u0441\u044F
+        value: "\u0418 \u043D\u0430\u0437\u044B\u0432\u0430\u0442\u044C\u0441\u044F
           \u043E\u043D\u043E \u0431\u0443\u0434\u0435\u0442 \u0421\u043E\u043C\u043E\u0435
           #%^@&* \u0448\u043E\u0443!"
         type: 4
@@ -14329,10 +13645,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14390,10 +13702,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14500,10 +13808,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14566,17 +13870,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042D\u0442\u043E \u043F\u0440\u043E\u0441\u0442\u043E \u0432\u043E\u0437\u0432\u0443\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E!"
+        value: "\u042D\u0442\u043E \u043F\u0440\u043E\u0441\u0442\u043E \u0432\u043E\u0437\u0432\u0443\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14633,18 +13933,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u0436\u0434\u0443 \u0435\u0433\u043E \u0443\u0436\u0435
-          5 \u0447\u0430\u0441 \u0438\u043B\u0438 \u0434\u0430\u0436\u0435 \u0434\u0435\u043D\u044C"
+        value: "\u042F \u0436\u0434\u0443 \u0435\u0433\u043E \u0443\u0436\u0435 5
+          \u0447\u0430\u0441 \u0438\u043B\u0438 \u0434\u0430\u0436\u0435 \u0434\u0435\u043D\u044C"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14701,7 +13997,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u043F\u0435\u0440\u0435\u0441\u0442\u0430\u043B \u0441\u043B\u0435\u0434\u0438\u0442\u044C
+        value: "\u042F \u043F\u0435\u0440\u0435\u0441\u0442\u0430\u043B \u0441\u043B\u0435\u0434\u0438\u0442\u044C
           \u0437\u0430 \u0432\u0440\u0435\u043C\u0435\u043D\u0435\u043C"
         type: 4
         typeString: CustomFieldType_Localization
@@ -14709,10 +14005,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14736,7 +14028,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
+        x: 78.90111
         y: 302
         width: 160
         height: 30
@@ -14763,17 +14055,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042D\u0442\u043E \u043D\u0435 \u043C\u043E\u0439 \u0441\u043F\u0440\u0443\u0442"
+        value: "\u042D\u0442\u043E \u043D\u0435 \u043C\u043E\u0439 \u0441\u043F\u0440\u0443\u0442"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14880,10 +14168,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -14946,7 +14230,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041E\u0441\u0442\u0435\u0440\u0435\u0433\u0430\u0439\u0441\u044F
+        value: "\u041E\u0441\u0442\u0435\u0440\u0435\u0433\u0430\u0439\u0441\u044F
           \u041F\u0447\u0435\u043B\u043E\u0411\u0430\u0432\u0430 \u0423\u0440\u043E\u0434\u0430"
         type: 4
         typeString: CustomFieldType_Localization
@@ -14954,10 +14238,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15008,17 +14288,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0413\u043B\u0430\u0437\u0430\u043C \u043D\u0435 \u0432\u0435\u0440\u044E"
+        value: "\u0413\u043B\u0430\u0437\u0430\u043C \u043D\u0435 \u0432\u0435\u0440\u044E"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15054,7 +14330,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 184
+        x: 182.9011
         y: 134
         width: 160
         height: 30
@@ -15081,7 +14357,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0423 \u0442\u0435\u0431\u044F \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C
+        value: "\u0423 \u0442\u0435\u0431\u044F \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C
           \u0435\u0433\u043E \u043F\u0440\u043E\u0433\u043D\u0430\u0442\u044C!"
         type: 4
         typeString: CustomFieldType_Localization
@@ -15089,10 +14365,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15116,7 +14388,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 288
+        x: 286.9011
         y: 218
         width: 160
         height: 30
@@ -15143,7 +14415,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0423 \u0442\u0435\u0431\u044F \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C
+        value: "\u0423 \u0442\u0435\u0431\u044F \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C
           \u0435\u0433\u043E \u043F\u043E\u0431\u0435\u0434\u0438\u0442\u044C!"
         type: 4
         typeString: CustomFieldType_Localization
@@ -15151,10 +14423,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15261,10 +14529,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15321,7 +14585,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0424\u0443\u0445...\n*\u0415\u043B\u0435 \u0443\u0434\u0440\u0430\u043B
+        value: "\u0424\u0443\u0445...\n\u0415\u043B\u0435 \u0443\u0434\u0440\u0430\u043B
           \u043E\u0442 \u0442\u043E\u0433\u043E \u0441\u043B\u0438\u0437\u043D\u044F"
         type: 4
         typeString: CustomFieldType_Localization
@@ -15329,10 +14593,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15389,7 +14649,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u043E \u044D\u0442\u0430 \u0448\u043B\u044F\u043F\u0430 \u0442\u043E\u0447\u043D\u043E
+        value: "\u041D\u043E \u044D\u0442\u0430 \u0448\u043B\u044F\u043F\u0430 \u0442\u043E\u0447\u043D\u043E
           \u0441\u0442\u043E\u0438\u043B\u0430 \u0442\u043E\u0433\u043E"
         type: 4
         typeString: CustomFieldType_Localization
@@ -15397,10 +14657,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15507,10 +14763,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15567,7 +14819,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0418\u043D\u043E\u0433\u0434\u0430 \u0436\u0438\u0437\u043D\u044C
+        value: "\u0418\u043D\u043E\u0433\u0434\u0430 \u0436\u0438\u0437\u043D\u044C
           \u0437\u0430\u043D\u043E\u0441\u0438\u0442 \u043D\u0430\u0441 \u0432 \u043E\u0447\u0435\u043D\u044C
           \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u043D\u044B\u0435 \u043C\u0435\u0441\u0442\u0430"
         type: 4
@@ -15576,10 +14828,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15686,10 +14934,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15746,7 +14990,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u043E\u0433\u0434\u0430-\u043D\u0438\u0431\u0443\u0434\u044C
+        value: "\u041A\u043E\u0433\u0434\u0430-\u043D\u0438\u0431\u0443\u0434\u044C
           \u044F \u043D\u0430\u0439\u0434\u0443 \u044D\u0442\u043E\u0442 \u0443\u0433\u043E\u043B\u044C"
         type: 4
         typeString: CustomFieldType_Localization
@@ -15754,10 +14998,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15864,10 +15104,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -15924,7 +15160,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0435 \u0437\u0430\u0445\u043E\u0434\u0438\u0442\u0435 \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0442\u0430
+        value: "\u041D\u0435 \u0437\u0430\u0445\u043E\u0434\u0438\u0442\u0435 \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0442\u0430
           \u0437\u0430 \u0441\u0442\u043E\u0439\u043A\u0443"
         type: 4
         typeString: CustomFieldType_Localization
@@ -15932,10 +15168,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16042,10 +15274,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16102,17 +15330,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0417\u0432\u043E\u043D\u043E\u043A"
+        value: "\u0417\u0432\u043E\u043D\u043E\u043A"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16169,17 +15393,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u0440\u0438\u0432\u0435\u0442 \u044D\u0442\u043E \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+        value: "\u041F\u0440\u0438\u0432\u0435\u0442 \u044D\u0442\u043E \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16248,7 +15468,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0421\u043F\u0430\u0441\u0438\u0431\u043E \u0447\u0442\u043E \u043F\u0440\u043E\u0448\u0435\u043B
+        value: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E \u0447\u0442\u043E \u043F\u0440\u043E\u0448\u0435\u043B
           \u043C\u043E\u044E \u0438\u0433\u0440\u0443"
         type: 4
         typeString: CustomFieldType_Localization
@@ -16256,10 +15476,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16296,7 +15512,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 598.6842
+        x: 597.6842
         y: 304.23325
         width: 160
         height: 30
@@ -16323,8 +15539,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0425\u043E\u0442\u044C \u044D\u0442\u043E \u0438 \u043A\u043E\u043D\u0435\u0446
-          \u044D\u0442\u043E\u0439 \u043A\u043E\u043D\u0446\u043E\u0432\u043A\u0438\n*\u041D\u043E
+        value: "\u0425\u043E\u0442\u044C \u044D\u0442\u043E \u0438 \u043A\u043E\u043D\u0435\u0446
+          \u044D\u0442\u043E\u0439 \u043A\u043E\u043D\u0446\u043E\u0432\u043A\u0438\n\u041D\u043E
           \u0432 \u0438\u0433\u0440\u0435 \u0435\u0441\u0442\u044C \u0441\u043E\u0432\u0435\u0440\u0448\u0435\u043D\u043D\u043E\u0439
           \u0434\u0440\u0443\u0433\u043E\u0439 \u043F\u0443\u0442\u044C \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u044F"
         type: 4
@@ -16333,10 +15549,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16399,7 +15611,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0415\u0441\u043B\u0438 \u0442\u044B \u0441\u0440\u0430\u0437\u0438\u0448\u044C\u0441\u044F
+        value: "\u0415\u0441\u043B\u0438 \u0442\u044B \u0441\u0440\u0430\u0437\u0438\u0448\u044C\u0441\u044F
           \u0441\u043E \u0432\u0441\u0435\u043C\u0438 \u0438 \u0431\u0443\u0434\u0435\u0448\u044C
           \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C
           \u0442\u043E\u043B\u044C\u043A\u043E \"\u0412\u0437\u0440\u044B\u0432\"
@@ -16411,10 +15623,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16445,7 +15653,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 288
-        y: 470
+        y: 469.02917
         width: 160
         height: 30
     - id: 7
@@ -16478,10 +15686,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16532,7 +15736,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E \u043F\u0440\u0430\u0432\u0434\u0435 \u0441\u043A\u0430\u0437\u0430\u0442\u044C
+        value: "\u041F\u043E \u043F\u0440\u0430\u0432\u0434\u0435 \u0441\u043A\u0430\u0437\u0430\u0442\u044C
           \u044F \u043D\u0435 \u043E\u0436\u0438\u0434\u0430\u043B \u0447\u0442\u043E
           \u0442\u044B \u043F\u0440\u043E\u0439\u0434\u0435\u0448\u044C \u044D\u0442\u0443
           \u043A\u043E\u043D\u0446\u043E\u0432\u043A\u0443 \u0440\u0430\u043D\u044C\u0448\u0435
@@ -16543,10 +15747,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16609,7 +15809,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0443 \u043A\u0430\u043A \u0431\u044B-\u0442\u043E \u043D\u0438
+        value: "\u041D\u0443 \u043A\u0430\u043A \u0431\u044B-\u0442\u043E \u043D\u0438
           \u0431\u044B\u043B\u043E \u044F \u043D\u0430\u0434\u0435\u044E\u0441\u044C
           \u0442\u0435\u0431\u0435 \u0431\u044B\u043B\u043E \u0432\u0435\u0441\u0435\u043B\u043E"
         type: 4
@@ -16618,10 +15818,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16678,7 +15874,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0425\u043E\u0442\u044C \u0438 \u0438\u0433\u0440\u0443 \u043C\u043E\u0436\u043D\u043E
+        value: "\u0425\u043E\u0442\u044C \u0438 \u0438\u0433\u0440\u0443 \u043C\u043E\u0436\u043D\u043E
           \u0431\u044B\u043B\u043E \u043F\u0440\u043E\u0439\u0442\u0438 \u0434\u0440\u0443\u0433\u0438\u043C
           \u0441\u043F\u043E\u0441\u043E\u0431\u043E\u043C"
         type: 4
@@ -16687,10 +15883,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16747,7 +15939,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E\u0441\u0442\u043E\u0439 \u044F \u0436\u0435 \u0443\u0436\u0435
+        value: "\u041F\u043E\u0441\u0442\u043E\u0439 \u044F \u0436\u0435 \u0443\u0436\u0435
           \u0433\u043E\u0432\u043E\u0440\u0438\u043B \u0432\u0441\u0435 \u044D\u0442\u043E"
         type: 4
         typeString: CustomFieldType_Localization
@@ -16755,10 +15947,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16788,8 +15976,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 499.65857
-        y: 467.56097
+        x: 497.71686
+        y: 464.64838
         width: 160
         height: 30
     - id: 12
@@ -16815,7 +16003,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u0430\u0436\u0435\u0442\u0441\u044F \u0442\u044B \u043F\u0440\u043E\u0448\u0435\u043B
+        value: "\u041A\u0430\u0436\u0435\u0442\u0441\u044F \u0442\u044B \u043F\u0440\u043E\u0448\u0435\u043B
           \u043C\u043E\u044E \u0438\u0433\u0440\u0443"
         type: 4
         typeString: CustomFieldType_Localization
@@ -16823,10 +16011,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16884,17 +16068,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u0441\u0435 2 \u043A\u043E\u043D\u0446\u043E\u0432\u043A\u0438"
+        value: "\u0412\u0441\u0435 2 \u043A\u043E\u043D\u0446\u043E\u0432\u043A\u0438"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -16951,7 +16131,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0430\u0434\u0435\u044E\u0441\u044C \u0442\u0435\u0431\u0435
+        value: "\u041D\u0430\u0434\u0435\u044E\u0441\u044C \u0442\u0435\u0431\u0435
           \u0431\u044B\u043B\u043E \u0445\u043E\u0442\u044C \u043D\u0435\u043C\u043D\u043E\u0433\u043E
           \u0432\u0435\u0441\u0435\u043B\u043E"
         type: 4
@@ -16960,10 +16140,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17020,7 +16196,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0415\u0441\u043B\u0438 \u0442\u0435\u0431\u0435 \u043D\u0435 \u0441\u043B\u043E\u0436\u043D\u043E
+        value: "\u0415\u0441\u043B\u0438 \u0442\u0435\u0431\u0435 \u043D\u0435 \u0441\u043B\u043E\u0436\u043D\u043E
           \u043E\u0441\u0442\u0430\u0432\u044C \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430
           \u0441\u0432\u043E\u0439 \u043E\u0442\u0437\u044B\u0432"
         type: 4
@@ -17029,10 +16205,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17062,8 +16234,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 554
+        x: 77.802185
+        y: 552.90106
         width: 160
         height: 30
     - id: 16
@@ -17089,7 +16261,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0418 \u044F \u0434\u0443\u043C\u0430\u044E \u043C\u044B \u0435\u0449\u0435
+        value: "\u0418 \u044F \u0434\u0443\u043C\u0430\u044E \u043C\u044B \u0435\u0449\u0435
           \u0443\u0432\u0438\u0434\u0438\u043C\u0441\u044F"
         type: 4
         typeString: CustomFieldType_Localization
@@ -17097,10 +16269,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17164,10 +16332,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17224,17 +16388,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0417\u0432\u043E\u043D\u043E\u043A"
+        value: "\u0417\u0432\u043E\u043D\u043E\u043A"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17291,17 +16451,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u0440\u0438\u0432\u0435\u0442 \u044D\u0442\u043E \u0425\u0430\u043A\u0435\u0440"
+        value: "\u041F\u0440\u0438\u0432\u0435\u0442 \u044D\u0442\u043E \u0425\u0430\u043A\u0435\u0440"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17331,7 +16487,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
+        x: 78.90109
         y: 890
         width: 160
         height: 30
@@ -17358,7 +16514,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u0445\u043E\u0447\u0443 \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u0430\u0442\u044C
+        value: "\u042F \u0445\u043E\u0447\u0443 \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u0430\u0442\u044C
           \u0442\u0435\u0431\u0435 \u043E 3 \u0441\u0435\u043A\u0440\u0435\u0442\u043D\u043E\u0439
           \u043A\u043E\u043D\u0446\u043E\u0432\u043A\u0435"
         type: 4
@@ -17367,10 +16523,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17401,7 +16553,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 974
+        y: 971.8021
         width: 160
         height: 30
     - id: 21
@@ -17427,7 +16579,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u0434\u043E\u0431\u0430\u0432\u0438\u043B \u0442\u0435\u0431\u0435
+        value: "\u042F \u0434\u043E\u0431\u0430\u0432\u0438\u043B \u0442\u0435\u0431\u0435
           \u0438\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044E \u0432 \u043C\u0435\u043D\u044E"
         type: 4
         typeString: CustomFieldType_Localization
@@ -17435,10 +16587,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17495,17 +16643,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u0432\u0435\u0440\u044E \u0432 \u0442\u0435\u0431\u044F"
+        value: "\u042F \u0432\u0435\u0440\u044E \u0432 \u0442\u0435\u0431\u044F"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17565,7 +16709,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041A\u0430\u0436\u0435\u0442\u0441\u044F \u0442\u044B \u043F\u0440\u043E\u0448\u0435\u043B
+        value: "\u041A\u0430\u0436\u0435\u0442\u0441\u044F \u0442\u044B \u043F\u0440\u043E\u0448\u0435\u043B
           \u0432\u0441\u0435 \u043A\u043E\u043D\u0446\u043E\u0432\u043A\u0438 \u0438
           \u0432\u0441\u0435-\u0440\u0430\u0432\u043D\u043E \u0432\u0435\u0440\u043D\u0443\u043B\u0441\u044F
           \u0441\u044E\u0434\u0430"
@@ -17575,10 +16719,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17636,7 +16776,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041F\u043E \u043F\u0440\u0430\u0432\u0434\u0435 \u0441\u043A\u0430\u0437\u0430\u0442\u044C
+        value: "\u041F\u043E \u043F\u0440\u0430\u0432\u0434\u0435 \u0441\u043A\u0430\u0437\u0430\u0442\u044C
           \u044F \u0442\u0440\u043E\u043D\u0443\u0442 \u0447\u0442\u043E \u0442\u044B
           \u0440\u0435\u0448\u0438\u043B \u043F\u0440\u043E\u0439\u0442\u0438 \u0438\u0433\u0440\u0443
           \u0435\u0449\u0435 \u0440\u0430\u0437"
@@ -17646,10 +16786,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17679,7 +16815,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1120
+        x: 1119.1935
         y: 386
         width: 160
         height: 30
@@ -17706,7 +16842,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u043D\u0430\u0434\u0435\u044E\u0441\u044C \u0447\u0442\u043E
+        value: "\u042F \u043D\u0430\u0434\u0435\u044E\u0441\u044C \u0447\u0442\u043E
           \u0442\u044B \u043D\u0430\u0448\u0435\u043B \u0442\u043E \u0447\u0442\u043E
           \u0438\u0441\u043A\u0430\u043B"
         type: 4
@@ -17715,10 +16851,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17748,7 +16880,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1120
+        x: 1118.3871
         y: 470
         width: 160
         height: 30
@@ -17775,7 +16907,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0418 \u043A\u0430\u0436\u0435\u0442\u0441\u044F \u0443\u0436\u0435
+        value: "\u0418 \u043A\u0430\u0436\u0435\u0442\u0441\u044F \u0443\u0436\u0435
           \u043D\u0435 1 \u0440\u0430\u0437 \u043F\u043E\u0434\u0440\u044F\u0434"
         type: 4
         typeString: CustomFieldType_Localization
@@ -17783,10 +16915,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17821,8 +16949,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 116.130066}
-    canvasZoom: 0.81999856
+    canvasScrollPosition: {x: 764.531, y: 215.95491}
+    canvasZoom: 1.2399981
   - id: 20
     fields:
     - title: Title
@@ -17899,10 +17027,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -17971,7 +17095,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0421\u044D\u0440 \u044D\u0442\u043E \u0432\u044B \u0435\u0433\u043E
+        value: "\u0421\u044D\u0440 \u044D\u0442\u043E \u0432\u044B \u0435\u0433\u043E
           \u0443\u0431\u0438\u043B\u0438?"
         type: 4
         typeString: CustomFieldType_Localization
@@ -17979,10 +17103,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18045,17 +17165,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u0435\u043B\u043E \u0440\u0430\u0441\u043A\u0440\u044B\u0442\u043E"
+        value: "\u0414\u0435\u043B\u043E \u0440\u0430\u0441\u043A\u0440\u044B\u0442\u043E"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18112,17 +17228,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0421\u043F\u0430\u0441\u0438\u0431\u043E \u0437\u0430 \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u0447\u0435\u0441\u0442\u0432\u043E"
+        value: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E \u0437\u0430 \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u0447\u0435\u0441\u0442\u0432\u043E"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18180,10 +17292,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18247,10 +17355,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18307,17 +17411,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0412\u044B \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u0434\u043E\u043A\u0430\u0436\u0438\u0442\u0435!"
+        value: "\u0412\u044B \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u0434\u043E\u043A\u0430\u0436\u0438\u0442\u0435!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18368,7 +17468,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042D\u0442\u0430 \u0438\u0441\u0442\u043E\u0440\u0438\u044F \u0437\u0430\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442
+        value: "\u042D\u0442\u0430 \u0438\u0441\u0442\u043E\u0440\u0438\u044F \u0437\u0430\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442
           \u0437\u0430\u0434\u0443\u043C\u0430\u0442\u044C\u0441\u044F"
         type: 4
         typeString: CustomFieldType_Localization
@@ -18376,10 +17476,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18409,8 +17505,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 704
-        y: 134
+        x: 702.50745
+        y: 132.50745
         width: 160
         height: 30
     - id: 8
@@ -18436,7 +17532,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u043E \u044F \u0442\u0430\u043A \u0438 \u043D\u0435 \u043F\u043E\u043D\u044F\u043B
+        value: "\u041D\u043E \u044F \u0442\u0430\u043A \u0438 \u043D\u0435 \u043F\u043E\u043D\u044F\u043B
           \u043D\u0430\u0434 \u0447\u0435\u043C"
         type: 4
         typeString: CustomFieldType_Localization
@@ -18444,10 +17540,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18471,13 +17563,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 704
+        x: 702.50745
         y: 218
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 22.388031, y: 0}
-    canvasZoom: 0.6700002
+    canvasScrollPosition: {x: 96.30892, y: 44.438957}
+    canvasZoom: 0.90999997
   - id: 21
     fields:
     - title: Title
@@ -18554,10 +17646,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18614,7 +17702,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u042F \u0432\u0441\u0435\u0433\u0434\u0430 \u043C\u0435\u0447\u0442\u0430\u043B
+        value: "\u042F \u0432\u0441\u0435\u0433\u0434\u0430 \u043C\u0435\u0447\u0442\u0430\u043B
           \u0441\u0442\u0430\u0442\u044C \u0441\u0443\u043F\u0435\u0440\u0433\u0435\u0440\u043E\u0435\u043C,
           \u043D\u043E \u0432\u043C\u0435\u0441\u0442\u043E \u044D\u0442\u043E\u0433\u043E
           \u0441\u0442\u0430\u043B \u043F\u0447\u0435\u043B\u043E\u0447\u0435\u043B\u043E\u0432\u0435\u043A\u043E\u043C"
@@ -18624,10 +17712,6 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18652,7 +17736,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 80
+        y: 79.056595
         width: 160
         height: 30
     entryGroups: []
@@ -18734,10 +17818,6 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18794,17 +17874,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0410\u043B\u043E"
+        value: "\u0410\u043B\u043E"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18861,17 +17937,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u041D\u0435 \u0437\u0432\u043E\u043D\u0438 \u043C\u043D\u0435 \u0431\u043E\u043B\u044C\u0448\u0435!"
+        value: "\u041D\u0435 \u0437\u0432\u043E\u043D\u0438 \u043C\u043D\u0435 \u0431\u043E\u043B\u044C\u0448\u0435!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18922,17 +17994,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "*\u0414\u0430?"
+        value: "\u0414\u0430?"
         type: 4
         typeString: CustomFieldType_Localization
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      - title: ru
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       - title: en
         value: 
         type: 4
@@ -18969,6 +18037,613 @@ MonoBehaviour:
     entryGroups: []
     canvasScrollPosition: {x: 20.21943, y: 8.799418}
     canvasZoom: 1.2500004
+  - id: 23
+    fields:
+    - title: Title
+      value: Bench
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Actor
+      value: 1
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant
+      value: 2
+      type: 5
+      typeString: CustomFieldType_Actor
+    overrideSettings:
+      useOverrides: 0
+      overrideSubtitleSettings: 0
+      showNPCSubtitlesDuringLine: 1
+      showNPCSubtitlesWithResponses: 1
+      showPCSubtitlesDuringLine: 0
+      skipPCSubtitleAfterResponseMenu: 0
+      subtitleCharsPerSecond: 30
+      minSubtitleSeconds: 2
+      continueButton: 0
+      overrideSequenceSettings: 0
+      defaultSequence: 
+      defaultPlayerSequence: 
+      defaultResponseMenuSequence: 
+      overrideInputSettings: 0
+      alwaysForceResponseMenu: 1
+      includeInvalidEntries: 0
+      responseTimeout: 0
+      emTagForOldResponses: 0
+      emTagForInvalidResponses: 0
+      cancelSubtitle:
+        key: 27
+        buttonName: 
+      cancelConversation:
+        key: 27
+        buttonName: 
+    nodeColor: 
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: Sequence
+        value: None()
+        type: 0
+        typeString: 
+      - title: en
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 0
+        destinationConversationID: 23
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 30
+        width: 160
+        height: 30
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u0412\u044B \u0441\u0438\u0434\u0438\u0442\u0435 \u043D\u0430 \u043B\u0430\u0432\u043E\u0447\u043A\u0435"
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: Sequence
+        value: 'SetDialoguePanel(false);
+
+          SendMessage(Sit, , Bench);
+
+          SetDialoguePanel(true)@Message("BenchSit");'
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: en
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 5
+        destinationConversationID: 23
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 152.15143
+        y: 99.47217
+        width: 160
+        height: 30
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u0412\u0430\u0448\u0435 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435
+          \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u043B\u043E\u0441\u044C!"
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: Sequence
+        value: 'SetDialoguePanel(false);
+
+          SendMessage(StandUp, , Bench);
+
+          SetDialoguePanel(true)@Message("BenchEndSit");'
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: en
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 151.36882
+        y: 157.71506
+        width: 160
+        height: 30
+    entryGroups: []
+    canvasScrollPosition: {x: 0, y: 22.034645}
+    canvasZoom: 0.9699999
+  - id: 24
+    fields:
+    - title: Title
+      value: Chest
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Actor
+      value: 1
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant
+      value: 2
+      type: 5
+      typeString: CustomFieldType_Actor
+    overrideSettings:
+      useOverrides: 0
+      overrideSubtitleSettings: 0
+      showNPCSubtitlesDuringLine: 1
+      showNPCSubtitlesWithResponses: 1
+      showPCSubtitlesDuringLine: 0
+      skipPCSubtitleAfterResponseMenu: 0
+      subtitleCharsPerSecond: 30
+      minSubtitleSeconds: 2
+      continueButton: 0
+      overrideSequenceSettings: 0
+      defaultSequence: 
+      defaultPlayerSequence: 
+      defaultResponseMenuSequence: 
+      overrideInputSettings: 0
+      alwaysForceResponseMenu: 1
+      includeInvalidEntries: 0
+      responseTimeout: 0
+      emTagForOldResponses: 0
+      emTagForInvalidResponses: 0
+      cancelSubtitle:
+        key: 27
+        buttonName: 
+      cancelConversation:
+        key: 27
+        buttonName: 
+    nodeColor: 
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: Sequence
+        value: None()
+        type: 0
+        typeString: 
+      - title: en
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 24
+        originDialogueID: 0
+        destinationConversationID: 24
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 24
+        originDialogueID: 0
+        destinationConversationID: 24
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 30
+        width: 160
+        height: 30
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u0412\u044B \u043E\u0442\u043A\u0440\u044B\u043B\u0438 \u0441\u0443\u043D\u0434\u0443\u043A"
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: Sequence
+        value: 'SetDialoguePanel(false);
+
+          SendMessage(Open, , Chest);
+
+          SetDialoguePanel(true)@Message("OpenChest");'
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: en
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 24
+        originDialogueID: 1
+        destinationConversationID: 24
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["IsChestOpen"] == false
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 76.082565
+        y: 156
+        width: 160
+        height: 30
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u0412\u044B \u0437\u0430\u0433\u043B\u044F\u043D\u0443\u043B\u0438
+          \u0432 \u0441\u0443\u043D\u0434\u0443\u043A\n\u041D\u043E \u043E\u043D
+          \u0431\u044B\u043B \u043F\u0443\u0441\u0442"
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: en
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["IsChestOpen"] == true
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 277
+        y: 156
+        width: 160
+        height: 30
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u0412 \u043D\u0435\u043C \u043B\u0435\u0436\u0430\u043B\u0438 5
+          \u0441\u0443\u0445\u0438\u0445 \u043A\u0443\u0441\u0442\u0438\u043A\u043E\u0432"
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: en
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 24
+        originDialogueID: 3
+        destinationConversationID: 24
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 79
+        y: 206
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u0412\u044B \u043F\u043E\u043B\u043E\u0436\u0438\u043B\u0438 \u0438\u0445
+          \u0432 \u0441\u0432\u043E\u0439 \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C"
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: en
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 79
+        y: 256
+        width: 160
+        height: 30
+    entryGroups: []
+    canvasScrollPosition: {x: 0, y: 0.36630535}
+    canvasZoom: 1
   syncInfo:
     syncActors: 1
     syncItems: 0
@@ -18986,4 +18661,4 @@ MonoBehaviour:
     Item","value":"False","type":2,"typeString":"CustomFieldType_Boolean"}],"locationFields":[{"title":"Name","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Description","value":"","type":0,"typeString":"CustomFieldType_Text"}],"variableFields":[{"title":"Name","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Initial
     Value","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Description","value":"","type":0,"typeString":"CustomFieldType_Text"}],"conversationFields":[{"title":"Title","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Description","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Actor","value":"0","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Conversant","value":"0","type":5,"typeString":"CustomFieldType_Actor"}],"dialogueEntryFields":[{"title":"Title","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Description","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Actor","value":"","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Conversant","value":"","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Menu
     Text","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Dialogue
-    Text","value":"","type":4,"typeString":"CustomFieldType_Localization"},{"title":"Sequence","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"ru","value":"","type":4,"typeString":"CustomFieldType_Localization"},{"title":"en","value":"","type":4,"typeString":"CustomFieldType_Localization"},{"title":"EventGuid","value":"","type":0,"typeString":"CustomFieldType_Text"}],"actorPrimaryFieldTitles":["AudioClip"],"itemPrimaryFieldTitles":[],"questPrimaryFieldTitles":[],"locationPrimaryFieldTitles":[],"variablePrimaryFieldTitles":[],"conversationPrimaryFieldTitles":[],"dialogueEntryPrimaryFieldTitles":[],"npcLineColor":{"r":1.0,"g":0.0,"b":0.0,"a":1.0},"pcLineColor":{"r":0.0,"g":0.0,"b":1.0,"a":1.0},"repeatLineColor":{"r":0.5,"g":0.5,"b":0.5,"a":1.0}}'
+    Text","value":"","type":4,"typeString":"CustomFieldType_Localization"},{"title":"Sequence","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"en","value":"","type":4,"typeString":"CustomFieldType_Localization"},{"title":"EventGuid","value":"","type":0,"typeString":"CustomFieldType_Text"}],"actorPrimaryFieldTitles":["AudioClip"],"itemPrimaryFieldTitles":[],"questPrimaryFieldTitles":[],"locationPrimaryFieldTitles":[],"variablePrimaryFieldTitles":[],"conversationPrimaryFieldTitles":[],"dialogueEntryPrimaryFieldTitles":[],"npcLineColor":{"r":1.0,"g":0.0,"b":0.0,"a":1.0},"pcLineColor":{"r":0.0,"g":0.0,"b":1.0,"a":1.0},"repeatLineColor":{"r":0.5,"g":0.5,"b":0.5,"a":1.0}}'

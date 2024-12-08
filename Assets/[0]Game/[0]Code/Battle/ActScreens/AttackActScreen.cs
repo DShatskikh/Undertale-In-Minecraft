@@ -108,7 +108,7 @@ namespace Game
             
             var damage = Mathf.Lerp(3, 8, 1 - distance / maxDistance);
             
-            yield return GameData.Battle.SessionData.BattleController.AwaitActReaction("Damage", damage);
+            yield return GameData.Battle.SessionData.BattleController.AwaitActReaction("Attack", damage);
         }
 
         public void EndMove()

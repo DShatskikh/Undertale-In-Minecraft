@@ -805,8 +805,23 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Standalone: YG_PLUGIN_YANDEX_GAME;TMP_PRESENT;USE_PHYSICS2D
-    WebGL: YG_PLUGIN_YANDEX_GAME;TMP_PRESENT;USE_PHYSICS2D
+    Android: DOTWEEN
+    EmbeddedLinux: DOTWEEN
+    GameCoreScarlett: DOTWEEN
+    GameCoreXboxOne: DOTWEEN
+    LinuxHeadlessSimulation: DOTWEEN
+    Nintendo Switch: DOTWEEN
+    PS4: DOTWEEN
+    PS5: DOTWEEN
+    QNX: DOTWEEN
+    ReservedCFE: DOTWEEN
+    Standalone: YG_PLUGIN_YANDEX_GAME;TMP_PRESENT;USE_PHYSICS2D;DOTWEEN
+    VisionOS: DOTWEEN
+    WebGL: YG_PLUGIN_YANDEX_GAME;TMP_PRESENT;USE_PHYSICS2D;DOTWEEN
+    Windows Store Apps: DOTWEEN
+    XboxOne: DOTWEEN
+    iPhone: DOTWEEN
+    tvOS: DOTWEEN
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

@@ -9,7 +9,7 @@ namespace Game
             if (GameData.Battle.SessionData.Progress >= 100)
             {
                 GameData.CommandManager.StopExecute();
-                GameData.Battle.EndBattle();
+                //GameData.Battle.EndBattle();
             }
 
             action.Invoke();

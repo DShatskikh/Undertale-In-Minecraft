@@ -28,7 +28,6 @@ namespace Game
         [SerializeField]
         private InventoryScreen _inventory;
         
-        [FormerlySerializedAs("guide")]
         [SerializeField]
         private EndingsScreen endings;
         

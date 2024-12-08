@@ -24,9 +24,15 @@ namespace Game
         {
             base.Awake();
             _locations = GetComponentsInChildren<Location>(true);
-            
-            foreach (var location in _locations) 
-                location.gameObject.SetActive(false);
+
+            foreach (var location in _locations)
+            {
+                if (location.gameObject.activeSelf)
+                {
+                    _saveData.LocationName = location.GetName;
+                    location.gameObject.SetActive(false);
+                }
+            }
         }
 
         public override string RecordData()
