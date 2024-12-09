@@ -495,8 +495,8 @@ namespace MoreMountains.Tools
 
 				if (FadeIn)
 				{
-					MMSoundManager.Instance.FadeSound(_currentlyPlayingAudioSource, FadeDuration,
-						0f, _currentlyPlayingAudioSource.volume, FadeTween, false);	
+					//MMSoundManager.Instance.FadeSound(_currentlyPlayingAudioSource, FadeDuration,
+					//	0f, _currentlyPlayingAudioSource.volume, FadeTween, false);	
 				}
 
 				// updates our state
@@ -509,7 +509,7 @@ namespace MoreMountains.Tools
 				Playlist.PlayCount++;
 				
 				// we trigger an event for other classes to listen to, letting them know a new song has started
-				MMPlaylistNewSongStartedEvent.Trigger(Channel);
+				//MMPlaylistNewSongStartedEvent.Trigger(Channel);
 			}
 			
 			/// <summary>
@@ -541,13 +541,13 @@ namespace MoreMountains.Tools
 
 				if (FadeOut)
 				{
-					if ( MMSoundManager.Instance.SoundIsFadingOut(_currentlyPlayingAudioSource) )
+					/*if ( MMSoundManager.Instance.SoundIsFadingOut(_currentlyPlayingAudioSource) )
 					{
 						return;
-					}
+					}*/
 				
-					MMSoundManager.Instance.FadeSound(_currentlyPlayingAudioSource, FadeDuration,
-						_currentlyPlayingAudioSource.volume, 0f, FadeTween, true);
+					//MMSoundManager.Instance.FadeSound(_currentlyPlayingAudioSource, FadeDuration,
+					//	_currentlyPlayingAudioSource.volume, 0f, FadeTween, true);
 				}
 				else
 				{
@@ -664,7 +664,7 @@ namespace MoreMountains.Tools
 			public virtual void SetPitchMultiplier(float newPitchMultiplier)
 			{
 				float newPitch = Mathf.Clamp(newPitchMultiplier, 0f, 20f);
-				MMPlaylistPitchMultiplierEvent.Trigger(Channel, newPitch, true);
+				//MMPlaylistPitchMultiplierEvent.Trigger(Channel, newPitch, true);
 			}
 		
 		#endregion
@@ -807,8 +807,8 @@ namespace MoreMountains.Tools
 				MMPlaylistStopEvent.Register(OnStopEvent);
 				MMPlaylistPlayIndexEvent.Register(OnPlayIndexEvent);
 				MMPlaylistVolumeMultiplierEvent.Register(OnMMPlaylistVolumeMultiplierEvent);
-				MMPlaylistPitchMultiplierEvent.Register(OnMMPlaylistPitchMultiplierEvent);
-				MMPlaylistChangeEvent.Register(OnMMPlaylistChangeEvent);
+				//MMPlaylistPitchMultiplierEvent.Register(OnMMPlaylistPitchMultiplierEvent);
+				//MMPlaylistChangeEvent.Register(OnMMPlaylistChangeEvent);
 			}
 
 			/// <summary>
@@ -824,8 +824,8 @@ namespace MoreMountains.Tools
 				MMPlaylistStopEvent.Unregister(OnStopEvent);
 				MMPlaylistPlayIndexEvent.Unregister(OnPlayIndexEvent);
 				MMPlaylistVolumeMultiplierEvent.Unregister(OnMMPlaylistVolumeMultiplierEvent);
-				MMPlaylistPitchMultiplierEvent.Unregister(OnMMPlaylistPitchMultiplierEvent);
-				MMPlaylistChangeEvent.Unregister(OnMMPlaylistChangeEvent);
+				//MMPlaylistPitchMultiplierEvent.Unregister(OnMMPlaylistPitchMultiplierEvent);
+				//MMPlaylistChangeEvent.Unregister(OnMMPlaylistChangeEvent);
 			}
 
 			/// <summary>
@@ -869,7 +869,7 @@ namespace MoreMountains.Tools
 				}
 				if (_lastTestPlaybackSpeedControl != TestPlaybackSpeedControl)
 				{
-					MMPlaylistPitchMultiplierEvent.Trigger(Channel, TestPlaybackSpeedControl, true);
+					//MMPlaylistPitchMultiplierEvent.Trigger(Channel, TestPlaybackSpeedControl, true);
 				}
 			}
 			#endif

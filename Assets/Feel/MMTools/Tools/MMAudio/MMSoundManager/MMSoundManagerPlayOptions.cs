@@ -12,64 +12,40 @@ namespace MoreMountains.Tools
 	[Serializable]
 	public struct MMSoundManagerPlayOptions
 	{
-		[HideInInspector]
-		public bool Initialized;
-		
-		[Header("Track")]
 		/// the track on which to play the sound
 		public MMSoundManager.MMSoundManagerTracks MmSoundManagerTrack;
-		/// an audiogroup to use if you don't want to play on any of the preset tracks
-		public AudioMixerGroup AudioGroup;
-		
-		[Header("Sound")]
+		/// the location at which to position the sound
+		public Vector3 Location;
 		/// whether or not the sound should loop
 		public bool Loop;
 		/// the volume at which to play the sound
-		[Range(0f,2f)]
 		public float Volume;
-		/// The pitch of the audio source.
-		[Range(-3f,3f)]
-		public float Pitch;
-		
 		/// the ID of the sound, useful to find that sound again later
 		public int ID;
-		
-		[Header("Fade")]
 		/// whether or not to fade the sound when playing it
 		public bool Fade;
 		/// the initial volume of the sound, before the fade
-		[MMCondition("Fade", true)]
 		public float FadeInitialVolume;
 		/// the duration of the fade, in seconds
-		[MMCondition("Fade", true)]
 		public float FadeDuration;
 		/// the tween to use when fading the sound
-		[MMCondition("Fade", true)]
 		public MMTweenType FadeTween;
-		
-		
 		/// whether or not the sound should persist over scene transitions
 		public bool Persistent;
 		/// an AudioSource to use if you don't want to pick one from the pool
 		public AudioSource RecycleAudioSource;
-		
-		[Header("Time")]
+		/// an audiogroup to use if you don't want to play on any of the preset tracks
+		public AudioMixerGroup AudioGroup;
+		/// The pitch of the audio source.
+		public float Pitch;
 		/// The time (in seconds) at which to start playing the sound
 		public float PlaybackTime;
 		/// The time (in seconds after which to stop playing the sound
 		public float PlaybackDuration;
-		
-		[Header("Spatial Settings")]
 		/// Pans a playing sound in a stereo way (left or right). This only applies to sounds that are Mono or Stereo.
-		[Range(-1f,1f)]
 		public float PanStereo;
 		/// Sets how much this AudioSource is affected by 3D spatialisation calculations (attenuation, doppler etc). 0.0 makes the sound full 2D, 1.0 makes it full 3D.
-		[Range(0f,1f)]
 		public float SpatialBlend;
-		/// a Transform this sound can 'attach' to and follow it along as it plays
-		public Transform AttachToTransform;
-		
-		[Header("Solo")]
 		/// whether or not this sound should play in solo mode over its destination track. If yes, all other sounds on that track will be muted when this sound starts playing
 		public bool SoloSingleTrack;
 		/// whether or not this sound should play in solo mode over all other tracks. If yes, all other tracks will be muted when this sound starts playing
@@ -83,20 +59,12 @@ namespace MoreMountains.Tools
 		/// When set doesn't route the signal from an AudioSource into the global reverb associated with reverb zones.
 		public bool BypassReverbZones;
 		/// Sets the priority of the AudioSource.
-		[Range(0, 256)]
 		public int Priority;
 		/// The amount by which the signal from the AudioSource will be mixed into the global reverb associated with the Reverb Zones.
-		[Range(0f,1.1f)]
 		public float ReverbZoneMix;
-		
-		[Header("3D Sound Settings")]
 		/// Sets the Doppler scale for this AudioSource.
-		[Range(0f,5f)]
 		public float DopplerLevel;
-		/// the location at which to position the sound
-		public Vector3 Location;
 		/// Sets the spread angle (in degrees) of a 3d stereo or multichannel sound in speaker space.
-		[Range(0,360)]
 		public int Spread;
 		/// Sets/Gets how the AudioSource attenuates over distance.
 		public AudioRolloffMode RolloffMode;
@@ -106,25 +74,23 @@ namespace MoreMountains.Tools
 		public float MaxDistance;
 		/// Whether or not the source should be auto recycled if not done playing
 		public bool DoNotAutoRecycleIfNotDonePlaying;
+		/// a Transform this sound can 'attach' to and follow it along as it plays
+		public Transform AttachToTransform;
 		/// whether or not to use a custom curve for custom volume rolloff
 		public bool UseCustomRolloffCurve;
 		/// the curve to use for custom volume rolloff if UseCustomRolloffCurve is true
-		[MMCondition("UseCustomRolloffCurve", true)]
 		public AnimationCurve CustomRolloffCurve;
 		/// whether or not to use a custom curve for spatial blend
 		public bool UseSpatialBlendCurve;
 		/// the curve to use for custom spatial blend if UseSpatialBlendCurve is true
-		[MMCondition("UseSpatialBlendCurve", true)]
 		public AnimationCurve SpatialBlendCurve;
 		/// whether or not to use a custom curve for reverb zone mix
 		public bool UseReverbZoneMixCurve;
 		/// the curve to use for custom reverb zone mix if UseReverbZoneMixCurve is true
-		[MMCondition("UseReverbZoneMixCurve", true)]
 		public AnimationCurve ReverbZoneMixCurve;
 		/// whether or not to use a custom curve for spread
 		public bool UseSpreadCurve;
 		/// the curve to use for custom spread if UseSpreadCurve is true
-		[MMCondition("UseSpreadCurve", true)]
 		public AnimationCurve SpreadCurve;
         
 		/// <summary>
@@ -148,7 +114,6 @@ namespace MoreMountains.Tools
 			get
 			{
 				MMSoundManagerPlayOptions defaultOptions = new MMSoundManagerPlayOptions();
-				defaultOptions.Initialized = true;
 				defaultOptions.MmSoundManagerTrack = MMSoundManager.MMSoundManagerTracks.Sfx;
 				defaultOptions.Location = Vector3.zero;
 				defaultOptions.Loop = false;
@@ -157,7 +122,7 @@ namespace MoreMountains.Tools
 				defaultOptions.Fade = false;
 				defaultOptions.FadeInitialVolume = 0f;
 				defaultOptions.FadeDuration = 1f;
-				defaultOptions.FadeTween = MMTweenType.DefaultEaseInCubic;
+				defaultOptions.FadeTween = null;
 				defaultOptions.Persistent = false;
 				defaultOptions.RecycleAudioSource = null;
 				defaultOptions.AudioGroup = null;
@@ -177,7 +142,7 @@ namespace MoreMountains.Tools
 				defaultOptions.RolloffMode = AudioRolloffMode.Logarithmic;
 				defaultOptions.MinDistance = 1f;
 				defaultOptions.MaxDistance = 500f;
-				defaultOptions.DoNotAutoRecycleIfNotDonePlaying = true;
+				defaultOptions.DoNotAutoRecycleIfNotDonePlaying = false;
 				return defaultOptions;
 			}
 		}

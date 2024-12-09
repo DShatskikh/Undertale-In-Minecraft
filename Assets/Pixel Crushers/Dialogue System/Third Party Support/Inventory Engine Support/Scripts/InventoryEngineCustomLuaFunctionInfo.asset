@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44a0b778e51584a8b00171e38b0bce, type: 3}
+  m_Name: InventoryEngineCustomLuaFunctionInfo
+  m_EditorClassIdentifier: 
+  conditionFunctions:
+  - functionName: IE/mmGetQuantity
+    parameters: 0200000002000000
+    returnValue: 2
+  - functionName: IE/mmGetNumFreeSlots
+    parameters: 02000000
+    returnValue: 2
+  - functionName: IE/mmGetNumFilledSlots
+    parameters: 02000000
+    returnValue: 2
+  scriptFunctions:
+  - functionName: IE/mmAddItem
+    parameters: 020000000200000001000000
+    returnValue: 0
+  - functionName: IE/mmRemoveItem
+    parameters: 020000000200000001000000
+    returnValue: 0
+  - functionName: IE/mmUseItem
+    parameters: 0200000002000000
+    returnValue: 0
+  - functionName: IE/mmDropItem
+    parameters: 0200000002000000
+    returnValue: 0
+  - functionName: IE/mmEquipItem
+    parameters: 0200000002000000
+    returnValue: 0
+  - functionName: IE/mmUnEquipItem
+    parameters: 0200000002000000
+    returnValue: 0
+  - functionName: IE/mmEmptyInventory
+    parameters: 02000000
+    returnValue: 0
+  - functionName: IE/mmResizeSlots
+    parameters: 020000000100000001000000
+    returnValue: 0

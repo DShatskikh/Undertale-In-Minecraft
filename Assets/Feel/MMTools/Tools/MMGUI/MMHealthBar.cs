@@ -153,20 +153,6 @@ namespace MoreMountains.Tools
 		[Tooltip("the delay (in seconds) after which to hide the bar")]
 		public float HideBarAtZeroDelay = 1f;
 
-		[Header("Test")] 
-		/// a test value to use when pressing the TestUpdateHealth button
-		[Tooltip("a test value to use when pressing the TestUpdateHealth button")]
-		public float TestMinHealth = 0f;
-		/// a test value to use when pressing the TestUpdateHealth button
-		[Tooltip("a test value to use when pressing the TestUpdateHealth button")]
-		public float TestMaxHealth = 100f;
-		/// a test value to use when pressing the TestUpdateHealth button
-		[Tooltip("a test value to use when pressing the TestUpdateHealth button")]
-		public float TestCurrentHealth = 25f;
-		[MMInspectorButton("TestUpdateHealth")]
-		public bool TestUpdateHealthButton;
-		
-		
 		protected MMProgressBar _progressBar;
 		protected MMFollowTarget _followTransform;
 		protected float _lastShowTimestamp = 0f;
@@ -499,14 +485,6 @@ namespace MoreMountains.Tools
 					_progressBar.Bump();
 				}
 			}
-		}
-
-		/// <summary>
-		/// A test method used to update the bar when pressing the TestUpdateHealth button in the inspector
-		/// </summary>
-		protected virtual void TestUpdateHealth()
-		{
-			UpdateBar(TestCurrentHealth, TestMinHealth, TestMaxHealth, true);
 		}
 	}
 }

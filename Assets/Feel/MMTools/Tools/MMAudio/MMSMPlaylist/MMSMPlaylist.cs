@@ -208,10 +208,10 @@ namespace MoreMountains.Tools
 		{
 			foreach (MMSMPlaylistSong song in Songs)
 			{
-				if (!song.Options.Initialized)
-				{
+				//if (!song.Options.Initialized)
+				//{
 					song.Options = MMSoundManagerPlayOptions.Default;
-				}
+				//}
 			}
 		}
 	}

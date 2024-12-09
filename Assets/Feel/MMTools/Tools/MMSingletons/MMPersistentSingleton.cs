@@ -17,6 +17,12 @@ namespace MoreMountains.Tools
 		
 		protected static T _instance;
 		protected bool _enabled;
+		
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+		protected static void InitializeStatics()
+		{
+			_instance = null;
+		}
 
 		/// <summary>
 		/// Singleton design pattern

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using Cinemachine.Utility;
 #if MM_TEXTMESHPRO
 using TMPro;
 #endif
@@ -777,9 +776,6 @@ namespace MoreMountains.Tools
 							_targetLocalScale.y = 1f - newAmount;
 							break;
 					}
-
-					if (_targetLocalScale.IsNaN())
-						_targetLocalScale = Vector3.zero;
 
 					bar.localScale = _targetLocalScale;
 					break;

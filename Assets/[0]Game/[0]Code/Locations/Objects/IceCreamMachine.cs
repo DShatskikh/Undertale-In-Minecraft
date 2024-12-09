@@ -1,5 +1,6 @@
 ﻿using System;
 using PixelCrushers;
+using PixelCrushers.DialogueSystem;
 
 namespace Game
 {
@@ -10,12 +11,12 @@ namespace Game
         [Serializable]
         private class Data
         {
-            
+            //Темный рожок
         }
         
         public void Use()
         {
-            throw new System.NotImplementedException();
+            GetComponent<DialogueSystemTrigger>().OnUse();
         }
 
         public override string RecordData()

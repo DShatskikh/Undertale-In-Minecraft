@@ -88,7 +88,7 @@ namespace MoreMountains.Feedbacks
 					MMPlaylistVolumeMultiplierEvent.Trigger(Channel, VolumeMultiplier, ApplyVolumeMultiplierInstantly);
 					break;
 				case Modes.ChangePlaylist:
-					MMPlaylistChangeEvent.Trigger(Channel, NewPlaylist, ChangePlaylistAndPlay);
+					//MMPlaylistChangeEvent.Trigger(Channel, NewPlaylist, ChangePlaylistAndPlay);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

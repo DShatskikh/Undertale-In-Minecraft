@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using PixelCrushers;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
@@ -56,6 +57,7 @@ namespace Game
         public void Load()
         {
             _saveSystem.LoadGameFromSlot(1);
+            MMGameEvent.Trigger("Load");
             Debug.Log("Игра загруженна");
         }
 
