@@ -20,7 +20,7 @@ namespace Game
 
         private void Start()
         {
-            _currentStepTime = _intervalStep;
+            _currentStepTime = 0;
         }
 
         public void SetModel(CharacterModel model)

@@ -33,6 +33,7 @@ MonoBehaviour:
     bold: 0
     italic: 0
     underline: 0
+  baseID: 1
   actors:
   - id: 1
     fields:
@@ -192,6 +193,8 @@ MonoBehaviour:
       alwaysForceResponseMenu: 1
       includeInvalidEntries: 0
       responseTimeout: 0
+      emTagForOldResponses: 0
+      emTagForInvalidResponses: 0
       cancelSubtitle:
         key: 27
         buttonName: 
@@ -961,8 +964,9 @@ MonoBehaviour:
         y: 254
         width: 160
         height: 30
+    entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.97
   syncInfo:
     syncActors: 0
     syncItems: 0
