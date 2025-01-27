@@ -39,8 +39,6 @@ namespace Game
                 default:
                     break;
             }
-            
-            
         }
     }
 }

@@ -2,8 +2,5 @@
 
 namespace Game
 {
-    public class CameraAreaChecker : MonoBehaviour
-    {
-        
-    }
+    public class CameraAreaChecker : MonoBehaviour { }
 }

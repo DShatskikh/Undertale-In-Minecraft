@@ -21,6 +21,7 @@ namespace Game
         public AudioClip GrazeSound;
         public AudioClip PhoneSound;
         public AudioClip WarningSound;
+        public AudioClip TransitionSound;
         
         [Header("Configs")]
         public StepSoundPairsConfig StepSoundPairsConfig;
