@@ -34,7 +34,42 @@ namespace Game
             _blackPanel.Reset();
             _blackPanel.Show(1, 0.75f);
 
+            var squadOverWorldPositionsData = foreach (var companion in GameData.CompanionsManager.GetAllCompanions)
+                companion.GetSpriteRenderer.sortingOrder = 21;
+
+            _blackPanel.Reset();
+            _blackPanel.Show(1, 0.75f);
+
             var squadOverWorldPositionsData = _battle.SessionData.SquadOverWorldPositionsData;
+            var enemyOverWorldPositionsData = _battle.SessionData.EnemiesOverWorldPositionsData;
+
+            foreach (var overWorldPositionData in squadOverWorldPositionsData)
+            {
+                var characterMoveEffect = new MoveQuicklyEffectCommand(overWorldPositionData.Sprite, 
+                    overWorldPositionData.StartPosition, overWorldPositionData.Point.position,
+                    0.5f, _container, false);
+            
+                characterMoveEffect.Execute(null);
+            }
+            
+            foreach (var overWorldPositionData in enemyOverWorldPositionsData)
+            {
+                var characterMoveEffect = new MoveQuicklyEffectCommand(overWorldPositionData.Sprite, 
+                    overWorldPositionData.StartPosition, overWorldPositionData.Point.position,
+                    0.5f, _container, true);
+            
+                characterMoveEffect.Execute(null);
+            }
+            
+            GameData.CharacterController.gameObject.SetActive(false);
+
+            foreach (var overWorldPositionData in squadOverWorldPositionsData)
+                _moveAnimation.Insert(0, overWorldPositionData.Transform.DOMove(overWorldPositionData.Point.position, 0.75f));
+
+            foreach (var overWorldPositionData in enemyOverWorldPositionsData)
+                _moveAnimation.Insert(0, overWorldPositionData.Transform.DOMove(overWorldPositionData.Point.position, 0.75f));
+            
+            yield return _moveAnimation.WaitForCompletion();_battle.SessionData.SquadOverWorldPositionsData;
             var enemyOverWorldPositionsData = _battle.SessionData.EnemiesOverWorldPositionsData;
 
             foreach (var overWorldPositionData in squadOverWorldPositionsData)

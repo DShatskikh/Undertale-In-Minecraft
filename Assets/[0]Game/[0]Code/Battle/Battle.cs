@@ -161,7 +161,7 @@ namespace Game
         {
             _sessionData.BattleController = battleController;
             _sessionData.EnemiesOverWorldPositionsData = GetEnemiesOverWorldPositionsData();
-
+De
             SelectEnemy = battleController.GetEnemies()[0];
             
             gameObject.SetActive(true);

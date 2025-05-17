@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI
+  m_TableCollectionNameGuidString: 06d0afefdbac97f4692cde9a067e8b26
+  m_Entries:
+  - m_Id: 400675295232
+    m_Key: Use
+    m_Metadata:
+      m_Items:
+      - rid: 3645888599834230865
+  - m_Id: 3759872397312
+    m_Key: Yes
+    m_Metadata:
+      m_Items:
+      - rid: 3645888599834230866
+  - m_Id: 3806076850176
+    m_Key: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3849190100992
+    m_Key: Menu
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3645888599834230832
+  references:
+    version: 2
+    RefIds:
+    - rid: 3645888599834230832
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1715965440842
+    - rid: 3645888599834230865
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\u041A\u043D\u043E\u043F\u043A\u0430 \u043F\u043E\u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
+          \u043F\u0440\u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0438"
+    - rid: 3645888599834230866
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\u041E\u0442\u0432\u0435\u0442 \u043D\u0430 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435"
