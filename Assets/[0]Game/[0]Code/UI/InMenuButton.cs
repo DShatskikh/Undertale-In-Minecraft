@@ -21,6 +21,13 @@ namespace Game
 
         private void OnClick()
         {
+            if (YG.YandexGame.savesData.IsErrorWorld)
+            {
+                GameData.Saver.Reset();
+                SceneManager.LoadScene(0);
+                return;
+            }
+            
             GameData.Saver.Save();
             SceneManager.LoadScene(0);
         }

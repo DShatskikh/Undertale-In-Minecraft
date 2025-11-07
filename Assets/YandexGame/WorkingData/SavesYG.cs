@@ -45,12 +45,12 @@ namespace YG
         public bool IsGoldKey;
         public bool IsCheat;
         public bool IsNotFirstPlay;
-        public bool IsTelephone;
         public bool IsHerobrineKey;
         public bool IsBuyDonat;
         public bool IsNetherStar;
         public bool IsYouHealthy;
-
+        public string LocationID;
+        
         public int NumberGame = 1;
         public float Volume = 1f;
         public int MaxHealth = 20;
@@ -60,6 +60,13 @@ namespace YG
 
         public bool IsOneOrMoreEnd => IsGoodEnd || IsBadEnd || IsStrangeEnd || IsPalesosEnd;
         public bool IsAllEnd => IsGoodEnd && IsBadEnd && IsStrangeEnd && IsPalesosEnd;
+        public bool IsEscapeHomeHerobrine;
+
+        public bool IsErrorWorld;
+
+        public bool IsNoneItemFirst;
+        public bool IsNoneItem;
+
         public List<CompanionType> Companions = new List<CompanionType>();
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
@@ -123,10 +130,11 @@ namespace YG
         {
             var adsViews = AdsViews;
             
-            YandexGame.savesData = new SavesYG();
+            YandexGame.savesData = new SavesYG
+            {
+                AdsViews = adsViews
+            };
 
-            YandexGame.savesData.AdsViews = adsViews;
-            
             YandexGame.SaveProgress();
             SceneManager.LoadScene(1);
         }

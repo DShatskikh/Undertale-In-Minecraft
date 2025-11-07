@@ -17,7 +17,11 @@ MonoBehaviour:
   - {fileID: -1190512114627096115, guid: e20242661b5a20f4ab831fe68d5ce06a, type: 3}
   - {fileID: 3672391563526702508, guid: 2f4da0cfc54c3204a9ba1ec3cbdfec85, type: 3}
   - {fileID: -2825506948791563495, guid: 94523ad8c05764c4abeca5c03a94b30c, type: 3}
-  SkipAttack: {fileID: 0}
+  AttackLinks:
+  - Attacks/Slime/Slime_Attack 1
+  - Attacks/Slime/Slime_Attack 2
+  - Attacks/Slime/Slime_Attack 3
+  - Attacks/Slime/Slime_Attack 4
   ProgressAttack: 5
   Attack: 3
   WinPrize: 2

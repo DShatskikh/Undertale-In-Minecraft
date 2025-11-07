@@ -13,7 +13,6 @@ namespace Game
         
         public void Skip()
         {
-            YandexGame.savesData.IsTelephone = true;
             GameData.EffectAudioSource.clip = GameData.AssetProvider.DoorSound;
             GameData.EffectAudioSource.Play();
             GameData.Character.transform.position = _point.position;

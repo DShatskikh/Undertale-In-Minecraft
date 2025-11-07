@@ -13,6 +13,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -214,13 +215,18 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1756886166
+    uuid:
+      value0: 339800686
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 339800686
     name: Pig
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Pig_Frame_0
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -229,7 +235,7 @@ ScriptedImporter:
         width: 14
         height: 12
       spriteId: 36d16429ae5386c4fba8786f4dc93262
-    - name: Pig_Frame_1
+    - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -238,7 +244,7 @@ ScriptedImporter:
         width: 14
         height: 12
       spriteId: a51130cdae1890f4f9fe4a3843de287e
-    - name: Pig_Frame_2
+    - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -247,7 +253,7 @@ ScriptedImporter:
         width: 14
         height: 12
       spriteId: ab9be1f649e3a6b43b49abceecb79341
-    - name: Pig_Frame_3
+    - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -287,3 +293,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 14, y: 12}
+  previousTextureSize: {x: 64, y: 64}

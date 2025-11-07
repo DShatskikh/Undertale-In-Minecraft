@@ -48,7 +48,9 @@ namespace Game
             YandexGame.savesData.IsSpeakHerobrine = false;
             YandexGame.savesData.IsCapturedWorld = false;
             YandexGame.savesData.IsNotCapturedWorld = false;
-            
+            YandexGame.savesData.IsErrorWorld = false;
+            YandexGame.savesData.IsNoneItemFirst = false;
+
             YandexGame.SaveProgress();
         }
 

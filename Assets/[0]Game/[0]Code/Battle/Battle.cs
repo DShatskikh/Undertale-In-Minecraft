@@ -98,8 +98,13 @@ namespace Game
             EventBus.Damage += OnDamage;
             EventBus.Death += OnDeath;
             
-            _attacks = GameData.EnemyData.EnemyConfig.Attacks;
+            _attacks = new AttackBase[GameData.EnemyData.EnemyConfig.AttackLinks.Length];
 
+            for (int i = 0; i < _attacks.Length; i++)
+            {
+                _attacks[i] = Resources.Load<AttackBase>(GameData.EnemyData.EnemyConfig.AttackLinks[i]);
+            }
+            
             var commands = new List<CommandBase>()
             {
                 new IntroCommand(_startBattlePlaySound, _speedPlacement),

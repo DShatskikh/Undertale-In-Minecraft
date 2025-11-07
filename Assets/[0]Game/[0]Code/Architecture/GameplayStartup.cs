@@ -110,8 +110,40 @@ namespace Game
 
             if (!YandexGame.savesData.IsNotIntroduction)
             {
-                _introduction.SetActive(true);
-                YandexGame.savesData.IsNotFirstPlay = true;
+                if (YandexGame.savesData.LocationIndex % 10 == 6 && YandexGame.savesData.IsNotFirstPlay)
+                {
+                    YandexGame.savesData.IsNotIntroduction = true;
+                    
+                    _input.SetActive(true);
+                    GameData.Joystick.gameObject.SetActive(true);
+                    GameData.TimerBeforeAdsYG.gameObject.SetActive(true);
+                    GameData.Character.enabled = true;
+                    GameData.Character.gameObject.SetActive(true);
+                    GameData.Character.transform.position = new Vector3(54.04f, 8.1f);
+
+                    if (YandexGame.savesData.LocationID == string.Empty)
+                    {
+                        GameData.Locations.ToArray()[YandexGame.savesData.LocationIndex].gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        foreach (var location in GameData.Locations)
+                        {
+                            if (location.GetID == "ErrorWorld")
+                            {
+                                location.gameObject.SetActive(true);   
+                                break;
+                            }
+                        }
+                    }
+
+                    GameData.ToMenuButton.gameObject.SetActive(true);
+                }
+                else
+                {
+                    _introduction.SetActive(true);
+                    YandexGame.savesData.IsNotFirstPlay = true;
+                }
             }
             else
             {
@@ -121,7 +153,23 @@ namespace Game
                 GameData.Character.enabled = true;
                 GameData.Character.gameObject.SetActive(true);
                 GameData.Character.transform.position = GameData.Saver.LoadPosition();
-                GameData.Locations.ToArray()[YandexGame.savesData.LocationIndex].gameObject.SetActive(true);
+
+                if (YandexGame.savesData.LocationID == string.Empty)
+                {
+                    GameData.Locations.ToArray()[YandexGame.savesData.LocationIndex].gameObject.SetActive(true);
+                }
+                else
+                {
+                    foreach (var location in GameData.Locations)
+                    {
+                        if (location.GetID == YandexGame.savesData.LocationID)
+                        {
+                            location.gameObject.SetActive(true);   
+                            break;
+                        }
+                    }
+                }
+
                 GameData.ToMenuButton.gameObject.SetActive(true);
             }
         }
