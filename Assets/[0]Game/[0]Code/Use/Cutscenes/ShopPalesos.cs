@@ -7,6 +7,13 @@ namespace Game
     public sealed class ShopPalesos : UseObject
     {
         [SerializeField]
+        private GameObject _portal;
+
+        [Header("Shop")]
+        [SerializeField]
+        private GameObject _shop;
+        
+        [SerializeField]
         private Replica[] _replicas_1;
         // Бро купи Пылесос если купишь его, то тебе откроется новый контент в следующем прохождении
 
@@ -36,7 +43,21 @@ namespace Game
 
         [SerializeField]
         private AudioClip _buySfx;
-        
+
+        private void Start()
+        {
+            if (YG.YandexGame.savesData.IsPalesosEnd)
+            {
+                _portal.gameObject.SetActive(true);
+                _shop.gameObject.SetActive(false);
+            }
+            else
+            {
+                _portal.gameObject.SetActive(false);
+                _shop.gameObject.SetActive(true);
+            }
+        }
+
         public override void Use()
         {
             if (YG.YandexGame.savesData.Palesos != 3)

@@ -21,6 +21,7 @@ namespace Game
 
         private bool _isCanStartBattle;
         public Vector2 Offset => _offset;
+        public EnemyConfig GetConfig => _config;
 
         private IEnumerator Start()
         {
@@ -60,6 +61,7 @@ namespace Game
             if (_config == config)
             {
                 _event.Invoke();
+                Destroy(gameObject);
             }
         }
     }

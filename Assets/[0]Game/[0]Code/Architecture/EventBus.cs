@@ -15,6 +15,7 @@ namespace Game
         public static Action CloseMonolog;
         public static Action CloseDialog;
         public static Action<EnemyConfig> PlayerWin;
+        public static Action<EnemyConfig> PrePlayerWin;
         public static Action Death { get; set; }
         public static Action Cancel { get; set; }
         public static Action Submit;

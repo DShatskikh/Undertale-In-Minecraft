@@ -69,6 +69,7 @@ namespace Game
             _previousSound = GameData.MusicAudioSource.clip;
             GameData.TimerBeforeAdsYG.gameObject.SetActive(false);
             GameData.ToMenuButton.gameObject.SetActive(false);
+            _normalWorldCharacterPosition = GameData.Character.transform.position;
 
             _isSecondRound = false;
             gameObject.SetActive(true);

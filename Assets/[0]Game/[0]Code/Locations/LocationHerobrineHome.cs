@@ -67,10 +67,11 @@ namespace Game
             GameData.Character.transform.position = _startPoint.position;
             GameData.Character.gameObject.SetActive(true);
             
+            yield return new WaitUntil(() => Vector3.Magnitude(GameData.Character.transform.position - _startPoint.position) > 2);
+            
             var normalSprite = _herobrine.GetComponent<SpriteRenderer>().sprite;
             _herobrine.GetComponent<Animator>().enabled = true;
-
-            yield return new WaitUntil(() => Vector3.Magnitude(GameData.Character.transform.position - _startPoint.position) > 2);
+            
             _herobrine.GetComponent<Animator>().enabled = false;
             _herobrine.GetComponent<SpriteRenderer>().sprite = _surpriseSprite; // У Херобрина увеличиваются глаза
             GameData.Character.enabled = false;

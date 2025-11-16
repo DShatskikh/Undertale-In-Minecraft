@@ -40,6 +40,7 @@ namespace Game
             _animator.gameObject.SetActive(true);
             yield return new WaitForSeconds(6);
             GameData.Saver.Reset();
+            GameData.IsFlyingMenu = true;
             SceneManager.LoadScene(0);
         }
     }

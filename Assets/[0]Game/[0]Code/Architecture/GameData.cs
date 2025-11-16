@@ -25,6 +25,7 @@ namespace Game
         public static End CurrentEnd { get; set; }
         public static CurrentDeviceType DeviceType { get; set; }
         public static bool IsLoad { get; set; }
+        public static bool IsFlyingMenu { get; set; }
         public static VolumeSlider VolumeSlider { get; set; }
         public static AssetProvider AssetProvider { get; set; }
 
