@@ -32,6 +32,9 @@ namespace Game
         [SerializeField]
         private Sprite _surpriseSprite;
 
+        [SerializeField]
+        private AudioClip _funnyMusic;
+        
         private bool _isToFollow = false;
         
         private void OnEnable()
@@ -68,9 +71,14 @@ namespace Game
             GameData.Character.gameObject.SetActive(true);
             
             yield return new WaitUntil(() => Vector3.Magnitude(GameData.Character.transform.position - _startPoint.position) > 2);
+
+            GameData.MusicAudioSource.clip = _funnyMusic;
+            GameData.MusicAudioSource.Play();
             
             var normalSprite = _herobrine.GetComponent<SpriteRenderer>().sprite;
             _herobrine.GetComponent<Animator>().enabled = true;
+
+            yield return new WaitForSeconds(1);
             
             _herobrine.GetComponent<Animator>().enabled = false;
             _herobrine.GetComponent<SpriteRenderer>().sprite = _surpriseSprite; // У Херобрина увеличиваются глаза
@@ -101,7 +109,7 @@ namespace Game
             yield return new WaitUntil(() => !GameData.Dialog.gameObject.activeSelf); // (Огромные глаза) НЕЕЕЕЕТ!
             GameData.Character.enabled = false;
             
-            yield return new WaitForSeconds(1); // Ожидание 1 секунду
+            yield return new WaitForSeconds(0.5f); // Ожидание 1 секунду
             GameData.Character.enabled = false;
             
             _herobrine.GetComponent<SpriteRenderer>().sprite = normalSprite; 
@@ -110,6 +118,7 @@ namespace Game
 
             // Иди захватывай уже
 
+            //GameData.MusicAudioSource.Stop();
             GameData.Character.UseArea.gameObject.SetActive(true);
             _event2.Invoke();
         }

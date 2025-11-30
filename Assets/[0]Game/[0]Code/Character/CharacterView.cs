@@ -29,5 +29,10 @@ namespace Game
         {
             _animator.SetBool("IsMove", false);
         }
+        
+        public void Sit(bool isSit)
+        {
+            _animator.CrossFade(isSit ? "Sit" : "Idle", 0);
+        }
     }
 }
