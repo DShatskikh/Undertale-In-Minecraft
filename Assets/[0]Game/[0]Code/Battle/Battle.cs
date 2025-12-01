@@ -124,8 +124,8 @@ namespace Game
             {
                 var attackPrefab = YandexGame.savesData.IsTutorialComplited ? _attacks[_attackIndex] : _attackTutorial;
                 
-                if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null) 
-                    commands.Add(new MessageCommand(_messageBox, _attacks[_attackIndex].Messages));
+                //if (!_isSecondRound && YandexGame.savesData.IsTutorialComplited && _attacks[_attackIndex].Messages != null) 
+                //    commands.Add(new MessageCommand(_messageBox, _attacks[_attackIndex].Messages));
                 
                 commands.Add(new EnemyAttackCommand(attackPrefab, _blackPanel));
                 commands.Add(new StartTurnCommand());

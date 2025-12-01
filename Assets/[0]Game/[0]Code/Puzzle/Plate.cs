@@ -32,7 +32,6 @@ namespace Game
         {
             _spriteRenderer.sprite = _activeSprite;
             IsActive = true;
-            print(IsActive);
         }
 
         public void Deactivate()

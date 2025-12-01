@@ -9,6 +9,139 @@ namespace Game.Sleep
         [SerializeField]
         private Button[] _stopButtons;
 
+        [SerializeField]
+        private Button _cancelButton;
+
+        [SerializeField]
+        private AudioClip _sfx;
+        
+        private void Update()
+        {
+            if (Input.GetButtonDown("Submit"))
+            {
+                if (EventSystem.current.currentSelectedGameObject == _stopButtons[0].gameObject)
+                {
+                    GameData.EffectAudioSource.clip = _sfx;
+                    GameData.EffectAudioSource.Play();
+                    
+                    _stopButtons[0].onClick.Invoke();
+                }
+                else if (EventSystem.current.currentSelectedGameObject == _stopButtons[1].gameObject)
+                {
+                    GameData.EffectAudioSource.clip = _sfx;
+                    GameData.EffectAudioSource.Play();
+                    
+                    _stopButtons[1].onClick.Invoke();
+                }
+                else if (EventSystem.current.currentSelectedGameObject == _stopButtons[2].gameObject)
+                {
+                    GameData.EffectAudioSource.clip = _sfx;
+                    GameData.EffectAudioSource.Play();
+                    
+                    _stopButtons[2].onClick.Invoke();
+                }
+                else if (EventSystem.current.currentSelectedGameObject == _cancelButton.gameObject)
+                {
+                    GameData.EffectAudioSource.clip = _sfx;
+                    GameData.EffectAudioSource.Play();
+                    
+                    _cancelButton.onClick.Invoke();
+                }
+            }
+
+            if (Input.GetButtonDown("Horizontal"))
+            {
+                if (Input.GetAxisRaw("Horizontal") > 0)
+                {
+                    if (EventSystem.current.currentSelectedGameObject == _stopButtons[0].gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_stopButtons[1].gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject == _stopButtons[1].gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_stopButtons[2].gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject == _cancelButton.gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_stopButtons[2].gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                }
+                else
+                {
+                    if (EventSystem.current.currentSelectedGameObject == _stopButtons[2].gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_stopButtons[1].gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject == _stopButtons[1].gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_stopButtons[0].gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject == _cancelButton.gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_stopButtons[0].gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                }
+            }
+
+            if (Input.GetButtonDown("Vertical"))
+            {
+                if (Input.GetAxisRaw("Vertical") > 0)
+                {
+                    if (EventSystem.current.currentSelectedGameObject == _stopButtons[0].gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_stopButtons[1].gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject == _stopButtons[2].gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_stopButtons[1].gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject == _cancelButton.gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_stopButtons[1].gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                }
+                else
+                {
+                    if (EventSystem.current.currentSelectedGameObject == _stopButtons[0].gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_cancelButton.gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject == _stopButtons[1].gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_cancelButton.gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject == _stopButtons[2].gameObject)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_cancelButton.gameObject);
+                        GameData.EffectAudioSource.clip = _sfx;
+                        GameData.EffectAudioSource.Play();
+                    }
+                }
+            }
+        }
+
         public void Open(Trolley trolley, StopEnum stopEnum)
         {
             GameData.Character.enabled = false;

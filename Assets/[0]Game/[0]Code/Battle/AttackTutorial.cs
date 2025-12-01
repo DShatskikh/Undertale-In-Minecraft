@@ -17,22 +17,23 @@ namespace Game
 
         private IEnumerator AwaitExecute(UnityAction action)
         {
-            foreach (var message in Messages)
-            {
-                var localizedString = message.LocalizedString;
-                var messageOperation = localizedString.GetLocalizedStringAsync();
+            // foreach (var message in Messages)
+            // {
+            //     var localizedString = message.LocalizedString;
+            //     var messageOperation = localizedString.GetLocalizedStringAsync();
+            //
+            //     while (!messageOperation.IsDone)
+            //         yield return null;
+            //
+            //     var result = messageOperation.Result;
+            //     
+            //     _text.text = result;
+            //     bool isSubmit = false; 
+            //     EventBus.Submit = () => isSubmit = true;
+            //     yield return new WaitUntil(() => isSubmit);
+            // }
             
-                while (!messageOperation.IsDone)
-                    yield return null;
-
-                var result = messageOperation.Result;
-                
-                _text.text = result;
-                bool isSubmit = false; 
-                EventBus.Submit = () => isSubmit = true;
-                yield return new WaitUntil(() => isSubmit);
-            }
-            
+            yield return null;
             action.Invoke();
         }
     }

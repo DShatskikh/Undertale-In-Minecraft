@@ -5,8 +5,6 @@ namespace Game
 {
     public abstract class AttackBase : MonoBehaviour
     {
-        public BattleMessageData[] Messages;
-        
         public abstract void Execute(UnityAction action);
     }
 }

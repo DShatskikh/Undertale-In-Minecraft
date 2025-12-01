@@ -30,7 +30,41 @@ namespace Game.Sleep
         
         [SerializeField]
         private AudioSource _trolleySFX;
-        
+
+        private void OnEnable()
+        {
+            StartCoroutine(AwaitMoveToNearestPoint());
+        }
+
+        private IEnumerator AwaitMoveToNearestPoint()
+        {
+            yield return null;
+            
+            var nearestObject = _stopTransforms[0];
+            var minDistance = float.MaxValue;
+            
+            for (int i = 0; i < _stopTransforms.Length; i++)
+            {
+                var distance = Vector2.Distance(GameData.Character.transform.position, _stopTransforms[i].position);
+
+                if (distance < minDistance)
+                {
+                    nearestObject = _stopTransforms[i];
+                    minDistance = distance;
+
+                    _stopEnum = i switch
+                    {
+                        0 => StopEnum.Bed,
+                        1 => StopEnum.City,
+                        2 => StopEnum.ThroneRoom,
+                        _ => throw new ArgumentOutOfRangeException()
+                    };
+                }
+            }
+            
+            transform.position = nearestObject.position;
+        }
+
         public override void Use()
         {
             _trolleyMenu.Open(this, _stopEnum);
@@ -48,7 +82,8 @@ namespace Game.Sleep
             
             GameData.Character.View.Flip(false);
             GetComponent<SpriteRenderer>().sortingOrder = -5;
-
+            GameData.Character.transform.SetParent(transform);
+            
             var delta = 0f;
             var startPosition = GameData.Character.transform.position;
             
@@ -60,7 +95,6 @@ namespace Game.Sleep
             }
             
             GameData.Character.View.Sit(true);
-            GameData.Character.transform.SetParent(transform);
             GameData.EffectAudioSource.clip = _sitSFX;
             GameData.EffectAudioSource.Play();
 
